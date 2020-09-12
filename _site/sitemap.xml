@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://example.com/personalweb/about.html</loc>
+    <lastmod>2020-09-12T20:04:42+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/personalweb/cv.html</loc>
+    <lastmod>2020-09-12T22:58:24+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/personalweb/galery.html</loc>
+    <lastmod>2020-09-12T20:04:42+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/personalweb/</loc>
+    <lastmod>2020-09-06T22:03:07+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/personalweb/resources.html</loc>
+    <lastmod>2020-09-12T20:04:42+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/</loc>
+    <lastmod>2020-09-12T22:13:21+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/personalweb/posts/2020-09-07-el-arte-del-movimiento-catico/</loc>
+    <lastmod>2020-09-12T22:13:08+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/personalweb/posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot/</loc>
+    <lastmod>2020-09-12T22:14:11+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://example.com/personalweb/posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/</loc>
+    <lastmod>2020-09-12T22:13:36+00:00</lastmod>
+  </url>
+</urlset>

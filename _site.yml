@@ -1,0 +1,37 @@
+name: "personalweb"
+title: "Blog de José R Sosa"
+description: |
+  Blog de José R Sosa
+base_url: https://example.com/personalweb/
+collections:
+  posts:
+    disqus: personalweb
+    hidden: false
+    share: [twitter, linkedin, facebook]  
+    feed_items_max: 25
+    citations: false
+    custom: _custom.html
+output_dir: "_site"
+navbar:
+  right:
+    - text: "Blog"
+      href: index.html
+    - text: "Recursos"
+      href: resources.html
+    - text: "Mi CV"
+      href: cv.html
+    - text: "Acerca de"
+      href: about.html
+    - icon: fa fa-github
+      href: https://github.com/josersosa
+    - icon: fa fa-twitter
+      href: https://twitter.com/josersosab
+    - icon: fa fa-facebook
+      href: https://www.facebook.com/josersosab/
+    - icon: fa fa-linkedin
+      href: https://www.linkedin.com/in/josersosa/
+    - icon: fa fa-envelope
+      href: mailto:josersosaucv@gmail.com
+    - icon: fa fa-rss
+      href: index.xml
+output: distill::distill_article

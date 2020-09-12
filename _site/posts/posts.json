@@ -1,0 +1,91 @@
+[
+  {
+    "path": "posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/",
+    "title": "Imágenes de fractales en gran formato con R",
+    "description": "Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches.",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2020-09-07",
+    "categories": [
+      "R",
+      "Caos y Fractales",
+      "Computación Gráfica",
+      "Ciencia de Datos"
+    ],
+    "preview": "posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/../../images/fractales_galery.png",
+    "last_modified": "2020-09-12T22:13:21+00:00",
+    "input_file": {},
+    "preview_width": 627,
+    "preview_height": 318
+  },
+  {
+    "path": "posts/2020-09-07-el-arte-del-movimiento-catico/",
+    "title": "El arte del movimiento caótico",
+    "description": "Un factor común de la mayoría de los fractales, es su poder de atraernos, de casi hipnotizarnos por su particular belleza, tal como si fueran verdaderas obras de arte. Los atractores de Clifford son un ejemplo del arte que puede representar el movimiento de los sistemas caóticos. De hecho, he comenzado preparar varios de estos gráficos en alta resolución, para compartirlos con ustedes y puedan ser impresos como posters si lo desean.",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2020-03-19",
+    "categories": [
+      "Caos y Fractales",
+      "Computación Gráfica"
+    ],
+    "preview": "posts/2020-09-07-el-arte-del-movimiento-catico/../../images/Clifford_peq_yelow02.png",
+    "last_modified": "2020-09-12T22:13:08+00:00",
+    "input_file": {},
+    "preview_width": 595,
+    "preview_height": 419
+  },
+  {
+    "path": "posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot/",
+    "title": "El infinito detalle del conjunto de Mandelbrot",
+    "description": "La convergencia de los sistemas dinámicos complejos es un problema recurrente en muchos campos, su predictibilidad  en algunos casos pudiera estar involucrada con los conceptos de la geometría fractal y la teoría del caos. Escribí una breve reseña sobre uno de los fractales más conocidos vinculados con este tema: el conjunto de Mandelbrot.",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2020-02-28",
+    "categories": [
+      "Caos y Fractales",
+      "Computación Grafica",
+      "Ciencia de Datos"
+    ],
+    "preview": "posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot/../../images/Mandelbrot_red_peq.png",
+    "last_modified": "2020-09-12T22:14:11+00:00",
+    "input_file": {},
+    "preview_width": 595,
+    "preview_height": 419
+  },
+  {
+    "path": "posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/",
+    "title": "Atractor de Lorenz y \"el efecto mariposa\"",
+    "description": "El aparente desorden o aleatoriedad de los sistemas caóticos, es en realidad orden, tan exacto y matemático como impredecible e inexplicable. Escribí una breve reseña de una historia que vi cuando estudiaba en la universidad, sobre una de las características más interesantes de la teoría del caos: \"el efecto mariposa\".",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2020-02-26",
+    "categories": [
+      "Caos y Fractales",
+      "Computación Gráfica",
+      "Ciencia de Datos",
+      "Simulación"
+    ],
+    "preview": "posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/../../images/lorenz_yelow11-10mm_peq.png",
+    "last_modified": "2020-09-12T22:13:36+00:00",
+    "input_file": {},
+    "preview_width": 594,
+    "preview_height": 420
+  }
+]
