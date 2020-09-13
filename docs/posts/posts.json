@@ -1,28 +1,5 @@
 [
   {
-    "path": "posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/",
-    "title": "Imágenes de fractales en gran formato con R",
-    "description": "Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches.",
-    "author": [
-      {
-        "name": "José R Sosa",
-        "url": "https://example.com/josersosa"
-      }
-    ],
-    "date": "2020-09-07",
-    "categories": [
-      "R",
-      "Chaos and Fractals",
-      "Computer Graphics",
-      "Data Science"
-    ],
-    "preview": "posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/../../images/fractales_galery.png",
-    "last_modified": "2020-09-13T21:23:28+00:00",
-    "input_file": {},
-    "preview_width": 627,
-    "preview_height": 318
-  },
-  {
     "path": "posts/2020-09-07-el-arte-del-movimiento-catico/",
     "title": "El arte del movimiento caótico",
     "description": "Un factor común de la mayoría de los fractales, es su poder de atraernos, de casi hipnotizarnos por su particular belleza, tal como si fueran verdaderas obras de arte. Los atractores de Clifford son un ejemplo del arte que puede representar el movimiento de los sistemas caóticos. De hecho, he comenzado preparar varios de estos gráficos en alta resolución, para compartirlos con ustedes y puedan ser impresos como posters si lo desean.",
