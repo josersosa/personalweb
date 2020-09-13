@@ -10,10 +10,10 @@ output:
   distill::distill_article:
     self_contained: false
 categories:
-  - Caos y Fractales
-  - Computación Gráfica
-  - Ciencia de Datos
-  - Simulación
+  - Chaos and Fractals
+  - Computer Graphics
+  - Data Science
+  - Simulation
 preview: ../../images/lorenz_yelow11-10mm_peq.png
 ---
 

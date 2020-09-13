@@ -11,9 +11,9 @@ output:
     self_contained: false
 categories:
   - R
-  - Caos y Fractales
-  - Computación Gráfica
-  - Ciencia de Datos
+  - Chaos and Fractals
+  - Computer Graphics
+  - Data Science
 preview: ../../images/fractales_galery.png
 #preview: ../../lorenz_yelow10_peq.png
 ---

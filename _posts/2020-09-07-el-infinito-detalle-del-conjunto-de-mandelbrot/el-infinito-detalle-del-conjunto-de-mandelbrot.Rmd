@@ -10,9 +10,9 @@ output:
   distill::distill_article:
     self_contained: false
 categories:
-  - Caos y Fractales
-  - Computación Grafica
-  - Ciencia de Datos
+  - Chaos and Fractals
+  - Computer Graphics
+  - Data Science
 preview: ../../images/Mandelbrot_red_peq.png
 ---
 

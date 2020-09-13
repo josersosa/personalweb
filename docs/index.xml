@@ -14,9 +14,9 @@
       <link>https://example.com/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r</link>
       <description>Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches.</description>
       <category>R</category>
-      <category>Caos y Fractales</category>
-      <category>Computación Gráfica</category>
-      <category>Ciencia de Datos</category>
+      <category>Chaos and Fractals</category>
+      <category>Computer Graphics</category>
+      <category>Data Science</category>
       <guid>https://example.com/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r</guid>
       <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
       <media:content url="https://example.com/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/../../images/fractales_galery.png" medium="image" type="image/png" width="627" height="318"/>
@@ -26,8 +26,8 @@
       <dc:creator>José R Sosa</dc:creator>
       <link>https://example.com/personalweb/posts/2020-09-07-el-arte-del-movimiento-catico</link>
       <description>Un factor común de la mayoría de los fractales, es su poder de atraernos, de casi hipnotizarnos por su particular belleza, tal como si fueran verdaderas obras de arte. Los atractores de Clifford son un ejemplo del arte que puede representar el movimiento de los sistemas caóticos. De hecho, he comenzado preparar varios de estos gráficos en alta resolución, para compartirlos con ustedes y puedan ser impresos como posters si lo desean.</description>
-      <category>Caos y Fractales</category>
-      <category>Computación Gráfica</category>
+      <category>Chaos and Fractals</category>
+      <category>Computer Graphics</category>
       <guid>https://example.com/personalweb/posts/2020-09-07-el-arte-del-movimiento-catico</guid>
       <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
       <media:content url="https://example.com/personalweb/posts/2020-09-07-el-arte-del-movimiento-catico/../../images/Clifford_peq_yelow02.png" medium="image" type="image/png" width="595" height="419"/>
@@ -37,9 +37,9 @@
       <dc:creator>José R Sosa</dc:creator>
       <link>https://example.com/personalweb/posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot</link>
       <description>La convergencia de los sistemas dinámicos complejos es un problema recurrente en muchos campos, su predictibilidad  en algunos casos pudiera estar involucrada con los conceptos de la geometría fractal y la teoría del caos. Escribí una breve reseña sobre uno de los fractales más conocidos vinculados con este tema: el conjunto de Mandelbrot.</description>
-      <category>Caos y Fractales</category>
-      <category>Computación Grafica</category>
-      <category>Ciencia de Datos</category>
+      <category>Chaos and Fractals</category>
+      <category>Computer Graphics</category>
+      <category>Data Science</category>
       <guid>https://example.com/personalweb/posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot</guid>
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       <media:content url="https://example.com/personalweb/posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot/../../images/Mandelbrot_red_peq.png" medium="image" type="image/png" width="595" height="419"/>
@@ -49,10 +49,10 @@
       <dc:creator>José R Sosa</dc:creator>
       <link>https://example.com/personalweb/posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa</link>
       <description>El aparente desorden o aleatoriedad de los sistemas caóticos, es en realidad orden, tan exacto y matemático como impredecible e inexplicable. Escribí una breve reseña de una historia que vi cuando estudiaba en la universidad, sobre una de las características más interesantes de la teoría del caos: "el efecto mariposa".</description>
-      <category>Caos y Fractales</category>
-      <category>Computación Gráfica</category>
-      <category>Ciencia de Datos</category>
-      <category>Simulación</category>
+      <category>Chaos and Fractals</category>
+      <category>Computer Graphics</category>
+      <category>Data Science</category>
+      <category>Simulation</category>
       <guid>https://example.com/personalweb/posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa</guid>
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
       <media:content url="https://example.com/personalweb/posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/../../images/lorenz_yelow11-10mm_peq.png" medium="image" type="image/png" width="594" height="420"/>

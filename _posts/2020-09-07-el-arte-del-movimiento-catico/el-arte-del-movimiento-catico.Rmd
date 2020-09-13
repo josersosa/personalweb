@@ -10,8 +10,8 @@ output:
   distill::distill_article:
     self_contained: false
 categories:
-  - Caos y Fractales
-  - Computación Gráfica
+  - Chaos and Fractals
+  - Computer Graphics
 #preview: ../../images/Double-compound-pendulum.gif
 preview: ../../images/Clifford_peq_yelow02.png
 ---
