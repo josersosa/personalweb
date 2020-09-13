@@ -1,0 +1,62 @@
+
+/* BOLD SILVER TITLE, PINK BACKGROUND 
+.distill-site-nav {
+  color: #C0C0C0; 
+  background-color: #505050;
+  font-size: 20px;
+  font-weight: 900;
+}*/
+
+
+/* WANT ENTIRE WEBPAGE TO BE “PINK”? 
+body {
+  background-color: #FFFFFF;
+}*/
+
+
+/* CHANGE HOVER COLOR IN NAV BAR 
+.distill-site-nav a:hover {
+  color: #383838;
+}*/
+
+
+/* IMPORT CUSTOM FONTS FROM GOOGLE */
+/* Import fonts from Google's API */
+/* @import url('https://fonts.googleapis.com/css2?family=Gelasio');*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro');
+
+
+/* CHANGE HEADER FONT OR COLOR */
+/* Change appearance of headers */
+h1, h2, h3, h4, h5 {
+  font-family: 'Libre Baskerville', sans-serif;
+  color: color: #383838;
+}
+
+/* USE THOSE FONTS THROUGHOUT */
+/* Use specific font in the body of the text */
+html, body, p {
+  
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #383838;
+  font-style: normal;
+  
+}
+
+
+/* CHANGE IN-LINE CODE */
+/* Change the appearance of in-line code chunks */
+code {
+  font-family: 'Source Code Pro', sans-serif;
+  color: #383838;
+  background: #909090;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+
+/* CHANGE CODE CHUNK COLORS 
+d-code {
+  background: lightgrey;
+}*/

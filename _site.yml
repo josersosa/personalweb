@@ -5,7 +5,7 @@ description: |
 base_url: https://example.com/personalweb/
 collections:
   posts:
-    disqus: personalweb
+    disqus: https-josersosa-github-io-personalweb
     hidden: false
     share: [twitter, linkedin, facebook]  
     feed_items_max: 25
@@ -34,4 +34,6 @@ navbar:
       href: mailto:josersosaucv@gmail.com
     - icon: fa fa-rss
       href: index.xml
-output: distill::distill_article
+output: 
+  distill::distill_article:
+    css: styles.css

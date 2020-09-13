@@ -54,7 +54,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Imágenes de fractales en gran formato con R"]},{"type":"character","attributes":{},"value":["Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://example.com/josersosa"]}]}]},{"type":"character","attributes":{},"value":["09-07-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["R","Chaos and Fractals","Computer Graphics","Data Science"]},{"type":"character","attributes":{},"value":["../../images/fractales_galery.png"]},{"type":"character","attributes":{},"value":["https://example.com/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Imágenes de fractales en gran formato con R"]},{"type":"character","attributes":{},"value":["Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://example.com/josersosa"]}]}]},{"type":"character","attributes":{},"value":["09-07-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["R","Chaos and Fractals","Computer Graphics","Data Science"]},{"type":"character","attributes":{},"value":["../../images/fractales_galery.png"]},{"type":"character","attributes":{},"value":["https://example.com/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1289,6 +1289,71 @@ document.addEventListener('DOMContentLoaded', function() {
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+<style type="text/css">
+
+/* BOLD SILVER TITLE, PINK BACKGROUND 
+.distill-site-nav {
+  color: #C0C0C0; 
+  background-color: #505050;
+  font-size: 20px;
+  font-weight: 900;
+}*/
+
+
+/* WANT ENTIRE WEBPAGE TO BE “PINK”? 
+body {
+  background-color: #FFFFFF;
+}*/
+
+
+/* CHANGE HOVER COLOR IN NAV BAR 
+.distill-site-nav a:hover {
+  color: #383838;
+}*/
+
+
+/* IMPORT CUSTOM FONTS FROM GOOGLE */
+/* Import fonts from Google's API */
+/* @import url('https://fonts.googleapis.com/css2?family=Gelasio');*/
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro');
+
+
+/* CHANGE HEADER FONT OR COLOR */
+/* Change appearance of headers */
+h1, h2, h3, h4, h5 {
+  font-family: 'Libre Baskerville', sans-serif;
+  color: color: #383838;
+}
+
+/* USE THOSE FONTS THROUGHOUT */
+/* Use specific font in the body of the text */
+html, body, p {
+  
+  font-family: 'Libre Baskerville', sans-serif;
+  color: #383838;
+  font-style: normal;
+  
+}
+
+
+/* CHANGE IN-LINE CODE */
+/* Change the appearance of in-line code chunks */
+code {
+  font-family: 'Source Code Pro', sans-serif;
+  color: #383838;
+  background: #909090;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+
+/* CHANGE CODE CHUNK COLORS 
+d-code {
+  background: lightgrey;
+}*/
+
+</style>
 <!--/radix_placeholder_site_in_header-->
 
 
@@ -1352,6 +1417,20 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="d-article">
+<h3 class="d-toc-header">Table of Contents</h3>
+<nav class="d-toc" id="TOC">
+<ul>
+<li><a href="#gráficas-en-gran-formato-con-r">Gráficas en gran formato con R</a><ul>
+<li><a href="#algoritmos-de-construcción">Algoritmos de construcción</a></li>
+<li><a href="#estructuras-de-datos">Estructuras de datos</a></li>
+<li><a href="#procesamiento-optimización">Procesamiento optimización</a></li>
+<li><a href="#dimensiones-y-formato-de-la-imagen">Dimensiones y formato de la imagen</a></li>
+<li><a href="#alising">Alising</a></li>
+<li><a href="#layout-de-impresión">Layout de impresión</a></li>
+</ul></li>
+</ul>
+</nav>
+<hr class="d-toc-separator"/>
 <p>Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches. La idea era no tener que escalar las imágenes para imprimirlas en formatos grandes, sino que en vez de eso, estuvieran elaboradas pixel a pixel para estos formatos como el A1 (23.4 x 33.1 in) a 300dpi o el A2 (16.5 x 23.4 in) a 600dpi.</p>
 <p>He aquí algunos resultados:</p>
 <table>
@@ -1391,7 +1470,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </tbody>
 </table>
 <p>Pongo a la disposición estas imágenes en alta resolución para su libre descarga, bajo licencia Creative Commons, así como los enlaces a los repositorios de código fuente para regenerarlas o modificarlas. En un próximo post estaré publicando un tutorial explicando como construir este tipo de gráficas con R, así como algunas reseñas donde expongo, desde mi punto de vista, del por qué son de tanto interés.</p>
-<h2 id="creando-gráficas-en-gran-formato-con-r">Creando gráficas en gran formato con R</h2>
+<h2 id="gráficas-en-gran-formato-con-r">Gráficas en gran formato con R</h2>
 <p>El reto de crear imágenes de fractales o atractores extraños de gran formato implica resolver varios asuntos, entre ellos están:</p>
 <ul>
 <li>Algoritmos de construcción.</li>
@@ -1531,7 +1610,7 @@ convert.exe -append image01.png image03.png image04.png</code></pre>
       </a>
     </span>
   </p>
-  <script id="dsq-count-scr" src="https://personalweb.disqus.com/count.js" async></script>
+  <script id="dsq-count-scr" src="https://https-josersosa-github-io-personalweb.disqus.com/count.js" async></script>
   <div id="disqus_thread" class="hidden"></div>
   <script>
 var disqus_config = function () {
@@ -1540,7 +1619,7 @@ var disqus_config = function () {
 };
 (function() {
   var d = document, s = d.createElement('script');
-  s.src = 'https://personalweb.disqus.com/embed.js';
+  s.src = 'https://https-josersosa-github-io-personalweb.disqus.com/embed.js';
   s.setAttribute('data-timestamp', +new Date());
   (d.head || d.body).appendChild(s);
 })();
