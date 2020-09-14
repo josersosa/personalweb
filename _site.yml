@@ -1,8 +1,9 @@
-name: "personalweb"
+name: "personalweb-distill"
 title: "Blog de José R Sosa"
 description: |
   Blog de José R Sosa
 base_url: https://josersosa.github.io/personalweb/
+repository_url: https://github.com/josersosa/personalweb
 collections:
   posts:
     disqus: https-josersosa-github-io-personalweb
@@ -16,6 +17,7 @@ output_dir: "docs"
 twitter:
   site: "@JoseRSosaB"
   creator: "@JoseRSosaB"
+google-analytics: "UA-177942587-1"
 navbar:
   right:
     - text: "Blog"
