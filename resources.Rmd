@@ -1,11 +1,11 @@
 ---
-title: "Sobre este blog"
+title: "Sitios para seguir"
 description: |
-  Blog sobre ciencia de datos, estadística, programación, robótica, software libre y otras cosas...
+  Blogs y sitios web con excelente contenido, que vale la pena seguir
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Bitácora de José R Sosa. En esta página personal intentaré publicar proyectos, actividades y artículos sobre diversos temas, algunos en los que he trabajado desde hace algunos años y otros sobre los cuales tengo mucho interés. Todo el software que está colocado en este sitio, al menos el desarrollado en mis proyectos personales, está bajo licencia libre GPL, así como todo el contenido, de mi autoría, es de acceso abierto bajo licencia Creative Commons.  Aun tengo muchas ideas por hacer y proyectos guardados que debo publicar aquí, pero el trabajo continua...
+EN CONSTRUCCION...

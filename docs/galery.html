@@ -19,29 +19,29 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Blog de José R Sosa: Sobre este blog</title>
+  <title>Blog de José R Sosa: Galería de proyectos</title>
   
-  <meta property="description" itemprop="description" content="Blog sobre ciencia de datos, estadística, programación, robótica, software libre y otras cosas..."/>
+  <meta property="description" itemprop="description" content="Galería de herramientas, presentaciones, contenidos y proyectos personales"/>
   
   
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Blog de José R Sosa: Sobre este blog"/>
+  <meta property="og:title" content="Blog de José R Sosa: Galería de proyectos"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Blog sobre ciencia de datos, estadística, programación, robótica, software libre y otras cosas..."/>
+  <meta property="og:description" content="Galería de herramientas, presentaciones, contenidos y proyectos personales"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Blog de José R Sosa"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Blog de José R Sosa: Sobre este blog"/>
-  <meta property="twitter:description" content="Blog sobre ciencia de datos, estadística, programación, robótica, software libre y otras cosas..."/>
+  <meta property="twitter:title" content="Blog de José R Sosa: Galería de proyectos"/>
+  <meta property="twitter:description" content="Galería de herramientas, presentaciones, contenidos y proyectos personales"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Sobre este blog"]},{"type":"character","attributes":{},"value":["Blog sobre ciencia de datos, estadística, programación, robótica, software libre y otras cosas..."]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Galería de proyectos"]},{"type":"character","attributes":{},"value":["Galería de herramientas, presentaciones, contenidos y proyectos personales"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1272,8 +1272,74 @@
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+  <style type="text/css">
+  
+  /* BOLD SILVER TITLE, PINK BACKGROUND 
+  .distill-site-nav {
+    color: #C0C0C0; 
+    background-color: #505050;
+    font-size: 20px;
+    font-weight: 900;
+  }*/
+  
+  
+  /* WANT ENTIRE WEBPAGE TO BE “PINK”? 
+  body {
+    background-color: #FFFFFF;
+  }*/
+  
+  
+  /* CHANGE HOVER COLOR IN NAV BAR 
+  .distill-site-nav a:hover {
+    color: #383838;
+  }*/
+  
+  
+  /* IMPORT CUSTOM FONTS FROM GOOGLE */
+  /* Import fonts from Google's API */
+  /* @import url('https://fonts.googleapis.com/css2?family=Gelasio');*/
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro');
+  
+  
+  /* CHANGE HEADER FONT OR COLOR */
+  /* Change appearance of headers */
+  h1, h2, h3, h4, h5 {
+    font-family: 'Libre Baskerville', sans-serif;
+    color: color: #383838;
+  }
+  
+  /* USE THOSE FONTS THROUGHOUT */
+  /* Use specific font in the body of the text */
+  html, body, p {
+    
+    font-family: 'Libre Baskerville', sans-serif;
+    color: #383838;
+    font-style: normal;
+    
+  }
+  
+  
+  /* CHANGE IN-LINE CODE */
+  /* Change the appearance of in-line code chunks */
+  code {
+    font-family: 'Source Code Pro', sans-serif;
+    color: #383838;
+    background: #909090;
+    font-weight: 400;
+    font-size: 0.9em;
+  }
+  
+  
+  /* CHANGE CODE CHUNK COLORS 
+  d-code {
+    background: lightgrey;
+  }*/
+  
+  </style>
   <!--/radix_placeholder_site_in_header-->
 
+  <link rel="stylesheet" href="styles.css" type="text/css"/>
 
 </head>
 
@@ -1282,7 +1348,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Sobre este blog","description":"Blog sobre ciencia de datos, estadística, programación, robótica, software libre y otras cosas...","authors":[]}
+{"title":"Galería de proyectos","description":"Galería de herramientas, presentaciones, contenidos y proyectos personales","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1294,7 +1360,20 @@
 </div>
 <div class="nav-right">
 <a href="index.html">Blog</a>
-<a href="resources.html">Recursos</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Recursos
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="resources-R.html">Recursos de R</a>
+<a href="resources-tools.html">Herramientas externas</a>
+<a href="resources-ref.html">Referencias</a>
+<a href="resources.html">Sitios a seguir</a>
+</div>
+</div>
+<a href="galery.html">Galería</a>
 <a href="cv.html">Mi CV</a>
 <a href="about.html">Acerca de</a>
 <a href="https://github.com/josersosa">
@@ -1324,13 +1403,13 @@
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Sobre este blog</h1>
-<p>Blog sobre ciencia de datos, estadística, programación, robótica, software libre y otras cosas…</p>
+<h1>Galería de proyectos</h1>
+<p>Galería de herramientas, presentaciones, contenidos y proyectos personales</p>
 </div>
 
 
 <div class="d-article">
-<p>Bitácora de José R Sosa. En esta página personal intentaré publicar proyectos, actividades y artículos sobre diversos temas, algunos en los que he trabajado desde hace algunos años y otros sobre los cuales tengo mucho interés. Todo el software que está colocado en este sitio, al menos el desarrollado en mis proyectos personales, está bajo licencia libre GPL, así como todo el contenido, de mi autoría, es de acceso abierto bajo licencia Creative Commons. Aun tengo muchas ideas por hacer y proyectos guardados que debo publicar aquí, pero el trabajo continua…</p>
+<p>EN CONSTRUCCION…</p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

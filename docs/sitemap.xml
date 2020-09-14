@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
-    <loc>https://example.com/personalweb/about.html</loc>
+    <loc>https://josersosa.github.io/personalweb/about.html</loc>
     <lastmod>2020-09-13T02:06:14+00:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/personalweb/cv.html</loc>
+    <loc>https://josersosa.github.io/personalweb/cv.html</loc>
+    <lastmod>2020-09-14T01:36:42+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/galery.html</loc>
+    <lastmod>2020-09-14T02:02:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/</loc>
     <lastmod>2020-09-13T02:06:14+00:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/personalweb/galery.html</loc>
-    <lastmod>2020-09-13T02:06:14+00:00</lastmod>
+    <loc>https://josersosa.github.io/personalweb/resources-R.html</loc>
+    <lastmod>2020-09-14T01:55:10+00:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/personalweb/</loc>
-    <lastmod>2020-09-13T02:06:14+00:00</lastmod>
+    <loc>https://josersosa.github.io/personalweb/resources-ref.html</loc>
+    <lastmod>2020-09-14T01:58:28+00:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/personalweb/resources.html</loc>
-    <lastmod>2020-09-13T02:06:14+00:00</lastmod>
+    <loc>https://josersosa.github.io/personalweb/resources-tools.html</loc>
+    <lastmod>2020-09-14T01:57:47+00:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/personalweb/posts/2020-09-07-el-arte-del-movimiento-catico/</loc>
+    <loc>https://josersosa.github.io/personalweb/resources.html</loc>
+    <lastmod>2020-09-14T01:53:04+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2020-09-07-el-arte-del-movimiento-catico/</loc>
     <lastmod>2020-09-13T03:52:50+00:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/personalweb/posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot/</loc>
+    <loc>https://josersosa.github.io/personalweb/posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot/</loc>
     <lastmod>2020-09-13T03:53:16+00:00</lastmod>
   </url>
   <url>
-    <loc>https://example.com/personalweb/posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/</loc>
+    <loc>https://josersosa.github.io/personalweb/posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/</loc>
     <lastmod>2020-09-13T03:52:31+00:00</lastmod>
   </url>
 </urlset>

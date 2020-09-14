@@ -2,22 +2,36 @@ name: "personalweb"
 title: "Blog de José R Sosa"
 description: |
   Blog de José R Sosa
-base_url: https://example.com/personalweb/
+base_url: https://josersosa.github.io/personalweb/
 collections:
   posts:
     disqus: https-josersosa-github-io-personalweb
-    hidden: false
-    share: [twitter, linkedin, facebook]  
+    hidden: true
+    share: [twitter, linkedin, pinterest, facebook]  
     feed_items_max: 25
-    citations: false
+    citations: true
     custom: _custom.html
+    subscribe: _subscribe.html
 output_dir: "docs"
+twitter:
+  site: "@JoseRSosaB"
+  creator: "@JoseRSosaB"
 navbar:
   right:
     - text: "Blog"
       href: index.html
     - text: "Recursos"
-      href: resources.html
+      menu:
+      - text: "Recursos de R"
+        href: resources-R.html
+      - text: "Herramientas externas"
+        href: resources-tools.html
+      - text: "Referencias"
+        href: resources-ref.html
+      - text: "Sitios a seguir"
+        href: resources.html
+    - text: "Galería"
+      href: galery.html
     - text: "Mi CV"
       href: cv.html
     - text: "Acerca de"

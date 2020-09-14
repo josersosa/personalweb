@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
-  <link rel="alternate" type="application/rss+xml" href="https://example.com/personalweb/index.xml" />
+  <link rel="alternate" type="application/rss+xml" href="https://josersosa.github.io/personalweb/index.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -34,6 +34,8 @@
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Blog de José R Sosa"/>
+  <meta property="twitter:site" content="@JoseRSosaB"/>
+  <meta property="twitter:creator" content="@JoseRSosaB"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
@@ -1358,7 +1360,20 @@
 </div>
 <div class="nav-right">
 <a href="index.html">Blog</a>
-<a href="resources.html">Recursos</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Recursos
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="resources-R.html">Recursos de R</a>
+<a href="resources-tools.html">Herramientas externas</a>
+<a href="resources-ref.html">Referencias</a>
+<a href="resources.html">Sitios a seguir</a>
+</div>
+</div>
+<a href="galery.html">Galería</a>
 <a href="cv.html">Mi CV</a>
 <a href="about.html">Acerca de</a>
 <a href="https://github.com/josersosa">
@@ -1750,7 +1765,7 @@ function init_posts_list() {
 <div><div class="sidebar-section custom">
   <h3>About</h3>
   Blog sobre ciencia de datos con <a href="https://www.r-project.org/">R </a>, 
-  estadística, programación, robótica, software libre y otras cosas…
+  estadística, programación, robótica, software libre y otras cosas más…
 </div>
 
 <div class="sidebar-section custom">
@@ -1762,6 +1777,18 @@ function init_posts_list() {
     <!--<button type="submit">Search</button>-->
   </form>
 </div>
+</div>
+<div class="sidebar-section subscribe">
+<h3>Subscribe</h3>
+<form method='post' action='https://blogtrottr.com'>
+  <p>Si te gustó este blog? Recibe notificaciones de nuevos posts por email:</p>
+  <input type='text' name='btr_email' />
+  <input type='hidden' name='btr_url'
+         value='https://josersosa.github.io/personalweb/'/>
+  <input type='hidden' name='schedule_type' value='0' />
+  <input type='submit' value='Subscribe' />
+</form>
+
 </div>
 <div class="sidebar-section categories">
 <h3>Categories</h3>

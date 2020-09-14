@@ -1272,8 +1272,74 @@
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+  <style type="text/css">
+  
+  /* BOLD SILVER TITLE, PINK BACKGROUND 
+  .distill-site-nav {
+    color: #C0C0C0; 
+    background-color: #505050;
+    font-size: 20px;
+    font-weight: 900;
+  }*/
+  
+  
+  /* WANT ENTIRE WEBPAGE TO BE “PINK”? 
+  body {
+    background-color: #FFFFFF;
+  }*/
+  
+  
+  /* CHANGE HOVER COLOR IN NAV BAR 
+  .distill-site-nav a:hover {
+    color: #383838;
+  }*/
+  
+  
+  /* IMPORT CUSTOM FONTS FROM GOOGLE */
+  /* Import fonts from Google's API */
+  /* @import url('https://fonts.googleapis.com/css2?family=Gelasio');*/
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro');
+  
+  
+  /* CHANGE HEADER FONT OR COLOR */
+  /* Change appearance of headers */
+  h1, h2, h3, h4, h5 {
+    font-family: 'Libre Baskerville', sans-serif;
+    color: color: #383838;
+  }
+  
+  /* USE THOSE FONTS THROUGHOUT */
+  /* Use specific font in the body of the text */
+  html, body, p {
+    
+    font-family: 'Libre Baskerville', sans-serif;
+    color: #383838;
+    font-style: normal;
+    
+  }
+  
+  
+  /* CHANGE IN-LINE CODE */
+  /* Change the appearance of in-line code chunks */
+  code {
+    font-family: 'Source Code Pro', sans-serif;
+    color: #383838;
+    background: #909090;
+    font-weight: 400;
+    font-size: 0.9em;
+  }
+  
+  
+  /* CHANGE CODE CHUNK COLORS 
+  d-code {
+    background: lightgrey;
+  }*/
+  
+  </style>
   <!--/radix_placeholder_site_in_header-->
 
+  <link rel="stylesheet" href="styles.css" type="text/css"/>
 
 </head>
 
@@ -1294,7 +1360,20 @@
 </div>
 <div class="nav-right">
 <a href="index.html">Blog</a>
-<a href="resources.html">Recursos</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Recursos
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="resources-R.html">Recursos de R</a>
+<a href="resources-tools.html">Herramientas externas</a>
+<a href="resources-ref.html">Referencias</a>
+<a href="resources.html">Sitios a seguir</a>
+</div>
+</div>
+<a href="galery.html">Galería</a>
 <a href="cv.html">Mi CV</a>
 <a href="about.html">Acerca de</a>
 <a href="https://github.com/josersosa">
@@ -1338,7 +1417,7 @@
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><img src="images/avatar_jose.png" style="zoom: 95%;" /></td>
+<td style="text-align: left;"><img src="images/foto_jose_1.png" style="zoom: 45%;" /></td>
 <td style="text-align: left;"><strong>E-mail:</strong> <a href="">josersosa@gmail.com</a> <br> <strong>Twitter:</strong> <a href="http://twitter.com/josersosab">JoserSosaB</a> <br> <strong>Blog:</strong> <a href="http://josersosa.blogsite.org/">josersosa.blogsite.org</a> <br> <strong>LinkedIn:</strong> <a href="https://ve.linkedin.com/in/josersosa">linkedin.com/in/josersosa</a> <br> <strong>GitHub:</strong> <a href="https://github.com/josersosa?tab=repositories">github.com/josersosa</a> <br> <strong>Dirección:</strong> Lima, Perú <br></td>
 </tr>
 </tbody>
