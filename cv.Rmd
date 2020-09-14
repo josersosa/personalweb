@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Datos de contacto
 | | | 
 |:---|:---| 
-| <img src="images/foto_jose_1.png" style="zoom: 45%;" /> | **E-mail:** [josersosa@gmail.com]() <br> **Twitter:** [JoserSosaB](http://twitter.com/josersosab) <br> **Blog:** [josersosa.blogsite.org](http://josersosa.blogsite.org/) <br> **LinkedIn:** [linkedin.com/in/josersosa](https://ve.linkedin.com/in/josersosa) <br>  **GitHub:** [github.com/josersosa](https://github.com/josersosa?tab=repositories) <br> **Dirección:** Lima, Perú <br> | 
+| <img src="images/foto_jose_1.png" style="zoom: 45%;" /> | **E-mail:** [josersosa@gmail.com]() <br> **Twitter:** [JoserSosaB](https://twitter.com/josersosab) <br> **Blog:** [josersosa.github.io/personalweb/](https://josersosa.github.io/personalweb/) <br> **LinkedIn:** [linkedin.com/in/josersosa](https://ve.linkedin.com/in/josersosa) <br>  **GitHub:** [github.com/josersosa](https://github.com/josersosa?tab=repositories) <br> **Dirección:** Lima, Perú <br> | 
 
 
 ## Perfil
