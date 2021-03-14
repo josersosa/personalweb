@@ -11,6 +11,7 @@ output:
     toc: true
     toc_depth: 3
     self_contained: false
+#    toc_float: false
 categories:
   - R
   - Chaos and Fractals

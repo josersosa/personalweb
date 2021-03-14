@@ -4,21 +4,27 @@ description: |
   Blog de José R Sosa
 base_url: https://josersosa.github.io/personalweb/
 repository_url: https://github.com/josersosa/personalweb
+theme: personalweb-theme.css
 collections:
   posts:
-    disqus: https-josersosa-github-io-personalweb
-    hidden: true
+    disqus: 
+      shortname: https-josersosa-github-io-personalweb
+      hidden: true
     share: [twitter, linkedin, pinterest, facebook]  
     feed_items_max: 25
     citations: true
     custom: _custom.html
     subscribe: _subscribe.html
+    categories: true
+#    categories_metadata: true
+    authors_metadata: true
 output_dir: "docs"
 twitter:
   site: "@JoseRSosaB"
   creator: "@JoseRSosaB"
 google-analytics: "UA-177942587-1"
 navbar:
+  search: false
   right:
     - text: "Blog"
       href: index.html
@@ -52,4 +58,5 @@ navbar:
       href: index.xml
 output: 
   distill::distill_article:
-    css: styles.css
+#    css: styles.css
+#    code_folding: true # option to hide code by default but allow readers to optionally show it

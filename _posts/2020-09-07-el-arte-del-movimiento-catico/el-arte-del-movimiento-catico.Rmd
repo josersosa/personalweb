@@ -3,7 +3,7 @@ title: "El arte del movimiento caótico"
 description: |
   Un factor común de la mayoría de los fractales, es su poder de atraernos, de casi hipnotizarnos por su particular belleza, tal como si fueran verdaderas obras de arte. Los atractores de Clifford son un ejemplo del arte que puede representar el movimiento de los sistemas caóticos. De hecho, he comenzado preparar varios de estos gráficos en alta resolución, para compartirlos con ustedes y puedan ser impresos como posters si lo desean.
 author:
-  - name: José R Sosa
+  - name: José R Sosa 
     url: https://example.com/josersosa
 date: 03-19-2020
 output:
@@ -22,10 +22,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Un factor común de la mayoría de los fractales, es su poder de atraernos, de casi hipnotizarnos por su particular belleza, tal como si fueran verdaderas obras de arte. Los atractores de Clifford son un ejemplo del arte que puede representar el movimiento de los sistemas caóticos.
 
-|Péndulo Caótico ||
-| :---: | :--- |
-| <img src="../../images/Double-compound-pendulum.gif" /> | Recordando el efecto mariposa, el péndulo doble es uno de los sistemas caóticos más simples. Si se lanza, dando posiciones iniciales ligeramente diferentes cada vez, se obtienen trayectorias completamente distintas. |
 
+
+## Péndulo Caótico
+
+<aside>
+<img src="../../images/Double-compound-pendulum.gif" />
+</aside>
+
+Recordando el efecto mariposa, el péndulo doble es uno de los sistemas caóticos más simples. Si se lanza, dando posiciones iniciales ligeramente diferentes cada vez, se obtienen trayectorias completamente distintas.
+
+## Atractores de Clifford
 
 Otras dinámicas inspiradas en este tipo de sistemas son las que generan los [atractores de Clifford](http://paulbourke.net/fractals/clifford/):
 $$
