@@ -7,7 +7,20 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 19 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Imágenes de fractales en gran formato con R</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r</link>
+      <description>Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches.</description>
+      <category>R</category>
+      <category>Chaos and Fractals</category>
+      <category>Computer Graphics</category>
+      <category>Data Science</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r</guid>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/../../images/fractales_galery.png" medium="image" type="image/png" width="627" height="318"/>
+    </item>
     <item>
       <title>El arte del movimiento caótico</title>
       <dc:creator>José R Sosa</dc:creator>
