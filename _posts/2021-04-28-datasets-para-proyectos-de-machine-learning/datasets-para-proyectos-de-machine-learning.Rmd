@@ -1,0 +1,69 @@
+---
+title: "Datasets para proyectos de Machine Learning"
+description: |
+  Si estas buscado un conjunto de datos "especial" para tu proyecto de Machine Learning, he preparado una lista, que si bien no es exhaustiva, si que sirve como propuesta de por donde comenzar a buscar.
+author:
+  - name: José R. Sosa
+    url: https://example.com/josersosa
+date: 04-28-2021
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Data Science
+preview: ../../images/datasets_peq.png
+#draft: true
+#preview: ../../lorenz_yelow10_peq.png
+---
+
+## Fuentes de datos
+
+Esta recopilación consiste en un lista de repositorios o buscadores de datasets para todo tipo de proyectos de Machine Learning e Inteligencia Artificial. Algunas de estas fuentes de datos son en realidad buscadores, otros simples listas, Algunos son genéricos y otro son temáticos:
+
+### Bucadores de datasets
+
+- Buscador de datasets de Google: [datasetsearch.research.google.com](https://datasetsearch.research.google.com/) 
+- Bucador de datasets de paperwithcode: [paperswithcode.com/datasets](https://paperswithcode.com/datasets) 
+
+### Recopilaciones o temáticos
+
+- Datasets in Python: [towardsdatascience.com](https://towardsdatascience.com/datasets-in-python-425475a20eb1) 
+- The R Datasets Package: [stat.ethz.ch](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html) 
+- Datasets in Python: [towardsdatascience.com](https://towardsdatascience.com/datasets-in-python-425475a20eb1) 
+- The Big Bad NLP Database : [datasets.quantumstat](https://datasets.quantumstat.com/) 
+- [Multiscale Machine Learning In Coupled Earth System Modeling [M²LInES](https://m2lines.github.io/) 
+
+### Competencia o retos de ciencia de datos
+
+- Explore, analyze, and share quality data with Kaggle datasets: [kaggle.com](https://www.kaggle.com/datasets) 
+- A a Large-Scale Graph ML Competiton: [OGB-LSC @ KDD Cup 2021](https://ogb.stanford.edu/kddcup2021/) 
+
+### Repositorios universitarios
+
+- UC Irvine Machine Learning Repository: http://archive.ics.uci.edu/ml/
+- Stanford Large Network Dataset Collection https://snap.stanford.edu/data/
+
+### Portales de datos abiertos
+
+- Portal Brasileño de datos abiertos: [dados.gog.br](https://dados.gov.br/dataset?q=censo&organization=instituto-brasileiro-de-geografia-e-estatistica-ibge&sort=score+desc%2C+metadata_modified+desc)
+- Portal de datos abiertos de Uruguay: http://datos.gub.uy/
+- Portal de datos abiertos de Canada: http://open.canada.ca/data/en/dataset
+- Portal de datos abiertos de Estados Unidos: https://www.data.gov/
+- Portal de datos abiertos de Reino Unido: https://data.gov.uk/
+- Comunidad Económica Europea: https://open-data.europa.eu/es/
+
+### Proveedores de computo en la nube
+
+- Amazon Web Services ([AWS](https://aws.amazon.com/es/public-data-sets/)) 
+- Google Cloud Platform ([GCP](https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset)) 
+- Microsoft ([Azure](https://azure.microsoft.com/en-us/services/open-datasets/catalog/)) 
+
+### Servicios de datos
+
+- Banco Mundial: http://data.worldbank.org/
+- UC Irvine Machine Learning Repository: http://archive.ics.uci.edu/ml/
+- Amazon Web Services: https://aws.amazon.com/es/public-data-sets/
+- Stanford Large Network Dataset Collection https://snap.stanford.edu/data/

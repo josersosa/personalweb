@@ -1,5 +1,26 @@
 [
   {
+    "path": "posts/2021-04-28-datasets-para-proyectos-de-machine-learning/",
+    "title": "Datasets para proyectos de Machine Learning",
+    "description": "Si estas buscado un conjunto de datos \"especial\" para tu proyecto de Machine Learning, he preparado una lista, que si bien no es exhaustiva, si que sirve como propuesta de por donde comenzar a buscar.",
+    "author": [
+      {
+        "name": "José R. Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2021-04-28",
+    "categories": [
+      "Data Science"
+    ],
+    "contents": "\n\nContents\nFuentes de datos\nBucadores de datasets\nRecopilaciones o temáticos\nCompetencia o retos de ciencia de datos\nRepositorios universitarios\nPortales de datos abiertos\nProveedores de computo en la nube\nServicios de datos\n\n\nFuentes de datos\nEsta recopilación consiste en un lista de repositorios o buscadores de datasets para todo tipo de proyectos de Machine Learning e Inteligencia Artificial. Algunas de estas fuentes de datos son en realidad buscadores, otros simples listas, Algunos son genéricos y otro son temáticos:\nBucadores de datasets\nBuscador de datasets de Google: datasetsearch.research.google.com\nBucador de datasets de paperwithcode: paperswithcode.com/datasets\nRecopilaciones o temáticos\nDatasets in Python: towardsdatascience.com\nThe R Datasets Package: stat.ethz.ch\nDatasets in Python: towardsdatascience.com\nThe Big Bad NLP Database : datasets.quantumstat\n[Multiscale Machine Learning In Coupled Earth System Modeling M²LInES\nCompetencia o retos de ciencia de datos\nExplore, analyze, and share quality data with Kaggle datasets: kaggle.com\nA a Large-Scale Graph ML Competiton: OGB-LSC @ KDD Cup 2021\nRepositorios universitarios\nUC Irvine Machine Learning Repository: http://archive.ics.uci.edu/ml/\nStanford Large Network Dataset Collection https://snap.stanford.edu/data/\nPortales de datos abiertos\nPortal Brasileño de datos abiertos: dados.gog.br\nPortal de datos abiertos de Uruguay: http://datos.gub.uy/\nPortal de datos abiertos de Canada: http://open.canada.ca/data/en/dataset\nPortal de datos abiertos de Estados Unidos: https://www.data.gov/\nPortal de datos abiertos de Reino Unido: https://data.gov.uk/\nComunidad Económica Europea: https://open-data.europa.eu/es/\nProveedores de computo en la nube\nAmazon Web Services (AWS)\nGoogle Cloud Platform (GCP)\nMicrosoft (Azure)\nServicios de datos\nBanco Mundial: http://data.worldbank.org/\nUC Irvine Machine Learning Repository: http://archive.ics.uci.edu/ml/\nAmazon Web Services: https://aws.amazon.com/es/public-data-sets/\nStanford Large Network Dataset Collection https://snap.stanford.edu/data/\n\n\n\n",
+    "preview": "posts/2021-04-28-datasets-para-proyectos-de-machine-learning/../../images/datasets_peq.png",
+    "last_modified": "2021-04-28T03:53:22+00:00",
+    "input_file": {},
+    "preview_width": 681,
+    "preview_height": 409
+  },
+  {
     "path": "posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/",
     "title": "Imágenes de fractales en gran formato con R",
     "description": "Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches.",

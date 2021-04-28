@@ -7,7 +7,17 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Datasets para proyectos de Machine Learning</title>
+      <dc:creator>José R. Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-04-28-datasets-para-proyectos-de-machine-learning</link>
+      <description>Si estas buscado un conjunto de datos "especial" para tu proyecto de Machine Learning, he preparado una lista, que si bien no es exhaustiva, si que sirve como propuesta de por donde comenzar a buscar.</description>
+      <category>Data Science</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-04-28-datasets-para-proyectos-de-machine-learning</guid>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-04-28-datasets-para-proyectos-de-machine-learning/../../images/datasets_peq.png" medium="image" type="image/png" width="681" height="409"/>
+    </item>
     <item>
       <title>Imágenes de fractales en gran formato con R</title>
       <dc:creator>José R Sosa</dc:creator>
