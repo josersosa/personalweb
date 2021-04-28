@@ -6,7 +6,7 @@
       "description": "Blog sobre ciencia de datos, estadística, programación, robótica, software libre y otras cosas...",
       "author": [],
       "contents": "\nBitácora de José R Sosa. En esta página personal intentaré publicar proyectos, actividades y artículos sobre diversos temas, algunos en los que he trabajado desde hace algunos años y otros sobre los cuales tengo mucho interés. Todo el software que está colocado en este sitio, al menos el desarrollado en mis proyectos personales, está bajo licencia libre GPL, así como todo el contenido, de mi autoría, es de acceso abierto bajo licencia Creative Commons. Aun tengo muchas ideas por hacer y proyectos guardados que debo publicar aquí, pero el trabajo continua…\n\n\n\n",
-      "last_modified": "2021-04-28T03:56:33+00:00"
+      "last_modified": "2021-04-28T04:31:08+00:00"
     },
     {
       "path": "cv.html",
@@ -14,7 +14,7 @@
       "description": "Resumen curricular",
       "author": [],
       "contents": "\nDatos de contacto\n\nE-mail: josersosa@gmail.com Twitter: JoserSosaB Blog: josersosa.github.io/personalweb/ LinkedIn: linkedin.com/in/josersosa GitHub: github.com/josersosa Dirección: Lima, Perú \nPerfil\nCientífico de Datos con grado universitario en Ciencias de la Computación, fuertes basamentos matemáticos y experiencia docente en Estadística, Minería de Datos y Big Data. Apasionado de la tecnología y el transmitir conocimiento a todo tipo de audiencia. Expositor frecuente en eventos locales de tecnología y Software Libre.\nExperiencia de trabajo reciente\n2018 - Actual: Everis Peru SAC (www.everis.com)\nExpert Data Scientist, lider técnico en el desarrollo de prototipos y POCs de Inteligencia Artificial: Speech Analytics, Clasificación de textos, Motores de búsqueda y NLP, Reconocimiento de objetos, clasificación de imágenes, escalamiento de proyectos de Big Data en la nube. Consultor Data Scientist de Everis en el Banco de Crédito del Perú PCP (www.viabcp.com)\nCoordinación del desarrollo de modelos sobre plataformas en la nube para un sistema de recomendación de descuestos y beneficios.\nLíder técnico en el Centro de Innovación en proyectos de innovación tecnológica basados en el uso del Big Data y Ciencia de Datos.\nDesarrollo de prototipo de una App de recomendación de agencias para operaciones en ventanilla según la predicción de colas y tiempos de atención.\n\n2017: Desarrollos Kukenan, C.A (www.kukenan.com.ve)\nProyecto de creación de cursos sobre Ciencia de Datos con R. Elaboración de videos y material digital para cursos en línea.\n2017: Petróleos de Venezuela, C.A (PDVSA).\nDictado de cursos In-Company sobre Minería de Datos con R e Introducción al Big Data con R.\n2014 – 2017: DiplomadosOnline.com\nCreación y dictado de los diplomados en línea de Minería de Datos y Big Data.\n2016: Superintendencia de la Actividad Aseguradora (SUDEASEG).\nDictado del Curso Avanzado de Programación en R dentro del Diplomado de Ciencia de Datos de la UCV.\n2016: Wattopost C.A.– Diseño de un prototipo de lenguaje de programación gráfico basado en R, para la automatización de procesos de Minería de Datos.\n2015 – 2016: Diplomado en Ciencia de Datos (UCV)\nInstructor del curso presencial de R avanzado.\n2015: Consejo Nacional Electoral (CNE)\nAuditor externo de la base de datos de huellas dactilares del Registro Electoral, para las Elecciones Legislativas del 6 de diciembre de 2015.\n2014: Instituto Nacional de Estadística (INE)\nConsultor nacional para la creación de un sistema Data Warehouse en el “Proyecto de Desarrollo e Implantación de un Repositorio de Datos” financiado por el Banco Interamericano de Desarrollo (BID)\n2009 – 2016: Universidad Central de Venezuela (UCV)\nDocente en las materias de Probabilidad y Estadística, Introducción a la Ciencia de Datos y Tópicos Avanzados en Ciencia de Datos.\n2012 – 2014: Centro Nacional de Tecnologías de Información (CNTI)\nComo director de la institución, llevando adelante proyectos de gobierno electrónico así como la promoción y el desarrollo de software libre.\n2005 – 2011: Fundación Gran Mariscal de Ayacucho (Fundayacucho)\nGerente de tecnología, coordinador de Mesa técnica para la definición del baremo de los procesos de selección de los años 2006 al 2010. Administración de los servicios web para el registro de aspirantes a becas. Proyecto de actualización tecnológica.\nHabilidades técnicas\nComputo en la nube: Experiencia de uso del amacenamiento masivo distribuido, procesamiento de datos escalable, flujos de procesamiento batch y real time en plataformas AWS (Amazon) y Azure (Microsoft).\nDistribuciones de Big Data: Hortonwoks y Cloudera.\nMinería de datos: Métodos de clasificación y regresión, búsqueda de conglomerados, reglas de asociación, sistemas de recomendación, ingeniería de características y de reducción de dimensionalidad. Metodología CRISP-DM.\nAprendizaje automático (Machine Learning): Redes Neuronales (Hopfield, Kohonen, Perceptron multicapas), aprendizaje profundo (deep learning), algoritmos genéticos y sus aplicación en la minería de datos, programación evolutiva, recocido simulado, autómatas celulares.\nMinería de texto: Clasificación de documentos, representaciones vectoriales, TF-IDF, análisis de tópicos, sistemas de búsqueda, análisis de sentimiento, análisis de emociones.\nAnálisis de redes sociales (SNA): Teoría de grafos, cálculo de medidas de centralidad, identificación de conglomerados y comunidades. Cálculo de influencia y análisis de deliberación.\nAnálisis de series de tiempo: Modelos de Box y Yenkins (ARMA, ARIMA), modelos de Holt y Winters. Aplicación de técnicas de minería en series de tiempo autorregresivas.\nInferencia Estadística: Análisis exploratorio de datos, intervalos de confianza, pruebas de hipótesis, bondad de ajuste, componentes principales, análisis de correspondencias, escalamiento multidimensional, modelos de regresión lineal y no lineal.\nProbabilidades: Modelos probabilísticos, cadenas de Markov, simulaciones estocásticas, teoría de colas.\nLenguajes de Programación: Lenguaje R (ggplot2, shiny, dplyr, tidyr, caret, rattle, FactoMineR, knitr, rhadoop, sparklyr …), Python, C/C++, Pascal, Perl, SQL, Hadoop (MapReduce).\nBases de Datos: MongoDB, Mysql, Postgresql, Oracle.\nSistemas Operativos: Linux (Slackware, Suse, Debian, Ubuntu, Rehat, Centos).\nFormación\nLicenciado en Computación\nUniversidad Central de Venezuela (UCV). 2001\nLPIC-1 Junior Level Linux Certification\nLinux Professional Institute. 2008\nNovell Certified Linux Administrator\nNovell CLA. 2010\nAlgunas charlas y presentaciones\n“Virtualización con Docker para data scientists”. Primer workshop de #PyData Lima. Data Science Research Perú. 1/10/2018.\n“Speech Analytics”. Meetup DataScience Research Perú. 26/8/2018.\n“Que es el Machine Learning y sus aplicaciones en el mundo de los negocios”. Foro Las Tic en Venezuela Comprometidas para la Conectividad Global y los Servicios. CANAEMTE. 18/05/2017.\n“Tendencias en Business Intelligence & Big Data”. Las TICs frente a los nuevos Escenarios Tecnológicos. CANAEMTE. 9/11/2016.\n“Clasificación no Supervisada (K-medias)”. Grupo de Usuarios R de Venezuela. RVen, Meetup - Caracas. 1/11/2016.\n“Big Data y la Ciencia de Datos”. Big Data UCAB, Oportunidades y Desafíos. UCAB. 19/10/2016.\n“Creación de Gráficos Avanzados en R”. IV Simposio Científico y Tecnológico en Computación (SCTC 2016). UCV. 10-11/05/2016.\n“Big Data, Estadística y Redes Sociales”. Semana de la Estadística y el Actuariado 2015, UCV. 21/10/2015\n“Computación en la Nube y el Big Data”. Encuentro Virtual DTIC 2014. UCV. 18/07/2014.\n“R en la Ciencia de Datos, Innovando con Software Libre”. La Feria Latinoamericana de Instalación de Software Libre (FLISOL 2014). Teresa Carreño - Caracas. 26/04/2014.\n“Políticas Públicas en TI”. Cumbre TI Huawei 2013. Huawei Venezuela. 06/11/2013.\n“Desarrollo de aplicaciones para la Televisión Digital Abierta”. Curso precongreso - 2do Congreso Venezolano de Ciencia, Tecnología e Innovación. LOCTI - PEII. 06/11/2013.\n“Ciencia de Datos”.Congreso Internacional de Software Libre (CISL 2013). Nueva Esparta - Academia Sánchez Solutions. 25/10/2013.\n“Primer Foro Latinoamericano sobre Software Libre”. XXXIX Conferencia Latinoamericana en Informática (CLEI 2013). 10/10/2013.\nPublicaciones\nJosemy I. Duarte F., Gabriel E. Rodríguez G., Jesus Lares, José R. Sosa B. “Venezolanos en Twitter: ¿Humanos, Bots o Ciborgs? Modelo de Clasificación”. Revista Tekhne. Número 19 (2016), p 47-59. 2016. UCAB.\nWilfredo Rangel, José Sosa. “Monitor Académico. Plataforma de gestión integral del rendimiento académico”. Revista #VIRTUALDTIC. Número 5 (2015). UCV.\nJose Sosa. “Repositorios institucionales digitales”. Revista #VIRTUALDTIC. Número 4 (2014). UCV.\nIdiomas\nEspañol,\nIngles (técnico)\n\n\n\n",
-      "last_modified": "2021-04-28T03:56:37+00:00"
+      "last_modified": "2021-04-28T04:31:10+00:00"
     },
     {
       "path": "galery.html",
@@ -22,14 +22,14 @@
       "description": "Galería de herramientas, presentaciones, contenidos y proyectos personales",
       "author": [],
       "contents": "\nEN CONSTRUCCION…\n\n\n\n",
-      "last_modified": "2021-04-28T03:56:40+00:00"
+      "last_modified": "2021-04-28T04:31:13+00:00"
     },
     {
       "path": "index.html",
       "title": "Blog de José R Sosa",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-04-28T03:56:43+00:00"
+      "last_modified": "2021-04-28T04:31:17+00:00"
     },
     {
       "path": "resources-R.html",
@@ -37,7 +37,7 @@
       "description": "Blogs, referencias, galerías, tutoriales, repositorios y herramientas útiles sobre R",
       "author": [],
       "contents": "\nEN CONSTRUCCION…\n\n\n\n",
-      "last_modified": "2021-04-28T03:56:45+00:00"
+      "last_modified": "2021-04-28T04:31:19+00:00"
     },
     {
       "path": "resources-ref.html",
@@ -45,7 +45,7 @@
       "description": "Fuentes de información, documentación y cursos sobre tecnología",
       "author": [],
       "contents": "\nEN CONSTRUCCION…\n\n\n\n",
-      "last_modified": "2021-04-28T03:56:48+00:00"
+      "last_modified": "2021-04-28T04:31:21+00:00"
     },
     {
       "path": "resources-tools.html",
@@ -53,7 +53,7 @@
       "description": "Aplicaciones web útiles para todo tipo de tareas",
       "author": [],
       "contents": "\nEN CONSTRUCCION…\n\n\n\n",
-      "last_modified": "2021-04-28T03:56:50+00:00"
+      "last_modified": "2021-04-28T04:31:24+00:00"
     },
     {
       "path": "resources.html",
@@ -61,7 +61,7 @@
       "description": "Blogs y sitios web con excelente contenido, que vale la pena seguir",
       "author": [],
       "contents": "\nEN CONSTRUCCION…\n\n\n\n",
-      "last_modified": "2021-04-28T03:56:53+00:00"
+      "last_modified": "2021-04-28T04:31:26+00:00"
     }
   ],
   "collections": ["posts/posts.json"]

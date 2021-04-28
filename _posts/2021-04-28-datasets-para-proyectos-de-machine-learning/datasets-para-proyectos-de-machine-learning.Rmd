@@ -3,7 +3,7 @@ title: "Datasets para proyectos de Machine Learning"
 description: |
   Si estas buscado un conjunto de datos "especial" para tu proyecto de Machine Learning, he preparado una lista, que si bien no es exhaustiva, si que sirve como propuesta de por donde comenzar a buscar.
 author:
-  - name: José R. Sosa
+  - name: José R Sosa
     url: https://example.com/josersosa
 date: 04-28-2021
 output:
@@ -26,15 +26,17 @@ Esta recopilación consiste en un lista de repositorios o buscadores de datasets
 ### Bucadores de datasets
 
 - Buscador de datasets de Google: [datasetsearch.research.google.com](https://datasetsearch.research.google.com/) 
-- Bucador de datasets de paperwithcode: [paperswithcode.com/datasets](https://paperswithcode.com/datasets) 
+- Buscador de datasets de paperwithcode: [paperswithcode.com/datasets](https://paperswithcode.com/datasets) 
 
 ### Recopilaciones o temáticos
 
 - Datasets in Python: [towardsdatascience.com](https://towardsdatascience.com/datasets-in-python-425475a20eb1) 
 - The R Datasets Package: [stat.ethz.ch](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html) 
-- Datasets in Python: [towardsdatascience.com](https://towardsdatascience.com/datasets-in-python-425475a20eb1) 
 - The Big Bad NLP Database : [datasets.quantumstat](https://datasets.quantumstat.com/) 
-- [Multiscale Machine Learning In Coupled Earth System Modeling [M²LInES](https://m2lines.github.io/) 
+- Open repository of **web crawl data**: [Common Crawl](https://commoncrawl.org/) 
+- Multiscale Machine Learning In Coupled Earth System Modeling [M²LInES](https://m2lines.github.io/) 
+- [KDnuggets Datasets](https://www.kdnuggets.com/datasets/index.html) 
+- [25 Best NLP Datasets](https://lionbridge.ai/datasets/the-best-25-datasets-for-natural-language-processing/) 
 
 ### Competencia o retos de ciencia de datos
 
@@ -50,10 +52,11 @@ Esta recopilación consiste en un lista de repositorios o buscadores de datasets
 
 - Portal Brasileño de datos abiertos: [dados.gog.br](https://dados.gov.br/dataset?q=censo&organization=instituto-brasileiro-de-geografia-e-estatistica-ibge&sort=score+desc%2C+metadata_modified+desc)
 - Portal de datos abiertos de Uruguay: http://datos.gub.uy/
-- Portal de datos abiertos de Canada: http://open.canada.ca/data/en/dataset
+- Portal de datos abiertos de Canadá: http://open.canada.ca/data/en/dataset
 - Portal de datos abiertos de Estados Unidos: https://www.data.gov/
 - Portal de datos abiertos de Reino Unido: https://data.gov.uk/
 - Comunidad Económica Europea: https://open-data.europa.eu/es/
+- Banco Mundial: http://data.worldbank.org/
 
 ### Proveedores de computo en la nube
 
@@ -61,9 +64,10 @@ Esta recopilación consiste en un lista de repositorios o buscadores de datasets
 - Google Cloud Platform ([GCP](https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset)) 
 - Microsoft ([Azure](https://azure.microsoft.com/en-us/services/open-datasets/catalog/)) 
 
-### Servicios de datos
+### APIs de datos 
 
-- Banco Mundial: http://data.worldbank.org/
-- UC Irvine Machine Learning Repository: http://archive.ics.uci.edu/ml/
-- Amazon Web Services: https://aws.amazon.com/es/public-data-sets/
-- Stanford Large Network Dataset Collection https://snap.stanford.edu/data/
+- [APIs de google](https://support.google.com/a/answer/162106?hl=es)
+- [Algunas API financieras](http://www.bbvaopen4u.com/es/actualidad/algunas-api-financieras-para-crear-aplicaciones-dinamicas)
+- [API de Flickr](https://www.flickr.com/services/api/)
+- [APIs de Twitter](https://dev.twitter.com/)
+
