@@ -77,5 +77,17 @@
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/../../images/lorenz_yelow11-10mm_peq.png" medium="image" type="image/png" width="594" height="420"/>
     </item>
+    <item>
+      <title>Taller interactivo: Programando en R</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-04-29-programando-en-r-taller-interactivo</link>
+      <description>Aún hoy en día, existe mucho contenido para la formación en Ciencia de Datos y particularmente sobre R en diversos formatos y repositorios, sin embargo, la mayoría de ellos están en ingles...</description>
+      <category>R</category>
+      <category>Data Science</category>
+      <category>Teaching</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-04-29-programando-en-r-taller-interactivo</guid>
+      <pubDate>Sun, 11 Oct 2015 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-04-29-programando-en-r-taller-interactivo/../../images/R-Programming-Language.jpg" medium="image" type="image/jpeg"/>
+    </item>
   </channel>
 </rss>

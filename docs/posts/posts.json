@@ -133,5 +133,26 @@
     "input_file": {},
     "preview_width": 594,
     "preview_height": 420
+  },
+  {
+    "path": "posts/2021-04-29-programando-en-r-taller-interactivo/",
+    "title": "Taller interactivo: Programando en R",
+    "description": "Aún hoy en día, existe mucho contenido para la formación en Ciencia de Datos y particularmente sobre R en diversos formatos y repositorios, sin embargo, la mayoría de ellos están en ingles...",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2015-10-11",
+    "categories": [
+      "R",
+      "Data Science",
+      "Teaching"
+    ],
+    "contents": "\n\nContents\n¿Que es Swirl?\nObjetivo\nPrerrequisitos\n¿Como ejecutar el curso?\nAvance del proyecto\n\nTODOs\n\n¿Que es Swirl?\nEl paquete de R swirl(“Learn R, in R”) permite crear cursos interactivos que se ejecutan desde la propia consola de R, por lo cual el estudiante puede ejecutar la instrucciones directamente en R en la medida que avanza su curso. Existen varios cursor en el repositorio de swirl, pero todos están en ingles.\nObjetivo\nEl objetivo de este proyecto es disponer un curso interactivo sobre los fundamentos de la programación en R, en el idioma español para aquellos hispanohablantes interesados en aprender este lenguaje de programación. Para esto se traducirá el curso R_Programming_Alt del swirl.\nPrerrequisitos\nPara acceder a este curso debes tener instalado el R, y preferiblemente Rstudio, así como el paquete swirl. Puedes instalarlo desde la consola de R así:\n\n\ninstall.packages('swirl')\n\n\n\n¿Como ejecutar el curso?\nPara realizar este curso debemos primero instalarlo desde su repositorio en github en la consola de R, así:\n\n\nlibrary(swirl)\ninstall_course_github('josersosa','Programando_en_R')\n\n\n\nY lo iniciamos con:\n\n\nswirl()\n\n\n\nAl comienzo nos solicita un nombre para identificarnos y almacenar los avances que hagamos en el caso que deseemos pausar el curso. Las primeras informaciones estan en ingles porque provienen del paquete swirl. Luego seleccionamos el curso Programando en R y a partir de ahí todo lo esencial estará traducido.\nPor último, cuando hayamos terminado, podemos desinstalar el curso con:\n\n\nuninstall_course(\"Programando_en_R\")\n\n\n\nAvance del proyecto\nHasta ahora, este proyecto tiene una avance del 100% en la traducción. Están traducidas todas las lecciones de un total de las 12 del curso original R_Programming_Alt. Ya se han incluido la lecciones extraspara hacer nuestro curso en español un poco más completo:\nWorkspace_and_Files.\nFunctions.\nBase_Graphics. Se incluyó la función barplot y algunos comentarios\nTODOs\nReconfigurar los directoris con los títulos en español.\nIncluir las lecciones del curso R Programming de swirl para hacer nuestro curso en español un poco más completo:\nWorkspace_and_Files.\nFunctions.\nBase_Graphics.\nPor otra parte, intentaré incluir al final de cada lección, aparte del envío del correo, la opción de calificar mediante una conección a alguna aula virtual basada en moodle.\n\n\n\n",
+    "preview": "posts/2021-04-29-programando-en-r-taller-interactivo/../../images/R-Programming-Language.jpg",
+    "last_modified": "2021-04-29T20:58:58+00:00",
+    "input_file": {}
   }
 ]
