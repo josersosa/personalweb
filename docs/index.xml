@@ -7,7 +7,17 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 28 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Sincronización de directorios con rsync</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync</link>
+      <description>Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, la sincronizacion de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rcync.</description>
+      <category>Linux Recipes</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync</guid>
+      <pubDate>Thu, 29 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
     <item>
       <title>Datasets para proyectos de Machine Learning</title>
       <dc:creator>José R Sosa</dc:creator>

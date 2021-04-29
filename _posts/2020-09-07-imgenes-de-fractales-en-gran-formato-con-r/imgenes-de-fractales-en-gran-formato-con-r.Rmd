@@ -26,7 +26,7 @@ preview: ../../images/fractales_galery.png
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches. La idea era no tener que escalar las imágenes para imprimirlas en formatos grandes, sino que en vez de eso, estuvieran elaboradas pixel a pixel para estos formatos como el A1 (23.4 x 33.1 in) a 300dpi o el A2 (16.5 x 23.4 in) a 600dpi.
+La idea es no tener que escalar las imágenes para imprimirlas en formatos grandes, sino que en vez de eso, estuvieran elaboradas pixel a pixel para estos formatos como el A1 (23.4 x 33.1 in) a 300dpi o el A2 (16.5 x 23.4 in) a 600dpi.
 
 He aquí algunos resultados:
 

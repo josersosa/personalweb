@@ -1,0 +1,132 @@
+---
+title: "Sincronización de directorios con rsync"
+description: |
+  Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rcync.
+author:
+  - name: José R Sosa
+    url: https://example.com/josersosa
+date: 04-29-2021
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Linux Recipes
+preview: ../../images/edex-ui.png
+#draft: true
+#preview: ../../lorenz_yelow10_peq.png
+---
+
+
+Desde que vengo trabajando remoto utilizo indistintamente diferentes equipos, el personal y el de la oficina. Esto ha provocado que la sincronización de mis archivos se haya convertido en un verdadero problema, que he resuelto con *rcync*.  
+
+### Como se usa rcync
+
+Para actualizar los contenidos de una carpeta basados en los contenidos de otra utilizamos:
+
+```{bash, eval = FALSE}
+rsync -rtvu carpeta_origen/ carpeta_destino/ 
+```
+
+Una vista de los parámetos de **rcync**:
+
+```{bash, eval = FALSE}
+-v, –verbose	: verbose output
+-q, –quiet		: suppress message output
+-a, –archive	: archive files and directory while synchronizing ( -a equal to following options -rlptgoD)
+-r, –recursive	: sync files and directories recursively
+-c, --checksum	: skip based on checksum, not mod-time & size
+-b, –backup		: take the backup during synchronization
+-u, –update		: don’t copy the files from source to destination if destination files are newer
+-l, –links		: copy symlinks as symlinks during the sync
+-n, –dry-run	: perform a trial run without synchronization
+-e, –rsh=COMMAND: mention the remote shell to use in rsync. By example use '-e ssh'
+-z, –compress	: compress file data during the transfer
+-h, –human-readable: display the output numbers in a human-readable format
+-P : Resume large file transfer after getting failed in scp
+-f : for include o exclude files o directories, example -f"+ */" -f"- *" for sync the directory structure without copying files
+--include	: to specify those files or directories which you want to include in your sync 
+--exclude	: exclude files and folders with you don’t want to be transferred.
+--delete	: if a file or directory not exist at the source, but already exists at the destination, delete that existing file/directory at the target
+--max-size=	: put limit on file transfer size. To specify the size in KB use K, MB use M and for GB use G (ej: --max-size='500K')
+--bwlimit=	: put restriction on data transfer speed in KB/s (ej: --bwlimit=600)
+–progress		: show the sync progress during transfer by file
+-e : To specify a protocol with rsync, by example using “ssh”
+```
+
+
+
+### Sincronización completa
+
+En el caso de que necesitemos remover los archivos que fueron borrados de la carpeta origen en la carpeta destino, es decir cuando queremos que las dos carpetas (origen y destino) sean idénticas, debemos utilizar el parámetro **- -delete**, esto usado en conjunto con el parámetro previo **-u** que actualiza los archivos modificados nos permite mantener dos carpetas en sincronía ahorrando ancho de banda. 
+
+```{bash, eval = FALSE}
+rsync -rtvu --delete carpeta_origen/ carpeta_destino/
+```
+
+### Transferencia comprimida
+
+Para ahorrar algo de ancho de banda, y usualmente también ahorrar algo de tiempo, podemos comprimir la información que está será transferida, para esto agregamos el parámetro **-z** a _rsync_:
+
+```{bash, eval = FALSE}
+rsync -rvz carpeta_origen/ carpeta_destino/ 
+```
+
+### Sincronización remota con SSH
+
+Para actualizar los archivos de una carpeta local a una carpeta remota, utilizando un dominio, una dirección de IP o un servidor definido en el archivo de configuración de SSH:
+
+```{bash, eval = FALSE}
+rsync -rtvz carpeta_origen/ usuario@dominio:/ruta/a/carpeta_destino/
+```
+
+Ahora para actualizar archivos de una carpeta remota a carpeta local, utilizando un dominio, una dirección de IP o un servidor definido en el archivo de configuración de SSH:
+
+```{bash, eval = FALSE}
+rsync -rtvz usuario@dominio:/ruta/a/carpeta_origen/ carpeta_destino/
+```
+
+### Excepciones en la sincronización
+
+El parámetro **- -exclude** seguido del directorio o el archivo que queremos excluir nos permite definir directorios/archivo que no serán sincronizados. La carpeta de origen o la carpeta de destino pueden ser un directorio local o un directorio remoto como se explico en la sección previa.
+
+```{bash, eval = FALSE}
+rsync -rtv --exclude 'directorio' carpeta_origen/ carpeta_destino/
+rsync -rtv --exclude 'archivo.txt' carpeta_origen/ carpeta_destino/
+rsync -rtv --exclude 'direccion/a/directorio' carpeta_origen/ carpeta_destino/
+rsync -rtv --exclude 'direccion/a/archivo.txt' carpeta_origen/ carpeta_destino/ 
+```
+
+También podemos colocar la lista de directorios o archivos que deseamos excluir en una archivo de texto (por ejemplo excluidos.txt) y usar la opción **--exclude-from** de la siguiente forma: 
+
+```{bash, eval = FALSE}
+rsync -rvz --exclude-from 'excluidos.txt' carpeta_origen/ carpeta_destino/
+```
+
+### Como se decide que archivo debe ser actualizado?
+
+Por defecto, _rsync_ toma la fecha de la última modificación del archivo y el tamaño de este para decidir que archivos necesitan ser transferidos y que archivos pueden ser ignorados, pero podemos utilizar en lugar de este método un hash para decidir si el archivo es diferente o no. Para hacer esto necesitamos usar el parámetro **-c**, que realizará un _checksum_ en los archivos a ser transferidos. Esto ignorará cualquier archivo donde el checksum coincide. 
+
+### Ejemplos
+
+Aquí tengo algunos ejemplos de como realizo la sincronización de archivos a varios de los equipos que uso con frecuentemente:
+
+```{bash, eval = FALSE}
+rsync -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/Personal/Sincronizar/
+rsync -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/archivo/
+rsync -rvuc /media/716D-15A9/Sincronizar/ /media/TI10657300E/Temp/josersosa/
+rsync -rvuc /media/716D-15A9/Sincronizar/ /media/6AE0F943E0F91653/Temp/Jose/
+```
+
+### TODOs
+
+Ahora queda pendiente automatizar este proceso, de forma que cuando se introduzca cierto pendrive en un equipo se ejecute un script que consulte al usuario si desea que este sea sincronizado en ese computador. Esta acción podría realizarse tanto al momento de insertar el pen como al momento de solicitar su extracción.
+
+**Fuente de este post**
+
+- http://www.jveweb.net/archivo/2010/11/sincronizando-carpetas-con-rsync.html
+- https://www.linuxtechi.com/rsync-command-examples-linux/
+- https://www.computerhope.com/unix/rsync.htm
+- https://www.geeksforgeeks.org/rsync-command-in-linux-with-examples/
