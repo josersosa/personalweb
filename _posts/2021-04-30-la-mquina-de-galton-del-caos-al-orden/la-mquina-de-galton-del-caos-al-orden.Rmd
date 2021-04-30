@@ -101,20 +101,19 @@ Llegamos a la parte fácil, para simular la *Maquina de Galton* vamos a simular 
 
 ```{r}
 bolitas <- 10000 # catidad de bolitas
-n <- 30    # numero de niveles
-p <- .5    # probabilidad de decision
-decisiones <- sample(c(0,1), n*bolitas, prob=c(0.5, 0.5), replace = TRUE) # todas las decisiones
-trayectorias <- matrix( decisiones, nrow = bolitas, ncol = n) # agrupadas en trayectorias
+n <- 30          # numero de niveles
+p <- .5          # probabilidad de decision
+bandejas <- replicate(bolitas, # el numero de bolitas o trayectorias
+                      sum( sample(c(0,1), n, prob=c(0.5, 0.5), replace = TRUE) )) # suma sobre cada trayectoria
 ```
 
-Luego, para representar las bandejas donde caen las bolitas, calculamos la bandeja resultante de cada trayectoria, sumando las decisiones contenidas en cada una. Con esto generamos un vector de las bandejas resultantes. Solo queda contar cuantas bolitas cayeron en cada bandeja y graficar la distribución, esto lo haremos con el histograma de este vector:
+Luego, para representar las bandejas donde caen las bolitas, calculamos la bandeja resultante de cada trayectoria, sumando las decisiones contenidas en cada una, todo esto lo hacemos con la funcion [replicate](https://web.stanford.edu/class/bios221/labs/simulation/Lab_3_simulation.html). Con esto generamos un vector de las bandejas resultantes. Solo queda contar cuantas bolitas cayeron en cada bandeja y graficar la distribución, esto lo haremos con el histograma de este vector:
 
 ```{r}
-bandejas <- apply(trayectorias, 1, sum)  # suma por filas (trayectorias)
-hist(bandejas, 			         # distribucion del resultado de las bandejas
+hist(bandejas,               # distribucion del resultado de las bandejas
      prob = TRUE, 			     # graficamos proporciones de las frecuencias
      breaks = c(0:n+1)-0.5)  # resto 0.5 para centrar las clases en cada bandeja
-x <- seq(1,30, length.out = 100)				         # generamos 100 puntos en el rango
+x <- seq(1,30, length.out = 100)				        # generamos 100 puntos en el rango
 y <- dnorm(x, mean = n*p, sd = sqrt(n*p*(1-p))) # Funcion de dencidad de la normal 
 lines(x, y, col = "red") # dibujamos la curva de la normal en rojo
 ```
