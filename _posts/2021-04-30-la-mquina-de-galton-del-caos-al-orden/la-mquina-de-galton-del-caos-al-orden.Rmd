@@ -18,7 +18,7 @@ categories:
   - Teaching
   - Simulation
   - Statistic
-preview: ../../images/statistic_with_r.jpg
+preview: ../../images/simulacion-dalton.png
 #draft: true
 #preview: ../../lorenz_yelow10_peq.png
 ---
@@ -93,7 +93,7 @@ Dado que $X$ se puede interpretar como la suma de *n* variables aleatorias indep
 $$
 X \sim Binomial(n, p) \approx Normal(\mu, \sigma^2)
 $$
-donde $\mu=np$ y $\sigma=np(1-p)$, la esperanza matemática y la varianza de la *Binomial*, respectivamente.
+donde $\mu=np$ y $\sigma^2=np(1-p)$, la esperanza matemática y la varianza de la *Binomial*, respectivamente.
 
 ## Simulación de la Máquina de Galton en R
 
@@ -107,7 +107,7 @@ bandejas <- replicate(bolitas, # el numero de bolitas o trayectorias
                       sum( sample(c(0,1), n, prob=c(0.5, 0.5), replace = TRUE) )) # suma sobre cada trayectoria
 ```
 
-Luego, para representar las bandejas donde caen las bolitas, calculamos la bandeja resultante de cada trayectoria, sumando las decisiones contenidas en cada una, todo esto lo hacemos con la funcion [replicate](https://web.stanford.edu/class/bios221/labs/simulation/Lab_3_simulation.html). Con esto generamos un vector de las bandejas resultantes. Solo queda contar cuantas bolitas cayeron en cada bandeja y graficar la distribución, esto lo haremos con el histograma de este vector:
+Luego, para representar las bandejas donde caen las bolitas, calculamos la bandeja resultante de cada trayectoria, sumando las decisiones contenidas en cada una, todo esto lo hacemos con la función [replicate](https://web.stanford.edu/class/bios221/labs/simulation/Lab_3_simulation.html). Con esto generamos un vector de las bandejas resultantes. Solo queda contar cuantas bolitas cayeron en cada bandeja y graficar la distribución, esto lo haremos con el histograma de este vector:
 
 ```{r}
 hist(bandejas,               # distribucion del resultado de las bandejas
@@ -118,4 +118,5 @@ y <- dnorm(x, mean = n*p, sd = sqrt(n*p*(1-p))) # Funcion de dencidad de la norm
 lines(x, y, col = "red") # dibujamos la curva de la normal en rojo
 ```
 
-Y obtenemos el mismo resultado que vimos en el video. Agregué a la grafica la curva de la distribución normal para demostrarles como la aproximación a esta distribución se cumple a la perfección.
+Y obtenemos el mismo resultado que vimos en el video. Agregué a la gráfica la curva de la distribución normal para demostrarles como la aproximación a esta distribución se cumple a la perfección.
+Se puede ejecutar este cógigo en R varias veces para generar secuencias de trayectorias distintan y comprobar que simpre se cumple el mismo patrón.

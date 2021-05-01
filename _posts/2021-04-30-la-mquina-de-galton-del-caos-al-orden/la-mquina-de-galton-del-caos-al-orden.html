@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview"]}},"value":[{"type":"character","attributes":{},"value":["La máquina de Galton, del Caos al Orden..."]},{"type":"character","attributes":{},"value":["La \"Maquina de Galton\" es el nombre de un famoso experimento, que a pesar de estar completamente gobernado por el azar, muestra claramente como se presenta siempre la misma tendencia o distribución de los resultados. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://example.com/josersosa"]}]}]},{"type":"character","attributes":{},"value":["11-04-2012"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["R","Data Science","Teaching","Simulation","Statistic"]},{"type":"character","attributes":{},"value":["../../images/statistic_with_r.jpg"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview"]}},"value":[{"type":"character","attributes":{},"value":["La máquina de Galton, del Caos al Orden..."]},{"type":"character","attributes":{},"value":["La \"Maquina de Galton\" es el nombre de un famoso experimento, que a pesar de estar completamente gobernado por el azar, muestra claramente como se presenta siempre la misma tendencia o distribución de los resultados. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://example.com/josersosa"]}]}]},{"type":"character","attributes":{},"value":["11-04-2012"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["R","Data Science","Teaching","Simulation","Statistic"]},{"type":"character","attributes":{},"value":["../../images/simulacion-dalton.png"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1537,7 +1537,7 @@ X \sim Binomial(n, p)
 \]</span></p>
 <p>Dado que <span class="math inline">\(X\)</span> se puede interpretar como la suma de <em>n</em> variables aleatorias independientes (las decisiones), cuando el parámetro n es grande, se cumple el conocido <em>Teorema del Límite Central</em>, lo que propone que la distribución de la variable aleatoria <span class="math inline">\(X\)</span> se aproxima asintóticamente a una <em>Normal</em>: <span class="math display">\[
 X \sim Binomial(n, p) \approx Normal(\mu, \sigma^2)
-\]</span> donde <span class="math inline">\(\mu=np\)</span> y <span class="math inline">\(\sigma=np(1-p)\)</span>, la esperanza matemática y la varianza de la <em>Binomial</em>, respectivamente.</p>
+\]</span> donde <span class="math inline">\(\mu=np\)</span> y <span class="math inline">\(\sigma^2=np(1-p)\)</span>, la esperanza matemática y la varianza de la <em>Binomial</em>, respectivamente.</p>
 <h2 id="simulación-de-la-máquina-de-galton-en-r">Simulación de la Máquina de Galton en R</h2>
 <p>Llegamos a la parte fácil, para simular la <em>Maquina de Galton</em> vamos a simular las bolitas generando un número grande de trayectorias, que serán secuencias de <strong><em>n</em></strong> ceros y unos, seleccionados aleatoriamente con una probabilidad <strong><em>p</em></strong> para cada decisión:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1550,7 +1550,7 @@ X \sim Binomial(n, p) \approx Normal(\mu, \sigma^2)
 </code></pre>
 </div>
 </div>
-<p>Luego, para representar las bandejas donde caen las bolitas, calculamos la bandeja resultante de cada trayectoria, sumando las decisiones contenidas en cada una, todo esto lo hacemos con la funcion <a href="https://web.stanford.edu/class/bios221/labs/simulation/Lab_3_simulation.html">replicate</a>. Con esto generamos un vector de las bandejas resultantes. Solo queda contar cuantas bolitas cayeron en cada bandeja y graficar la distribución, esto lo haremos con el histograma de este vector:</p>
+<p>Luego, para representar las bandejas donde caen las bolitas, calculamos la bandeja resultante de cada trayectoria, sumando las decisiones contenidas en cada una, todo esto lo hacemos con la función <a href="https://web.stanford.edu/class/bios221/labs/simulation/Lab_3_simulation.html">replicate</a>. Con esto generamos un vector de las bandejas resultantes. Solo queda contar cuantas bolitas cayeron en cada bandeja y graficar la distribución, esto lo haremos con el histograma de este vector:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>bandejas</span>,               <span class='co'># distribucion del resultado de las bandejas</span>
@@ -1563,7 +1563,7 @@ X \sim Binomial(n, p) \approx Normal(\mu, \sigma^2)
 </div>
 <p><img src="la-mquina-de-galton-del-caos-al-orden_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
-<p>Y obtenemos el mismo resultado que vimos en el video. Agregué a la grafica la curva de la distribución normal para demostrarles como la aproximación a esta distribución se cumple a la perfección.</p>
+<p>Y obtenemos el mismo resultado que vimos en el video. Agregué a la gráfica la curva de la distribución normal para demostrarles como la aproximación a esta distribución se cumple a la perfección. Se puede ejecutar este cógigo en R varias veces para generar secuencias de trayectorias distintan y comprobar que simpre se cumple el mismo patrón.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
