@@ -18,6 +18,72 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
   <!--radix_placeholder_meta_tags-->
 <title>Blog de José R Sosa: Atractor de Lorenz y "el efecto mariposa"</title>
 
@@ -67,7 +133,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["atractor-de-lorenz-y-el-efecto-mariposa_files/bowser-1.9.3/bowser.min.js","atractor-de-lorenz-y-el-efecto-mariposa_files/distill-2.2.21/template.v2.js","atractor-de-lorenz-y-el-efecto-mariposa_files/jquery-1.11.3/jquery.min.js","atractor-de-lorenz-y-el-efecto-mariposa_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["atractor-de-lorenz-y-el-efecto-mariposa_files/anchor-4.2.2/anchor.min.js","atractor-de-lorenz-y-el-efecto-mariposa_files/bowser-1.9.3/bowser.min.js","atractor-de-lorenz-y-el-efecto-mariposa_files/distill-2.2.21/template.v2.js","atractor-de-lorenz-y-el-efecto-mariposa_files/header-attrs-2.6/header-attrs.js","atractor-de-lorenz-y-el-efecto-mariposa_files/jquery-1.11.3/jquery.min.js","atractor-de-lorenz-y-el-efecto-mariposa_files/popper-2.6.0/popper.min.js","atractor-de-lorenz-y-el-efecto-mariposa_files/tippy-6.2.7/tippy-bundle.umd.min.js","atractor-de-lorenz-y-el-efecto-mariposa_files/tippy-6.2.7/tippy-light-border.css","atractor-de-lorenz-y-el-efecto-mariposa_files/tippy-6.2.7/tippy.css","atractor-de-lorenz-y-el-efecto-mariposa_files/tippy-6.2.7/tippy.umd.min.js","atractor-de-lorenz-y-el-efecto-mariposa_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2051,7 +2117,13 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -2122,7 +2194,15 @@ Recursos
 
 <div class="d-title">
 <h1>Atractor de Lorenz y “el efecto mariposa”</h1>
-<p>El aparente desorden o aleatoriedad de los sistemas caóticos, es en realidad orden, tan exacto y matemático como impredecible e inexplicable. Escribí una breve reseña de una historia que vi cuando estudiaba en la universidad, sobre una de las características más interesantes de la teoría del caos: “el efecto mariposa”.</p>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../index.html#category:Chaos_and_Fractals" class="dt-tag">Chaos and Fractals</a>
+  <a href="../../index.html#category:Computer_Graphics" class="dt-tag">Computer Graphics</a>
+  <a href="../../index.html#category:Data_Science" class="dt-tag">Data Science</a>
+  <a href="../../index.html#category:Simulation" class="dt-tag">Simulation</a>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>El aparente desorden o aleatoriedad de los sistemas caóticos, es en realidad orden, tan exacto y matemático como impredecible e inexplicable. Escribí una breve reseña de una historia que vi cuando estudiaba en la universidad, sobre una de las características más interesantes de la teoría del caos: “el efecto mariposa”.</p></p>
 </div>
 
 <div class="d-byline">
@@ -2139,7 +2219,7 @@ Recursos
 \dot{z} &amp; = xy -\beta z
 \end{aligned}
 \]</span> En medio de la simulación, cuyos resultados se tenían que imprimir porque no se podían guardar en disco por esa época, se fue la luz. Una vez reestablecido el sistema, decidió continuar con la simulación pero no comenzando desde el principio, sino que tomó las condiciones iniciales en un punto intermedio de la secuencia que ya había creado. De esa forma ahorraría papel, tiempo y podría verificar que el sistema evolucionaría de la misma manera que lo había hecho antes. Sin embargo esto que parecía obvio, no ocurrió. Al cabo de un tiempo las secuencias original y la nueva comenzaron a separarse, y mucho. Se hicieron pruebas para intentar descubrir donde estaba el error, pero el hecho es que tanto el primer cálculo como el segundo seguían perfectamente las <a href="https://en.wikipedia.org/wiki/Lorenz_system">ecuaciones</a>. El análisis gráfico mostró lo que realmente estaba ocurriendo:</p>
-<p><img src="../../images/lorenz_yelow11-15mm_peq.png" /></p>
+<p><img src="../../images/lorenz_yelow11%20-%2015mm_peq.png" /></p>
 <ul>
 <li>Sin importar las condiciones iniciales que se escojan el resultado es el mismo</li>
 <li>Las tres variables, juntas en un gráfico de tres dimensiones, siempre tenderán a formar la figura de un atractor extraño de dos discos en 3D, que ahora conocemos como el <a href="https://es.wikipedia.org/wiki/Atractor_de_Lorenz">atractor de Lorenz</a>,</li>
@@ -2147,13 +2227,14 @@ Recursos
 <li>Por muy parecidas que sean dos trayectorias, estas tenderán a separarse radicalmente tarde o temprano, de hecho</li>
 <li>basta una mínima diferencia “infinitesimal” entre lo dos caminos para que esto ocurra, que fue justamente lo que pasó en el experimento original, donde la variación estuvo en el orden de los decimales que no se pudieron imprimir.</li>
 </ul>
-<p>Inspirado en la forma de este <a href="https://es.wikipedia.org/wiki/Atractor">atractor extraño</a>, Lorenz le dio nombre al famoso postulado de la <a href="%5Bhttps://es.wikipedia.org/wiki/Teor%C3%ADa_del_caos%5D(https://es.wikipedia.org/wiki/Teoría_del_caos)">teoría del caos</a>: &quot;<a href="https://es.wikipedia.org/wiki/Efecto_mariposa">El efecto mariposa</a> que dice que hasta el aleteo de una mariposa podría desencadenar eventos catastróficos en otra arte del mundo, como una poderosa tormenta.</p>
+<p>Inspirado en la forma de este <a href="https://es.wikipedia.org/wiki/Atractor">atractor extraño</a>, Lorenz le dio nombre al famoso postulado de la <a href="%5Bhttps://es.wikipedia.org/wiki/Teor%C3%ADa_del_caos%5D(https://es.wikipedia.org/wiki/Teoría_del_caos)">teoría del caos</a>: "<a href="https://es.wikipedia.org/wiki/Efecto_mariposa">El efecto mariposa</a> que dice que hasta el aleteo de una mariposa podría desencadenar eventos catastróficos en otra arte del mundo, como una poderosa tormenta.</p>
 <p><img src="../../images/lorenz_detalle1.png" /></p>
 <p>Esta imagen muestra como las trayectorias forman una patrón pero sin llegar a tocarse. Las líneas tienen el ancho de un pixel con anti-alising para maximizar el detalle en la versión impresa.</p>
 <p><img src="../../images/lorenz_detalle2.png" /></p>
 <p>En esta imagen de detalle del atractor se observan trayectorias que parecen venir juntas y comienzan a separarse, algunas continúan en el mismo disco y otras pasan al otro.</p>
 <p>Es impresionante ver como esta complejidad pueda surgir de ecuaciones tan simples. Nos hace pensar que muchos fenómenos de la naturaleza aparentemente aleatorios pudieran ser caóticos, es decir, regidos por reglas matemáticas, y de ser así, sería más impactante aún, tener que aceptar que aunque conociéramos las ecuaciones que rigen a la naturaleza o el universo, no podríamos usarlas para predecir el futuro, ya que tendríamos que poder medir con infinita precisión el valor de las variables involucradas.</p>
 <p>El aparente desorden o aleatoriedad de los sistemas caóticos, es en realidad orden, tan exacto y matemático como impredecible e inexplicable.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

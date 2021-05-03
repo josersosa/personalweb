@@ -32,7 +32,7 @@ $$
 En medio de la simulación, cuyos resultados se tenían que imprimir porque no se podían guardar en disco por esa época, se fue la luz. Una vez reestablecido el sistema, decidió continuar con la simulación pero no comenzando desde el principio, sino que tomó las condiciones iniciales en un punto intermedio de la secuencia que ya había creado. De esa forma ahorraría papel, tiempo y podría verificar que el sistema evolucionaría de la misma manera que lo había hecho antes. Sin embargo esto que parecía obvio, no ocurrió. Al cabo de un tiempo las secuencias original y la nueva comenzaron a separarse, y mucho.
 Se hicieron pruebas para intentar descubrir donde estaba el error, pero el hecho es que tanto el primer cálculo como el segundo seguían perfectamente las [ecuaciones](https://en.wikipedia.org/wiki/Lorenz_system). El análisis gráfico mostró lo que realmente estaba ocurriendo:
 
-![](../../images/lorenz_yelow11-15mm_peq.png)
+![](../../images/lorenz_yelow11 - 15mm_peq.png)
 
 - Sin importar las condiciones iniciales que se escojan el resultado es el mismo 
 - Las tres variables, juntas en un gráfico de tres dimensiones, siempre tenderán a formar la figura de un atractor extraño de dos discos en 3D, que ahora conocemos como el [atractor de Lorenz](https://es.wikipedia.org/wiki/Atractor_de_Lorenz),
