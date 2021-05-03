@@ -1513,7 +1513,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#el-script-para-iniciar-el-screencast">El script para iniciar el screencast</a></li>
 <li><a href="#el-script-para-finalizar-el-screencast">El script para finalizar el screencast</a></li>
 </ul></li>
-<li><a href="#el-efecto-choma-key">El efecto Choma-key</a></li>
+<li><a href="#el-efecto-chroma-key">El efecto Chroma key</a></li>
 <li><a href="#ejemplos-de-uso-ffplay.">Ejemplos de uso ffplay.</a>
 <ul>
 <li><a href="#despliegue-de-la-entrada-de-video-de-la-webcam">Despliegue de la entrada de video de la WebCam:</a></li>
@@ -1527,7 +1527,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <p><a href="http://www.ffmpeg.org/">FFmpeg</a> es un completo y muy avanzado conjunto de herramientas de software libre orientadas al procesamiento de video desde consola. Contempla aplicaciones para la grabación, reproducción, conversión, transcodificación y streaming de video. Además contiene un amplio conjunto de codecs y librerías de audio y video que lo convierten en una herramienta de desarrollo indispensable, así como tremendamente útil para la creación y manipulación de nuestros videos, la extracción o incorporación de audio, transferencia de video por red (streaming) e incluso la creación de ScreenCast para videotutoriales.</p>
 <figure>
-<img src="../../images/CIMG0781_star_war.gif" alt="gif de ejemplo del efecto chomakey con ffmpeg" /><figcaption aria-hidden="true">gif de ejemplo del efecto chomakey con ffmpeg</figcaption>
+<img src="../../images/CIMG0781_star_war.gif" alt="gif de ejemplo del efecto chroma key con ffmpeg" /><figcaption aria-hidden="true">gif de ejemplo del efecto chroma key con ffmpeg</figcaption>
 </figure>
 <h2 id="componentes-de-ffmpeg">Componentes de FFmpeg</h2>
 <p>El proyecto <a href="http://www.ffmpeg.org/">FFmpeg</a> viene con varios programas pero podríamos decir que los más importantes son <strong>ffmpeg</strong>, <strong>ffserver</strong> y <strong>ffplay</strong>.</p>
@@ -1682,7 +1682,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">notify-send</span> <span class="st">&quot;Finalizando screencast...&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">killall</span> ffmpeg</span></code></pre></div>
 <p>Para que ambos scripts funcionen debemos tener instalado notify-send. La mayoría de las distribuciones deberían venir con esta herramienta instalada. En Arch y derivados: sudo pacman -S libnotify.</p>
-<h2 id="el-efecto-choma-key">El efecto Choma-key</h2>
+<h2 id="el-efecto-chroma-key">El efecto Chroma key</h2>
 <div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/ffmpeg/ffmpeg</span> <span class="kw">\</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-i</span> image_fondo.jpg <span class="kw">\</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-i</span> video.AVI <span class="kw">\</span></span>
