@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Edición de videos en línea de comandos con FFmpeg</title>
+
+  <meta property="description" itemprop="description" content="Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2013-11-10"/>
+  <meta property="article:created" itemprop="dateCreated" content="2013-11-10"/>
+  <meta name="article:author" content="José R Sosa"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Edición de videos en línea de comandos con FFmpeg"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Edición de videos en línea de comandos con FFmpeg"/>
+  <meta property="twitter:description" content="Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview"]}},"value":[{"type":"character","attributes":{},"value":["Edición de videos en línea de comandos con FFmpeg"]},{"type":"character","attributes":{},"value":["Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://example.com/josersosa"]}]}]},{"type":"character","attributes":{},"value":["11-10-2013"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["R","Data Science","Teaching","Simulation","Statistic"]},{"type":"character","attributes":{},"value":["../../images/video-chroma-demo.png"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/anchor-4.2.2/anchor.min.js","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/bowser-1.9.3/bowser.min.js","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/distill-2.2.21/template.v2.js","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/header-attrs-2.6/header-attrs.js","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/jquery-1.11.3/jquery.min.js","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/popper-2.6.0/popper.min.js","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/tippy-6.2.7/tippy-bundle.umd.min.js","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/tippy-6.2.7/tippy-light-border.css","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/tippy-6.2.7/tippy.css","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/tippy-6.2.7/tippy.umd.min.js","edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/header-attrs-2.6/header-attrs.js"></script>
+  <script src="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/popper-2.6.0/popper.min.js"></script>
+  <link href="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="edicin-de-videos-en-lnea-de-comandos-con-ffmpeg_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Edición de videos en línea de comandos con FFmpeg","description":"Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.","authors":[{"author":"José R Sosa","authorURL":"https://example.com/josersosa","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2013-11-10T00:00:00.000+00:00","citationText":"Sosa, 2013"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Edición de videos en línea de comandos con FFmpeg</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">R</div>
+<div class="dt=tag">Data Science</div>
+<div class="dt=tag">Teaching</div>
+<div class="dt=tag">Simulation</div>
+<div class="dt=tag">Statistic</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Hace algún tiempo utilicé <a href="http://www.ffmpeg.org/">FFmpeg</a> para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.</p></p>
+</div>
+
+<div class="d-byline">
+  José R Sosa <a href="https://example.com/josersosa" class="uri">https://example.com/josersosa</a> 
+  
+<br/>11-10-2013
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#componentes-de-ffmpeg">Componentes de FFmpeg</a>
+<ul>
+<li><a href="#parámetros-de-uso-del-ffmpeg">Parámetros de uso del ffmpeg</a></li>
+</ul></li>
+<li><a href="#ejemplos-de-uso-de-ffmepg.">Ejemplos de uso de ffmepg.</a>
+<ul>
+<li><a href="#grabación-de-la-entrada-de-video-de-la-webcam">Grabación de la entrada de video de la WebCam</a></li>
+<li><a href="#dos-formas-de-grabación-de-sonido-usando-oss-o-alsa">Dos formas de grabación de sonido, usando OSS o ALSA</a></li>
+<li><a href="#conversión-de-formatos-de-audio-por-ejemplo-de-wav-a-ogg">Conversión de formatos de audio, por ejemplo de wav a ogg</a></li>
+<li><a href="#conversión-de-formatos-de-video">Conversión de formatos de video</a></li>
+<li><a href="#conversión-de-video-a-imágenes-este-ejemplo-creará-25-imágenes-por-segundo">Conversión de video a imágenes, este ejemplo creará 25 imágenes por segundo</a></li>
+<li><a href="#conversión-de-imágenes-a-video">Conversión de imágenes a video</a></li>
+<li><a href="#dos-formas-de-grabación-de-la-entrada-de-video-y-audio-por-la-webcam-y-el-micrófono">Dos formas de grabación de la entrada de video y audio por la WebCam y el micrófono</a></li>
+<li><a href="#convertir-video-a-imágenes-animadas-gif">Convertir video a imágenes animadas GIF</a></li>
+<li><a href="#convertir-gif-a-video">Convertir GIF a video</a></li>
+<li><a href="#unir-audio-y-video">Unir audio y video</a></li>
+<li><a href="#concatenar-videos">Concatenar videos</a></li>
+<li><a href="#concatenar-varios-videos-haciendo-recodificación">Concatenar varios videos haciendo recodificación</a></li>
+<li><a href="#cambiar-resolución-de-video">Cambiar resolución de video</a></li>
+<li><a href="#cortar-un-video">Cortar un video</a></li>
+<li><a href="#trabajar-por-lotes">Trabajar por lotes</a></li>
+<li><a href="#redimensionar-video-agregando-un-marco-negro">Redimensionar video agregando un marco negro</a></li>
+</ul></li>
+<li><a href="#grabación-de-la-pantalla-del-escritorio-linux-con-sincronización-del-audio-y-el-video-screencast">Grabación de la pantalla del escritorio Linux con sincronización del audio y el video (ScreenCast):</a>
+<ul>
+<li><a href="#automatización-de-la-producción-de-screencast">Automatización de la producción de ScreenCast:</a></li>
+<li><a href="#el-script-para-iniciar-el-screencast">El script para iniciar el screencast</a></li>
+<li><a href="#el-script-para-finalizar-el-screencast">El script para finalizar el screencast</a></li>
+</ul></li>
+<li><a href="#el-efecto-choma-key">El efecto Choma-key</a></li>
+<li><a href="#ejemplos-de-uso-ffplay.">Ejemplos de uso ffplay.</a>
+<ul>
+<li><a href="#despliegue-de-la-entrada-de-video-de-la-webcam">Despliegue de la entrada de video de la WebCam:</a></li>
+<li><a href="#para-simplemente-reproducir-un-video">Para simplemente reproducir un video:</a></li>
+</ul></li>
+<li><a href="#streaming-de-video-con-ffserver.">Streaming de video con ffserver.</a></li>
+<li><a href="#compilando-ffmpeg-desde-las-fuentes.">Compilando ffmpeg desde las fuentes.</a></li>
+<li><a href="#fuentes.">Fuentes.</a></li>
+</ul>
+</nav>
+</div>
+<p><a href="http://www.ffmpeg.org/">FFmpeg</a> es un completo y muy avanzado conjunto de herramientas de software libre orientadas al procesamiento de video desde consola. Contempla aplicaciones para la grabación, reproducción, conversión, transcodificación y streaming de video. Además contiene un amplio conjunto de codecs y librerías de audio y video que lo convierten en una herramienta de desarrollo indispensable, así como tremendamente útil para la creación y manipulación de nuestros videos, la extracción o incorporación de audio, transferencia de video por red (streaming) e incluso la creación de ScreenCast para videotutoriales.</p>
+<p><img src="....\images\CIMG0781_star_war.gif" /></p>
+<h2 id="componentes-de-ffmpeg">Componentes de FFmpeg</h2>
+<p>El proyecto <a href="http://www.ffmpeg.org/">FFmpeg</a> viene con varios programas pero podríamos decir que los más importantes son <strong>ffmpeg</strong>, <strong>ffserver</strong> y <strong>ffplay</strong>.</p>
+<h3 id="parámetros-de-uso-del-ffmpeg">Parámetros de uso del ffmpeg</h3>
+<p>El ffmpeg esta orientado fundamentalmente la grabación, transcodificación y conversión de videos. Permite entre otras cosas, convertir entre una amplia gama de formatos, pasando por la extracción de imágenes y sonido de nuestros videos o la conversión de imágenes indexadas a videos. Los principales parámetros de este programa son:</p>
+<ul>
+<li><strong>-i</strong> dispositivo de entrada tanto para vídeo como para audio.</li>
+<li><strong>-f</strong> formato de entrada de vídeo o de audio.</li>
+<li><strong>-r</strong> n consigue que se haga la grabación n fotogramas por segundo.</li>
+<li><strong>-b</strong> se usa para estipular la tasa de bits por segundo a usar en la salida ya sea de vídeo o sonido, ejemplo: -b 128k.</li>
+<li><strong>-sameq</strong> consigue que se haga la captura con la misma calidad que tenga la propia entrada. Haciendo que la tasa de bits por segundo de la salida sea la necesaria como para que no sea apreciable ninguna pérdida de calidad con respecto a la entrada. Si usas esta opción, no es necesario usar -b.</li>
+<li><strong>-async</strong> n para conseguir una buena sincronización del sonido de entrada y la imagen. De este modo, si grabamos nuestra voz mientras grabamos el vídeo veremos como nuestras palabras van en sincronía con el vídeo.</li>
+<li><strong>-s</strong> tamaño o resolución de la captura de pantalla, puede ser indicado de la forma 640x480 o bien su equivalente vga. El listado completo de resoluciones admisibles es el siguiente:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="ex">wsxga</span>: 1600×1024</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">wuxga</span>: 1920×1200</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">woxga</span>: 2560×1600</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">wqsxga</span>: 3200×2048</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">wquxga</span>: 3840×2400</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">whsxga</span>: 6400×4096</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">whuxga</span>: 7680×4800</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">cga</span>: 320×200</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">ega</span>: 640×350</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">hd480</span>: 852×480</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">hd720</span>: 1280×720</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">hd1080</span>: 1920×1080</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="ex">16cif</span>: 1408×1152</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">qqvga</span>: 160×120</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">qvga</span>: 320×240</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">vga</span>: 640×480</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">svga</span>: 800×600</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">xga</span>: 1024×768</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">uxga</span>: 1600×1200</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">qxga</span>: 2048×1536</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">sxga</span>: 1280×1024</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="ex">qsxga</span>: 2560×2048</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="ex">hsxga</span>: 5120×4096</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="ex">wvga</span>: 852×480</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="ex">wxga</span>: 1366×768</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="ex">sqcif</span>: 128×96</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="ex">qcif</span>: 176×144</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="ex">cif</span>: 352×288</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="ex">4cif</span>: 704×576</span></code></pre></div>
+<h2 id="ejemplos-de-uso-de-ffmepg.">Ejemplos de uso de ffmepg.</h2>
+<p>A continuación podemos ver algunos ejemplos del uso de estas herramientas:</p>
+<h3 id="grabación-de-la-entrada-de-video-de-la-webcam">Grabación de la entrada de video de la WebCam</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f video4linux2 -s 320x240 -i /dev/video0 -sameq ./out.mpg</span></code></pre></div>
+<h3 id="dos-formas-de-grabación-de-sonido-usando-oss-o-alsa">Dos formas de grabación de sonido, usando OSS o ALSA</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f oss -i /dev/dsp salida.mpg</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f alsa -i plughw:1,0 salida.mpg</span></code></pre></div>
+<h3 id="conversión-de-formatos-de-audio-por-ejemplo-de-wav-a-ogg">Conversión de formatos de audio, por ejemplo de wav a ogg</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i my_audio.wav my_audio.ogg</span></code></pre></div>
+<h3 id="conversión-de-formatos-de-video">Conversión de formatos de video</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i my_video.flv my_video.mpeg</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i my_video.mpeg -s 500×500 my_video.flv</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i input_file_name.mp4 -vcodec flv -ar 22050 output_file_name.flv</span></code></pre></div>
+<p>Cuando convertimos videos a formatos comprimido es posible que se reduzca la calidad de la imagen, para evitar esto podemos usar el parámetro <strong>-qscale 0</strong> donde el cero indica que se debe mantener la calidad en la medida de lo posible:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i my_video.avi -qscale 0 my_video.mp4</span></code></pre></div>
+<h3 id="conversión-de-video-a-imágenes-este-ejemplo-creará-25-imágenes-por-segundo">Conversión de video a imágenes, este ejemplo creará 25 imágenes por segundo</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i test.mpg -r 25 image%d.jpg</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i test.mpg -r 25 -ss 00:00:10 -t 00:00:05 images%05d.png</span></code></pre></div>
+<h3 id="conversión-de-imágenes-a-video">Conversión de imágenes a video</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f image2 -i img%d.jpg /tmp/a.mpg</span></code></pre></div>
+<h3 id="dos-formas-de-grabación-de-la-entrada-de-video-y-audio-por-la-webcam-y-el-micrófono">Dos formas de grabación de la entrada de video y audio por la WebCam y el micrófono</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f video4linux2 -s 320x240 -i /dev/video0 -f audio_device -ac 2 -i /dev/dsp1 -f mp4 Filename.mp4</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f oss -i /dev/dsp -f video4linux2 -s 320x240 -i /dev/video0 out.mpg</span></code></pre></div>
+<h3 id="convertir-video-a-imágenes-animadas-gif">Convertir video a imágenes animadas GIF</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -ss 7.0 -t 5.5 -i video.mp4 -f gif image.gif</span></code></pre></div>
+<p>Entonces, con estos dos argumentos, FFmpeg buscará segundo <code>7.0</code> y leerá en los próximos <code>5.5</code> segundos para la creación del GIF.</p>
+<h3 id="convertir-gif-a-video">Convertir GIF a video</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i image.gif -f mp4 -pix_fmt yuv420p video.mp4</span></code></pre></div>
+<p>Entonces, con estos dos argumentos, FFmpeg buscará segundo <code>7.0</code> y leerá en los próximos <code>5.5</code> segundos para la creación del GIF.</p>
+<h3 id="unir-audio-y-video">Unir audio y video</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i audio.mp3 -i video.mpg -sameq video.mkv</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i audio.mp3 -i video.mpg -sameq video_result.mpg</span></code></pre></div>
+<h3 id="concatenar-videos">Concatenar videos</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f concat -i file video1.mpg file video2.mpg -c copy video.mpg </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i <span class="st">&quot;concat:video1.mpg|video2.mpg&quot;</span> -c copy video.mpg</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i <span class="st">&quot;concat:</span><span class="va">$1</span><span class="st">|</span><span class="va">$2</span><span class="st">&quot;</span> -c copy <span class="va">$3</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f concat -safe 0 -i video.txt video.mp4</span></code></pre></div>
+<h3 id="concatenar-varios-videos-haciendo-recodificación">Concatenar varios videos haciendo recodificación</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video1.mp4 -i video2.mp4 -i video3.mp4 <span class="kw">\</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-filter_complex</span> <span class="st">&#39;[0:v:0] [0:a:0] [1:v:0] [1:a:0] [2:v:0] [2:a:0] concat=n=3:v=1:a=1 [v] [a]&#39;</span> <span class="kw">\</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-map</span> <span class="st">&#39;[v]&#39;</span> -map <span class="st">&#39;[a]&#39;</span> output2.mkv</span></code></pre></div>
+<h3 id="cambiar-resolución-de-video">Cambiar resolución de video</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mp4 -vf scale=1280:766 video_1280x766.mp4 -hide_banner -qscale 0</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -y -i video.mp4 -vf scale=1440:900,setsar=1:1 -c copy video2.mp4 -hide_banner</span></code></pre></div>
+<h3 id="cortar-un-video">Cortar un video</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mpg -ss 00:00:02.000 -to 00:00:42.068 -c copy -copyts video_corto.mpg</span></code></pre></div>
+<h3 id="trabajar-por-lotes">Trabajar por lotes</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversión de formato por lotes</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="ex">FILE</span> in *.<span class="dt">{AVI,mpg}</span> <span class="kw">;</span> <span class="kw">do</span> <span class="dt">\\</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">NAME=</span><span class="kw">`</span><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$FILE</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">cut</span> -d<span class="st">&#39;.&#39;</span> -f1<span class="kw">`</span>; <span class="dt">\\</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ffmpeg</span> -i <span class="va">$FILE</span> -qscale 0 <span class="va">$NAME</span>.mkv<span class="kw">;</span> <span class="dt">\\</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">done</span></span></code></pre></div>
+<h3 id="redimensionar-video-agregando-un-marco-negro">Redimensionar video agregando un marco negro</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-vf</span> <span class="st">&quot;scale=640:-1&quot;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-vf</span> <span class="st">&quot;scale=640x360,pad=640:480:0:60:black&quot;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i input.jpg -vf scale=w=320:h=240:force_original_aspect_ratio=decrease output_320.png</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -y -i video.mp4 -aspect 16:9 scale=640x360,pad=640:480:0:60:black video_2.mp4</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mp4 -vf scale=640:480,pad=1024:600:192:60:black -qscale 0 video_2.mp4</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/ffmpeg/ffmpeg</span> -i CIMG1169_.mp4  -vf scale=800:600,pad=1024:600:112:0:black  CIMG1169_2.mp4</span></code></pre></div>
+<h2 id="grabación-de-la-pantalla-del-escritorio-linux-con-sincronización-del-audio-y-el-video-screencast">Grabación de la pantalla del escritorio Linux con sincronización del audio y el video (ScreenCast):</h2>
+<p>Un ScreenCast es al vídeo lo que un SnapShot (pantallazo o captura de pantalla) a la fotografía. Hay algunos programas que realizan capturas de vídeo de lo que se muestra en nuestra pantalla, unos con mejores resultados que otros y también con mayor o menor dificultad de uso. Ejemplo de ello son Istanbul y RecordMyDesktop, dos soluciones que podrían funcionar muy bien. Sin embargo, no nos permiten grabar sonido de un micrófono mientras graba la pantalla, para por ejemplo dar un videotutorial, cosa que si podemos hacer con FFmpeg. A continuación muestro un ejemplo de como hacer esto, grabando un video de nuestra pantalla a 25 imágenes por segundo. El video se captura desde la esquina superior izquierda de la pantalla, y en este caso, hasta la coordenada 800x600:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -b 128k ./out.mpg</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -sameq ./out.mpg</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -qscale 0 ./out.mpg</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="dt">\ </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-async</span> 1 <span class="kw">\</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-f</span> oss <span class="kw">\</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-i</span> /dev/dsp1 <span class="kw">\</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-f</span> x11grab <span class="kw">\</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-s</span> 1024x600 <span class="kw">\</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-framerate</span> 20 <span class="kw">\</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-i</span> :0.0 <span class="kw">\</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-sameq</span> <span class="kw">\</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">/root/video.mpg</span></span></code></pre></div>
+<h3 id="automatización-de-la-producción-de-screencast">Automatización de la producción de ScreenCast:</h3>
+<p>Para la automatización de nuestros Screecast haremos uso de 2 herramientas (ffmpeg para realizar la captura de la pantalla y xwininfo para obtener las coordenadas y dimensiones de la ventana a grabar). Podemos realizar screencasts utilizando recursos mínimos y obteniendo óptimos resultados.</p>
+<h3 id="el-script-para-iniciar-el-screencast">El script para iniciar el screencast</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>\#!<span class="ex">/bin/bash</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">Obtener</span> las coordenadas y el tamaño de la ventana seleccionada</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">Esto</span> excluye la decoración de la ventana.</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a> <span class="bu">unset</span> <span class="va">x</span> <span class="va">y</span> <span class="va">w</span> <span class="va">h</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a> <span class="bu">eval</span> <span class="va">$(</span><span class="ex">xwininfo</span> -frame <span class="kw">|</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sed</span> -n -e <span class="st">&quot;s/^ +Absolute upper-left X: +([0-9]+).*/x=1/p&quot;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Absolute upper-left Y: +([0-9]+).*/y=1/p&quot;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Width: +([0-9]+).*/w=1/p&quot;</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Height: +([0-9]+).*/h=1/p&quot;</span> <span class="va">)</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="va">$w</span>=<span class="va">$w</span> <span class="ex">+</span> <span class="va">$w</span> % 2 # que el ancho sea múltiplo de 2, sino ffmpeg se queja</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="va">WIN_XY=$x</span><span class="st">&quot;,&quot;</span><span class="va">$y</span> # <span class="ex">dar</span> formato a las coordenadas XY</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="va">WIN_GEO=$w</span><span class="st">&quot;x&quot;</span><span class="va">$h</span> # <span class="ex">dar</span> formato al tamaño de la ventana</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">notify-send</span> mostrará un mensaje indicando el inicio del screencast.</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">correr</span> ffmpeg con los parámetros que se ajusten a tu configuración.</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="ex">notify-send</span> <span class="st">&quot;Iniciando screencast...&quot;</span> <span class="kw">&amp;&amp;</span> <span class="ex">ffmpeg</span> -f alsa -i hw:0 -f x11grab -r 25 -s <span class="va">$WIN_GEO</span> -i :0.0+<span class="va">$WIN_XY</span> -acodec libmp3lame -async 1 -vcodec libx264 -preset ultrafast -crf 0 -threads 0 guardar.mp4</span></code></pre></div>
+<p>No hace falta entender completamente este scripts más allá de que genera una archivo de salida llamado <strong>guardar.mp4</strong>. Para obtener resultado, sin embargo, es necesario poder hacer ciertos cambios como:.</p>
+<ol type="1">
+<li><p>Si usás OSS, reemplazaremos -f alsa -i hw:0 por -f oss -i /dev/dsp</p></li>
+<li><p>Si usamos solo ALSA, tenés que usar los parámetros que vienen en el script (-f alsa -i hw:0). Para determinar el número que va después de hw: podemos ejecutar aplay -l y elegir el número de la tarjeta de sonido adecuada.</p></li>
+<li><p>Si usás Pulse Audio (Ubuntu y derivados usan esto), usá los parámetros -f alsa -ac 1 -i pulse.</p></li>
+<li><p>Para varias las cantidad de frames por segundo (FPS): -r 25 indica los fps a los que deseemos grabar. 25 es una buena opción.</p></li>
+<li><p>Con respecto al los Códec de audio, video y sincronización</p></li>
+<li><ol type="1">
+<li><strong>-acodec libmp3lame</strong> es el códec de audio. Lo elegí grabar en mp3. Podemos utilizar cualquier otro.</li>
+<li><strong>-async</strong> 1 permite la sincronización del audio con el video.</li>
+<li><strong>-vcodec libx264 -preset ultrafast -crf 0 -threads 0</strong>, le indica a ffmpeg que el códec de video a utilizar sea x264 y que el preset sea ultrafast (hay fast, slow, etc), de lo contrario no llega a grabar correctamente a la cantidad de fps deseados. El parámetro -crf 0 indica el nivel de compresión (cuanto más bajo, menor la compresión). Por último, threads 0 indica la cantidad de hilos a utilizar, al pasar 0 ffmpeg lo calcula automáticamente. Al igual que con la configuración de audio, podemos elegir otras opciones.</li>
+</ol></li>
+</ol>
+<p>Todas estas configuraciones fueron las que dieron mejores resultados: un archivo relativamente pequeño, una buena calidad de video, con audio sincronizado y sin lags. No obstante, te recomiendo sumergirte en la documentación de ffmpeg para descubrir otras.</p>
+<h3 id="el-script-para-finalizar-el-screencast">El script para finalizar el screencast</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">notify-send</span> <span class="st">&quot;Finalizando screencast...&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">killall</span> ffmpeg</span></code></pre></div>
+<p>Para que ambos scripts funcionen debemos tener instalado notify-send. La mayoría de las distribuciones deberían venir con esta herramienta instalada. En Arch y derivados: sudo pacman -S libnotify.</p>
+<h2 id="el-efecto-choma-key">El efecto Choma-key</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/ffmpeg/ffmpeg</span> <span class="kw">\</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-i</span> image_fondo.jpg <span class="kw">\</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-i</span> video.AVI <span class="kw">\</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-filter_complex</span> <span class="kw">\</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;[1:v]chromakey=0x004682:0.15:0.0[keyed]; \</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="st">      [0:v][keyed]overlay[out]&quot;</span> <span class="kw">\</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-map</span> <span class="st">&quot;[out]&quot;</span> <span class="kw">\</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-vcodec</span> libx264 <span class="kw">\</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-crf</span> 18 <span class="kw">\</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-preset</span> slower <span class="kw">\</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>   <span class="ex">video_result.avi</span> </span></code></pre></div>
+<h2 id="ejemplos-de-uso-ffplay.">Ejemplos de uso ffplay.</h2>
+<p>Por otra parte ffplay fue creado como un reproductor de video. El uso de ffplay es muy simple, aquí podemos ver unos ejemplos:</p>
+<h3 id="despliegue-de-la-entrada-de-video-de-la-webcam">Despliegue de la entrada de video de la WebCam:</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffplay</span> -f video4linux2 -i /dev/video0 <span class="op">&gt;</span>/dev/null <span class="kw">&amp;</span></span></code></pre></div>
+<h3 id="para-simplemente-reproducir-un-video">Para simplemente reproducir un video:</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffplay</span> out.mpg</span></code></pre></div>
+<h2 id="streaming-de-video-con-ffserver.">Streaming de video con ffserver.</h2>
+<p>El ffserver es una herramienta diseñada para servir el streaming de video, por ejemplo podemos usar la webcam en streaming para poder conectarnos desde cualquier lugar con el smartphone. FFmpeg maneja una gran cantidad de formatos en los que se puede emitir, además de ser relativamente fácil de configurar. La emisión del streaming se basa en el uso de dos programas: ffserver y ffmpeg. El primero se ejecuta en modo escucha y se encarga de hacer el streaming real mientras que el segundo recoge la imagen de alguna fuente y la envía a al primero.</p>
+<p>Para empezar, es necesario crear un archivo de configuración: /etc/ffserver.conf, dejándolo como así:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Port</span> 8090</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">BindAddress</span> 0.0.0.0</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxHTTPConnections</span> 2000</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxClients</span> 1000</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxBandwidth</span> 1000</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ex">CustomLog</span> -</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Feed</span> webcam.ffm<span class="op">&gt;</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">File</span> /tmp/webcam.ffm</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">FileMaxSize</span> 35M</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Feed</span><span class="op">&gt;</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Stream</span> webcam.swf<span class="op">&gt;</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Feed</span> webcam.ffm</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Format</span> swf</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoBitRate</span> 320</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoFrameRate</span> 10</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoSize</span> 640x480</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">NoAudio</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoQMin</span> 1</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoQMax</span> 3</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Stream</span><span class="op">&gt;</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Stream</span> stat.html<span class="op">&gt;</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Format</span> status</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Stream</span><span class="op">&gt;</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Redirect</span> index.html<span class="op">&gt;</span></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>  <span class="ex">URL</span> http://www.ffmpeg.org/</span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Redirect</span><span class="op">&gt;</span></span></code></pre></div>
+<p>Una vez configurado, es necesario iniciar el servicio con el comando:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffserver</span> -f ffserver.conf</span></code></pre></div>
+<p>Ahora sólo quedaría enviar la imagen al servidor con el comando ffmpeg y se puede utilizar cualquier entrada para redireccionarla al servidor. Por ejemplo, en el caso de una webcam, una capturadora de TV o cualquier entrada de vídeo, el comando sería:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -r 15 -s 320x240 -f video4linux -i /dev/video0 http://localhost:8090/webcam.ffm</span></code></pre></div>
+<p>En algunos casos podemos encontrarnos con este error:</p>
+<p>[flv @ 0x97df6f0]rc buffer underflow VIDIOCMCAPTURE: Invalid argument</p>
+<p>Para solucionar el problema, debemos escribir antes del comando ffmpeg, lo siguiente :</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="va">LD_PRELOAD=</span>/usr/lib/libv4l/v4l1compat.so</span></code></pre></div>
+<p>Si todo va bien, podremos ver la imagen emitida con el navegador.</p>
+<h2 id="compilando-ffmpeg-desde-las-fuentes.">Compilando ffmpeg desde las fuentes.</h2>
+<p>El sistema FFmpeg viene incluido en casi todos los repositorios oficiales de las principales distribuciones de GNU/Linux, sin embargo no siempre están compilados con todas las funciones que deseamos (con el dispositivo de grabación x11_grab por ejemplo) o, en ocaciones excepcionales, querremos preparar una nueva versión para nuestro sistema operativo. De cualquier modo es importante tener una breve receta de como compilar el FFmpeg desde las fuentes. Lo primero será descargar las fuentes, para esto lo mejor será ir a la zona de descargas de su sitio oficial: www.ffmpeg.org. Para el momento de escribir este artículo, la última versión es <a href="http://www.ffmpeg.org/releases/ffmpeg-2.1.tar.gz" class="uri">http://www.ffmpeg.org/releases/ffmpeg-2.1.tar.gz</a> luego lo descomprimimos en algún directorio temporal, configuramos y compilamos así:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> zxvf ffmpeg-2.1.tar.gz</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ffmpeg-2.1.tar.gz</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./configure</span> --enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libxvid --enable-x11grab --enable-libvorbis --enable-libvpx --enable-shared --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libschroedinger --enable-libopenjpeg --enable-runtime-cpudetect</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> install</span></code></pre></div>
+<p>Es importante verificar antes de compilar que el resultado de la configuración de las fuentes, reconoció como uno más de los dispositivos de grabación incorporados el x11_grab_device dentro de los “Enabled indevs”, debería verse algo así:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enabled</span> indevs:</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="ex">alsa</span>          oss           v4l2</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="ex">dv1394</span>         v4l           x11_grab_device</span></code></pre></div>
+<p>En el caso de sistemas Debian o derivados, antes que nada deberemos actualizar nuestro archivo /etc/apt/sources.list agregando:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deb-src</span> http://www.deb-multimedia.org sid main</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> http://www.deb-multimedia.org wheezy main non-free</span></code></pre></div>
+<p>Salvamos y actualizamos los indices de los paquetes disponibles:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> update</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install deb-multimedia-keyring</span></code></pre></div>
+<p>Después de esto recomiendan borrar la linea deb “<a href="http://www.deb-multimedia.org" class="uri">http://www.deb-multimedia.org</a> wheezy main non-free” del archivo /etc/apt/sources.list Luego podremos descargar el paquete ya preparado denominado ffmpeg-dmo y luego se procede a compilar como de costumbre:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install libxfixes-dev</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> source ffmpeg-dmo</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ffmpeg-dmo-0.11</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./configure</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> <span class="kw">&amp;&amp;</span> <span class="fu">make</span> install</span></code></pre></div>
+<h2 id="fuentes.">Fuentes.</h2>
+<p>Este post fue realizado sobre la vase de varios artículos publicados y algunas de mis experiencias previas (espero no olvidar ninguna de las fuentes): <a href="http://www.juanluperez.com/index.php/2010/09/screencast-con-ffmpeg-y-grabacion-de-microfono/" class="uri">http://www.juanluperez.com/index.php/2010/09/screencast-con-ffmpeg-y-grabacion-de-microfono/</a> <a href="http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/" class="uri">http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/</a> <a href="http://dmnet.bitacoras.com/archivos/software/streaming-de-una-webcam-con-ffmpeg.php" class="uri">http://dmnet.bitacoras.com/archivos/software/streaming-de-una-webcam-con-ffmpeg.php</a> <a href="http://www.freetux.com.ar/como-grabar-screencast-por-terminal-usando-ffmpeg/" class="uri">http://www.freetux.com.ar/como-grabar-screencast-por-terminal-usando-ffmpeg/</a> <a href="http://sirlagz.net/2012/08/04/how-to-stream-a-webcam-from-the-raspberry-pi/" class="uri">http://sirlagz.net/2012/08/04/how-to-stream-a-webcam-from-the-raspberry-pi/</a> <a href="http://blog.giuseppeurso.net/raspberry-keychain-808-3-as-webcam/index.html" class="uri">http://blog.giuseppeurso.net/raspberry-keychain-808-3-as-webcam/index.html</a> <a href="http://www.raspberrypi-es.com/category/ffmpeg/" class="uri">http://www.raspberrypi-es.com/category/ffmpeg/</a> <a href="http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/" class="uri">http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/</a> <a href="https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/" class="uri">https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/</a> <a href="https://trac.ffmpeg.org/wiki/Concatenate" class="uri">https://trac.ffmpeg.org/wiki/Concatenate</a> <a href="https://ffmpeg.org/ffmpeg-filters.html#chromakey" class="uri">https://ffmpeg.org/ffmpeg-filters.html#chromakey</a> <a href="http://oioiiooixiii.blogspot.com/2016/02/ffmpeg-chromakey-filter-filthy-frank.html" class="uri">http://oioiiooixiii.blogspot.com/2016/02/ffmpeg-chromakey-filter-filthy-frank.html</a> <a href="http://johnvansickle.com/ffmpeg/" class="uri">http://johnvansickle.com/ffmpeg/</a></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

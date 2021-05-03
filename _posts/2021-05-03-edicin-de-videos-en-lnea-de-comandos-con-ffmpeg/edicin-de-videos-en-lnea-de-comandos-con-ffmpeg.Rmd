@@ -1,0 +1,501 @@
+---
+title: "Edición de videos en línea de comandos con FFmpeg"
+description: |
+  Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.
+author:
+  - name: José R Sosa
+    url: https://example.com/josersosa
+date: 11-10-2013
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - R
+  - Data Science
+  - Teaching
+  - Simulation
+  - Statistic
+preview: ../../images/video-chroma-demo.png
+#draft: true
+#preview: ../../lorenz_yelow10_peq.png
+---
+
+
+[FFmpeg](http://www.ffmpeg.org/) es un completo y muy avanzado conjunto de herramientas de software libre orientadas al procesamiento de video desde consola. Contempla aplicaciones para la grabación, reproducción, conversión, transcodificación y streaming de video. Además contiene un amplio conjunto de codecs y librerías de audio y video que lo convierten en una herramienta de desarrollo indispensable, así como tremendamente útil para la creación y manipulación de nuestros videos, la extracción o incorporación de audio, transferencia de video por red (streaming) e incluso la creación de ScreenCast para videotutoriales.
+
+![](..\..\images\CIMG0781_star_war.gif)
+
+
+
+## Componentes de FFmpeg
+
+ El proyecto [FFmpeg](http://www.ffmpeg.org/) viene con varios programas pero podríamos decir que los más importantes son **ffmpeg**, **ffserver** y **ffplay**.
+
+### Parámetros de uso del ffmpeg
+
+El ffmpeg esta orientado fundamentalmente la grabación, transcodificación y conversión de videos. Permite entre otras cosas, convertir entre una amplia gama de formatos, pasando por la extracción de imágenes y sonido de nuestros videos o la conversión de imágenes indexadas a videos. Los principales parámetros de este programa son:
+
+- **-i** dispositivo de entrada tanto para vídeo como para audio.
+- **-f** formato de entrada de vídeo o de audio.
+- **-r** n consigue que se haga la grabación n fotogramas por segundo.
+- **-b** se usa para estipular la tasa de bits por segundo a usar en la salida ya sea de vídeo o sonido, ejemplo: -b 128k.
+- **-sameq** consigue que se haga la captura con la misma calidad que tenga la propia entrada. Haciendo que la tasa de bits por segundo de la salida sea la necesaria como para que no sea apreciable ninguna pérdida de calidad con respecto a la entrada. Si usas esta opción, no es necesario usar -b.
+- **-async** n para conseguir una buena sincronización del sonido de entrada y la imagen. De este modo, si grabamos nuestra voz mientras grabamos el vídeo veremos como nuestras palabras van en sincronía con el vídeo.
+- **-s** tamaño o resolución de la captura de pantalla, puede ser indicado de la forma 640x480 o bien su equivalente vga. El listado completo de resoluciones admisibles es el siguiente:
+
+```bash
+  wsxga: 1600×1024
+  wuxga: 1920×1200
+  woxga: 2560×1600
+  wqsxga: 3200×2048
+  wquxga: 3840×2400
+  whsxga: 6400×4096
+  whuxga: 7680×4800
+  cga: 320×200
+  ega: 640×350
+  hd480: 852×480
+  hd720: 1280×720
+  hd1080: 1920×1080
+  16cif: 1408×1152
+  qqvga: 160×120
+  qvga: 320×240
+  vga: 640×480
+  svga: 800×600
+  xga: 1024×768
+  uxga: 1600×1200
+  qxga: 2048×1536
+  sxga: 1280×1024
+  qsxga: 2560×2048
+  hsxga: 5120×4096
+  wvga: 852×480
+  wxga: 1366×768
+  sqcif: 128×96
+  qcif: 176×144
+  cif: 352×288
+  4cif: 704×576
+```
+
+
+
+## Ejemplos de uso de ffmepg.
+
+ A continuación podemos ver algunos ejemplos del uso de estas herramientas: 
+
+
+
+### Grabación de la entrada de video de la WebCam
+
+```bash
+ffmpeg -f video4linux2 -s 320x240 -i /dev/video0 -sameq ./out.mpg
+```
+
+
+
+### Dos formas de grabación de sonido, usando OSS o ALSA
+
+```bash
+ffmpeg -f oss -i /dev/dsp salida.mpg
+ffmpeg -f alsa -i plughw:1,0 salida.mpg
+```
+
+
+
+### Conversión de formatos de audio, por ejemplo de wav a ogg
+
+```bash
+ffmpeg -i my_audio.wav my_audio.ogg
+```
+
+
+
+### Conversión de formatos de video
+
+```bash
+ffmpeg -i my_video.flv my_video.mpeg
+ffmpeg -i my_video.mpeg -s 500×500 my_video.flv
+ffmpeg -i input_file_name.mp4 -vcodec flv -ar 22050 output_file_name.flv
+```
+
+Cuando convertimos videos a formatos comprimido es posible que se reduzca la calidad de la imagen, para evitar esto podemos usar el parámetro **-qscale 0** donde el cero indica que se debe mantener la calidad en la medida de lo posible:
+
+```bash
+ffmpeg -i my_video.avi -qscale 0 my_video.mp4
+```
+
+
+
+### Conversión de video a imágenes, este ejemplo creará 25 imágenes por segundo
+
+```bash
+ffmpeg -i test.mpg -r 25 image%d.jpg
+ffmpeg -i test.mpg -r 25 -ss 00:00:10 -t 00:00:05 images%05d.png
+```
+
+
+
+### Conversión de imágenes a video
+
+```bash
+ffmpeg -f image2 -i img%d.jpg /tmp/a.mpg
+```
+
+
+
+### Dos formas de grabación de la entrada de video y audio por la WebCam y el micrófono
+
+```bash
+ffmpeg -f video4linux2 -s 320x240 -i /dev/video0 -f audio_device -ac 2 -i /dev/dsp1 -f mp4 Filename.mp4
+ffmpeg -f oss -i /dev/dsp -f video4linux2 -s 320x240 -i /dev/video0 out.mpg
+```
+
+
+
+### Convertir video a imágenes animadas GIF
+
+```bash
+ffmpeg -ss 7.0 -t 5.5 -i video.mp4 -f gif image.gif
+```
+
+Entonces, con estos dos argumentos, FFmpeg buscará segundo `7.0` y leerá en los próximos `5.5` segundos para la creación del GIF.
+
+
+
+### Convertir  GIF a video
+
+```bash
+ffmpeg -i image.gif -f mp4 -pix_fmt yuv420p video.mp4
+```
+
+Entonces, con estos dos argumentos, FFmpeg buscará segundo `7.0` y leerá en los próximos `5.5` segundos para la creación del GIF.
+
+### Unir audio y video
+
+```bash
+ffmpeg -i audio.mp3 -i video.mpg -sameq video.mkv
+ffmpeg -i audio.mp3 -i video.mpg -sameq video_result.mpg
+```
+
+
+
+### Concatenar videos
+
+```bash
+ffmpeg -f concat -i file video1.mpg file video2.mpg -c copy video.mpg 
+ffmpeg -i "concat:video1.mpg|video2.mpg" -c copy video.mpg
+ffmpeg -i "concat:$1|$2" -c copy $3
+ffmpeg -f concat -safe 0 -i video.txt video.mp4
+```
+
+
+
+### Concatenar varios videos haciendo recodificación
+
+```bash
+ffmpeg -i video1.mp4 -i video2.mp4 -i video3.mp4 \
+  -filter_complex '[0:v:0] [0:a:0] [1:v:0] [1:a:0] [2:v:0] [2:a:0] concat=n=3:v=1:a=1 [v] [a]' \
+  -map '[v]' -map '[a]' output2.mkv
+```
+
+
+
+### Cambiar resolución de video
+
+```bash
+ffmpeg -i video.mp4 -vf scale=1280:766 video_1280x766.mp4 -hide_banner -qscale 0
+ffmpeg -y -i video.mp4 -vf scale=1440:900,setsar=1:1 -c copy video2.mp4 -hide_banner
+```
+
+
+
+### Cortar un video
+
+```bash
+ffmpeg -i video.mpg -ss 00:00:02.000 -to 00:00:42.068 -c copy -copyts video_corto.mpg
+```
+
+
+
+### Trabajar por lotes
+
+```bash
+# Conversión de formato por lotes
+for FILE in *.{AVI,mpg} ; do \\
+	NAME=`echo "$FILE" | cut -d'.' -f1`; \\
+	ffmpeg -i $FILE -qscale 0 $NAME.mkv; \\
+	done
+```
+
+
+
+### Redimensionar video agregando un marco negro
+
+```bash
+-vf "scale=640:-1" 
+-vf "scale=640x360,pad=640:480:0:60:black"
+ffmpeg -i input.jpg -vf scale=w=320:h=240:force_original_aspect_ratio=decrease output_320.png
+ffmpeg -y -i video.mp4 -aspect 16:9 scale=640x360,pad=640:480:0:60:black video_2.mp4
+ffmpeg -i video.mp4 -vf scale=640:480,pad=1024:600:192:60:black -qscale 0 video_2.mp4
+/opt/ffmpeg/ffmpeg -i CIMG1169_.mp4  -vf scale=800:600,pad=1024:600:112:0:black  CIMG1169_2.mp4
+```
+
+
+
+
+
+## Grabación de la pantalla del escritorio Linux con sincronización del audio y el video (ScreenCast):
+
+ Un ScreenCast es al vídeo lo que un SnapShot (pantallazo o captura de pantalla) a la fotografía. Hay algunos programas que realizan capturas de vídeo de lo que se muestra en nuestra pantalla, unos con mejores resultados que otros y también con mayor o menor dificultad de uso. Ejemplo de ello son Istanbul y RecordMyDesktop, dos soluciones que podrían funcionar muy bien. Sin embargo, no nos permiten grabar sonido de un micrófono mientras graba la pantalla, para por ejemplo dar un videotutorial, cosa que si podemos hacer con FFmpeg. A continuación muestro un ejemplo de como hacer esto, grabando un video de nuestra pantalla a 25 imágenes por segundo. El video se captura desde la esquina superior izquierda de la pantalla, y en este caso, hasta la coordenada 800x600:
+
+```bash
+ffmpeg -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -b 128k ./out.mpg
+ffmpeg -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -sameq ./out.mpg
+ffmpeg -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -qscale 0 ./out.mpg
+ffmpeg \ 
+	-async 1 \
+	-f oss \
+	-i /dev/dsp1 \
+	-f x11grab \
+	-s 1024x600 \
+	-framerate 20 \
+	-i :0.0 \
+	-sameq \
+	/root/video.mpg
+```
+
+
+
+### Automatización de la producción de ScreenCast:
+
+Para la automatización de nuestros Screecast haremos uso de 2 herramientas (ffmpeg para realizar la captura de la pantalla y xwininfo para obtener las coordenadas y dimensiones de la ventana a grabar). Podemos realizar screencasts utilizando recursos mínimos y obteniendo óptimos resultados.
+
+
+
+### El script para iniciar el screencast
+
+```bash
+\#!/bin/bash
+
+\# Obtener las coordenadas y el tamaño de la ventana seleccionada
+\# Esto excluye la decoración de la ventana.
+ unset x y w h
+ eval $(xwininfo -frame |
+  sed -n -e "s/^ +Absolute upper-left X: +([0-9]+).*/x=1/p"
+      -e "s/^ +Absolute upper-left Y: +([0-9]+).*/y=1/p"
+      -e "s/^ +Width: +([0-9]+).*/w=1/p"
+      -e "s/^ +Height: +([0-9]+).*/h=1/p" )
+$w=$w + $w % 2 # que el ancho sea múltiplo de 2, sino ffmpeg se queja
+WIN_XY=$x","$y # dar formato a las coordenadas XY
+WIN_GEO=$w"x"$h # dar formato al tamaño de la ventana
+\# notify-send mostrará un mensaje indicando el inicio del screencast.
+\# correr ffmpeg con los parámetros que se ajusten a tu configuración.
+notify-send "Iniciando screencast..." && ffmpeg -f alsa -i hw:0 -f x11grab -r 25 -s $WIN_GEO -i :0.0+$WIN_XY -acodec libmp3lame -async 1 -vcodec libx264 -preset ultrafast -crf 0 -threads 0 guardar.mp4
+```
+
+No hace falta entender completamente este scripts más allá de que genera una archivo de salida llamado **guardar.mp4**. Para obtener resultado, sin embargo, es necesario poder hacer ciertos cambios como:.
+
+1. Si usás OSS, reemplazaremos -f alsa -i hw:0 por -f oss -i /dev/dsp
+
+2. Si usamos solo ALSA, tenés que usar los parámetros que vienen en el script (-f alsa -i hw:0). Para determinar el número que va después de hw: podemos ejecutar aplay -l y elegir el número de la tarjeta de sonido adecuada.
+
+3. Si usás Pulse Audio (Ubuntu y derivados usan esto), usá los parámetros -f alsa -ac 1 -i pulse.
+
+4. Para varias las cantidad de frames por segundo (FPS): -r 25 indica los fps a los que deseemos grabar. 25 es una buena opción.
+
+5. Con respecto al los Códec de audio, video y sincronización
+
+6. 1. **-acodec libmp3lame** es el códec de audio. Lo elegí grabar en mp3. Podemos utilizar cualquier otro.
+   2. **-async** 1 permite la sincronización del audio con el video.
+   3. **-vcodec libx264 -preset ultrafast -crf 0 -threads 0**, le indica a ffmpeg que el códec de video a utilizar sea x264 y que el preset sea ultrafast (hay fast, slow, etc), de lo contrario no llega a grabar correctamente a la cantidad de fps deseados. El parámetro -crf 0 indica el nivel de compresión (cuanto más bajo, menor la compresión). Por último, threads 0 indica la cantidad de hilos a utilizar, al pasar 0 ffmpeg lo calcula automáticamente. Al igual que con la configuración de audio, podemos elegir otras opciones.
+
+
+Todas estas configuraciones fueron las que dieron mejores resultados: un archivo relativamente pequeño, una buena calidad de video, con audio sincronizado y sin lags. No obstante, te recomiendo sumergirte en la documentación de ffmpeg para descubrir otras.
+
+
+
+### El script para finalizar el screencast
+
+```bash
+#!/bin/bash
+notify-send "Finalizando screencast..." && killall ffmpeg
+```
+
+Para que ambos scripts funcionen debemos tener instalado notify-send. La mayoría de las distribuciones deberían venir con esta herramienta instalada. En Arch y derivados: sudo pacman -S libnotify.
+
+
+
+## El efecto Choma-key
+
+```bash
+/opt/ffmpeg/ffmpeg \
+   -i image_fondo.jpg \
+   -i video.AVI \
+   -filter_complex \
+      "[1:v]chromakey=0x004682:0.15:0.0[keyed]; \
+      [0:v][keyed]overlay[out]" \
+   -map "[out]" \
+   -vcodec libx264 \
+   -crf 18 \
+   -preset slower \
+   video_result.avi 
+```
+
+
+
+## Ejemplos de uso ffplay.
+
+ Por otra parte ffplay fue creado como un reproductor de video. El uso de ffplay es muy simple, aquí podemos ver unos ejemplos:
+
+### Despliegue de la entrada de video de la WebCam:
+
+```bash
+ffplay -f video4linux2 -i /dev/video0 >/dev/null &
+```
+
+
+
+### Para simplemente reproducir un video:
+
+```bash
+ffplay out.mpg
+```
+
+
+
+## Streaming de video con ffserver.
+
+ El ffserver es una herramienta diseñada para servir el streaming de video, por ejemplo podemos usar la webcam en streaming para poder conectarnos desde cualquier lugar con el smartphone. FFmpeg maneja una gran cantidad de formatos en los que se puede emitir, además de ser relativamente fácil de configurar. La emisión del streaming se basa en el uso de dos programas: ffserver y ffmpeg. El primero se ejecuta en modo escucha y se encarga de hacer el streaming real mientras que el segundo recoge la imagen de alguna fuente y la envía a al primero.
+
+Para empezar, es necesario crear un archivo de configuración: /etc/ffserver.conf, dejándolo como así:
+
+```bash
+Port 8090
+BindAddress 0.0.0.0
+MaxHTTPConnections 2000
+MaxClients 1000
+MaxBandwidth 1000
+CustomLog -
+
+<Feed webcam.ffm>
+  File /tmp/webcam.ffm
+  FileMaxSize 35M
+</Feed>
+
+<Stream webcam.swf>
+  Feed webcam.ffm
+  Format swf
+  VideoBitRate 320
+  VideoFrameRate 10
+  VideoSize 640x480
+  NoAudio
+  VideoQMin 1
+  VideoQMax 3
+</Stream>
+
+<Stream stat.html>
+  Format status
+</Stream>
+
+<Redirect index.html>
+  URL http://www.ffmpeg.org/
+</Redirect>
+```
+
+Una vez configurado, es necesario iniciar el servicio con el comando:
+
+```bash
+ffserver -f ffserver.conf
+```
+
+Ahora sólo quedaría enviar la imagen al servidor con el comando ffmpeg y se puede utilizar cualquier entrada para redireccionarla al servidor. Por ejemplo, en el caso de una webcam, una capturadora de TV o cualquier entrada de vídeo, el comando sería:
+
+```bash
+ffmpeg -r 15 -s 320x240 -f video4linux -i /dev/video0 http://localhost:8090/webcam.ffm
+```
+
+En algunos casos podemos encontrarnos con este error:
+
+[flv @ 0x97df6f0]rc buffer underflow
+VIDIOCMCAPTURE: Invalid argument
+
+Para solucionar el problema, debemos escribir antes del comando ffmpeg, lo siguiente :
+
+```bash
+LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so
+```
+
+Si todo va bien, podremos ver la imagen emitida con el navegador.
+
+
+
+## Compilando ffmpeg desde las fuentes.
+
+ 
+
+El sistema FFmpeg viene incluido en casi todos los repositorios oficiales de las principales distribuciones de GNU/Linux, sin embargo no siempre están compilados con todas las funciones que deseamos (con el dispositivo de grabación x11_grab por ejemplo) o, en ocaciones excepcionales, querremos preparar una nueva versión para nuestro sistema operativo. De cualquier modo es importante tener una breve receta de como compilar el FFmpeg desde las fuentes.
+Lo primero será descargar las fuentes, para esto lo mejor será ir a la zona de descargas de su sitio oficial: www.ffmpeg.org.
+Para el momento de escribir este artículo, la última versión es http://www.ffmpeg.org/releases/ffmpeg-2.1.tar.gz luego lo descomprimimos en algún directorio temporal, configuramos y compilamos así:
+
+```bash
+tar zxvf ffmpeg-2.1.tar.gz
+cd ffmpeg-2.1.tar.gz
+./configure --enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libxvid --enable-x11grab --enable-libvorbis --enable-libvpx --enable-shared --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libschroedinger --enable-libopenjpeg --enable-runtime-cpudetect
+make
+make install
+```
+
+Es importante verificar antes de compilar que el resultado de la configuración de las fuentes, reconoció como uno más de los dispositivos de grabación incorporados el x11_grab_device dentro de los "Enabled indevs", debería verse algo así:
+
+```bash
+Enabled indevs:
+alsa          oss           v4l2
+dv1394         v4l           x11_grab_device
+```
+
+En el caso de sistemas Debian o derivados, antes que nada deberemos actualizar nuestro archivo /etc/apt/sources.list agregando:
+
+```bash
+deb-src http://www.deb-multimedia.org sid main
+deb http://www.deb-multimedia.org wheezy main non-free
+```
+
+Salvamos y actualizamos los indices de los paquetes disponibles:
+
+```bash
+apt-get update
+apt-get install deb-multimedia-keyring
+```
+
+Después de esto recomiendan borrar la linea deb "http://www.deb-multimedia.org wheezy main non-free" del archivo /etc/apt/sources.list
+Luego podremos descargar el paquete ya preparado denominado ffmpeg-dmo y luego se procede a compilar como de costumbre:
+
+```bash
+apt-get install libxfixes-dev
+apt-get source ffmpeg-dmo
+cd ffmpeg-dmo-0.11
+./configure
+make && make install
+```
+
+
+
+## Fuentes.
+
+ 
+
+Este post fue realizado sobre la vase de varios artículos publicados y algunas de mis experiencias previas (espero no olvidar ninguna de las fuentes):
+http://www.juanluperez.com/index.php/2010/09/screencast-con-ffmpeg-y-grabacion-de-microfono/
+http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/
+http://dmnet.bitacoras.com/archivos/software/streaming-de-una-webcam-con-ffmpeg.php
+http://www.freetux.com.ar/como-grabar-screencast-por-terminal-usando-ffmpeg/
+http://sirlagz.net/2012/08/04/how-to-stream-a-webcam-from-the-raspberry-pi/
+http://blog.giuseppeurso.net/raspberry-keychain-808-3-as-webcam/index.html
+http://www.raspberrypi-es.com/category/ffmpeg/
+http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/
+https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
+https://trac.ffmpeg.org/wiki/Concatenate
+https://ffmpeg.org/ffmpeg-filters.html#chromakey
+http://oioiiooixiii.blogspot.com/2016/02/ffmpeg-chromakey-filter-filthy-frank.html
+http://johnvansickle.com/ffmpeg/
