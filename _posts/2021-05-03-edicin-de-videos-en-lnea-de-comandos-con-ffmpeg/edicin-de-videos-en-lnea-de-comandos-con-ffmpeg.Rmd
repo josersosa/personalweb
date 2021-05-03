@@ -13,11 +13,7 @@ output:
     self_contained: false
 #    toc_float: false
 categories:
-  - R
-  - Data Science
-  - Teaching
-  - Simulation
-  - Statistic
+  - Linux Recipes
 preview: ../../images/video-chroma-demo.png
 #draft: true
 #preview: ../../lorenz_yelow10_peq.png

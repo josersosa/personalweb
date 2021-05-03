@@ -94,11 +94,7 @@
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg</link>
       <description>Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.</description>
-      <category>R</category>
-      <category>Data Science</category>
-      <category>Teaching</category>
-      <category>Simulation</category>
-      <category>Statistic</category>
+      <category>Linux Recipes</category>
       <guid>https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg</guid>
       <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/../../images/video-chroma-demo.png" medium="image" type="image/png" width="929" height="528"/>

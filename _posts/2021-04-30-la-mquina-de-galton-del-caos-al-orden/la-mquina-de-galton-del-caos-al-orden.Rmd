@@ -32,11 +32,17 @@ Sir [Francis Galton](http://es.wikipedia.org/wiki/Francis_Galton) (1822 - 1911) 
 
 ## La "Máquina de Galton"
 
-![Máquina de Galton](../../images/glaton_machine.png)
 
-Este experimento consiste de una distribución de clavos o alfileres en forma triangular, de manera que al soltar **x** número de bolitas desde la cúspide de la estructura, caen chocando con estos alfileres. Cada bolita chocará con el primer clavo teniendo una probabilidad de 1/2 de ir hacía la izquierda o hacía la derecha, y así sucesivamente con los otros alfileres de los siguientes niveles. A lo largo de esta estructura, las bolitas toman caminos aleatorios hasta caer en alguno de los canales o bandejas colocadas en la base. El siguiente es un [video de la máquina de Galton](http://www.youtube.com/embed/9xUBhhM4vbM) en acción:
+
+
+Este experimento consiste de una distribución de clavos o alfileres en forma triangular, de manera que al soltar un número de bolitas desde la cúspide de la estructura, caen chocando con estos alfileres. Cada bolita chocará con el primer clavo teniendo una probabilidad de 1/2 de ir hacía la izquierda o hacía la derecha, y así sucesivamente con los otros alfileres de los siguientes niveles. A lo largo de esta estructura, las bolitas toman caminos aleatorios hasta caer en alguno de los canales o bandejas colocadas en la base. El siguiente es un [video de la máquina de Galton](http://www.youtube.com/embed/9xUBhhM4vbM) en acción:
+
+<aside>
+<img src="../../images/glaton_machine.png" />
+</aside>
 
 <iframe src="http://www.youtube.com/embed/9xUBhhM4vbM?rel=0&amp;fs=1&amp;wmode=transparent" width="400" height="300" frameborder="0" allowfullscreen title="From Chaos to Order"></iframe>
+
 
 Al final, como se observa en el video, tendrán mayores probabilidades los canales interiores que los exteriores, formándose una distribución de probabilidades conocida como [Binomial](http://es.wikipedia.org/wiki/Distribución_binomial), que si el número de pelotas es suficientemente grande puede aproximarse por una distribución [Normal](http://es.wikipedia.org/wiki/Distribución_normal) o Gaussiana. Esta es justamente, la distribución que se encuentra dibujada sobre la máquina a modo de predicción de los resultados.
 
@@ -48,7 +54,7 @@ Si bien no podemos predecir los resultados exactos, como lo sugiere la *Maquina 
 
 ## ¿Por qué ocurre esto?
 
-Intuitivamente podemos ver que la trayectoria de cada bolita es una secuencia de "decisiones" entre ¿izquierda o derecha?, cuyas posibilidades se reducen a medida que nos acercamos a las bandejas de los extremos.  Tomemos por ejemplo la primera bandeja de la izquierda, para llegar a ella, una bolita tendría que tomar la misma decisión a lo largo de toda su trayectoria (izquierda, izquierda, izquierda,....), es decir, que hay una sola forma o camino para llegar a ella. Por otro lado las bandejas del centro tienen muchos m[as caminos para llegar a ellas. Podemos suponer que la cantidad de bolitas que terminaran en cada bandeja será proporcional a la cantidad de caminos posibles que hay hacia ella.
+Intuitivamente podemos ver que la trayectoria de cada bolita es una secuencia de "decisiones" entre ¿izquierda o derecha?, cuyas posibilidades se reducen a medida que nos acercamos a las bandejas de los extremos.  Tomemos por ejemplo la primera bandeja de la izquierda, para poder llegar a ella, una bolita tendría que tomar la misma decisión a lo largo de toda su trayectoria (izquierda, izquierda, izquierda,....) es decir que hay una sola forma o camino para llegar a esta bandeja. Por otro lado las bandejas del centro tienen muchos más caminos para llegar a ellas. Podemos suponer que la cantidad de bolitas que terminaran en cada bandeja, será proporcional a la cantidad de caminos posibles que hay para llegar a ellas.
 
 **Nota:** *Si no estas interesado en la matemática o simulación computacional, puedes leer hasta aquí.*
 
@@ -119,4 +125,4 @@ lines(x, y, col = "red") # dibujamos la curva de la normal en rojo
 ```
 
 Y obtenemos el mismo resultado que vimos en el video. Agregué a la gráfica la curva de la distribución normal para demostrarles como la aproximación a esta distribución se cumple a la perfección.
-Se puede ejecutar este cógigo en R varias veces para generar secuencias de trayectorias distintan y comprobar que simpre se cumple el mismo patrón.
+**Nota:** *Se puede ejecutar este cógigo en R varias veces para generar secuencias de trayectorias distintan y comprobar que simpre se cumple el mismo patrón.*

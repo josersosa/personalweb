@@ -128,7 +128,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Edición de videos en línea de comandos con FFmpeg"]},{"type":"character","attributes":{},"value":["Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://example.com/josersosa"]}]}]},{"type":"character","attributes":{},"value":["11-10-2013"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["R","Data Science","Teaching","Simulation","Statistic"]},{"type":"character","attributes":{},"value":["../../images/video-chroma-demo.png"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Edición de videos en línea de comandos con FFmpeg"]},{"type":"character","attributes":{},"value":["Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://example.com/josersosa"]}]}]},{"type":"character","attributes":{},"value":["11-10-2013"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["Linux Recipes"]},{"type":"character","attributes":{},"value":["../../images/video-chroma-demo.png"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2196,11 +2196,7 @@ Recursos
 <h1>Edición de videos en línea de comandos con FFmpeg</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-  <a href="../../index.html#category:R" class="dt-tag">R</a>
-  <a href="../../index.html#category:Data_Science" class="dt-tag">Data Science</a>
-  <a href="../../index.html#category:Teaching" class="dt-tag">Teaching</a>
-  <a href="../../index.html#category:Simulation" class="dt-tag">Simulation</a>
-  <a href="../../index.html#category:Statistic" class="dt-tag">Statistic</a>
+  <a href="../../index.html#category:Linux_Recipes" class="dt-tag">Linux Recipes</a>
 </div>
 <!--/radix_placeholder_categories-->
 <p><p>Hace algún tiempo utilicé <a href="http://www.ffmpeg.org/">FFmpeg</a> para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.</p></p>
@@ -2259,7 +2255,9 @@ Recursos
 </nav>
 </div>
 <p><a href="http://www.ffmpeg.org/">FFmpeg</a> es un completo y muy avanzado conjunto de herramientas de software libre orientadas al procesamiento de video desde consola. Contempla aplicaciones para la grabación, reproducción, conversión, transcodificación y streaming de video. Además contiene un amplio conjunto de codecs y librerías de audio y video que lo convierten en una herramienta de desarrollo indispensable, así como tremendamente útil para la creación y manipulación de nuestros videos, la extracción o incorporación de audio, transferencia de video por red (streaming) e incluso la creación de ScreenCast para videotutoriales.</p>
-<p><img src="../../images/CIMG0781_star_war.gif" /></p>
+<figure>
+<img src="../../images/CIMG0781_star_war.gif" alt="gif de ejemplo del efecto chomakey con ffmpeg" /><figcaption aria-hidden="true">gif de ejemplo del efecto chomakey con ffmpeg</figcaption>
+</figure>
 <h2 id="componentes-de-ffmpeg">Componentes de FFmpeg</h2>
 <p>El proyecto <a href="http://www.ffmpeg.org/">FFmpeg</a> viene con varios programas pero podríamos decir que los más importantes son <strong>ffmpeg</strong>, <strong>ffserver</strong> y <strong>ffplay</strong>.</p>
 <h3 id="parámetros-de-uso-del-ffmpeg">Parámetros de uso del ffmpeg</h3>
