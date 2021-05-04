@@ -156,7 +156,11 @@ ffmpeg -ss 7.0 -t 5.5 -i video.mp4 -f gif image.gif
 ```
 
 Entonces, con estos dos argumentos, FFmpeg buscará segundo `7.0` y leerá en los próximos `5.5` segundos para la creación del GIF.
+Otra forma de hacer esto para lograr un mejor resultado es combinar FFmpeg con [Imagemagick](https://imagemagick.org/index.php) en el siguiente pipeline:
 
+```bash
+ ffmpeg -i video.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+```
 
 
 ### Convertir  GIF a video
