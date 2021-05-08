@@ -113,5 +113,15 @@
       <pubDate>Sun, 04 Nov 2012 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden/../../images/simulacion-dalton.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
+    <item>
+      <title>Cómo verificar puertos y procesos en Linux</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux</link>
+      <description>Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando.</description>
+      <category>Linux Recipes</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux</guid>
+      <pubDate>Thu, 20 Sep 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
   </channel>
 </rss>

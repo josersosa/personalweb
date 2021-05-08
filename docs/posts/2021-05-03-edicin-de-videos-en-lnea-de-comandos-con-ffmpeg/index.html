@@ -2235,6 +2235,7 @@ Recursos
 <li><a href="#cortar-un-video">Cortar un video</a></li>
 <li><a href="#trabajar-por-lotes">Trabajar por lotes</a></li>
 <li><a href="#redimensionar-video-agregando-un-marco-negro">Redimensionar video agregando un marco negro</a></li>
+<li><a href="#rotar-videos">Rotar videos</a></li>
 </ul></li>
 <li><a href="#grabación-de-la-pantalla-del-escritorio-linux-con-sincronización-del-audio-y-el-video-screencast">Grabación de la pantalla del escritorio Linux con sincronización del audio y el video (ScreenCast):</a>
 <ul>
@@ -2325,74 +2326,84 @@ Recursos
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f oss -i /dev/dsp -f video4linux2 -s 320x240 -i /dev/video0 out.mpg</span></code></pre></div>
 <h3 id="convertir-video-a-imágenes-animadas-gif">Convertir video a imágenes animadas GIF</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -ss 7.0 -t 5.5 -i video.mp4 -f gif image.gif</span></code></pre></div>
-<p>Entonces, con estos dos argumentos, FFmpeg buscará segundo <code>7.0</code> y leerá en los próximos <code>5.5</code> segundos para la creación del GIF.</p>
+<p>Entonces, con estos dos argumentos, FFmpeg buscará segundo <code>7.0</code> y leerá en los próximos <code>5.5</code> segundos para la creación del GIF. Otra forma de hacer esto para lograr un mejor resultado es combinar FFmpeg con <a href="https://imagemagick.org/index.php">Imagemagick</a> en el siguiente pipeline:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mp4 -vf <span class="st">&quot;fps=10,scale=320:-1:flags=lanczos&quot;</span> -c:v pam -f image2pipe - <span class="kw">|</span> <span class="ex">convert</span> -delay 10 - -loop 0 -layers optimize output.gif</span></code></pre></div>
 <h3 id="convertir-gif-a-video">Convertir GIF a video</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i image.gif -f mp4 -pix_fmt yuv420p video.mp4</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i image.gif -f mp4 -pix_fmt yuv420p video.mp4</span></code></pre></div>
 <p>Entonces, con estos dos argumentos, FFmpeg buscará segundo <code>7.0</code> y leerá en los próximos <code>5.5</code> segundos para la creación del GIF.</p>
 <h3 id="unir-audio-y-video">Unir audio y video</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i audio.mp3 -i video.mpg -sameq video.mkv</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i audio.mp3 -i video.mpg -sameq video_result.mpg</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i audio.mp3 -i video.mpg -sameq video.mkv</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i audio.mp3 -i video.mpg -sameq video_result.mpg</span></code></pre></div>
 <h3 id="concatenar-videos">Concatenar videos</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f concat -i file video1.mpg file video2.mpg -c copy video.mpg </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i <span class="st">&quot;concat:video1.mpg|video2.mpg&quot;</span> -c copy video.mpg</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i <span class="st">&quot;concat:</span><span class="va">$1</span><span class="st">|</span><span class="va">$2</span><span class="st">&quot;</span> -c copy <span class="va">$3</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f concat -safe 0 -i video.txt video.mp4</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f concat -i file video1.mpg file video2.mpg -c copy video.mpg </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i <span class="st">&quot;concat:video1.mpg|video2.mpg&quot;</span> -c copy video.mpg</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i <span class="st">&quot;concat:</span><span class="va">$1</span><span class="st">|</span><span class="va">$2</span><span class="st">&quot;</span> -c copy <span class="va">$3</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -f concat -safe 0 -i video.txt video.mp4</span></code></pre></div>
 <h3 id="concatenar-varios-videos-haciendo-recodificación">Concatenar varios videos haciendo recodificación</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video1.mp4 -i video2.mp4 -i video3.mp4 <span class="kw">\</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-filter_complex</span> <span class="st">&#39;[0:v:0] [0:a:0] [1:v:0] [1:a:0] [2:v:0] [2:a:0] concat=n=3:v=1:a=1 [v] [a]&#39;</span> <span class="kw">\</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-map</span> <span class="st">&#39;[v]&#39;</span> -map <span class="st">&#39;[a]&#39;</span> output2.mkv</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video1.mp4 -i video2.mp4 -i video3.mp4 <span class="kw">\</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-filter_complex</span> <span class="st">&#39;[0:v:0] [0:a:0] [1:v:0] [1:a:0] [2:v:0] [2:a:0] concat=n=3:v=1:a=1 [v] [a]&#39;</span> <span class="kw">\</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-map</span> <span class="st">&#39;[v]&#39;</span> -map <span class="st">&#39;[a]&#39;</span> output2.mkv</span></code></pre></div>
 <h3 id="cambiar-resolución-de-video">Cambiar resolución de video</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mp4 -vf scale=1280:766 video_1280x766.mp4 -hide_banner -qscale 0</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -y -i video.mp4 -vf scale=1440:900,setsar=1:1 -c copy video2.mp4 -hide_banner</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mp4 -vf scale=1280:766 video_1280x766.mp4 -hide_banner -qscale 0</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -y -i video.mp4 -vf scale=1440:900,setsar=1:1 -c copy video2.mp4 -hide_banner</span></code></pre></div>
 <h3 id="cortar-un-video">Cortar un video</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mpg -ss 00:00:02.000 -to 00:00:42.068 -c copy -copyts video_corto.mpg</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mpg -ss 00:00:02.000 -to 00:00:42.068 -c copy -copyts video_corto.mpg</span></code></pre></div>
 <h3 id="trabajar-por-lotes">Trabajar por lotes</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversión de formato por lotes</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="ex">FILE</span> in *.<span class="dt">{AVI,mpg}</span> <span class="kw">;</span> <span class="kw">do</span> <span class="dt">\\</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">NAME=</span><span class="kw">`</span><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$FILE</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">cut</span> -d<span class="st">&#39;.&#39;</span> -f1<span class="kw">`</span>; <span class="dt">\\</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ffmpeg</span> -i <span class="va">$FILE</span> -qscale 0 <span class="va">$NAME</span>.mkv<span class="kw">;</span> <span class="dt">\\</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversión de formato por lotes</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="ex">FILE</span> in *.<span class="dt">{AVI,mpg}</span> <span class="kw">;</span> <span class="kw">do</span> <span class="dt">\\</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">NAME=</span><span class="kw">`</span><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$FILE</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">cut</span> -d<span class="st">&#39;.&#39;</span> -f1<span class="kw">`</span>; <span class="dt">\\</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ffmpeg</span> -i <span class="va">$FILE</span> -qscale 0 <span class="va">$NAME</span>.mkv<span class="kw">;</span> <span class="dt">\\</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">done</span></span></code></pre></div>
 <h3 id="redimensionar-video-agregando-un-marco-negro">Redimensionar video agregando un marco negro</h3>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-vf</span> <span class="st">&quot;scale=640:-1&quot;</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-vf</span> <span class="st">&quot;scale=640x360,pad=640:480:0:60:black&quot;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i input.jpg -vf scale=w=320:h=240:force_original_aspect_ratio=decrease output_320.png</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -y -i video.mp4 -aspect 16:9 scale=640x360,pad=640:480:0:60:black video_2.mp4</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mp4 -vf scale=640:480,pad=1024:600:192:60:black -qscale 0 video_2.mp4</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/ffmpeg/ffmpeg</span> -i CIMG1169_.mp4  -vf scale=800:600,pad=1024:600:112:0:black  CIMG1169_2.mp4</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-vf</span> <span class="st">&quot;scale=640:-1&quot;</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-vf</span> <span class="st">&quot;scale=640x360,pad=640:480:0:60:black&quot;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i input.jpg -vf scale=w=320:h=240:force_original_aspect_ratio=decrease output_320.png</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -y -i video.mp4 -aspect 16:9 scale=640x360,pad=640:480:0:60:black video_2.mp4</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i video.mp4 -vf scale=640:480,pad=1024:600:192:60:black -qscale 0 video_2.mp4</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/ffmpeg/ffmpeg</span> -i CIMG1169_.mp4  -vf scale=800:600,pad=1024:600:112:0:black  CIMG1169_2.mp4</span></code></pre></div>
+<h3 id="rotar-videos">Rotar videos</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -i original.avi -vf <span class="st">&quot;transpose=1&quot;</span> resultado.avi</span></code></pre></div>
+<p>El valor del parámetro <em>transpose</em> indica el tipo de transformación, siendo 1 una rotación de 90 grados en el sentido de las agujas del reloj. El valor 2 giraría 90 grados en sentido contrario.</p>
+<p>Para el parámetro de transposición puede pasar:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span> = 90CounterCLockwise and Vertical Flip (default)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> = 90Clockwise</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span> = 90CounterClockwise</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ex">3</span> = 90Clockwise and Vertical Flip</span></code></pre></div>
+<p>Úselo <code>-vf "transpose=2,transpose=2"</code>para 180 grados. Otras dos transformaciones interesantes en esta misma línea que podemos aplicar mediante el argumento <em>-vf</em> son <em>mirror</em> y <em>flip</em>. Si queremos girar el vídeo 180 grados podemos aplicarlas ambas de modo conjunto (<em>-vf mirror,flip</em>).</p>
 <h2 id="grabación-de-la-pantalla-del-escritorio-linux-con-sincronización-del-audio-y-el-video-screencast">Grabación de la pantalla del escritorio Linux con sincronización del audio y el video (ScreenCast):</h2>
 <p>Un ScreenCast es al vídeo lo que un SnapShot (pantallazo o captura de pantalla) a la fotografía. Hay algunos programas que realizan capturas de vídeo de lo que se muestra en nuestra pantalla, unos con mejores resultados que otros y también con mayor o menor dificultad de uso. Ejemplo de ello son Istanbul y RecordMyDesktop, dos soluciones que podrían funcionar muy bien. Sin embargo, no nos permiten grabar sonido de un micrófono mientras graba la pantalla, para por ejemplo dar un videotutorial, cosa que si podemos hacer con FFmpeg. A continuación muestro un ejemplo de como hacer esto, grabando un video de nuestra pantalla a 25 imágenes por segundo. El video se captura desde la esquina superior izquierda de la pantalla, y en este caso, hasta la coordenada 800x600:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -b 128k ./out.mpg</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -sameq ./out.mpg</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -qscale 0 ./out.mpg</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="dt">\ </span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-async</span> 1 <span class="kw">\</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-f</span> oss <span class="kw">\</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-i</span> /dev/dsp1 <span class="kw">\</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-f</span> x11grab <span class="kw">\</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-s</span> 1024x600 <span class="kw">\</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-framerate</span> 20 <span class="kw">\</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-i</span> :0.0 <span class="kw">\</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-sameq</span> <span class="kw">\</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">/root/video.mpg</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -b 128k ./out.mpg</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -sameq ./out.mpg</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -async 1 -f alsa -i plughw:1,0 -f x11grab -s 800x600 -r 25 -i :0.0 -qscale 0 ./out.mpg</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="dt">\ </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-async</span> 1 <span class="kw">\</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-f</span> oss <span class="kw">\</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-i</span> /dev/dsp1 <span class="kw">\</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-f</span> x11grab <span class="kw">\</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-s</span> 1024x600 <span class="kw">\</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-framerate</span> 20 <span class="kw">\</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-i</span> :0.0 <span class="kw">\</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-sameq</span> <span class="kw">\</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">/root/video.mpg</span></span></code></pre></div>
 <h3 id="automatización-de-la-producción-de-screencast">Automatización de la producción de ScreenCast:</h3>
 <p>Para la automatización de nuestros Screecast haremos uso de 2 herramientas (ffmpeg para realizar la captura de la pantalla y xwininfo para obtener las coordenadas y dimensiones de la ventana a grabar). Podemos realizar screencasts utilizando recursos mínimos y obteniendo óptimos resultados.</p>
 <h3 id="el-script-para-iniciar-el-screencast">El script para iniciar el screencast</h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>\#!<span class="ex">/bin/bash</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">Obtener</span> las coordenadas y el tamaño de la ventana seleccionada</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">Esto</span> excluye la decoración de la ventana.</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a> <span class="bu">unset</span> <span class="va">x</span> <span class="va">y</span> <span class="va">w</span> <span class="va">h</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a> <span class="bu">eval</span> <span class="va">$(</span><span class="ex">xwininfo</span> -frame <span class="kw">|</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sed</span> -n -e <span class="st">&quot;s/^ +Absolute upper-left X: +([0-9]+).*/x=1/p&quot;</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Absolute upper-left Y: +([0-9]+).*/y=1/p&quot;</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Width: +([0-9]+).*/w=1/p&quot;</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Height: +([0-9]+).*/h=1/p&quot;</span> <span class="va">)</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="va">$w</span>=<span class="va">$w</span> <span class="ex">+</span> <span class="va">$w</span> % 2 # que el ancho sea múltiplo de 2, sino ffmpeg se queja</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="va">WIN_XY=$x</span><span class="st">&quot;,&quot;</span><span class="va">$y</span> # <span class="ex">dar</span> formato a las coordenadas XY</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="va">WIN_GEO=$w</span><span class="st">&quot;x&quot;</span><span class="va">$h</span> # <span class="ex">dar</span> formato al tamaño de la ventana</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">notify-send</span> mostrará un mensaje indicando el inicio del screencast.</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">correr</span> ffmpeg con los parámetros que se ajusten a tu configuración.</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="ex">notify-send</span> <span class="st">&quot;Iniciando screencast...&quot;</span> <span class="kw">&amp;&amp;</span> <span class="ex">ffmpeg</span> -f alsa -i hw:0 -f x11grab -r 25 -s <span class="va">$WIN_GEO</span> -i :0.0+<span class="va">$WIN_XY</span> -acodec libmp3lame -async 1 -vcodec libx264 -preset ultrafast -crf 0 -threads 0 guardar.mp4</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>\#!<span class="ex">/bin/bash</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">Obtener</span> las coordenadas y el tamaño de la ventana seleccionada</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">Esto</span> excluye la decoración de la ventana.</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a> <span class="bu">unset</span> <span class="va">x</span> <span class="va">y</span> <span class="va">w</span> <span class="va">h</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a> <span class="bu">eval</span> <span class="va">$(</span><span class="ex">xwininfo</span> -frame <span class="kw">|</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sed</span> -n -e <span class="st">&quot;s/^ +Absolute upper-left X: +([0-9]+).*/x=1/p&quot;</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Absolute upper-left Y: +([0-9]+).*/y=1/p&quot;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Width: +([0-9]+).*/w=1/p&quot;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>      <span class="ex">-e</span> <span class="st">&quot;s/^ +Height: +([0-9]+).*/h=1/p&quot;</span> <span class="va">)</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="va">$w</span>=<span class="va">$w</span> <span class="ex">+</span> <span class="va">$w</span> % 2 # que el ancho sea múltiplo de 2, sino ffmpeg se queja</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="va">WIN_XY=$x</span><span class="st">&quot;,&quot;</span><span class="va">$y</span> # <span class="ex">dar</span> formato a las coordenadas XY</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="va">WIN_GEO=$w</span><span class="st">&quot;x&quot;</span><span class="va">$h</span> # <span class="ex">dar</span> formato al tamaño de la ventana</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">notify-send</span> mostrará un mensaje indicando el inicio del screencast.</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>\# <span class="ex">correr</span> ffmpeg con los parámetros que se ajusten a tu configuración.</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="ex">notify-send</span> <span class="st">&quot;Iniciando screencast...&quot;</span> <span class="kw">&amp;&amp;</span> <span class="ex">ffmpeg</span> -f alsa -i hw:0 -f x11grab -r 25 -s <span class="va">$WIN_GEO</span> -i :0.0+<span class="va">$WIN_XY</span> -acodec libmp3lame -async 1 -vcodec libx264 -preset ultrafast -crf 0 -threads 0 guardar.mp4</span></code></pre></div>
 <p>No hace falta entender completamente este scripts más allá de que genera una archivo de salida llamado <strong>guardar.mp4</strong>. Para obtener resultado, sin embargo, es necesario poder hacer ciertos cambios como:.</p>
 <ol type="1">
 <li><p>Si usás OSS, reemplazaremos -f alsa -i hw:0 por -f oss -i /dev/dsp</p></li>
@@ -2408,95 +2419,95 @@ Recursos
 </ol>
 <p>Todas estas configuraciones fueron las que dieron mejores resultados: un archivo relativamente pequeño, una buena calidad de video, con audio sincronizado y sin lags. No obstante, te recomiendo sumergirte en la documentación de ffmpeg para descubrir otras.</p>
 <h3 id="el-script-para-finalizar-el-screencast">El script para finalizar el screencast</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">notify-send</span> <span class="st">&quot;Finalizando screencast...&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">killall</span> ffmpeg</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="ex">notify-send</span> <span class="st">&quot;Finalizando screencast...&quot;</span> <span class="kw">&amp;&amp;</span> <span class="fu">killall</span> ffmpeg</span></code></pre></div>
 <p>Para que ambos scripts funcionen debemos tener instalado notify-send. La mayoría de las distribuciones deberían venir con esta herramienta instalada. En Arch y derivados: sudo pacman -S libnotify.</p>
 <h2 id="el-efecto-chroma-key">El efecto Chroma key</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/ffmpeg/ffmpeg</span> <span class="kw">\</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-i</span> image_fondo.jpg <span class="kw">\</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-i</span> video.AVI <span class="kw">\</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-filter_complex</span> <span class="kw">\</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;[1:v]chromakey=0x004682:0.15:0.0[keyed]; \</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="st">      [0:v][keyed]overlay[out]&quot;</span> <span class="kw">\</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-map</span> <span class="st">&quot;[out]&quot;</span> <span class="kw">\</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-vcodec</span> libx264 <span class="kw">\</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-crf</span> 18 <span class="kw">\</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-preset</span> slower <span class="kw">\</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>   <span class="ex">video_result.avi</span> </span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/opt/ffmpeg/ffmpeg</span> <span class="kw">\</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-i</span> image_fondo.jpg <span class="kw">\</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-i</span> video.AVI <span class="kw">\</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-filter_complex</span> <span class="kw">\</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;[1:v]chromakey=0x004682:0.15:0.0[keyed]; \</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="st">      [0:v][keyed]overlay[out]&quot;</span> <span class="kw">\</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-map</span> <span class="st">&quot;[out]&quot;</span> <span class="kw">\</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-vcodec</span> libx264 <span class="kw">\</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-crf</span> 18 <span class="kw">\</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>   <span class="ex">-preset</span> slower <span class="kw">\</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>   <span class="ex">video_result.avi</span> </span></code></pre></div>
 <h2 id="ejemplos-de-uso-ffplay.">Ejemplos de uso ffplay.</h2>
 <p>Por otra parte ffplay fue creado como un reproductor de video. El uso de ffplay es muy simple, aquí podemos ver unos ejemplos:</p>
 <h3 id="despliegue-de-la-entrada-de-video-de-la-webcam">Despliegue de la entrada de video de la WebCam:</h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffplay</span> -f video4linux2 -i /dev/video0 <span class="op">&gt;</span>/dev/null <span class="kw">&amp;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffplay</span> -f video4linux2 -i /dev/video0 <span class="op">&gt;</span>/dev/null <span class="kw">&amp;</span></span></code></pre></div>
 <h3 id="para-simplemente-reproducir-un-video">Para simplemente reproducir un video:</h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffplay</span> out.mpg</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffplay</span> out.mpg</span></code></pre></div>
 <h2 id="streaming-de-video-con-ffserver.">Streaming de video con ffserver.</h2>
 <p>El ffserver es una herramienta diseñada para servir el streaming de video, por ejemplo podemos usar la webcam en streaming para poder conectarnos desde cualquier lugar con el smartphone. FFmpeg maneja una gran cantidad de formatos en los que se puede emitir, además de ser relativamente fácil de configurar. La emisión del streaming se basa en el uso de dos programas: ffserver y ffmpeg. El primero se ejecuta en modo escucha y se encarga de hacer el streaming real mientras que el segundo recoge la imagen de alguna fuente y la envía a al primero.</p>
 <p>Para empezar, es necesario crear un archivo de configuración: /etc/ffserver.conf, dejándolo como así:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Port</span> 8090</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">BindAddress</span> 0.0.0.0</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxHTTPConnections</span> 2000</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxClients</span> 1000</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxBandwidth</span> 1000</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ex">CustomLog</span> -</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Feed</span> webcam.ffm<span class="op">&gt;</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">File</span> /tmp/webcam.ffm</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">FileMaxSize</span> 35M</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Feed</span><span class="op">&gt;</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Stream</span> webcam.swf<span class="op">&gt;</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Feed</span> webcam.ffm</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Format</span> swf</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoBitRate</span> 320</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoFrameRate</span> 10</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoSize</span> 640x480</span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">NoAudio</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoQMin</span> 1</span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoQMax</span> 3</span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Stream</span><span class="op">&gt;</span></span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Stream</span> stat.html<span class="op">&gt;</span></span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Format</span> status</span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Stream</span><span class="op">&gt;</span></span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Redirect</span> index.html<span class="op">&gt;</span></span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>  <span class="ex">URL</span> http://www.ffmpeg.org/</span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Redirect</span><span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Port</span> 8090</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">BindAddress</span> 0.0.0.0</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxHTTPConnections</span> 2000</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxClients</span> 1000</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="ex">MaxBandwidth</span> 1000</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="ex">CustomLog</span> -</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Feed</span> webcam.ffm<span class="op">&gt;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">File</span> /tmp/webcam.ffm</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">FileMaxSize</span> 35M</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Feed</span><span class="op">&gt;</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Stream</span> webcam.swf<span class="op">&gt;</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Feed</span> webcam.ffm</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Format</span> swf</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoBitRate</span> 320</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoFrameRate</span> 10</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoSize</span> 640x480</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>  <span class="ex">NoAudio</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoQMin</span> 1</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  <span class="ex">VideoQMax</span> 3</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Stream</span><span class="op">&gt;</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Stream</span> stat.html<span class="op">&gt;</span></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>  <span class="ex">Format</span> status</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Stream</span><span class="op">&gt;</span></span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">Redirect</span> index.html<span class="op">&gt;</span></span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>  <span class="ex">URL</span> http://www.ffmpeg.org/</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/<span class="ex">Redirect</span><span class="op">&gt;</span></span></code></pre></div>
 <p>Una vez configurado, es necesario iniciar el servicio con el comando:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffserver</span> -f ffserver.conf</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffserver</span> -f ffserver.conf</span></code></pre></div>
 <p>Ahora sólo quedaría enviar la imagen al servidor con el comando ffmpeg y se puede utilizar cualquier entrada para redireccionarla al servidor. Por ejemplo, en el caso de una webcam, una capturadora de TV o cualquier entrada de vídeo, el comando sería:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -r 15 -s 320x240 -f video4linux -i /dev/video0 http://localhost:8090/webcam.ffm</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> -r 15 -s 320x240 -f video4linux -i /dev/video0 http://localhost:8090/webcam.ffm</span></code></pre></div>
 <p>En algunos casos podemos encontrarnos con este error:</p>
 <p>[flv @ 0x97df6f0]rc buffer underflow VIDIOCMCAPTURE: Invalid argument</p>
 <p>Para solucionar el problema, debemos escribir antes del comando ffmpeg, lo siguiente :</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="va">LD_PRELOAD=</span>/usr/lib/libv4l/v4l1compat.so</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="va">LD_PRELOAD=</span>/usr/lib/libv4l/v4l1compat.so</span></code></pre></div>
 <p>Si todo va bien, podremos ver la imagen emitida con el navegador.</p>
 <h2 id="compilando-ffmpeg-desde-las-fuentes.">Compilando ffmpeg desde las fuentes.</h2>
 <p>El sistema FFmpeg viene incluido en casi todos los repositorios oficiales de las principales distribuciones de GNU/Linux, sin embargo no siempre están compilados con todas las funciones que deseamos (con el dispositivo de grabación x11_grab por ejemplo) o, en ocaciones excepcionales, querremos preparar una nueva versión para nuestro sistema operativo. De cualquier modo es importante tener una breve receta de como compilar el FFmpeg desde las fuentes. Lo primero será descargar las fuentes, para esto lo mejor será ir a la zona de descargas de su sitio oficial: www.ffmpeg.org. Para el momento de escribir este artículo, la última versión es <a href="http://www.ffmpeg.org/releases/ffmpeg-2.1.tar.gz" class="uri">http://www.ffmpeg.org/releases/ffmpeg-2.1.tar.gz</a> luego lo descomprimimos en algún directorio temporal, configuramos y compilamos así:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> zxvf ffmpeg-2.1.tar.gz</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ffmpeg-2.1.tar.gz</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./configure</span> --enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libxvid --enable-x11grab --enable-libvorbis --enable-libvpx --enable-shared --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libschroedinger --enable-libopenjpeg --enable-runtime-cpudetect</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> install</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> zxvf ffmpeg-2.1.tar.gz</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ffmpeg-2.1.tar.gz</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./configure</span> --enable-gpl --enable-version3 --enable-nonfree --enable-postproc --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libxvid --enable-x11grab --enable-libvorbis --enable-libvpx --enable-shared --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libschroedinger --enable-libopenjpeg --enable-runtime-cpudetect</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> install</span></code></pre></div>
 <p>Es importante verificar antes de compilar que el resultado de la configuración de las fuentes, reconoció como uno más de los dispositivos de grabación incorporados el x11_grab_device dentro de los “Enabled indevs”, debería verse algo así:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enabled</span> indevs:</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="ex">alsa</span>          oss           v4l2</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="ex">dv1394</span>         v4l           x11_grab_device</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Enabled</span> indevs:</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">alsa</span>          oss           v4l2</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="ex">dv1394</span>         v4l           x11_grab_device</span></code></pre></div>
 <p>En el caso de sistemas Debian o derivados, antes que nada deberemos actualizar nuestro archivo /etc/apt/sources.list agregando:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deb-src</span> http://www.deb-multimedia.org sid main</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> http://www.deb-multimedia.org wheezy main non-free</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deb-src</span> http://www.deb-multimedia.org sid main</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> http://www.deb-multimedia.org wheezy main non-free</span></code></pre></div>
 <p>Salvamos y actualizamos los indices de los paquetes disponibles:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> update</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install deb-multimedia-keyring</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> update</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install deb-multimedia-keyring</span></code></pre></div>
 <p>Después de esto recomiendan borrar la linea deb “<a href="http://www.deb-multimedia.org" class="uri">http://www.deb-multimedia.org</a> wheezy main non-free” del archivo /etc/apt/sources.list Luego podremos descargar el paquete ya preparado denominado ffmpeg-dmo y luego se procede a compilar como de costumbre:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install libxfixes-dev</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> source ffmpeg-dmo</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ffmpeg-dmo-0.11</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./configure</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> <span class="kw">&amp;&amp;</span> <span class="fu">make</span> install</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install libxfixes-dev</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> source ffmpeg-dmo</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ffmpeg-dmo-0.11</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./configure</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> <span class="kw">&amp;&amp;</span> <span class="fu">make</span> install</span></code></pre></div>
 <h2 id="fuentes.">Fuentes.</h2>
-<p>Este post fue realizado sobre la vase de varios artículos publicados y algunas de mis experiencias previas (espero no olvidar ninguna de las fuentes): <a href="http://www.juanluperez.com/index.php/2010/09/screencast-con-ffmpeg-y-grabacion-de-microfono/" class="uri">http://www.juanluperez.com/index.php/2010/09/screencast-con-ffmpeg-y-grabacion-de-microfono/</a> <a href="http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/" class="uri">http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/</a> <a href="http://dmnet.bitacoras.com/archivos/software/streaming-de-una-webcam-con-ffmpeg.php" class="uri">http://dmnet.bitacoras.com/archivos/software/streaming-de-una-webcam-con-ffmpeg.php</a> <a href="http://www.freetux.com.ar/como-grabar-screencast-por-terminal-usando-ffmpeg/" class="uri">http://www.freetux.com.ar/como-grabar-screencast-por-terminal-usando-ffmpeg/</a> <a href="http://sirlagz.net/2012/08/04/how-to-stream-a-webcam-from-the-raspberry-pi/" class="uri">http://sirlagz.net/2012/08/04/how-to-stream-a-webcam-from-the-raspberry-pi/</a> <a href="http://blog.giuseppeurso.net/raspberry-keychain-808-3-as-webcam/index.html" class="uri">http://blog.giuseppeurso.net/raspberry-keychain-808-3-as-webcam/index.html</a> <a href="http://www.raspberrypi-es.com/category/ffmpeg/" class="uri">http://www.raspberrypi-es.com/category/ffmpeg/</a> <a href="http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/" class="uri">http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/</a> <a href="https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/" class="uri">https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/</a> <a href="https://trac.ffmpeg.org/wiki/Concatenate" class="uri">https://trac.ffmpeg.org/wiki/Concatenate</a> <a href="https://ffmpeg.org/ffmpeg-filters.html#chromakey" class="uri">https://ffmpeg.org/ffmpeg-filters.html#chromakey</a> <a href="http://oioiiooixiii.blogspot.com/2016/02/ffmpeg-chromakey-filter-filthy-frank.html" class="uri">http://oioiiooixiii.blogspot.com/2016/02/ffmpeg-chromakey-filter-filthy-frank.html</a> <a href="http://johnvansickle.com/ffmpeg/" class="uri">http://johnvansickle.com/ffmpeg/</a></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Este post fue realizado sobre la vase de varios artículos publicados y algunas de mis experiencias previas (espero no olvidar ninguna de las fuentes): <a href="http://www.juanluperez.com/index.php/2010/09/screencast-con-ffmpeg-y-grabacion-de-microfono/" class="uri">http://www.juanluperez.com/index.php/2010/09/screencast-con-ffmpeg-y-grabacion-de-microfono/</a> <a href="http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/" class="uri">http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/</a> <a href="http://dmnet.bitacoras.com/archivos/software/streaming-de-una-webcam-con-ffmpeg.php" class="uri">http://dmnet.bitacoras.com/archivos/software/streaming-de-una-webcam-con-ffmpeg.php</a> <a href="http://www.freetux.com.ar/como-grabar-screencast-por-terminal-usando-ffmpeg/" class="uri">http://www.freetux.com.ar/como-grabar-screencast-por-terminal-usando-ffmpeg/</a> <a href="http://sirlagz.net/2012/08/04/how-to-stream-a-webcam-from-the-raspberry-pi/" class="uri">http://sirlagz.net/2012/08/04/how-to-stream-a-webcam-from-the-raspberry-pi/</a> <a href="http://blog.giuseppeurso.net/raspberry-keychain-808-3-as-webcam/index.html" class="uri">http://blog.giuseppeurso.net/raspberry-keychain-808-3-as-webcam/index.html</a> <a href="http://www.raspberrypi-es.com/category/ffmpeg/" class="uri">http://www.raspberrypi-es.com/category/ffmpeg/</a> <a href="http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/" class="uri">http://soledadpenades.com/2010/04/26/unknown-input-or-output-format-x11grab-ubuntu/</a> <a href="https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/" class="uri">https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/</a> <a href="https://trac.ffmpeg.org/wiki/Concatenate" class="uri">https://trac.ffmpeg.org/wiki/Concatenate</a> <a href="https://ffmpeg.org/ffmpeg-filters.html#chromakey" class="uri">https://ffmpeg.org/ffmpeg-filters.html#chromakey</a> <a href="http://oioiiooixiii.blogspot.com/2016/02/ffmpeg-chromakey-filter-filthy-frank.html" class="uri">http://oioiiooixiii.blogspot.com/2016/02/ffmpeg-chromakey-filter-filthy-frank.html</a> <a href="http://johnvansickle.com/ffmpeg/" class="uri">http://johnvansickle.com/ffmpeg/</a> <a href="https://blog.unlugarenelmundo.es/2012/12/26/chuletillas-y-xxxvi-rotar-videos-con-mencoder/" class="uri">https://blog.unlugarenelmundo.es/2012/12/26/chuletillas-y-xxxvi-rotar-videos-con-mencoder/</a></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

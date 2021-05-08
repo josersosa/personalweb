@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
-  <link rel="alternate" type="application/rss+xml" href="https://josersosa.github.io/personalweb/index.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -86,378 +85,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Blog de José R Sosa</title>
+  <title>Cómo verificar puertos y procesos en Linux</title>
+
+  <meta property="description" itemprop="description" content="Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando."/>
 
 
-
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2012-09-20"/>
+  <meta property="article:created" itemprop="dateCreated" content="2012-09-20"/>
+  <meta name="article:author" content="José R Sosa"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Blog de José R Sosa"/>
+  <meta property="og:title" content="Cómo verificar puertos y procesos en Linux"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Blog de José R Sosa"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Blog de José R Sosa"/>
-  <meta property="twitter:site" content="@JoseRSosaB"/>
-  <meta property="twitter:creator" content="@JoseRSosaB"/>
+  <meta property="twitter:title" content="Cómo verificar puertos y procesos en Linux"/>
+  <meta property="twitter:description" content="Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["Blog de José R Sosa"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview"]}},"value":[{"type":"character","attributes":{},"value":["Cómo verificar puertos y procesos en Linux"]},{"type":"character","attributes":{},"value":["Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://example.com/josersosa"]}]}]},{"type":"character","attributes":{},"value":["09-20-2012"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["Linux Recipes"]},{"type":"character","attributes":{},"value":["../../images/edex-ui.png"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
-  <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["como-verificar-puertos-y-procesos-en-linux_files/anchor-4.2.2/anchor.min.js","como-verificar-puertos-y-procesos-en-linux_files/bowser-1.9.3/bowser.min.js","como-verificar-puertos-y-procesos-en-linux_files/distill-2.2.21/template.v2.js","como-verificar-puertos-y-procesos-en-linux_files/header-attrs-2.6/header-attrs.js","como-verificar-puertos-y-procesos-en-linux_files/jquery-1.11.3/jquery.min.js","como-verificar-puertos-y-procesos-en-linux_files/popper-2.6.0/popper.min.js","como-verificar-puertos-y-procesos-en-linux_files/tippy-6.2.7/tippy-bundle.umd.min.js","como-verificar-puertos-y-procesos-en-linux_files/tippy-6.2.7/tippy-light-border.css","como-verificar-puertos-y-procesos-en-linux_files/tippy-6.2.7/tippy.css","como-verificar-puertos-y-procesos-en-linux_files/tippy-6.2.7/tippy.umd.min.js","como-verificar-puertos-y-procesos-en-linux_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-
-  </style>
-
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -1772,827 +1432,175 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </script>
 
-  <style type="text/css">
-  /* base variables */
-
-  /* Edit the CSS properties in this file to create a custom
-     Distill theme. Only edit values in the right column
-     for each row; values shown are the CSS defaults.
-     To return any property to the default,
-     you may set its value to: unset
-     All rows must end with a semi-colon.                      */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-
-
-
-  html {
-    /*-- Main font sizes --*/
-    --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
-    /*-- Main font colors --*/
-    --title-color:     #000000;
-    --header-color:    rgba(0, 0, 0, 0.8);
-    --body-color:      rgba(0, 0, 0, 0.8);
-    --aside-color:     rgba(0, 0, 0, 0.6);
-    --fig-cap-color:   rgba(0, 0, 0, 0.6);
-    /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    sans-serif;
-    --mono-font:       monospace;
-    --body-font:       sans-serif;
-    --navbar-font:     sans-serif;  /* websites + blogs only */
-  }
-
-  /*-- ARTICLE METADATA --*/
-  d-byline {
-    --heading-size:    0.6rem;
-    --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
-    --body-color:      rgba(0, 0, 0, 0.8);
-  }
-
-  /*-- ARTICLE TABLE OF CONTENTS --*/
-  .d-contents {
-    --heading-size:    18px;
-    --contents-size:   13px;
-  }
-
-  /*-- ARTICLE APPENDIX --*/
-  d-appendix {
-    --heading-size:    15px;
-    --heading-color:   rgba(0, 0, 0, 0.65);
-    --text-size:       0.8em;
-    --text-color:      rgba(0, 0, 0, 0.5);
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  /* These properties only apply to Distill sites and blogs  */
-
-  .distill-site-header {
-    --title-size:       18px;
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  .distill-site-footer {
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
-  </style>
-  <style type="text/css">
-  /* base variables */
-
-  /* Edit the CSS properties in this file to create a custom
-     Distill theme. Only edit values in the right column
-     for each row; values shown are the CSS defaults.
-     To return any property to the default,
-     you may set its value to: unset
-     All rows must end with a semi-colon.                      */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-  @import url('https://fonts.googleapis.com/css2?family=Exo+2');
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans');
-
-  @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans');
-  @import url('https://fonts.googleapis.com/css2?family=Literata');
-
-  @import url('https://fonts.googleapis.com/css2?family=Belleza');
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro');
-
-  html {
-    /*-- Main font sizes --*/
-    --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
-    /*-- Main font colors --*/
-    --title-color:     #000000;
-    --header-color:    rgba(0, 0, 0, 0.8);
-    --body-color:      rgba(0, 0, 0, 0.8);
-    --aside-color:     rgba(0, 0, 0, 0.6);
-    --fig-cap-color:   rgba(0, 0, 0, 0.6);
-    /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:   "Alegreya Sans", "Belleza", "Exo 2", serif;
-    --mono-font:       monospace;
-    --body-font:      "Open Sans", "Source Sans Pro", "Literata", sans-serif;
-    --navbar-font:    "Alegreya Sans", "Belleza", "Exo 2", serif; /* websites + blogs only */
-  }
-
-  /*-- ARTICLE METADATA --*/
-  d-byline {
-    --heading-size:    0.6rem;
-    --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
-    --body-color:      rgba(0, 0, 0, 0.8);
-  }
-
-  /*-- ARTICLE TABLE OF CONTENTS --*/
-  .d-contents {
-    --heading-size:    18px;
-    --contents-size:   13px;
-  }
-
-  /*-- ARTICLE APPENDIX --*/
-  d-appendix {
-    --heading-size:    15px;
-    --heading-color:   rgba(0, 0, 0, 0.65);
-    --text-size:       0.8em;
-    --text-color:      rgba(0, 0, 0, 0.5);
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  /* These properties only apply to Distill sites and blogs  */
-
-  .distill-site-header {
-    --title-size:       18px;
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  .distill-site-footer {
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
-  </style>
-  <style type="text/css">
-  /* base style */
-
-  /* FONT FAMILIES */
-
-  :root {
-    --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-    --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-  }
-
-  body,
-  .posts-list .post-preview p,
-  .posts-list .description p {
-    font-family: var(--body-font), var(--body-default);
-  }
-
-  h1, h2, h3, h4, h5, h6,
-  .posts-list .post-preview h2,
-  .posts-list .description h2 {
-    font-family: var(--heading-font), var(--heading-default);
-  }
-
-  d-article div.sourceCode code,
-  d-article pre code {
-    font-family: var(--mono-font), var(--mono-default);
-  }
-
-
-  /*-- TITLE --*/
-  d-title h1,
-  .posts-list > h1 {
-    color: var(--title-color, black);
-  }
-
-  d-title h1 {
-    font-size: var(--title-size, 50px);
-  }
-
-  /*-- HEADERS --*/
-  d-article h1,
-  d-article h2,
-  d-article h3,
-  d-article h4,
-  d-article h5,
-  d-article h6 {
-    color: var(--header-color, rgba(0, 0, 0, 0.8));
-  }
-
-  /*-- BODY --*/
-  d-article > p,  /* only text inside of <p> tags */
-  d-article > ul, /* lists */
-  d-article > ol {
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-    font-size: var(--body-size, 1.06rem);
-  }
-
-
-  /*-- CODE --*/
-  d-article div.sourceCode code,
-  d-article pre code {
-    font-size: var(--code-size, 14px);
-  }
-
-  /*-- ASIDE --*/
-  d-article aside {
-    font-size: var(--aside-size, 12px);
-    color: var(--aside-color, rgba(0, 0, 0, 0.6));
-  }
-
-  /*-- FIGURE CAPTIONS --*/
-  figure .caption,
-  figure figcaption,
-  .figure .caption {
-    font-size: var(--fig-cap-size, 13px);
-    color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
-  }
-
-  /*-- METADATA --*/
-  d-byline h3 {
-    font-size: var(--heading-size, 0.6rem);
-    color: var(--heading-color, rgba(0, 0, 0, 0.5));
-  }
-
-  d-byline {
-    font-size: var(--body-size, 0.8rem);
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-  }
-
-  d-byline a,
-  d-article d-byline a {
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-  }
-
-  /*-- TABLE OF CONTENTS --*/
-  .d-contents nav h3 {
-    font-size: var(--heading-size, 18px);
-  }
-
-  .d-contents nav a {
-    font-size: var(--contents-size, 13px);
-  }
-
-  /*-- APPENDIX --*/
-  d-appendix h3 {
-    font-size: var(--heading-size, 15px);
-    color: var(--heading-color, rgba(0, 0, 0, 0.65));
-  }
-
-  d-appendix {
-    font-size: var(--text-size, 0.8em);
-    color: var(--text-color, rgba(0, 0, 0, 0.5));
-  }
-
-  d-appendix d-footnote-list a.footnote-backlink {
-    color: var(--text-color, rgba(0, 0, 0, 0.5));
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  .distill-site-header .title {
-    font-size: var(--title-size, 18px);
-    font-family: var(--navbar-font), var(--heading-default);
-  }
-
-  .distill-site-header a,
-  .nav-dropdown .nav-dropbtn {
-    font-family: var(--navbar-font), var(--heading-default);
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    font-size: var(--text-size, 15px);
-  }
-
-  .distill-site-header a:hover,
-  .nav-dropdown:hover .nav-dropbtn {
-    color: var(--hover-color, white);
-  }
-
-  .distill-site-header {
-    font-size: var(--text-size, 15px);
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-footer {
-    font-size: var(--text-size, 15px);
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-footer a:hover {
-    color: var(--hover-color, white);
-  }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="como-verificar-puertos-y-procesos-en-linux_files/header-attrs-2.6/header-attrs.js"></script>
+  <script src="como-verificar-puertos-y-procesos-en-linux_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="como-verificar-puertos-y-procesos-en-linux_files/popper-2.6.0/popper.min.js"></script>
+  <link href="como-verificar-puertos-y-procesos-en-linux_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="como-verificar-puertos-y-procesos-en-linux_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="como-verificar-puertos-y-procesos-en-linux_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="como-verificar-puertos-y-procesos-en-linux_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="como-verificar-puertos-y-procesos-en-linux_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="como-verificar-puertos-y-procesos-en-linux_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="como-verificar-puertos-y-procesos-en-linux_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Blog de José R Sosa","authors":[]}
+{"title":"Cómo verificar puertos y procesos en Linux","description":"Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando.","authors":[{"author":"José R Sosa","authorURL":"https://example.com/josersosa","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2012-09-20T00:00:00.000+00:00","citationText":"Sosa, 2012"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">Blog de José R Sosa</a>
-</div>
-<div class="nav-right">
-<a href="index.html">Blog</a>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-Recursos
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="resources-R.html">Recursos de R</a>
-<a href="resources-tools.html">Herramientas externas</a>
-<a href="resources-ref.html">Referencias</a>
-<a href="resources.html">Sitios a seguir</a>
-</div>
-</div>
-<a href="galery.html">Galería</a>
-<a href="cv.html">Mi CV</a>
-<a href="about.html">Acerca de</a>
-<a href="https://github.com/josersosa">
-<i class="fa fa-github" aria-hidden="true"></i>
-</a>
-<a href="https://twitter.com/josersosab">
-<i class="fa fa-twitter" aria-hidden="true"></i>
-</a>
-<a href="https://www.facebook.com/josersosab/">
-<i class="fa fa-facebook" aria-hidden="true"></i>
-</a>
-<a href="https://www.linkedin.com/in/josersosa/">
-<i class="fa fa-linkedin" aria-hidden="true"></i>
-</a>
-<a href="mailto:josersosaucv@gmail.com">
-<i class="fa fa-envelope" aria-hidden="true"></i>
-</a>
-<a href="index.xml">
-<i class="fa fa-rss" aria-hidden="true"></i>
-</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).load(function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Blog de José R Sosa">Blog de José R Sosa</h1>
-<a href="posts/2021-04-29-sincronizacin-de-directorios-con-rsync/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Linux Recipes"]}</script>
-<div class="metadata">
-<div class="publishedDate">April 29, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-04-29-sincronizacin-de-directorios-con-rsync/../../images/edex-ui.png"/>
-</div>
-<div class="description">
-<h2>Sincronización de directorios con rsync</h2>
-<div class="dt-tags">
-<div class="dt-tag">Linux Recipes</div>
-</div>
-<p>Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, la sincronizacion de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rcync.</p>
-</div>
-</a>
-<a href="posts/2021-04-28-datasets-para-proyectos-de-machine-learning/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Data Science"]}</script>
-<div class="metadata">
-<div class="publishedDate">April 28, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-04-28-datasets-para-proyectos-de-machine-learning/../../images/datasets_peq.png"/>
-</div>
-<div class="description">
-<h2>Datasets para proyectos de Machine Learning</h2>
-<div class="dt-tags">
-<div class="dt-tag">Data Science</div>
-</div>
-<p>Si estas buscado un conjunto de datos "especial" para tu proyecto de Machine Learning, he preparado una lista, que si bien no es exhaustiva, si que sirve como propuesta de por donde comenzar a buscar.</p>
-</div>
-</a>
-<a href="posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Chaos and Fractals","Computer Graphics","Data Science"]}</script>
-<div class="metadata">
-<div class="publishedDate">Sept. 7, 2020</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2020-09-07-imgenes-de-fractales-en-gran-formato-con-r/../../images/fractales_galery.png"/>
-</div>
-<div class="description">
-<h2>Imágenes de fractales en gran formato con R</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Chaos and Fractals</div>
-<div class="dt-tag">Computer Graphics</div>
-<div class="dt-tag">Data Science</div>
-</div>
-<p>Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches.</p>
-</div>
-</a>
-<a href="posts/2020-09-07-el-arte-del-movimiento-catico/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Chaos and Fractals","Computer Graphics"]}</script>
-<div class="metadata">
-<div class="publishedDate">March 19, 2020</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2020-09-07-el-arte-del-movimiento-catico/../../images/Clifford_peq_yelow02.png"/>
-</div>
-<div class="description">
-<h2>El arte del movimiento caótico</h2>
-<div class="dt-tags">
-<div class="dt-tag">Chaos and Fractals</div>
-<div class="dt-tag">Computer Graphics</div>
-</div>
-<p>Un factor común de la mayoría de los fractales, es su poder de atraernos, de casi hipnotizarnos por su particular belleza, tal como si fueran verdaderas obras de arte. Los atractores de Clifford son un ejemplo del arte que puede representar el movimiento de los sistemas caóticos. De hecho, he comenzado preparar varios de estos gráficos en alta resolución, para compartirlos con ustedes y puedan ser impresos como posters si lo desean.</p>
-</div>
-</a>
-<a href="posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Chaos and Fractals","Computer Graphics","Data Science"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 28, 2020</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2020-09-07-el-infinito-detalle-del-conjunto-de-mandelbrot/../../images/Mandelbrot_red_peq.png"/>
-</div>
-<div class="description">
-<h2>El infinito detalle del conjunto de Mandelbrot</h2>
-<div class="dt-tags">
-<div class="dt-tag">Chaos and Fractals</div>
-<div class="dt-tag">Computer Graphics</div>
-<div class="dt-tag">Data Science</div>
-</div>
-<p>La convergencia de los sistemas dinámicos complejos es un problema recurrente en muchos campos, su predictibilidad  en algunos casos pudiera estar involucrada con los conceptos de la geometría fractal y la teoría del caos. Escribí una breve reseña sobre uno de los fractales más conocidos vinculados con este tema: el conjunto de Mandelbrot.</p>
-</div>
-</a>
-<a href="posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Chaos and Fractals","Computer Graphics","Data Science","Simulation"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 26, 2020</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/../../images/lorenz_yelow11-10mm_peq.png"/>
-</div>
-<div class="description">
-<h2>Atractor de Lorenz y "el efecto mariposa"</h2>
-<div class="dt-tags">
-<div class="dt-tag">Chaos and Fractals</div>
-<div class="dt-tag">Computer Graphics</div>
-<div class="dt-tag">Data Science</div>
-<div class="dt-tag">Simulation</div>
-</div>
-<p>El aparente desorden o aleatoriedad de los sistemas caóticos, es en realidad orden, tan exacto y matemático como impredecible e inexplicable. Escribí una breve reseña de una historia que vi cuando estudiaba en la universidad, sobre una de las características más interesantes de la teoría del caos: "el efecto mariposa".</p>
-</div>
-</a>
-<a href="posts/2021-04-29-programando-en-r-taller-interactivo/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Data Science","Teaching"]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 11, 2015</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-04-29-programando-en-r-taller-interactivo/../../images/R-Programming-Language.jpg"/>
-</div>
-<div class="description">
-<h2>Taller interactivo: Programando en R</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Data Science</div>
-<div class="dt-tag">Teaching</div>
-</div>
-<p>Aún hoy en día, existe mucho contenido para la formación en Ciencia de Datos y particularmente sobre R en diversos formatos y repositorios, sin embargo, la mayoría de ellos están en ingles...</p>
-</div>
-</a>
-<a href="posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Linux Recipes"]}</script>
-<div class="metadata">
-<div class="publishedDate">Nov. 10, 2013</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/../../images/video-chroma-demo.png"/>
-</div>
-<div class="description">
-<h2>Edición de videos en línea de comandos con FFmpeg</h2>
-<div class="dt-tags">
-<div class="dt-tag">Linux Recipes</div>
-</div>
-<p>Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.</p>
-</div>
-</a>
-<a href="posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Data Science","Teaching","Simulation","Statistic"]}</script>
-<div class="metadata">
-<div class="publishedDate">Nov. 4, 2012</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden/../../images/simulacion-dalton.png"/>
-</div>
-<div class="description">
-<h2>La máquina de Galton, del Caos al Orden...</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Data Science</div>
-<div class="dt-tag">Teaching</div>
-<div class="dt-tag">Simulation</div>
-<div class="dt-tag">Statistic</div>
-</div>
-<p>La "Maquina de Galton" es el nombre de un famoso experimento, que a pesar de estar completamente gobernado por el azar, muestra claramente como se presenta siempre la misma tendencia o distribución de los resultados.</p>
-</div>
-</a>
-<a href="posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Linux Recipes"]}</script>
-<div class="metadata">
-<div class="publishedDate">Sept. 20, 2012</div>
-<div class="dt-authors">
-<div class="dt-author">José R Sosa</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux/../../images/edex-ui.png"/>
-</div>
-<div class="description">
-<h2>Cómo verificar puertos y procesos en Linux</h2>
-<div class="dt-tags">
-<div class="dt-tag">Linux Recipes</div>
-</div>
-<p>Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando.</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div><div class="sidebar-section custom">
-  <h3>About</h3>
-  Blog sobre ciencia de datos con <a href="https://www.r-project.org/">R </a>, 
-  estadística, programación, robótica, software libre y otras cosas más…
-</div>
-
-<div class="sidebar-section custom">
-  <h3>Search</h3>
-  <form action="https://duckduckgo.com/">
-    <input type="text" name="q" placeholder="Search...">
-    <input type="hidden" name="sites" 
-      value="https://josersosa.github.io/personalweb/"> <!-- Replace with your blog URL -->
-    <!--<button type="submit">Search</button>-->
-  </form>
-</div>
-</div>
-<div class="sidebar-section subscribe">
-<h3>Subscribe</h3>
-<form method='post' action='https://blogtrottr.com'>
-  <p>Si te gustó este blog? Recibe notificaciones de nuevos posts por email:</p>
-  <input type='text' name='btr_email' />
-  <input type='hidden' name='btr_url'
-         value='https://josersosa.github.io/personalweb/'/>
-  <input type='hidden' name='schedule_type' value='0' />
-  <input type='submit' value='Subscribe' />
-</form>
-
-</div>
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#category:Articles">Articles</a>
-<span class="category-count">(10)</span>
-</li>
-<li>
-<a href="#category:Chaos_and_Fractals">Chaos and Fractals</a>
-<span class="category-count">(4)</span>
-</li>
-<li>
-<a href="#category:Computer_Graphics">Computer Graphics</a>
-<span class="category-count">(4)</span>
-</li>
-<li>
-<a href="#category:Data_Science">Data Science</a>
-<span class="category-count">(6)</span>
-</li>
-<li>
-<a href="#category:Linux_Recipes">Linux Recipes</a>
-<span class="category-count">(3)</span>
-</li>
-<li>
-<a href="#category:R">R</a>
-<span class="category-count">(3)</span>
-</li>
-<li>
-<a href="#category:Simulation">Simulation</a>
-<span class="category-count">(2)</span>
-</li>
-<li>
-<a href="#category:Statistic">Statistic</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Teaching">Teaching</a>
-<span class="category-count">(2)</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Blog de José R Sosa</h1>
+<h1>Cómo verificar puertos y procesos en Linux</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">Linux Recipes</div>
+</div>
 <!--/radix_placeholder_categories-->
-
+<p><p>Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando.</p></p>
 </div>
 
+<div class="d-byline">
+  José R Sosa <a href="https://example.com/josersosa" class="uri">https://example.com/josersosa</a> 
+  
+<br/>09-20-2012
+</div>
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#el-registro-de-servicios-estándar-archivo-services">El registro de servicios estándar: Archivo “services”</a></li>
+<li><a href="#listado-de-aplicaciones-o-servicios-activos-lsof">Listado de aplicaciones o servicios activos: “lsof”</a></li>
+<li><a href="#estado-y-uso-de-la-red-en-el-equipo-local-netstat">Estado y uso de la red en el equipo local: “netstat”</a></li>
+<li><a href="#escaneo-de-puertos-de-equipos-en-la-red-nmap">Escaneo de puertos de equipos en la red: “nmap”</a></li>
+<li><a href="#identificando-la-aplicación-que-usa-determinado-puerto-fuser">Identificando la aplicación que usa determinado puerto: “fuser”</a></li>
+<li><a href="#identificando-los-id-de-procesos-pidof">Identificando los ID de procesos: “pidof”</a></li>
+<li><a href="#ejemplos-de-uso-de-estos-comandos">Ejemplos de uso de estos comandos</a>
+<ul>
+<li><a href="#que-servicio-usa-el-puerto-138-en-el-protocolo-udp">Que servicio usa el puerto 138 en el protocolo udp:</a></li>
+<li><a href="#que-puertos-usa-el-servicio-avahi-dae">Que puertos usa el servicio avahi-dae:</a></li>
+<li><a href="#que-versión-uso-en-ssh">Que versión uso en ssh:</a></li>
+<li><a href="#que-servicios-tengo-escuchando-en-mi-linux">Que servicios tengo escuchando en mi Linux:</a></li>
+</ul></li>
+<li><a href="#automatizando-estas-tareas">Automatizando estas tareas</a>
+<ul>
+<li><a href="#que-servicios-uso-ejemplo-lss">Que servicios uso, ejemplo: lss</a></li>
+<li><a href="#que-servicio-usa-un-puerto-dado-por-ejemplo-lsw-22">Que servicio usa un puerto dado, por ejemplo: lsw 22</a></li>
+<li><a href="#que-versión-tiene-mi-servicio-por-ejemplo-lsv-ssh">Que versión tiene mi servicio, por ejemplo: lsv ssh</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<p>A continuación revisaremos las principales herramientas para identificar los puertos activos y las aplicaciones que los están utilizando. Para poder ejecutar estos comando es necesario tener privilegios de administrador (usuario <strong>root</strong>) o utilizar el comando sudo, anteponiéndolo a estos comandos.</p>
+<h2 id="el-registro-de-servicios-estándar-archivo-services">El registro de servicios estándar: Archivo “services”</h2>
+<p>Para saber que puertos esta escuchando nuestro servidor podemos consultar el archivo <strong>/etc/services</strong> en el cual se registran diferentes servicios, el puerto que usa y un pequeño comentario. Este archivo de configuración mantiene el registro de todos los puertos estándar. Por ejemplo, si queremos saber que puerto usa por defecto el servicio <strong>ssh</strong> haría:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> -i ssh /etc/services</span></code></pre></div>
+<p>La salida del comando anterior sería:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span>       22/tcp  #Secure Shell Login</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span>       22/udp  #Secure Shell Login</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">sshell</span>     614/tcp  #SSLshell</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sshell</span>     614/udp</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">x11-ssh</span>     6010/tcp  #Unofficial name, for convenience</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">x11-ssh</span>     6010/udp</span></code></pre></div>
+<h2 id="listado-de-aplicaciones-o-servicios-activos-lsof">Listado de aplicaciones o servicios activos: “lsof”</h2>
+<p>El problema que muchas veces el servicio no viene registrado en el archivo <strong>services</strong> o viene pero no muestra todos los puertos que en realidad escucha. En estos caso podemos utilizar otros programas como <strong>lsof</strong> o “list open files”. Entre los datos que arroja como salida este programa esta el puerto utilizado, por lo que otras maneras de averiguar el puerto/s que usa nuestra aplicación es:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">lsof</span> -n -i -P <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;*:&#39;</span></span></code></pre></div>
+<p>Por ejemplo, si quiero saber que puestos escucha el <strong>samba</strong> haría:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> lsof -n -i -P <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;*:&#39;</span> <span class="kw">|</span> <span class="fu">grep</span> -e nmbd -e smbd</span></code></pre></div>
+<h2 id="estado-y-uso-de-la-red-en-el-equipo-local-netstat">Estado y uso de la red en el equipo local: “netstat”</h2>
+<p>Otra manera de lograr nuestro objetivo es utilizando el comando <strong>netstat</strong> o “network statistics”, de la siguiente manera:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">netstat</span> -ltunp</span></code></pre></div>
+<p>O si queremos el puerto de una aplicación especifica:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">netstat</span> -ltunp <span class="kw">|</span> <span class="fu">grep</span> -e smbd -e nmbd</span></code></pre></div>
+<h2 id="escaneo-de-puertos-de-equipos-en-la-red-nmap">Escaneo de puertos de equipos en la red: “nmap”</h2>
+<p>Otra manera de ver los puertos es usar un escaner que nos de la información del servicio como puede ser <strong>nmap</strong>. Nmap es un excelente escaner de puertos que nos da mucha información de los servicios/puertos que usa el PC.</p>
+<p>Para escanear con <strong>nmap</strong>, basta con:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nmap</span> <span class="va">$HOSTNAME</span></span></code></pre></div>
+<p>La salida del anterior comando sería por ejemplo:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">PORT</span> STATE SERVICE</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">22/tcp</span> open ssh</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">80/tcp</span> open http</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">139/tcp</span> open netbios-ssn</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">445/tcp</span> open microsoft-ds</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">901/tcp</span> open samba-swat</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ex">3333/tcp</span> open dec-notes</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">4000/tcp</span> open remoteanything</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ex">6667/tcp</span> open irc</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ex">6881/tcp</span> open bittorent-tracker</span></code></pre></div>
+<p>Como vemos en la salida, se nos presenta el puerto/protocolo estado servicio, por defecto <strong>nmap</strong> realiza un escaneo del tipo sT (TCP connect scan) a los puertos por defecto. Si queremos ver mas información de los servicios, versión así como escanear ambos protocolos (tcp y udp) y todos los puertos haríamos:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nmap</span> -sV -A -O -sT -sU -p - <span class="va">$HOSTNAME</span></span></code></pre></div>
+<p>Como vemos, su salida sera mas extensa. El inconveniente es que <strong>nmap</strong> sabe el servicio que usa un puerto por el archivo <strong>services</strong> y muchas veces no viene dicho servicio saliendo algo así como <strong>unknown</strong>, por ello deberemos de hacer uso de los comandos <strong>lsof</strong>, <strong>netstat</strong> y <strong>nmap</strong> para averiguar información de los puertos, servicios y demás información.</p>
+<h2 id="identificando-la-aplicación-que-usa-determinado-puerto-fuser">Identificando la aplicación que usa determinado puerto: “fuser”</h2>
+<p>Si queremos saber a la inversa, o sea, si se el puerto/protocolo y quiero saber que servicio lo esta usando podría usar <strong>fuser</strong> a parte de los anteriores:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fuser</span> -n <span class="op">&lt;</span>protocolo<span class="op">&gt;</span> -v <span class="op">&lt;</span>puerto<span class="op">&gt;</span></span></code></pre></div>
+<p>O de forma abreviada:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fuser</span> puerto/protocolo</span></code></pre></div>
+<p>Por ejemplo, si quiero saber que servicio esta usando el puerto <strong>3333/tcp</strong> haría:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fuser</span> -n tcp -v 3333</span></code></pre></div>
+<p>El anterior comando me diría lo siguiente:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">USER</span> PID ACCESS COMMAND</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">3333</span>/tcp: <span class="ex">c</span> 6987 F.... eggdrop</span></code></pre></div>
+<h2 id="identificando-los-id-de-procesos-pidof">Identificando los ID de procesos: “pidof”</h2>
+<p>Este comando no permite saber cual es el numero de <strong>PID</strong> del demonio una aplicación, en particular los servicios. Ejemplo para el servicio <strong>ssh</strong>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pidof</span> sshd</span></code></pre></div>
+<h2 id="ejemplos-de-uso-de-estos-comandos">Ejemplos de uso de estos comandos</h2>
+<p>Como resumen pongo algunos ejemplos:</p>
+<h3 id="que-servicio-usa-el-puerto-138-en-el-protocolo-udp">Que servicio usa el puerto 138 en el protocolo udp:</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fuser</span> -n udp -v 138</span></code></pre></div>
+<h3 id="que-puertos-usa-el-servicio-avahi-dae">Que puertos usa el servicio avahi-dae:</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> lsof -ni -P <span class="kw">|</span> <span class="fu">grep</span> avahi-dae</span></code></pre></div>
+<h3 id="que-versión-uso-en-ssh">Que versión uso en ssh:</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nmap</span> -sV -p ssh <span class="va">$HOSTNAME</span></span></code></pre></div>
+<h3 id="que-servicios-tengo-escuchando-en-mi-linux">Que servicios tengo escuchando en mi Linux:</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">lsof</span> -ni <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&#39;*:&#39;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{ print $1 }&#39;</span> <span class="kw">|</span> <span class="fu">sort</span> -u</span></code></pre></div>
+<h2 id="automatizando-estas-tareas">Automatizando estas tareas</h2>
+<p>Para que sea mas fácil, podríamos crear las siguientes funciones y meterlas en el archivo <strong>.bashrc</strong>:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vi</span> ~/.bashrc</span></code></pre></div>
+<h3 id="que-servicios-uso-ejemplo-lss">Que servicios uso, ejemplo: lss</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span><span class="fu"> lss</span> <span class="kw">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> lsof -ni <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;*:&quot;</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{ print $1 }&#39;</span> <span class="kw">|</span> <span class="fu">sort</span> -u</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p><strong>Que puertos usa el servicio dado, por ejemplo: lsp amule</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span><span class="fu"> lsp</span> <span class="kw">{</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> lsof -ni -P <span class="kw">|</span> <span class="fu">grep</span> <span class="st">&quot;*:&quot;</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="va">$1</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{ print $1,$7,$8 }&#39;</span> <span class="kw">|</span> <span class="fu">sed</span> -e <span class="st">&quot;s/*://g&quot;</span> <span class="kw">|</span> <span class="fu">sort</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<h3 id="que-servicio-usa-un-puerto-dado-por-ejemplo-lsw-22">Que servicio usa un puerto dado, por ejemplo: lsw 22</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span><span class="fu"> lsw</span> <span class="kw">{</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> fuser -n tcp -v <span class="va">$1</span> <span class="kw">||</span> <span class="fu">sudo</span> fuser -n udp -v <span class="va">$1</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p><strong>Cual es el numero de proceso de mi servicio, ejemplo: lspi eggdrop</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span><span class="fu"> lspi</span> <span class="kw">{</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> -e <span class="st">&quot;</span><span class="va">$1</span><span class="st"> </span><span class="kw">`</span><span class="fu">sudo</span> pidof <span class="va">$1</span><span class="kw">`</span><span class="st">&quot;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<h3 id="que-versión-tiene-mi-servicio-por-ejemplo-lsv-ssh">Que versión tiene mi servicio, por ejemplo: lsv ssh</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span><span class="fu"> lsv</span> <span class="kw">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="va">V=</span><span class="kw">`</span><span class="fu">which</span> nmap<span class="kw">`</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span><span class="bu"> [</span> <span class="ot">-z</span> <span class="va">$V</span><span class="bu"> ]</span>; <span class="kw">then</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> -e <span class="st">&quot;No dispone del programa nmap&quot;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="kw">else</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st"> -&gt; </span><span class="dt">\&quot;</span><span class="kw">`</span><span class="fu">sudo</span> nmap -sV -sT -sU -p <span class="va">$1</span> linux <span class="kw">|</span> <span class="fu">grep</span> <span class="va">$1</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{print $3,$4,$5,$6,$7,$8,$9,$10}&#39;</span><span class="kw">`</span><span class="dt">\&quot;</span><span class="st">&quot;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="kw">fi</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<p>Una vez añadida las funciones al .bashrc lo releemos para que se actualicé así:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span></code></pre></div>
+<p>A partir de ahora ya podríamos usarlo</p>
+<p><strong>Fuente:</strong> <a href="http://chakal.homelinux.com/blog/?p=101" class="uri">http://chakal.homelinux.com/blog/?p=101</a></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2604,10 +1612,7 @@ function init_posts_list() {
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom">
-<h3 id="updates-and-corrections">Corrections</h3>
-<p>If you see mistakes or want to suggest changes, please <a href="https://github.com/josersosa/personalweb/issues/new">create an issue</a> on the source repository.</p>
-</div>
+<div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->

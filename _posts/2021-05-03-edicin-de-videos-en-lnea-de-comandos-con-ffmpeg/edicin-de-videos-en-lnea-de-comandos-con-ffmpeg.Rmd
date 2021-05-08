@@ -159,7 +159,7 @@ Entonces, con estos dos argumentos, FFmpeg buscará segundo `7.0` y leerá en lo
 Otra forma de hacer esto para lograr un mejor resultado es combinar FFmpeg con [Imagemagick](https://imagemagick.org/index.php) en el siguiente pipeline:
 
 ```bash
- ffmpeg -i video.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+ffmpeg -i video.mp4 -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
 ```
 
 
@@ -243,7 +243,24 @@ ffmpeg -i video.mp4 -vf scale=640:480,pad=1024:600:192:60:black -qscale 0 video_
 
 
 
+### Rotar videos
 
+```bash
+ffmpeg -i original.avi -vf "transpose=1" resultado.avi
+```
+
+El valor del parámetro *transpose* indica el tipo de transformación, siendo 1 una rotación de 90 grados en el sentido de las agujas del reloj. El valor 2 giraría 90 grados en sentido contrario. 
+
+Para el parámetro de transposición puede pasar:
+
+```bash
+0 = 90CounterCLockwise and Vertical Flip (default)
+1 = 90Clockwise
+2 = 90CounterClockwise
+3 = 90Clockwise and Vertical Flip
+```
+
+Úselo `-vf "transpose=2,transpose=2"`para 180 grados. Otras dos transformaciones interesantes en esta misma línea que podemos aplicar mediante el argumento *-vf* son *mirror* y *flip*. Si queremos girar el vídeo 180 grados podemos aplicarlas ambas de modo conjunto (*-vf mirror,flip*).
 
 ## Grabación de la pantalla del escritorio Linux con sincronización del audio y el video (ScreenCast):
 
@@ -499,3 +516,4 @@ https://trac.ffmpeg.org/wiki/Concatenate
 https://ffmpeg.org/ffmpeg-filters.html#chromakey
 http://oioiiooixiii.blogspot.com/2016/02/ffmpeg-chromakey-filter-filthy-frank.html
 http://johnvansickle.com/ffmpeg/
+https://blog.unlugarenelmundo.es/2012/12/26/chuletillas-y-xxxvi-rotar-videos-con-mencoder/

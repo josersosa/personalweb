@@ -1,0 +1,272 @@
+---
+title: "Cómo verificar puertos y procesos en Linux"
+description: |
+  Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando.
+author:
+  - name: José R Sosa
+    url: https://example.com/josersosa
+date: 09-20-2012
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Linux Recipes
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+
+A continuación revisaremos las principales herramientas para identificar los puertos activos y las aplicaciones que los están utilizando. Para poder ejecutar estos comando es necesario tener privilegios de administrador (usuario **root**) o utilizar el comando sudo, anteponiéndolo a estos comandos.
+
+
+
+## El registro de servicios estándar: Archivo "services"
+
+
+Para saber que puertos esta escuchando nuestro servidor podemos consultar el archivo **/etc/services** en el cual se registran diferentes servicios, el puerto que usa y un pequeño comentario.
+Este archivo de configuración mantiene el registro de todos los puertos estándar. Por ejemplo, si queremos saber que puerto usa por defecto el servicio **ssh** haría:
+
+```bash
+grep -i ssh /etc/services
+```
+
+La salida del comando anterior sería:
+
+```bash
+ssh       22/tcp  #Secure Shell Login
+ssh       22/udp  #Secure Shell Login
+sshell     614/tcp  #SSLshell
+sshell     614/udp
+x11-ssh     6010/tcp  #Unofficial name, for convenience
+x11-ssh     6010/udp
+```
+
+
+
+## Listado de aplicaciones o servicios activos: "lsof"
+
+
+El problema que muchas veces el servicio no viene registrado en el archivo **services** o viene pero no muestra todos los puertos que en realidad escucha. En estos caso podemos utilizar otros programas como **lsof** o "list open files". Entre los datos que arroja como salida este programa esta el puerto utilizado, por lo que otras maneras de averiguar el puerto/s que usa nuestra aplicación es:
+
+```bash
+lsof -n -i -P | grep '*:'
+```
+
+Por ejemplo, si quiero saber que puestos escucha el **samba** haría:
+
+```bash
+sudo lsof -n -i -P | grep '*:' | grep -e nmbd -e smbd
+```
+
+
+
+## Estado y uso de la red en el equipo local: "netstat"
+
+
+Otra manera de lograr nuestro objetivo es utilizando el comando **netstat** o "network statistics", de la siguiente manera:
+
+```bash
+netstat -ltunp
+```
+
+O si queremos el puerto de una aplicación especifica:
+
+```bash
+netstat -ltunp | grep -e smbd -e nmbd
+```
+
+
+
+## Escaneo de puertos de equipos en la red: "nmap"
+
+
+Otra manera de ver los puertos es usar un escaner que nos de la información del servicio como puede ser **nmap**. Nmap es un excelente escaner de puertos que nos da mucha información de los servicios/puertos que usa el PC.
+
+Para escanear con **nmap**, basta con:
+
+```bash
+nmap $HOSTNAME
+```
+
+La salida del anterior comando sería por ejemplo:
+
+```bash
+PORT STATE SERVICE
+22/tcp open ssh
+80/tcp open http
+139/tcp open netbios-ssn
+445/tcp open microsoft-ds
+901/tcp open samba-swat
+3333/tcp open dec-notes
+4000/tcp open remoteanything
+6667/tcp open irc
+6881/tcp open bittorent-tracker
+```
+
+Como vemos en la salida, se nos presenta el puerto/protocolo estado servicio, por defecto **nmap** realiza un escaneo del tipo sT (TCP connect scan) a los puertos por defecto. Si queremos ver mas información de los servicios, versión así como escanear ambos protocolos (tcp y udp) y todos los puertos haríamos:
+
+```bash
+nmap -sV -A -O -sT -sU -p - $HOSTNAME
+```
+
+Como vemos, su salida sera mas extensa. El inconveniente es que **nmap** sabe el servicio que usa un puerto por el archivo **services** y muchas veces no viene dicho servicio saliendo algo así como **unknown**, por ello deberemos de hacer uso de los comandos **lsof**, **netstat** y **nmap** para averiguar información de los puertos, servicios y demás información.
+
+
+
+## Identificando la aplicación que usa determinado puerto:  "fuser"
+
+
+Si queremos saber a la inversa, o sea, si se el puerto/protocolo y quiero saber que servicio lo esta usando podría usar **fuser** a parte de los anteriores:
+
+```bash
+fuser -n <protocolo> -v <puerto>
+```
+
+O de forma abreviada:
+
+```bash
+fuser puerto/protocolo
+```
+
+Por ejemplo, si quiero saber que servicio esta usando el puerto **3333/tcp** haría:
+
+```bash
+fuser -n tcp -v 3333
+```
+
+El anterior comando me diría lo siguiente:
+
+```bash
+USER PID ACCESS COMMAND
+3333/tcp: c 6987 F.... eggdrop
+```
+
+
+
+## Identificando los ID de procesos: "pidof"
+
+
+Este comando no permite saber cual es el numero de **PID** del demonio una aplicación, en particular los servicios. Ejemplo para el servicio **ssh**:
+
+```bash
+pidof sshd
+```
+
+
+
+## Ejemplos de uso de estos comandos
+
+ 
+
+Como resumen pongo algunos ejemplos:
+
+
+
+### Que servicio usa el puerto 138 en el protocolo udp:
+
+```bash
+fuser -n udp -v 138
+```
+
+
+
+### Que puertos usa el servicio avahi-dae:
+
+```bash
+sudo lsof -ni -P | grep avahi-dae
+```
+
+
+
+### Que versión uso en ssh:
+
+```bash
+nmap -sV -p ssh $HOSTNAME
+```
+
+
+
+### Que servicios tengo escuchando en mi Linux:
+
+```bash
+lsof -ni | grep '*:' | awk '{ print $1 }' | sort -u
+```
+
+
+
+## Automatizando estas tareas
+
+
+Para que sea mas fácil, podríamos crear las siguientes funciones y meterlas en el archivo **.bashrc**:
+
+```bash
+vi ~/.bashrc
+```
+
+
+
+### Que servicios uso, ejemplo: lss
+
+```bash
+function lss {
+sudo lsof -ni | grep "*:" | awk '{ print $1 }' | sort -u
+}
+```
+
+**Que puertos usa el servicio dado, por ejemplo: lsp amule**
+
+```bash
+function lsp {
+sudo lsof -ni -P | grep "*:" | grep $1 | awk '{ print $1,$7,$8 }' | sed -e "s/*://g" | sort
+}
+```
+
+
+
+### Que servicio usa un puerto dado, por ejemplo: lsw 22
+
+```bash
+function lsw {
+sudo fuser -n tcp -v $1 || sudo fuser -n udp -v $1
+}
+```
+
+**Cual es el numero de proceso de mi servicio, ejemplo: lspi eggdrop**
+
+```bash
+function lspi {
+echo -e "$1 `sudo pidof $1`"
+}
+```
+
+
+
+### Que versión tiene mi servicio, por ejemplo: lsv ssh
+
+```bash
+function lsv {
+V=`which nmap`
+if [ -z $V ]; then
+echo -e "No dispone del programa nmap"
+else
+echo "$1 -> \"`sudo nmap -sV -sT -sU -p $1 linux | grep $1 | awk '{print $3,$4,$5,$6,$7,$8,$9,$10}'`\""
+fi
+}
+```
+
+Una vez añadida las funciones al .bashrc lo releemos para que se actualicé así:
+
+```bash
+source ~/.bashrc
+```
+
+A partir de ahora ya podríamos usarlo
+
+
+**Fuente:** http://chakal.homelinux.com/blog/?p=101
+
+
+
