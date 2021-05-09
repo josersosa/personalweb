@@ -4,7 +4,7 @@ description: |
   Muchas veces necesitamos saber que puertos esta escuchando nuestro servidor para usar el cliente y conectar o bien para configurar nuestro firewall y así permitir las conexiones a dicho servicio o simplemente por información. Veremos como podemos consultar en nuestro sistema GNU/linux cuales puertos están siendo utilizados y que servicios o aplicaciones los están usando.
 author:
   - name: José R Sosa
-    url: https://example.com/josersosa
+    url: https://josersosa.github.io/personalweb/
 date: 09-20-2012
 output:
   distill::distill_article:

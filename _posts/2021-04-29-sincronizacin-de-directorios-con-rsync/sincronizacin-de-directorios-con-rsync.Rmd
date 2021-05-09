@@ -4,7 +4,7 @@ description: |
   Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rcync.
 author:
   - name: José R Sosa
-    url: https://example.com/josersosa
+    url: https://josersosa.github.io/personalweb/
 date: 10-19-2015
 output:
   distill::distill_article:

@@ -4,7 +4,7 @@ description: |
   Aproveché unos días de mis vacaciones para preparar algunas gráficas en R, que quería hacer desde hace tiempo para adornar mi estudio. Se trata de fractales y atractores extraños, pero quería hacerlos de forma de poder imprimirlos en formato grande, como afiches.
 author:
   - name: José R Sosa
-    url: https://example.com/josersosa
+    url: https://josersosa.github.io/personalweb/
 date: 09-07-2020
 output:
   distill::distill_article:

@@ -11,7 +11,7 @@ collections:
       shortname: https-josersosa-github-io-personalweb
       hidden: true
     share: [twitter, linkedin, pinterest, facebook]  
-    feed_items_max: 25
+    feed_items_max: 50
     citations: true
     custom: _custom.html
     subscribe: _subscribe.html

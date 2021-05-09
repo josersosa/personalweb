@@ -4,7 +4,7 @@ description: |
   Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.
 author:
   - name: José R Sosa
-    url: https://example.com/josersosa
+    url: https://josersosa.github.io/personalweb/
 date: 11-10-2013
 output:
   distill::distill_article:

@@ -123,5 +123,15 @@
       <pubDate>Thu, 20 Sep 2012 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
+    <item>
+      <title>Cálculo de probabilidades y combinatorias por línea de comandos</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-05-09-calculo-de-probabilidades-y-combinatorias-en-linea-de-comandos</link>
+      <description>Mediante la herramienta "bc" es posible contar con un poderosa calculadora desde la línea de comandos en Linux, con la que podemos realizar complejos cálculos de probabilidades. Esta Calculadora nos permite trabajar con precisión infinita en diversas bases, incluso podemos predefinir funciones para el calculo de combinatorias y funciones de probabilidad para las variables aleatorias con nombre propio, y esta es, precisamente, la razón de este post.</description>
+      <category>Linux Recipes</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-05-09-calculo-de-probabilidades-y-combinatorias-en-linea-de-comandos</guid>
+      <pubDate>Tue, 30 Aug 2011 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-09-calculo-de-probabilidades-y-combinatorias-en-linea-de-comandos/../../images/tn_bc.jpg" medium="image" type="image/jpeg"/>
+    </item>
   </channel>
 </rss>

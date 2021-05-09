@@ -1,0 +1,100 @@
+---
+title: "Cálculo de probabilidades y combinatorias por línea de comandos"
+description: |
+  Mediante la herramienta "bc" es posible contar con un poderosa calculadora desde la línea de comandos en Linux, con la que podemos realizar complejos cálculos de probabilidades. Esta Calculadora nos permite trabajar con precisión infinita en diversas bases, incluso podemos predefinir funciones para el calculo de combinatorias y funciones de probabilidad para las variables aleatorias con nombre propio, y esta es, precisamente, la razón de este post.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 08-30-2011
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Linux Recipes
+preview: ../../images/tn_bc.jpg
+#draft: true
+#preview: ../../lorenz_yelow10_peq.png
+---
+
+
+## El comando "bc"
+
+Para llamar a la aplicación escribimos desde la consola la siguiente instrucción:
+
+```bash
+$ bc -il 
+```
+
+Con esta sentencia convocamos nuestra calculadora en modo interactivo (-i) y enlazando la librería matemática (-l)
+
+<aside>
+<img src="../../images/tn_bc.jpg" />
+</aside>
+
+
+## Cálculo de combinatorias y probabilidades
+
+Para incorporar las funciones de cálculo de combinatorias debemos definir las correspondientes funciones en el ambiente de bc, también podemos pre-cargarlas a través de un archivo donde ya estén estas codificadas. Yo he preparado una versión de este archivo, que he llamado `bc_defines.txt`.
+
+Aquí el contenido de este archivo:
+
+```bash
+pi = 4*a(1)
+nep = e(1)
+define fact (x) {
+  if (x <= 1) return (1);
+  return (fact(x-1) * x);
+  }
+define comb (n,x) {
+  return fact(n)/(fact(n-x)*fact(x))
+  }
+define poisson (s,x) {
+  return e(-s)*s^x/fact(x)
+  }
+define apoisson (s,x) { suma=0; for (i=0;i<=x;i++){ suma=suma+poisson(s,i)}; return suma}
+
+define binomial (n,p,x) {
+  return comb(n,x)*p^x*(1-p)^(n-x)
+  }
+define abinomial (n,p,x) { suma=0; for (i=0;i<=x;i++){ suma=suma+binomial(n,p,i)}; return suma}
+
+define geometrica (p,x) {
+  return p*(1-p)^x
+  }
+define ageometrica (p,x) { suma=0; for (i=0;i<=x;i++){ suma=suma+geometrica(p,i)}; return suma}
+
+define binomialneg (n,p,x) {
+  return comb(n+x-1,x)*p^n*(1-p)^x
+  }
+define abinomialneg (n,p,x) { suma=0; for (i=0;i<=x;i++){ suma=suma+binomialneg(n,p,i)}; return suma}
+
+define hipergeometrica (n,m,k,x) {
+  return comb(m,x)*comb(k,n-x)/comb(m+k,n)
+  }
+define ahipergeometrica (n,m,p,x) { suma=0; for (i=0;i<=x;i++){ suma=suma+hipergeometrica(n,m,p,i)}; return suma}
+```
+
+Para ejecutar *bc* con las funciones que predefinimos escribimos:
+
+```bash
+$ bc -il bc_defines.txt
+```
+
+En el, se implementan una serie de funciones que describo a continuación:
+
+- `comb (n,x)`: Combinaciones de n en x.
+- `poisson (s,x)`: Función de probabilidad de la Poisson en x con parámetro s.
+- `apoisson (s,x)`: Función de probabilidad acumulada de la Poisson en x con parámetro s.
+- `binomial (n,p,x)`: Función de probabilidad de la Binomial en x con parámetros n y p.
+- `abinomial (n,p,x)`: Función de probabilidad acumulada de la Binomial en x con parámetros n y p.
+- `geometrica (p,x)`: Función de probabilidad de la Geométrica en x con parámetro p.
+- `ageometrica (p,x)`: Función de probabilidad acumulada de la Geométrica en x con parámetro p.
+- `binomialneg (n,p,x)`: Función de probabilidad de la Binomial Negativa en x con parámetros n y p.
+- `abinomialneg (n,p,x)`: Función de probabilidad acumulada de la Binomial Negativa en x con parámetros n y p.
+- `hipergeometrica (n,m,k,x)`: Función de probabilidad de la Hipergeométrica en x con parámetros n, m y k.
+- `ahipergeometrica (n,m,p,x)`: Función de probabilidad acumulada de la Hipergeométrica en x con parámetros n, m y k.
+
+Espero que les sirva...
