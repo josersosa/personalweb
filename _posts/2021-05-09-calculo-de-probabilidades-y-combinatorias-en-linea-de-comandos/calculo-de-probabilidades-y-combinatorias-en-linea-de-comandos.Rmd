@@ -51,7 +51,7 @@ usage: bc [options] [file ...]
 
 ## Cálculo de combinatorias y probabilidades
 
-Para incorporar las funciones de cálculo de combinatorias debemos definir las correspondientes funciones en el ambiente de `bc`, también podemos pre-cargarlas a través de un archivo donde ya estén estas codificadas. Yo he preparado una versión de este archivo, que he llamado `bc_defines.bc`.
+Para incorporar las funciones de cálculo de combinatorias debemos definir las correspondientes funciones en el ambiente de `bc`, también podemos pre-cargarlas a través de un archivo donde ya estén estas codificadas. Yo he preparado una versión de este archivo, que he llamado `bc_defines.bc` que pueden descargar de este [enlace](https://raw.githubusercontent.com/josersosa/bc_scripts/master/bc_defines.bc).
 
 Aquí el contenido de este archivo:
 
