@@ -1491,7 +1491,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </nav>
 </div>
 <h2 id="el-comando-bc">El comando “bc”</h2>
-<p>Para llamar a la aplicación escribimos desde la consola la siguiente instrucción:</p>
+<p>Para llamar a la aplicación <a href="https://www.gnu.org/software/bc/">bc</a> escribimos desde la consola la siguiente instrucción:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>$ <span class="fu">bc</span> -il </span></code></pre></div>
 <p>Con esta sentencia convocamos nuestra calculadora en modo interactivo (-i) y enlazando la librería matemática (-l)</p>
 <p>Para obtener la lista completa de parámetros de esta aplicación, la ejecutamos:</p>
@@ -1507,44 +1507,47 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <aside>
 <img src="../../images/tn_bc.jpg" />
 </aside>
+<p>Si queremos incluir cálculos matemáticos dentro de un script de Linux es necesario pasar las formulas al comando bc, para eso podemos usar un pipeline, así:</p>
+<pre><code>#!/bin/bash 
+echo &#39;scale=4; 10/3&#39; | bc -l</code></pre>
 <h2 id="cálculo-de-combinatorias-y-probabilidades">Cálculo de combinatorias y probabilidades</h2>
 <p>Para incorporar las funciones de cálculo de combinatorias debemos definir las correspondientes funciones en el ambiente de <code>bc</code>, también podemos pre-cargarlas a través de un archivo donde ya estén estas codificadas. Yo he preparado una versión de este archivo, que he llamado <code>bc_defines.bc</code> que pueden descargar de este <a href="https://raw.githubusercontent.com/josersosa/bc_scripts/master/bc_defines.bc">enlace</a>.</p>
 <p>Aquí el contenido de este archivo:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pi</span> = 4*a(1)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nep</span> = e(1)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> fact (x) <span class="kw">{</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="kw">(</span><span class="ex">x</span> <span class="op">&lt;</span>= 1<span class="kw">)</span> <span class="bu">return</span> (1);</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> (fact(x-1) <span class="ex">*</span> x);</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> comb (n,x) <span class="kw">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> fact(n)/<span class="kw">(</span><span class="ex">fact</span>(n-x<span class="kw">)</span><span class="ex">*fact</span>(x))</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> poisson (s,x) <span class="kw">{</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> e(-s)<span class="ex">*s</span>^x/fact(x)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> apoisson (s,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+poisson<span class="va">(</span>s,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> binomial (n,p,x) <span class="kw">{</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> comb(n,x)<span class="ex">*p</span>^x*(1-p)^<span class="kw">(</span><span class="ex">n-x</span><span class="kw">)</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> abinomial (n,p,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+binomial<span class="va">(</span>n,p,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> geometrica (p,x) <span class="kw">{</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> p*(1-p)^<span class="ex">x</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> ageometrica (p,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+geometrica<span class="va">(</span>p,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> binomialneg (n,p,x) <span class="kw">{</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> comb(n+x-1,x)<span class="ex">*p</span>^n*(1-p)^<span class="ex">x</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> abinomialneg (n,p,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+binomialneg<span class="va">(</span>n,p,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> hipergeometrica (n,m,k,x) <span class="kw">{</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> comb(m,x)<span class="ex">*comb</span>(k,n-x)/<span class="ex">comb</span>(m+k,n)</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> ahipergeometrica (n,m,p,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+hipergeometrica<span class="va">(</span>n,m,p,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pi</span> = 4*a(1)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nep</span> = e(1)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> fact (x) <span class="kw">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="kw">(</span><span class="ex">x</span> <span class="op">&lt;</span>= 1<span class="kw">)</span> <span class="bu">return</span> (1);</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> (fact(x-1) <span class="ex">*</span> x);</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> comb (n,x) <span class="kw">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> fact(n)/<span class="kw">(</span><span class="ex">fact</span>(n-x<span class="kw">)</span><span class="ex">*fact</span>(x))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> poisson (s,x) <span class="kw">{</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> e(-s)<span class="ex">*s</span>^x/fact(x)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> apoisson (s,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+poisson<span class="va">(</span>s,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> binomial (n,p,x) <span class="kw">{</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> comb(n,x)<span class="ex">*p</span>^x*(1-p)^<span class="kw">(</span><span class="ex">n-x</span><span class="kw">)</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> abinomial (n,p,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+binomial<span class="va">(</span>n,p,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> geometrica (p,x) <span class="kw">{</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> p*(1-p)^<span class="ex">x</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> ageometrica (p,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+geometrica<span class="va">(</span>p,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> binomialneg (n,p,x) <span class="kw">{</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> comb(n+x-1,x)<span class="ex">*p</span>^n*(1-p)^<span class="ex">x</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> abinomialneg (n,p,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+binomialneg<span class="va">(</span>n,p,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> hipergeometrica (n,m,k,x) <span class="kw">{</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="bu">return</span> comb(m,x)<span class="ex">*comb</span>(k,n-x)/<span class="ex">comb</span>(m+k,n)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">}</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="ex">define</span> ahipergeometrica (n,m,p,x) <span class="kw">{</span> <span class="va">suma=</span>0; <span class="kw">for</span> <span class="kw">(</span><span class="va">i=</span>0;<span class="ex">i</span><span class="op">&lt;</span>=x<span class="kw">;</span><span class="ex">i++</span><span class="kw">){</span> <span class="va">suma=</span>suma+hipergeometrica<span class="va">(</span>n,m,p,i<span class="va">)</span><span class="kw">}</span>; <span class="bu">return</span> suma<span class="kw">}</span></span></code></pre></div>
 <p>Para ejecutar <em>bc</em> con las funciones que predefinimos escribimos:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>$ <span class="fu">bc</span> -il bc_defines.bc</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>$ <span class="fu">bc</span> -il bc_defines.bc</span></code></pre></div>
 <p>En el, se implementan una serie de funciones que describo a continuación:</p>
 <ul>
 <li><code>comb (n,x)</code>: Combinaciones de n en x.</li>
@@ -1562,9 +1565,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="referencias">Referencias</h2>
 <ul>
 <li><a href="http://marcmmw.freeshell.org/esp/programacion/bc.html">Cálculo numérico con bc</a></li>
+<li><a href="https://www.linuxito.com/gnu-linux/nivel-basico/851-calculadora-de-linea-de-comandos">Calculadora de línea de comandos</a></li>
 </ul>
 <p>Espero que les sirva…</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

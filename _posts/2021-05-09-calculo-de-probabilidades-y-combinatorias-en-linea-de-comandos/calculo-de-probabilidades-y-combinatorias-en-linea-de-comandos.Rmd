@@ -22,7 +22,7 @@ preview: ../../images/tn_bc.jpg
 
 ## El comando "bc"
 
-Para llamar a la aplicación escribimos desde la consola la siguiente instrucción:
+Para llamar a la aplicación [bc](https://www.gnu.org/software/bc/) escribimos desde la consola la siguiente instrucción:
 
 ```bash
 $ bc -il 
@@ -47,6 +47,14 @@ usage: bc [options] [file ...]
 <aside>
 <img src="../../images/tn_bc.jpg" />
 </aside>
+
+Si queremos incluir cálculos matemáticos dentro de un script de Linux es necesario pasar las formulas al comando bc, para eso podemos usar un pipeline, así:
+
+```
+#!/bin/bash 
+echo 'scale=4; 10/3' | bc -l
+```
+
 
 
 ## Cálculo de combinatorias y probabilidades
@@ -114,6 +122,7 @@ En el, se implementan una serie de funciones que describo a continuación:
 ## Referencias
 
 - [Cálculo numérico con bc](http://marcmmw.freeshell.org/esp/programacion/bc.html)
+- [Calculadora de línea de comandos](https://www.linuxito.com/gnu-linux/nivel-basico/851-calculadora-de-linea-de-comandos) 
 
 Espero que les sirva...
 
