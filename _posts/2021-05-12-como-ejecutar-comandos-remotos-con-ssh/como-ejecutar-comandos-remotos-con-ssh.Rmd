@@ -1,0 +1,137 @@
+---
+title: "Cómo ejecutar comandos remotos con SSH"
+description: |
+  Generalmente estamos acostumbrados a utilizar el comando SSH para  ejecutar aplicaciones a través de una shell interactiva, pero también  podemos hacer que el cliente de SSH ejecute un comando remoto y nos  envíe su salida a la maquina local. En este post muestro este y otros trucos con SSH. 
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 05-12-2021
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Linux Recipes
+preview: ../../images/edex-ui.png
+---
+
+
+Para  lograr esto, basta con poner el comando con todos sus parámetros a  continuación del nombre del equipo remoto, por ejemplo para ver el  contenido de la carpeta personal del usuario jose en el equipo  remoto.ejemplo.com podríamos poner lo siguiente:
+
+```
+$ ssh  jose@remoto.ejemplo.com comando_remoto
+```
+
+
+
+## Algunos trucos para el uso del SSH.
+
+### Ejecutando un programa remoto mostrando la salida en la máquina local. 
+
+```bash
+$ ssh jose@remoto.ejemplo.com ls
+jose@remoto.ejemplo.com's password: 
+doc
+test.txt
+misc
+src**
+```
+
+
+
+### Descomprimiendo locamente un archivo alojado en una máquina remota.
+
+OpenSSH tiene herramientas para poder transmitir archivos por SSH, pero a pesar de ello, vamos a explotar el echo de que al ejecutar un comando de  forma remota el cliente de SSH nos envía su salida, con esto y la  creación de una tubería (pipe), podemos extraer el archivo directamente  sin tener que bajárnoslo para luego borrarlo: 
+
+```bash
+$ ssh manolo@remoto.ejemplo.com cat a.tar.gz | tar xvzf -
+jose@remoto.ejemplo.com's password:
+a
+a/a.txt
+a/b.txt
+a/c.txt**
+```
+
+
+
+### Copiando un directorio remoto en la maquina local.
+
+Para realizar alguna operación mas elaborada como realizar una copia en local de un directorio remoto, como en el ejemplo:
+
+```bash
+ssh usuario1@servidor.dominio.es "tar cf - /home/usuario1" | tar xvf -**
+```
+
+
+
+### Ejecutar aplicaciones remotas para procesar archivo locales.
+
+Veámoslo con otro ejemplo, imaginemos que queremos invocar el comando wc en un  equipo remoto para contar el número de líneas, palabras y bytes que  tiene el archivo test.txt que tenemos almacenado en nuestro disco duro:
+
+```bash
+$ cat test.txt | ssh  usuario@remoto.ejemplo.com wc
+usuario@remoto.ejemplo.com's password:
+    5   24   124**
+```
+
+
+
+## Aplicaciones remotas con interface gráfica
+
+### Ejecutar aplicaciones gráficas remotas con despliegue local.
+
+Para poder ejecutar aplicaciones gráficas remotamente debemos cambiar las siguiente opciones dentro del archivo **/etc/ssh/sshd_config**:
+
+```bash
+AllowAgentForwarding yes
+X11Forwarding yes
+X11DisplayOffset 10
+X11UseLocalhost yes
+```
+
+Un ejemplo de como abrir una aplicación gráfica:
+
+```bash
+ssh -X -p 7900 root@localhost xterm
+```
+
+Suponiendo que el servicio **SSH** se este escuchando por el puerto 7900. En caso de que deseemos ejecutar aplicaciones remotas es conveniente configurar nuestro servicio **SSH** en puertos no convencionales. En algunos casos, puede ser necesario  algo más de trabajo, ya que al tratar de ejecutar una aplicación remota  puede que de el siguiente error:
+
+```bash
+ssh -X user@IP_servidor_remoto
+password: ....
+xterm
+xterm:2127): Gtk-WARNING **: cannot open display: localhost:10.0
+```
+
+En estos casos tendremos que informar a nuestro equipo local que debemos  aceptar el desplieque gráfico desde el servidor remoto, usando **xhost** así:
+
+```bash
+xhost +IP_servidor_remoto
+```
+
+Y luego puede que tengamos que identificar la salida gráfica remota en el servidor remoto, usando la variable de entorno **DISPLAY** así:
+
+```bash
+export DISPLAY=IP_maquina_local:0.0
+```
+
+ 
+
+## Transferencia de grandes volúmenes de datos
+
+### Como transferir un directorio a otra máquina comprimiendolo al vuelo.
+
+La forma más eficiente y segura que conozco es:
+
+```bash
+$ tar -c path_a_respaldar/ | gzip | ssh  usuario@ejemplo.com "tar -zxvf -  --directory /path_equipo_remoto > /path_a_logs/proyects.log"
+```
+
+ Con esta única instrucción podemos tranferir gran volúmen datos en archivos de un filesystem local a otro remoto, comprimiendolos en el origen y descomprimeinto en el destino para reducir el tiempo de transferencia. Además para los efectos de sistema operativo se está transmitiendo un solo archivo (formato tar.gz) por lo que no tiene que perder tiempo creando un indice, esto puede llevar mucho tiempo cuando se trata de muchos archivos
+
+
+
+**Fuente**: [http://sial.org/howto/openssh/publickey-auth/ ](http://sial.org/howto/openssh/publickey-auth/)

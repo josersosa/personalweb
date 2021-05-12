@@ -7,7 +7,17 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Cómo ejecutar comandos remotos con SSH</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh</link>
+      <description>Generalmente estamos acostumbrados a utilizar el comando SSH para  ejecutar aplicaciones a través de una shell interactiva, pero también  podemos hacer que el cliente de SSH ejecute un comando remoto y nos  envíe su salida a la maquina local. En este post muestro este y otros trucos con SSH.</description>
+      <category>Linux Recipes</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh</guid>
+      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
     <item>
       <title>Desplegar una aplicación web con NGINX y Docker</title>
       <dc:creator>José R Sosa</dc:creator>
