@@ -11,6 +11,7 @@ output:
     toc: true
     toc_depth: 3
     self_contained: false
+    code_folding: hide
 #    toc_float: false
 categories:
   - Linux Recipes
@@ -33,7 +34,6 @@ Con esto, se establece un shell en la "*máquina_segura*" creando un túnel  ent
 
 ```{r, echo=FALSE, dev='svg'}
 library(DiagrammeR)
-#png(filename="diagram-tunneling-01.png")
 DiagrammeR::mermaid("graph LR
 	subgraph Máquina Local.
     A[Cliente] --> B(Puerto local)
@@ -47,7 +47,6 @@ DiagrammeR::mermaid("graph LR
     end
 	D -.-> E
 	")
-#dev.off()
 ```
 
 
