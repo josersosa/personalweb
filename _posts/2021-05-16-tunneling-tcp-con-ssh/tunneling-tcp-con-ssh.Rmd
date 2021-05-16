@@ -1,0 +1,127 @@
+---
+title: "Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras"
+description: |
+  Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  "entubar" o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 08-18-2012
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Linux Recipes
+  - SSH
+preview: ../../images/edex-ui.png
+---
+
+
+Para lograr esto debemos asumir que contamos con el acceso, mediante  SSH, a una máquina de confianza, es decir un equipo en una parte  "segura" de la red. Puede ser la máquina a la que nos queremos conectar  para leer el correo, o el proxy que usamos para navegar, o la máquina  que hace de gateway entre la red inalámbrica y la red "alámbrica". El  objetivo es, entonces establecer un puente o túnel, mediante SSH entre  nuestra máquina y la máquina "segura", de manera de protegernos de los  peligros de la parte insegura de la red. Más adelante veremos como  aprovechar esta conexión SSH, para transmitir protocolos o servicios  como si fueran locales.
+
+## Tunneling con SSH
+
+Para establecer este tunel debemos usa la siguiente sintaxis para el comando ssh:
+
+```bash
+ssh -L puerto_local:maquina_destino:puerto_destino maquina_segura
+```
+
+Con esto, se establece un shell en la "*máquina_segura*" creando un túnel  entre esta y nuestra "*máquina_local*". Sin embargo, lo interesante es que este comando también activa el puerto TCP "*puerto_local*" en nuestra  máquina que hace referencia (como un enlace simbólico) al  "*puerto_destino*" TCP de la "*maquina_destino*". 
+
+```{r, echo=FALSE, dev='svg'}
+library(DiagrammeR)
+#png(filename="diagram-tunneling-01.png")
+DiagrammeR::mermaid("graph LR
+	subgraph Máquina Local.
+    A[Cliente] --> B(Puerto local)
+    end
+	subgraph Máquina Segura.
+    D[Serv SSH] 
+    end
+	B -.-> D
+	subgraph Máquina Destino.
+    E(Puerto destino_) --> F[Servidor] 
+    end
+	D -.-> E
+	")
+#dev.off()
+```
+
+
+
+La idea es que mientras  esté activa esta conexión SSH o túnel, si nos conectamos a  *localhost:puerto_local*, esa conexión TCP será redirigida a través del  túnel SSH y con la seguridad correspondiente, a la *máquina_segura*, y  desde ahí se establecerá una conexión a *maquina_destino:puerto_destino*.  
+
+### Accediendo a un servicio Jupyter en la máquina segura
+
+Es importante tener en cuenta que si en lugar de maquina_destino,  ponemos localhost, estaríamos asumiendo que la "máquina_destino" en la  "máquina_segura". Un de uso prático de esto es el siguiente: 
+
+Supongamos que levantamos uns servicio Jupyter, que usa el puerto 8888, en una máquina virtual en la nube, la cual solo tiene el puerto 22 abierto. Podriamos abier el puero 8888 o el 80 y poner a escuchar nuestro servicio ahí, pero eso dejaría nuestra conexión a Juyter insegura y abierta a posibles ataques. Otra opción es crear un tunel SSH a nuestra máquina para proteger la conexion,  de manera que ahora para de acceder al servicio usariamos un puerto local:
+
+ 
+
+```{r, echo=FALSE, dev='svg'}
+DiagrammeR::mermaid("graph LR
+  subgraph Máquina Local
+  A[Cliente] --> B(Puerto local)
+  end
+  subgraph Máquina Segura.
+    E(Puerto destino) --> F[Servidor]
+  end
+  B -.->|tunel ssh| E
+  ")
+```
+
+Observe que así podemos ejecutar el *Jupyter* en el servidor remoto y lo accedemos como si se tratara de un servicio local:
+
+```bash
+ssh usuario@servidor-remoto "jupyter notebook > ~/jupyter.log &"
+# esperamos unos segundos para que levante el servicio
+ssh -L 8880:servidor-remoto:8888 servidor-remoto
+# ahora podemos acceder al servicio localmente en http://localhost:8880
+
+```
+
+Recuerden que para conocer el token que se ha producido automaticamente debemos consultar el log generado por el jupyter:
+
+```bash
+ssh usuario@servidor-remoto "cat ~/jupyter.log"
+```
+
+## Conexión desde el lado inseguro de la red
+
+Ejemplos de túneles cuando estamos del lado inseguro de la red (parámetro -L) 
+
+```bash
+ssh -L 8080:localhost:3128 miproxy.segu.ro
+```
+
+Suponiendo que tengamos acceso SSH a miproxy.segu.ro, y que esta máquina esté  ejecutando un proxy (por ejemplo el squid) en el puerto 3128, con este  comando conseguimos (además del shell de siempre) que todas las  conexiones al puerto 8080 local se vayan por el túnel SSH al puerto 3128 de miproxy.segu.ro. Así que configuramos el navegador para que use como proxy localhost:8080, y en realidad estaremos usando  miproxy.segu.ro:3128, solo que la comunicación irá protegida por SSH.
+
+```bash
+ssh -L 110:mipop3:110 miservidor.segu.ro
+```
+
+Supongamos que tenemos acceso SSH a miservidor.segu.ro, y una cuenta POP3 en la  máquina mipop3, que está en la misma red local que miservidor.segu.ro. O bién no tenemos acceso a mipop3 desde fuera, o bién nos da miedo que  nuestro password viaje en pelotas por medio mundo hasta llegar a él.  Usando este comando SSH conseguimos que las conexiones al puerto local  110 sean redirigidas a mipop3:110, via miservidor.segu.ro, y la conexión entre la máquina local y miservidor.segu.ro va protegida por SSH.
+
+## Conexión desde el lado seguro de la red
+
+Ejemplos de túneles cuando estamos del lado seguro de la red (parámetro -R)
+
+La versión con -R es muy parecida, pero el primer puerto que se especifica es remoto y el host:puerto que vienen después se resuelven en local.  Por supuesto la re-dirección se hace en sentido contrario.
+
+Es decir, si hacemos 
+
+```bash
+ssh -R 6110:localhost:110 miservidor.segu.ro
+```
+
+conseguimos que las conexiones a miservidor.segu.ro:6110 sean  redirigidas de forma transparente a través del túnel SSH al puerto 110  local. Así que si en la máquina local tenemos un servidor POP3  funcionando, las máquinas de la parte remota pueden usarlo accediendo al puerto 6110 de miservidor.segu.ro.
+
+
+
+ 
+
+**Fuente**:http://bulma.net/body.phtml?nIdNoticia=1147

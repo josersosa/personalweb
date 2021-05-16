@@ -7,17 +7,7 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>Cómo ejecutar comandos remotos con SSH</title>
-      <dc:creator>José R Sosa</dc:creator>
-      <link>https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh</link>
-      <description>Generalmente estamos acostumbrados a utilizar el comando SSH para  ejecutar aplicaciones a través de una shell interactiva, pero también  podemos hacer que el cliente de SSH ejecute un comando remoto y nos  envíe su salida a la maquina local. En este post muestro este y otros trucos con SSH.</description>
-      <category>Linux Recipes</category>
-      <guid>https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh</guid>
-      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
-    </item>
+    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Desplegar una aplicación web con NGINX y Docker</title>
       <dc:creator>José R Sosa</dc:creator>
@@ -117,6 +107,7 @@
       <link>https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg</link>
       <description>Hace algún tiempo utilicé [FFmpeg](http://www.ffmpeg.org/) para la automatización de la grabación de algunos tutoriales y por eso quedé con la inquietud de crear un breve turtorial con algunas de sus principales funciones.</description>
       <category>Linux Recipes</category>
+      <category>FFmepg</category>
       <guid>https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg</guid>
       <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/../../images/video-chroma-demo.png" medium="image" type="image/png" width="929" height="528"/>
@@ -144,6 +135,28 @@
       <guid>https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux</guid>
       <pubDate>Thu, 20 Sep 2012 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh</link>
+      <description>Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  "entubar" o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto.</description>
+      <category>Linux Recipes</category>
+      <category>SSH</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh</guid>
+      <pubDate>Sat, 18 Aug 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Cómo ejecutar comandos remotos con SSH</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh</link>
+      <description>Generalmente estamos acostumbrados a utilizar el comando SSH para  ejecutar aplicaciones a través de una shell interactiva, pero también  podemos hacer que el cliente de SSH ejecute un comando remoto y nos  envíe su salida a la maquina local. En este post muestro este y otros trucos con SSH.</description>
+      <category>Linux Recipes</category>
+      <category>SSH</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh</guid>
+      <pubDate>Sat, 12 May 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
     <item>
       <title>Cálculo de probabilidades y combinatorias por línea de comandos</title>

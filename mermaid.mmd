@@ -1,0 +1,8 @@
+graph LR
+  subgraph Máquina Local
+  A[Cliente] --> B(Puerto local)
+  end
+  subgraph Máquina Segura.
+    E(Puerto destino) --> F[Servidor]
+  end
+  B -.->|tunel ssh| E

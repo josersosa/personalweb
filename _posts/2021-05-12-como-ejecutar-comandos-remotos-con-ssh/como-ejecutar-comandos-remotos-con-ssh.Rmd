@@ -5,7 +5,7 @@ description: |
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/
-date: 05-12-2021
+date: 05-12-2012
 output:
   distill::distill_article:
     toc: true
@@ -14,6 +14,7 @@ output:
 #    toc_float: false
 categories:
   - Linux Recipes
+  - SSH
 preview: ../../images/edex-ui.png
 ---
 
