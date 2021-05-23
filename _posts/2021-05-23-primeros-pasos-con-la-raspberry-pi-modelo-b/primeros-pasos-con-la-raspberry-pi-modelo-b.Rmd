@@ -1,7 +1,7 @@
 ---
 title: "Primeros pasos con la Raspberry Pi, modelo B"
 description: |
-  El [Raspberry Pi](http://www.raspberrypi.org/) es uno de los proyectos más importantes, surgidos en los últimos años,  que están orientados a promover el aprendizaje de la informática en los  niños a muy bajo costo. Consiste en una placa base, que con el precio de 35$, contiene todos los elementos de un completo computador pero con  las dimensiones de una tarjeta de crédito. 
+  El Raspberry Pi es uno de los proyectos más importantes, surgidos en los últimos años,  que están orientados a promover el aprendizaje de la informática en los  niños a muy bajo costo. Consiste en una placa base, que con el precio de 35$, contiene todos los elementos de un completo computador pero con  las dimensiones de una tarjeta de crédito.  
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/
@@ -28,6 +28,7 @@ La [Raspberry Pi](http://www.raspberrypi.org/) tiene una capacidad de  procesami
 ## Un poco de historia.
 
 [![alt](../../images/raspberry_pi/Raspberry_Pi_tn_logo.jpg)](../../images/raspberry_pi/Raspberry_Pi_logo.jpg) Este proyecto es bastante reciente. A pesar de que los primeros diseños de [Raspberry Pi](http://www.raspberrypi.org/) fueron en el 2006, fue en el 2011 que se creo una fundación para su  producción y su administrador, Eben Upton, se puso en contacto con un  grupo de profesores, académicos y entusiastas de la informática para  crear un ordenador con la intención de animar a los niños a aprender  informática. En agosto de 2011, se fabricaron cincuenta placas alpha.  Las primeras ventas comenzaron el 29 de febrero de 2012. (fuente [Wikipedia](http://es.wikipedia.org/wiki/Raspberry_Pi)). La tarjeta con la que estaré haciendo mis experimentos es una modelo B, fabricada en diciembre del 2011. 
+
 
 
 ## Características de la Raspberry Pi (Modelo B)
@@ -86,19 +87,34 @@ La [Raspberry Pi](http://www.raspberrypi.org/) tiene una capacidad de  procesami
 
 Como todo proyecto para fomentar el desarrollo, la Raspberry Pi tiene un  gran número de posibles usos, el límite es la imaginación. Aquí expongo  algunos usos comunes con los que he comenzado a experimentar:
 
-- [![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1020060.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020060.JPG)Sistema de propósito general: el primer uso que le podemos dar a nuestra  Raspberry Pi, es la de una computador común. Podemos usar todos los  periféricos comunes. Como monitor podemos emplear un televisor  convencional, dado que tenemos salidas RCA de video analógico y HDMI de  video digital. Hice la prueba de una convertidor de HDMI a DVI y la  conecté a un monitor sin ningún problema.
 
-- [![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1020063.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020063.JPG)Media Center con [XBMC](http://xbmc.org/): Otro posible uso que me parece más interesante, es el de emplear la [RaspBerry Pi para construir un Media Center](http://wiki.xbmc.org/index.php?title=HOW-TO:Install_XBMC_on_Raspberry_Pi). Podemos integrar en una misma interfaz, el despligue de videos y  multimedia de varias fuentes como la televisión y el Internet. Existe  un proyecto en Software Libre, que tiene esto como objetivo, llamado  XBMC y puede ser extendido mediante la programación de pluggins en  Python. He dedicado otro post para mostrar como hacer esto. Fuente en [Wikipedia](http://es.wikipedia.org/wiki/XBMC).
+- Sistema de propósito general: el primer uso que le podemos dar a nuestra  Raspberry Pi, es la de una computador común. Podemos usar todos los  periféricos comunes. Como monitor podemos emplear un televisor  convencional, dado que tenemos salidas RCA de video analógico y HDMI de  video digital. Hice la prueba de una convertidor de HDMI a DVI y la  conecté a un monitor sin ningún problema. 
 
-- [![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1030183.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1030183.JPG)Control de Robots y Domótica: Su pequeño tamaño y su gran capacidad posibilita  su utilización en robótica ya que podemos incorporar un completo  computador en nuestros pequeños robot, dotándolos de la capacidad de  procesamiento y comunicaciones que ofrecen los sistemas operativos  modernos. También la automatización de algunas acciones como el  encendido y apagado de luces, registro de sensores de movimiento,  temperatura, etc. Mi primer experimento, que comentaré en otro[ post](http://192.168.0.105/personalweb/index.php/robotica/116-raspberry-pi/109-vehiculo-robot-con-lego-minsdstorm-y-una-raspberry-pi), fué adaptar la Raspberry Pi a un vehículo Lego Technic (8081) y  motorizado con Mindstorm y manejado por una aplicación hecha en Python. 
+<aside>
+[![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1020060.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020060.JPG)
+</aside>
+
+- Media Center con [XBMC](http://xbmc.org/): Otro posible uso que me parece más interesante, es el de emplear la [RaspBerry Pi para construir un Media Center](http://wiki.xbmc.org/index.php?title=HOW-TO:Install_XBMC_on_Raspberry_Pi). Podemos integrar en una misma interfaz, el despligue de videos y  multimedia de varias fuentes como la televisión y el Internet. Existe  un proyecto en Software Libre, que tiene esto como objetivo, llamado  XBMC y puede ser extendido mediante la programación de pluggins en  Python. He dedicado otro post para mostrar como hacer esto. Fuente en [Wikipedia](http://es.wikipedia.org/wiki/XBMC). 
+
+<aside>
+[![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1020063.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020063.JPG)
+</aside>
+
+- Control de Robots y Domótica: Su pequeño tamaño y su gran capacidad posibilita  su utilización en robótica ya que podemos incorporar un completo  computador en nuestros pequeños robot, dotándolos de la capacidad de  procesamiento y comunicaciones que ofrecen los sistemas operativos  modernos. También la automatización de algunas acciones como el  encendido y apagado de luces, registro de sensores de movimiento,  temperatura, etc. Mi primer experimento, que comentaré en otro [post](http://192.168.0.105/personalweb/index.php/robotica/116-raspberry-pi/109-vehiculo-robot-con-lego-minsdstorm-y-una-raspberry-pi), fué adaptar la Raspberry Pi a un vehículo Lego Technic (8081) y  motorizado con Mindstorm y manejado por una aplicación hecha en Python.  
+
+<aside>
+[![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1030183.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1030183.JPG)
+</aside>
 
 
 
 ## Los primeros pasos
 
-[![Raspberry Pi, conectado al televisor y la Internet](../../images/raspberry_pi/Raspberry_Pi_tn_P1020065.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020065.JPG)Los primeros pasos están bien descritos en el documento [QuckStart](http://www.raspberrypi.org/wp-content/uploads/2012/04/quick-start-guide-v2_1.pdf) que podemos encontrar en el sito de la [Raspberry Pi](http://www.raspberrypi.org/), este documento describe como instalar la imagen de [Raspbian](http://www.raspbian.org/), un sistema operativo basado en Debian wheezy sobre una memoria SD. En  principio no nos hará falta realizar el proceso de instalación del  sistema operativo, ya que podemos encontrar un buen número de imágenes  de sistemas adaptados a nuestro nuevo juguete. En el propio [sitio de descargas de Raspberry Pi](http://www.raspberrypi.org/downloads) podemos encontrar varias de ellas.
+Los primeros pasos están bien descritos en el documento [QuckStart](http://www.raspberrypi.org/wp-content/uploads/2012/04/quick-start-guide-v2_1.pdf) que podemos encontrar en el sito de la [Raspberry Pi](http://www.raspberrypi.org/), este documento describe como instalar la imagen de [Raspbian](http://www.raspbian.org/), un sistema operativo basado en Debian wheezy sobre una memoria SD. En  principio no nos hará falta realizar el proceso de instalación del  sistema operativo, ya que podemos encontrar un buen número de imágenes  de sistemas adaptados a nuestro nuevo juguete. En el propio [sitio de descargas de Raspberry Pi](http://www.raspberrypi.org/downloads) podemos encontrar varias de ellas.
 
-
+<aside>
+[![Raspberry Pi, conectado al televisor y la Internet](../../images/raspberry_pi/Raspberry_Pi_tn_P1020065.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020065.JPG)
+</aside>
 
 ### Componentes básicos.  
 
@@ -123,7 +139,11 @@ wget http://downloads.raspberrypi.org/images/raspbian/2013-07-26-wheezy-raspbian
 unzip 2013-07-26-wheezy-raspbian.zip
 ```
 
-[![Memoria SD de 8 Gb clase 10](../../images/raspberry_pi/Raspberry_Pi_tn_IMG_20130901_160446.jpg)](../../images/raspberry_pi/Raspberry_Pi_IMG_20130901_160446.jpg)Luego copiaremos la images escogida sobre la memoria SD que nos servirá de disco para la Raspberry Pi, [aquí](http://elinux.org/RPi_Easy_SD_Card_Setup) un breve tutorial. Es importante respaldar lo que tengamos ahí dado que el contenido previo se perderá, para esto usaremos el comando **dd**, con los parámetros **if** (dirección d ela imagen a utilizar), **of** (dispositivo de destino) y **bs** (tamaño de los bloques de memoria a manejar en la copia) . Si suponemos que la unidad SD fue detectada como **/dev/disk1**, la instrucción quedaría así:
+Luego copiaremos la images escogida sobre la memoria SD que nos servirá de disco para la Raspberry Pi, [aquí](http://elinux.org/RPi_Easy_SD_Card_Setup) un breve tutorial. Es importante respaldar lo que tengamos ahí dado que el contenido previo se perderá, para esto usaremos el comando **dd**, con los parámetros **if** (dirección d ela imagen a utilizar), **of** (dispositivo de destino) y **bs** (tamaño de los bloques de memoria a manejar en la copia) . Si suponemos que la unidad SD fue detectada como **/dev/disk1**, la instrucción quedaría así:
+
+<aside>
+[![Memoria SD de 8 Gb clase 10](../../images/raspberry_pi/Raspberry_Pi_tn_IMG_20130901_160446.jpg)](../../images/raspberry_pi/Raspberry_Pi_IMG_20130901_160446.jpg)
+</aside>
 
 ```bash
 dd if=2013-07-26-wheezy-raspbian.img of=/dev/disk1 
@@ -135,11 +155,17 @@ Después de unos minutos, esta instrucción copia la imagen sobre el dispositivo
 
 ### Inicio por primera vez con el Raspbian.  
 
-[![Raspberry Pi arrancando por primera vez con Raspbian](../../images/raspberry_pi/Raspberry_Pi_tn_P1020058.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020058.JPG)Una vez que contamos son el sistema operativo, en este caso Rasbian, sobre  la memoria SD, debemos introducirla en la ranura que se encuentra en la  parte de abajo de la Raspberry. Ahora solo queda conectar la salida de  video, el teclado (y mouse) y encenderla. Como habrán notado, la  Raspeberry no cuenta con un interruptor, por o que encenderá en cuanto  conectemos la alimentación de corriente. En este punto, es posible que  la Raspberry no encienda, recuerden que la Raspberry no cuenta con  baterías y la alimentación debe ser de 5v DC. Algunos cargadores de  celulares no proveen una corriente continua estable por lo que no nos  funcionaran, yo tuve que hacer varios intentos hasta que conseguí uno  bueno. Los siguientes pasos están descritos a continuación:
+Una vez que contamos son el sistema operativo, en este caso Rasbian, sobre  la memoria SD, debemos introducirla en la ranura que se encuentra en la  parte de abajo de la Raspberry. Ahora solo queda conectar la salida de  video, el teclado (y mouse) y encenderla. Como habrán notado, la  Raspeberry no cuenta con un interruptor, por o que encenderá en cuanto  conectemos la alimentación de corriente. En este punto, es posible que  la Raspberry no encienda, recuerden que la Raspberry no cuenta con  baterías y la alimentación debe ser de 5v DC. Algunos cargadores de  celulares no proveen una corriente continua estable por lo que no nos  funcionaran, yo tuve que hacer varios intentos hasta que conseguí uno  bueno. Los siguientes pasos están descritos a continuación:
 
+<aside>
+[![Raspberry Pi arrancando por primera vez con Raspbian](../../images/raspberry_pi/Raspberry_Pi_tn_P1020058.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020058.JPG)
+</aside>
 
+En el primer arranque se activara el **Raspi-conf** que nos permitirá hacer las configuraciones del equipo. Esta es una de  las ventajas de las Rasbian, que cuenta con un sistema de ventanas que  nos facilitará la configuración inicial. Esto solo se requiere hacer una vez y nos permitirá hacer cosas como:
 
-[![raspi-conf, tras el primer inicio de Raspbian](../../images/raspberry_pi/Raspberry_Pi_tn_P1020055.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020055.JPG)En el primer arranque se activara el **Raspi-conf** que nos permitirá hacer las configuraciones del equipo. Esta es una de  las ventajas de las Rasbian, que cuenta con un sistema de ventanas que  nos facilitará la configuración inicial. Esto solo se requiere hacer una vez y nos permitirá hacer cosas como:
+<aside>
+[![raspi-conf, tras el primer inicio de Raspbian](../../images/raspberry_pi/Raspberry_Pi_tn_P1020055.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020055.JPG)
+</aside>
 
 1. 1. Extender el formato sobre todo el espacio de la memoria SD (**expand_rootfs**).
    2. Cambiar el password del usuario"**pi**" está creado por defecto. 
@@ -172,14 +198,20 @@ omxplayer -hdmi /media/sda1/video.mp4
 
 ### Ambiente gráfico.
 
-[![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1020059.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020059.JPG)Desde luego que más interesante para observar las capacidades de la Raspberry es trabajar con ventanas, por ejemplo para iniciar el ambiente gráfico  (si es que tenemos conectado un televisor o monitor) podemos introducir  la instrucción que lo iniciará: **startx**
+Desde luego que más interesante para observar las capacidades de la Raspberry es trabajar con ventanas, por ejemplo para iniciar el ambiente gráfico  (si es que tenemos conectado un televisor o monitor) podemos introducir  la instrucción que lo iniciará: **startx**
 
-
+<aside>
+[![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1020059.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020059.JPG)
+</aside>
 
 ### Instalacion de nuevos software.  
 
-[![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1020060.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020060.JPG)Hasta ahora podemos usar nuestra Raspebrry Pi como un computador tradicional. Pero dependiendo del espacio disponible que tengamos en nuestra memoria SD, podemos instalar nuevas aplicaciones, por cualquiera de los métodos tradicionales. Yo recogimiento[ configurar a mano el repositorio](http://www.raspbian.org/RaspbianRepository) que usaremos ya que la selección automática de repositorios ([master](http://archive.raspbian.org/)) me manda a Brasil, que no es la mejor opción en mi caso.
+Hasta ahora podemos usar nuestra Raspebrry Pi como un computador tradicional. Pero dependiendo del espacio disponible que tengamos en nuestra memoria SD, podemos instalar nuevas aplicaciones, por cualquiera de los métodos tradicionales. Yo recogimiento[ configurar a mano el repositorio](http://www.raspbian.org/RaspbianRepository) que usaremos ya que la selección automática de repositorios ([master](http://archive.raspbian.org/)) me manda a Brasil, que no es la mejor opción en mi caso.
 Aquí podemos encontrar una lista de [repositorios oficiales de Raspbian](http://www.raspbian.org/RaspbianMirrors) según zonas geográficas, yo escogí EEUU. Luego toca el repositorio  escogido en el archivo, quedando algo así. Luego solo queda actualizar  el índice de paquetes disponibles con **apt-get uptate**, y si queremos actualizar nuestro sistema usaremos **apt-get upgrade**.
+
+<aside>
+[![img](../../images/raspberry_pi/Raspberry_Pi_tn_P1020060.JPG)](../../images/raspberry_pi/Raspberry_Pi_P1020060.JPG)
+</aside>
 
 ```bash
 sudo apt-get update
@@ -205,7 +237,11 @@ Luego será mucho más fácil la instalación de nuevos programas, yo recomiendo
 
 ### Escritorio remoto. 
 
-[![img](../../images/raspberry_pi/Raspberry_Pi_tn_face_detector01.png)](../../images/raspberry_pi/Raspberry_Pi_face_detector01.png)Podemos controlar nuestra Raspberry desde nuestro equipo de escritorio de  manera gráfica, a través del escritorio remoto que provee el protocolo [**VNC**](http://www.google.co.ve/url?sa=t&rct=j&q=vnc&source=web&cd=2&cad=rja&sqi=2&ved=0CEIQFjAB&url=http%3A%2F%2Fes.wikipedia.org%2Fwiki%2FVNC&ei=ayArUpmWH4P28gSpp4DIBA&usg=AFQjCNGYGcJHZ3fZiWuv2xhjJb8TvGyATw&bvm=bv.51773540,d.eWU). Para ello debemos descargar el servidor en nuestra Raspberry e iniciar el servicio así:
+Podemos controlar nuestra Raspberry desde nuestro equipo de escritorio de  manera gráfica, a través del escritorio remoto que provee el protocolo [**VNC**](http://www.google.co.ve/url?sa=t&rct=j&q=vnc&source=web&cd=2&cad=rja&sqi=2&ved=0CEIQFjAB&url=http%3A%2F%2Fes.wikipedia.org%2Fwiki%2FVNC&ei=ayArUpmWH4P28gSpp4DIBA&usg=AFQjCNGYGcJHZ3fZiWuv2xhjJb8TvGyATw&bvm=bv.51773540,d.eWU). Para ello debemos descargar el servidor en nuestra Raspberry e iniciar el servicio así:
+
+<aside>
+[![img](../../images/raspberry_pi/Raspberry_Pi_tn_face_detector01.png)](../../images/raspberry_pi/Raspberry_Pi_face_detector01.png)
+</aside>
 
 ```bash
 sudo apt-get install tightvncserver
@@ -235,7 +271,6 @@ Dependiendo del proyecto en el que queramos trabajar, será necesario incorporar
 - **Dongle Bluetooth USB**, útil si deseamos controlar nuestro Raspberry desde dispositivos  celulares y necesario si queremos acceder a perifericos como la Wiimote.
 
  [![Hub USB de 4 puertos sin alimentación](../../images/raspberry_pi/Raspberry_Pi_tn_IMG_20130901_160630.jpg)](../../images/raspberry_pi/Raspberry_Pi_IMG_20130901_160630.jpg) [![Wifi USB de 150Mbps](../../images/raspberry_pi/Raspberry_Pi_tn_IMG_20130901_161039.jpg)](../../images/raspberry_pi/Raspberry_Pi_IMG_20130901_161039.jpg) [![Varios modelos de Bluetooth USB](../../images/raspberry_pi/Raspberry_Pi_tn_IMG_20130901_161101.jpg)](../../images/raspberry_pi/Raspberry_Pi_IMG_20130901_161101.jpg) 
-
 
 
 ## Seleccionando un sistema operativo
