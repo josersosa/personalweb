@@ -6,6 +6,8 @@ install.packages(pkgs = req_pckgs)
 install.packages("DiagrammeR") #version estable en CRAN
 devtools::install_github("rich-iannone/DiagrammeR") #ultima version
 library(DiagrammeR)
+#para generar jpg
+install.packages("png","jpeg")
 #grViz()
 # cargamos las librerias necearias
 library(here)
@@ -32,3 +34,9 @@ distill::create_post(title = "Tunneling TCP con SSH",
                      date = "2012-08-318",
                      date_prefix = TRUE,
                      draft = FALSE)
+
+# How to create and include images
+#{r out.width = "50%", fig.align = "center"}
+knitr::include_graphics("images/fig31_adjust_nodes.png")
+
+

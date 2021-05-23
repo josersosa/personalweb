@@ -9,7 +9,7 @@
     <generator>Distill</generator>
     <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Desplegar una aplicación web con NGINX y Docker</title>
+      <title>Desplegar una aplicación web local con NGINX y Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-05-11-despliegue-de-una-aplicacin-web-con-nginx-y-docker</link>
       <description>El NGINX es un servidor web muy ligero y eficiente, que en la Ciencia de Datos puede ser muy útil para el despliegue de aplicaciones de IA, compuestas por diferentes componentes dockeriados. Veremos lo simple que puede llegar ser despliegar cualquier aplicación web si utilizamos este servidor dentro de un contenedor docker.</description>
@@ -111,6 +111,18 @@
       <guid>https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg</guid>
       <pubDate>Sun, 10 Nov 2013 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/../../images/video-chroma-demo.png" medium="image" type="image/png" width="929" height="528"/>
+    </item>
+    <item>
+      <title>Primeros pasos con la Raspberry Pi, modelo B</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-05-23-primeros-pasos-con-la-raspberry-pi-modelo-b</link>
+      <description>El [Raspberry Pi](http://www.raspberrypi.org/) es uno de los proyectos más importantes, surgidos en los últimos años,  que están orientados a promover el aprendizaje de la informática en los  niños a muy bajo costo. Consiste en una placa base, que con el precio de 35$, contiene todos los elementos de un completo computador pero con  las dimensiones de una tarjeta de crédito.</description>
+      <category>Linux Recipes</category>
+      <category>Raspberry Pi</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-05-23-primeros-pasos-con-la-raspberry-pi-modelo-b</guid>
+      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-23-primeros-pasos-con-la-raspberry-pi-modelo-b/../../images/Raspberry-Pi-1.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>La máquina de Galton, del Caos al Orden...</title>

@@ -1,5 +1,5 @@
 ---
-title: "Desplegar una aplicación web con NGINX y Docker"
+title: "Desplegar una aplicación web local con NGINX y Docker"
 description: |
   El NGINX es un servidor web muy ligero y eficiente, que en la Ciencia de Datos puede ser muy útil para el despliegue de aplicaciones de IA, compuestas por diferentes componentes dockeriados. Veremos lo simple que puede llegar ser despliegar cualquier aplicación web si utilizamos este servidor dentro de un contenedor docker.
 author:

@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-05-11-despliegue-de-una-aplicacin-web-con-nginx-y-docker/</loc>
-    <lastmod>2021-05-11T03:05:55+00:00</lastmod>
+    <lastmod>2021-05-18T14:53:47+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/</loc>
@@ -67,6 +67,10 @@
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/</loc>
     <lastmod>2021-05-16T20:56:53+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2021-05-23-primeros-pasos-con-la-raspberry-pi-modelo-b/</loc>
+    <lastmod>2021-05-23T05:00:34+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden/</loc>
