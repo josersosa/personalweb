@@ -89,3 +89,5 @@ Accediendo a nuestra WebApp local, ahora vemos nuestra versión del *index.html*
 
 **Fuente**: https://www.docker.com/blog/how-to-use-the-official-nginx-docker-image/
 
+
+
