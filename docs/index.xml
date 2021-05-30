@@ -113,6 +113,19 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-03-edicin-de-videos-en-lnea-de-comandos-con-ffmpeg/../../images/video-chroma-demo.png" medium="image" type="image/png" width="929" height="528"/>
     </item>
     <item>
+      <title>Vehículo Robot con Lego Technic, Minsdstorm y la Raspberry Pi</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-05-30-vehiculo-robot-con-lego</link>
+      <description>El pequeño tamaño de la Raspberry Pi y su capacidad de procesamiento abre muchas posibilidades para la robótica, dado que ahora podemos incorporar un completo  computador en nuestros  pequeños robots, dotándolos de la capacidad de procesamiento y  comunicaciones que ofrecen los sistemas operativos modernos.</description>
+      <category>Raspberry Pi</category>
+      <category>Robotics</category>
+      <category>Lego</category>
+      <category>Python</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-05-30-vehiculo-robot-con-lego</guid>
+      <pubDate>Mon, 09 Sep 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-30-vehiculo-robot-con-lego/../../images/robotics/Raspberry_Pi_P1030182.JPG" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Primeros pasos con la Raspberry Pi, modelo B</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-05-23-primeros-pasos-con-la-raspberry-pi-modelo-b</link>

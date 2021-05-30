@@ -18,9 +18,9 @@ distill::create_post(title = "Como ejecutar comandos remotos con SSH",
                      date_prefix = TRUE,
                      draft = FALSE)
 # o con fecha:
-distill::create_post(title = "Datasets para proyectos de Machine Learning",
+distill::create_post(title = "Vehiculo Robot con Lego",
                      author = "José R Sosa",
-                     date = "2020-12-31",
+                     date = "2013-09-09",
                      date_prefix = TRUE,
                      draft = FALSE)
 # para publicar simplemente rederizar con el botón Knit
