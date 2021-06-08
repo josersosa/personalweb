@@ -1,33 +1,12 @@
----
-title: "Vehículo Robot con Lego Technic, Minsdstorm y la Raspberry Pi"
-description: |
-  El pequeño tamaño de la Raspberry Pi y su capacidad de procesamiento abre muchas posibilidades para la robótica, dado que ahora podemos incorporar un completo  computador en nuestros  pequeños robots, dotándolos de la capacidad de procesamiento y  comunicaciones que ofrecen los sistemas operativos modernos.   
-author:
-  - name: José R Sosa
-    url: https://josersosa.github.io/personalweb/
-date: 09-09-2013
-output:
-  distill::distill_article:
-    toc: true
-    toc_depth: 3
-    self_contained: false
-#    toc_float: false
-categories:
-  - Raspberry Pi
-  - Robotics
-  - Lego
-  - Python
-preview: ../../images/robotics/Raspberry_Pi_P1030182.JPG
----
+# Vehículo Robot con Lego Technic, Minsdstorm y Raspberry Pi	
 
-
+El pequeño tamaño de la Raspberry Pi y su capacidad de procesamiento abre muchas posibilidades para la robótica, dado que ahora podemos incorporar un completo  computador en nuestros  pequeños robots, dotándolos de la capacidad de procesamiento y  comunicaciones que ofrecen los sistemas operativos modernos. 
 
 Este  proyecto consiste en adaptar la [Raspberry Pi](http://www.raspberrypi.org/) a  un vehículo [Lego Technic (8081)](http://shop.lego.com/en-US/Extreme-Cruiser-8081) y motorizado con [Mindstorm](http://mindstorms.lego.com/en-us/default.aspx), para luego programarlo y manejardo  por una aplicación hecha en Python.
 
 <aside>
 [![img](../../images/robotics/Raspberry_Pi_tn_P1030183.JPG)](../../images/robotics/Raspberry_Pi_P1030183.JPG)
 </aside>
-
 
 ## Controlando un carro robot con la Raspberry Pi
 
@@ -69,7 +48,6 @@ Ahora integraremos la [Raspberry Pi](http://www.raspberrypi.org/) con nuestro ve
 <aside>
 [![alt](../../images/robotics/Raspberry_Pi_tn_raspberry-pi-modelo-b.jpg)](../../images/robotics/Raspberry_Pi_raspberry-pi-modelo-b.jpg)
 </aside>
-
 
 - Un dungle Wifi USB conectado a la [**Raspberry Pi**](http://www.raspberrypi.org/) para el acceso remoto vía **SSH** al control del vehículo.
 - Una [carcasa protectora](http://192.168.0.103/index.php/robotica/52-lego-mindstorm/110-carcasa-protectora-lego-para-mi-raspberry-pi) que facilite la integración del Raspberry con el vehículo Lego
@@ -274,10 +252,5 @@ Se ejecuta por consola, con lo que podemos acceder a nuestro robot vía SSH y co
 
 
 <iframe src="http://www.youtube.com/embed/ninHgtF2dvU?rel=0&amp;fs=1&amp;wmode=transparent" width="400" height="300" frameborder="0" allowfullscreen title="JoomlaWorks AllVideos Player"></iframe>
-
-
-
-
-
 
 

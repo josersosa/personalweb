@@ -126,6 +126,19 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-30-vehiculo-robot-con-lego/../../images/robotics/Raspberry_Pi_P1030182.JPG" medium="image" type="image/jpeg"/>
     </item>
     <item>
+      <title>Armando un Media Center con la Raspberry Pi y XBMC</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-08-armando-un-media-center-con-la-raspberry-pi-y-xbmc</link>
+      <description>Por su pequeño tamaño y su buena potencia, la Raspeberry Pi es útil para todo tipo de soluciones each computing. Veremos como podemos utilizar nuestra Rasperry Pi para construir nuetra propia Media Center para convertir cualquier televisor en un Smart TV, con muchas funcionalidades similares a la Rocu, el Chrome Cast o el Apple TV.</description>
+      <category>Linux Recipes</category>
+      <category>Raspberry Pi</category>
+      <category>Media Center</category>
+      <category>XBMC</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-08-armando-un-media-center-con-la-raspberry-pi-y-xbmc</guid>
+      <pubDate>Tue, 03 Sep 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-08-armando-un-media-center-con-la-raspberry-pi-y-xbmc/../../images/robotics/Raspberry_Pi_P1020063.JPG" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Primeros pasos con la Raspberry Pi, modelo B</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-05-23-primeros-pasos-con-la-raspberry-pi-modelo-b</link>
