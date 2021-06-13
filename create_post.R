@@ -18,20 +18,20 @@ distill::create_post(title = "Como ejecutar comandos remotos con SSH",
                      date_prefix = TRUE,
                      draft = FALSE)
 # o con fecha:
-distill::create_post(title = "Armando un Media Center con la Raspberry Pi y XBMC",
+distill::create_post(title = "Tunneling TCP con SSH",
                      author = "José R Sosa",
-                     date = "2013-09-02",
+                     date = "2012-08-31",
                      date_prefix = TRUE,
                      draft = FALSE)
-# para publicar simplemente rederizar con el botón Knit
+# para publicar simplemente renderizar con el botón Knit
 
 # para rederizar toda la pagina
 rmarkdown::render_site(input = here::here())
 
 
-distill::create_post(title = "Tunneling TCP con SSH",
+distill::create_post(title = "Brazo Robot Articulado",
                      author = "José R Sosa",
-                     date = "2012-08-318",
+                     date = "2012-04-07",
                      date_prefix = TRUE,
                      draft = FALSE)
 

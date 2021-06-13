@@ -151,6 +151,28 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-23-primeros-pasos-con-la-raspberry-pi-modelo-b/../../images/Raspberry-Pi-1.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
+      <title>Alternativas de programación del NXT con Software Libre</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-alternativas-de-programacion-del-nxt-con-software-libre</link>
+      <description>Como ya sabemos, una de las principales razones para tener un NXT es su capacidad de procesamiento, y más aún, la posibilidad que tenemos de  programarlo. Es este post haré un repaso por las diferentes alternativas que tenemos en el mundo del software libre, para programar nuestros  robots.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-alternativas-de-programacion-del-nxt-con-software-libre</guid>
+      <pubDate>Sun, 25 Aug 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-alternativas-de-programacion-del-nxt-con-software-libre/../../images/robotics/nxt.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Wiimote como sensor de posición y movimiento para nuestros robots</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-wiimote-como-sensor-de-posici0n-y-movimiento-para-nuestros-robots</link>
+      <description>Partiendo del hecho de que el Wiimote, comando de mano de la  consola de juegos Wii, es capaz de seguir hasta 4 fuentes de luz  infrarroja y ubicar sus coordenadas, así como con el posicionamiento y orientación gracias que posee un acelerometro  bastante preciso, podriamos considerarlo como un potencial instrumento  sensor para nuestros robots.</description>
+      <category>Wiimote</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-wiimote-como-sensor-de-posici0n-y-movimiento-para-nuestros-robots</guid>
+      <pubDate>Fri, 14 Jun 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-wiimote-como-sensor-de-posici0n-y-movimiento-para-nuestros-robots/../../images/robotics/wiimote_normal2_tn.png" medium="image" type="image/png" width="198" height="119"/>
+    </item>
+    <item>
       <title>La máquina de Galton, del Caos al Orden...</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden</link>
@@ -175,6 +197,17 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
     <item>
+      <title>Controlando nuestros robots con Software Libre en Android</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-controlando-nuestros-robots-con-software-libre-en-android</link>
+      <description>Una de las ventajas de que nuestro NXT posea integrado un dispositivo bluetooth para comunicación inalámbrica es que puede ser controlado desde dispositivos móviles como tabletas ocelulares. Con ellos podemos controlar el movimiento y observar los estímulos registrados por sus diferentes sensores, incluso podemos hacer uso del acelerómetro de nuestro dispositivo móvil para dirigir el robot con nuestro movimiento, al estilo consola de juegos.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-controlando-nuestros-robots-con-software-libre-en-android</guid>
+      <pubDate>Wed, 22 Aug 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-controlando-nuestros-robots-con-software-libre-en-android/../../images/robotics/android_p1030459.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh</link>
@@ -197,6 +230,72 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
     <item>
+      <title>Carro robot controlado desde una netbook escolar</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-carro-robot-controlado-desde-una-netbook-escolar</link>
+      <description>Este proyecto busca controlar nuestro carro robot desde una netbook. El objetivo es experimentar con la movilidad que representa el tener  nuestro robot conectado a una pequeña y liviana computadora pero con  mayores prestaciones que el NXT, tales como la capacidad de  procesamiento, la cámara web y la tarjeta de red WiFi.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-carro-robot-controlado-desde-una-netbook-escolar</guid>
+      <pubDate>Mon, 09 Apr 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-carro-robot-controlado-desde-una-netbook-escolar/../../images/robotics/carrorobot_tn_cimg7021.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Carro robot de proposito general</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-carro-robot-de-proposito-general</link>
+      <description>Con este proyecto busco construir y programar un pequeño carro robot  de propósito general que sirva de base para futuros experimentos. La  intención es que tenga la suficiente capacidad de movilidad y tracción  como para funcionar de manera autónoma en una variedad de terrenos, así  como la capacidad de incorporar nuevos sensores que le permitan  incorporar la detección de obstáculos, visión artificial, etc.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-carro-robot-de-proposito-general</guid>
+      <pubDate>Sun, 08 Apr 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-carro-robot-de-proposito-general/../../images/robotics/carrorobot_cimg7003.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Brazo Robot Articulado</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-brazo-robot-articulado</link>
+      <description>Este proyecto consiste en construir y programar un Brazo Robot  articulado. Este tipo de brazos robots son unos de los más utilizados,  en la industria, por su versatilidad. Son capaces de hacer muchos tipos  de movimientos por su similitud con el brazo humano.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-brazo-robot-articulado</guid>
+      <pubDate>Sat, 07 Apr 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-brazo-robot-articulado/../../images/robotics/brazorobot_s5030518.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Robot seguidor de línea (linetracking)</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-robot-seguidor-de-linea</link>
+      <description>El objetivo de este proyecto es el de construir y programar un robot que oriente su movimiento en función de una línea negra dibujada en el piso. Consiste en un problema típico de control, en el cual nos basamos  en las lecturas de un sensor infrarrojo para activar los motores de dirección y de tracción de un pequeño carro robot contruido en Lego y controlado por un bloque RCX 2.0.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-robot-seguidor-de-linea</guid>
+      <pubDate>Fri, 06 Apr 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-robot-seguidor-de-linea/../../images/robotics/linetracking_rcx_tn_s5030572.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Adaptando un nuevo motor al RCX</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-adaptando-un-nuevo-motor-al-rcx</link>
+      <description>En el desarrollo de experimentos con en Lego MindStorm, el primer problema que se me presentó fue la necesidad de incorporar más motores. Aquí  presento un solución sencilla a este problema: Incorporar un nuevo  motor.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-adaptando-un-nuevo-motor-al-rcx</guid>
+      <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-adaptando-un-nuevo-motor-al-rcx/../../images/robotics/motor_rcx_tn_motor_rcx_s5030551.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Creación de un sensor de ángulo de giro</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-13-creacion-de-un-sensor-de-angulo-de-giro</link>
+      <description>Después de experimentar bastante con las posibilidades del Lego  MindStorm, comienzan a surgir la necesidad de contar no otros sensores y efectores, con los cuales construir nuevos proyectos. Una de estas  carencias es la posibilidad de contar con un medidor del ángulo de giro.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-creacion-de-un-sensor-de-angulo-de-giro</guid>
+      <pubDate>Sun, 25 Mar 2012 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-creacion-de-un-sensor-de-angulo-de-giro/../../images/robotics/robot_tn_s5030552.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Cálculo de probabilidades y combinatorias por línea de comandos</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-05-09-calculo-de-probabilidades-y-combinatorias-en-linea-de-comandos</link>
@@ -205,6 +304,17 @@
       <guid>https://josersosa.github.io/personalweb/posts/2021-05-09-calculo-de-probabilidades-y-combinatorias-en-linea-de-comandos</guid>
       <pubDate>Tue, 30 Aug 2011 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-09-calculo-de-probabilidades-y-combinatorias-en-linea-de-comandos/../../images/tn_bc.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Robots hechos con Lego Mindstorms NXT</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-12-robots-hechos-con-lego-mindstorms-nxt</link>
+      <description>Hace algún tiempo compre la versión 2 del increíble "Lego Mindstorms". Fue diseñado y desarrollado originalmente entre LEGO y el  MIT, como un juguete para motivar a los niños (12 años +/-) a  interesarse por la robótica. Sin embargo se ha convertido en los últimos años en un herramienta poderosa para la modelación y prototipado de robots.</description>
+      <category>Lego Mindstorm</category>
+      <category>Robotics</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-12-robots-hechos-con-lego-mindstorms-nxt</guid>
+      <pubDate>Fri, 29 Jul 2011 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-12-robots-hechos-con-lego-mindstorms-nxt/../../images/robotics/nxt_robot0780.jpg" medium="image" type="image/jpeg"/>
     </item>
   </channel>
 </rss>

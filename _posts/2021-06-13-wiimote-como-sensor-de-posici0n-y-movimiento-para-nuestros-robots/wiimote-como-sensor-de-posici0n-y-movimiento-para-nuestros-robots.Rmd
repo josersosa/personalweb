@@ -1,0 +1,107 @@
+---
+title: "Wiimote como sensor de posición y movimiento para nuestros robots"
+description: |
+  Partiendo del hecho de que el Wiimote, comando de mano de la  consola de juegos Wii, es capaz de seguir hasta 4 fuentes de luz  infrarroja y ubicar sus coordenadas, así como con el posicionamiento y orientación gracias que posee un acelerometro  bastante preciso, podriamos considerarlo como un potencial instrumento  sensor para nuestros robots.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 06-14-2013
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Wiimote
+  - Robotics
+preview: ../../images/robotics/wiimote_normal2_tn.png
+---
+
+En otros post, he comentado sobre posibles usos para este dispositivo ([pizarra interactiva](http://192.168.0.104/personalweb/index.php/linux/63-pizarra-interactiva/52-kukenanwhiteboard)). Ahora, partiendo del hecho de que el Wiimote (comando de mano de la  consola de juegos Wii) es capaz de seguir hasta 4 fuentes de luz  infrarroja y ubicar sus coordenadas con resolución de 1024x768, así como con el posicionamiento y orientación gracias que posee un acelerometro  bastante preciso, podriamos considerarlo como un potencial instrumento  sensor para nuestros robots.
+
+<aside>
+![alt](../../images/robotics/wiimote_normal_tn.png)   
+</aside>
+
+
+
+
+## Accediendo a las funciones del Wiimote desde Linux
+
+[Libwiimote](http://libwiimote.sourceforge.net/) es una librería desarrollada en C que permite el acceso al control del  Wiimote desde Linux. El objetivo de este proyecto es el de contar con  una completa y sencilla interface para acceder a todas las funciones de  este control. El código fuente de la libreria puede descargarse desde [aquí](http://sourceforge.net/projects/libwiimote/files/libwiimote/).
+
+
+
+## Compilación de la librería Libwiimote
+
+Para la compilación de Libwiimote, descargue a la ultima versión, la  0.4. También es necesario contar con la librería bluez y bluez-compact.  Debido a un cambio en las ultimas versiones del API de acceso al  Bluetooth en linux, es necesario cambiar la el nombre la función **hci_remote_name** por su nuevo nombre **hci_read_remote_name** en las siguientes archivos:
+
+1. **src/wiimote_link.c**
+2. **configure.in** 
+
+Luego, para compilar la librería realizaremos las siguientes instrucciones:
+
+```bash
+tar zxvf libwiimote-0.4.tgz
+cd libwiimote-0.4/
+autoconf
+./configure
+make
+sudo make install
+sudo ln -s /usr/local/lib/libcwiimote.so.0.4.0 /usr/local/lib/libcwiimote.so
+sudo ldconfig
+```
+
+
+
+## Ejemplo de uso de la librería Libwiimote
+
+En la página de este proyecto encontramos un par de ejemplo útiles para  comprender el uso de esta librería. A continuación le dejo el código de  un pequeño ejemplo, que llame “acelerometer.c”, y que lee la orientación del wiimote y la presenta por consola. Funciona de manera indefinida  hasta que se presiona el botón de home dentro del control. En esta wiki  podemos encontrar algo de [ayuda
+
+](http://abstrakraft.org/cwiid/wiki/libwiimote)
+
+ 
+
+```c
+#include 
+ #include "wiimote_api.h"
+ int main() 
+ {
+  wiimote_t wi;
+  wiimote_connect(&wi, "xx:xx:xx:xx:xx:xx");
+  wi.mode.acc = 1;    // enable accelerometer
+  printf("Iniciando lectura del acelerometro...\n");
+  while (wiimote_is_open(&wi)) {
+   wiimote_update(&wi);   // synchronize with wiimote
+   if (wi.keys.home) {  // check if home key is pressed
+    wiimote_disconnect(&wi);
+    printf("\nFinalizo lectura...\n");
+   }
+   printf("x=%d \ty=%d \tz=%d \n", wi.axis.x, wi.axis.y, wi.axis.z);
+  }
+  return 0;
+ }
+```
+
+
+Antes de compilar debemos cambiar “xx:xx:xx:xx:xx:xx” por el identificador  del control. Este identificador lo obtenemos del comando de escaneo de  lo dispositivos, tal como lo comenté en el post sobre [como acceder a dispositivos bluetooth desde consola](http://192.168.0.104/index.php/recetas-gnu-linux/103-activando-conexiones-bluetooth-desde-consola).
+
+La compilación de este código podemos ejecutar así:
+
+```bash
+gcc -I/path_to/libwiimote-0.4/src/ -L/path_to/libwiimote-0.4/lib/  -lcwiimote -lbluetooth -lm -Os -Wall -pipe -D_ENABLE_TILT  -D_ENABLE_FORCE -g -O2 -o acelerometer acelerometer.c
+```
+
+
+## Interpretación de la salida de la salida del programa acelerometer
+
+...En desarrollo...
+
+
+
+##  **Fuentes:** 
+
+1. http://blog.jorgeivanmeza.com/2009/07/instalacion-de-wiipresent-en-linux-ubuntu-9-04-un-largo-camino/
+2. [http://libwiimote.sourceforge.net/ ](http://libwiimote.sourceforge.net/)
+3. http://www.seguridadmobile.com/bluetooth/especificacion-bluetooth/bluez/

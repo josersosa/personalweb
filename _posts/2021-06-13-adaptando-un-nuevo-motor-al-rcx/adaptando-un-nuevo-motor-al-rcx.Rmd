@@ -1,0 +1,48 @@
+---
+title: "Adaptando un nuevo motor al RCX"
+description: |
+  En el desarrollo de experimentos con en Lego MindStorm, el primer problema que se me presentó fue la necesidad de incorporar más motores. Aquí  presento un solución sencilla a este problema: Incorporar un nuevo  motor.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-05-2012
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Lego Mindstorm
+  - Robotics
+preview: ../../images/robotics/motor_rcx_tn_motor_rcx_s5030551.jpg
+---
+
+
+![Motor adaptado al RCX](../../images/robotics/motor_rcx_s5030551.jpg)
+
+
+
+## Un Motor eléctrico de 5v 
+
+Cualquier motor eléctrico de 5v como el que esta presente en muchos juguetes, es  una opción perfecta para ser incorporado en los modelos de robots. Basta con conectar las entradas eléctricas de motor a un par de tornillos  pequeños, de manera que sirvan para encajar con los cables conectores de lego. 
+
+<aside>
+[![Motor eléctrico de 5v](../../images/robotics/motor_rcx_tn_motor_rcx_s5030565.jpg)](../../images/robotics/motor_rcx_s5030565.jpg)     
+</aside>
+
+ 
+
+## Compensación de la fuerza y velocidad del motor
+
+ 
+
+El problema que se presenta con esta adaptación es que el motor funciona  con un numero de revoluciones muy alto, al menos para los modelos que  queremos construir con ellos. La manera de resolverlo es adjuntar un  sistema de engranajes que disminuya la velocidad de giro mientras  aumenta su fuerza.Este mecanismo se muestra en la foto:
+
+<aside>
+[![Compensación Fuerza-Velocidad](../../images/robotics/motor_rcx_tn_motor_rcx_s5030564.jpg)](../../images/robotics/motor_rcx_s5030564.jpg)     
+</aside>
+
+
+
+

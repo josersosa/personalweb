@@ -1,0 +1,44 @@
+---
+title: "Creación de un sensor de ángulo de giro"
+description: |
+  Después de experimentar bastante con las posibilidades del Lego  MindStorm, comienzan a surgir la necesidad de contar no otros sensores y efectores, con los cuales construir nuevos proyectos. Una de estas  carencias es la posibilidad de contar con un medidor del ángulo de giro.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 03-25-2012
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Lego Mindstorm
+  - Robotics
+preview: ../../images/robotics/robot_tn_s5030552.jpg
+---
+
+
+
+## Insumos para la construcción del sensor de ángulo.
+
+Los sensores que maneja el RCX y el NXT son analógicos y básicamente se  manejan por señales que se miden el voltios dentro del rango 0 volt a 5  volt. Para la construcción de nuestro sensor de ángulos nos basaremos en la adaptación de una resistencia variable del tipo de manivela. Otro  insumo serán dos pequeños tornillos que no servirán como contactos para  el cable de conexión con el RCX. 
+
+<aside>
+[![Resistencia variable](../../images/robotics/robot_tn_s5030555.jpg)](http://192.168.0.104/images/stories/robot_s5030555.jpg)     
+</aside>
+
+
+
+## Conexión con el bloque RCX o NXT. 
+
+Para conectar nuestro nuevo sensor al bloque RCX basta con conectar  cualquier cable de conexión a una de las entradas de sensores de bloque  RCX. Para el caso del bloque NXT recomiendo utilizar el cable conversor [8528](http://mindstorms.lego.com/en-us/products/default.aspx#8528) y utilizar el sensor de giro como si fuese un sensor de luz. 
+
+<aside>
+[![Sensor de angulo de giro con conector](../../images/robotics/robot_tn_s5030557.jpg)](http://192.168.0.104/images/stories/robot_s5030557.jpg)    
+</aside>
+
+
+
+
+
