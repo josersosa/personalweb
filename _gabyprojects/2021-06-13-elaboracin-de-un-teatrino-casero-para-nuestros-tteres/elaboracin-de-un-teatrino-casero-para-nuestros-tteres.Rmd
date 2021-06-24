@@ -1,0 +1,46 @@
+---
+title: "Elaboración de un Teatrino casero para nuestros títeres"
+description: |
+  En el 3er cumpleaños de Gabriela, Yeny tuvo la excelente idea de  incluir unos títeres en los cotillones de los niños. Como ocurre muchas  veces los cálculos sobrestimaron la asistencia de los los niños y nos quedaron unos cuantos títeres de animalitos. De aquí se nos ocurrió la  idea de construir un pequeño teatrino casero ;-)
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 11-03-2013
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Carton
+preview: ../../images/gabyprojects/teatrino_IMG00954-20121118-1645.jpg
+---
+
+## Construcción del teatrino.
+
+
+
+Para construirlo usé una caja de cartón de un televisor, más o menos así:
+
+| [![img](../../images/gabyprojects/teatrino_tn_IMG_20121118_150858.jpg)](../../images/gabyprojects/teatrino_IMG_20121118_150858.jpg) | [![img](../../images/gabyprojects/teatrino_tn_IMG_20121118_150916.jpg)](../../images/gabyprojects/teatrino_IMG_20121118_150916.jpg) | [![img](../../images/gabyprojects/teatrino_tn_IMG_20121118_150929.jpg)](../../images/gabyprojects/teatrino_IMG_20121118_150929.jpg) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+|                                                              |                                                              |                                                              |
+
+ 
+Aquí dejo algunas imágenes de como quedo el teatrino:
+
+| [![img](../../images/gabyprojects/teatrino_tn_IMG00954-20121118-1645.jpg)](../../images/gabyprojects/teatrino_IMG00954-20121118-1645.jpg) | [![img](../../images/gabyprojects/teatrino_tn_IMG_20121118_162031.jpg)](../../images/gabyprojects/teatrino_IMG_20121118_162031.jpg) | [![img](../../images/gabyprojects/teatrino_tn_IMG_20121118_162043.jpg)](../../images/gabyprojects/teatrino_IMG_20121118_162043.jpg) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [![img](../../images/gabyprojects/teatrino_tn_IMG_20121118_173730.jpg)](../../images/gabyprojects/teatrino_IMG_20121118_173730.jpg) | [![img](../../images/gabyprojects/teatrino_tn_IMG_20121118_173657.jpg)](../../images/gabyprojects/teatrino_IMG_20121118_173657.jpg) | [![img](../../images/gabyprojects/teatrino_tn_IMG_20121118_173715.jpg)](../../images/gabyprojects/teatrino_IMG_20121118_173715.jpg) |
+
+
+
+## El impacto de los títeres  
+
+
+
+El efecto de de la interacción con títeres es impresionante. A pesar de  saber que se trata de un juguete que esta siendo manejado por su papá,  Gaby estableció una relación directa y abierta con ellos. La primera vez que usamos el teatrino me pidió que usara cada par de títeres de los  que disponíamos para presentarse y mostrarles todos sus juguetes. En una siguiente oportunidad les mostró su uniforme de ballet e incluso les  contaba como se sentía y como se había divertido en su clase. Hasta  entonces nunca me había percatado del poder de los títeres para que los  niños se abran y cuenten sobre sus emociones.
+
+
+

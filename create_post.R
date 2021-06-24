@@ -23,20 +23,32 @@ distill::create_post(title = "Tunneling TCP con SSH",
                      date = "2012-08-31",
                      date_prefix = TRUE,
                      draft = FALSE)
+# crear un post en otra colecci[on custom
+distill::create_post(title = "Tunneling TCP con SSH",
+                     collection = "projects",
+                     author = "José R Sosa",
+                     date = "2012-08-31",
+                     date_prefix = TRUE,
+                     draft = FALSE)
 # para publicar simplemente renderizar con el botón Knit
 
 # para rederizar toda la pagina
 rmarkdown::render_site(input = here::here())
 
 
-distill::create_post(title = "Brazo Robot Articulado",
+distill::create_post(title = "Alternativas de programacion del NXT con Software Libre",
                      author = "José R Sosa",
-                     date = "2012-04-07",
+                     date = "2013-08-25",
                      date_prefix = TRUE,
                      draft = FALSE)
 
+distill::create_post(title = "Construccion de un avion de madera de balsa",
+                     collection = "gabyprojects",
+                     author = "José R Sosa",
+                     date = "2013-11-03",
+                     date_prefix = TRUE,
+                     draft = FALSE)
 # How to create and include images
 #{r out.width = "50%", fig.align = "center"}
 knitr::include_graphics("images/fig31_adjust_nodes.png")
-
 

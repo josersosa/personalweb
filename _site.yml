@@ -35,8 +35,12 @@ google-analytics: "UA-177942587-1"
 navbar:
   search: false
   right:
-    - text: "Blog"
-      href: index.html
+    - text: "Blogs"
+      menu:
+      - text: "Blog personal"
+        href: index.html
+      - text: "Proyectos para niños"      
+        href: kids-projects.html
     - text: "Recursos"
       menu:
       - text: "Recursos de R"

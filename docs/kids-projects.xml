@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Blog de José R Sosa</title>
+    <link>https://josersosa.github.io/personalweb/</link>
+    <atom:link href="https://josersosa.github.io/personalweb/kids-projects.xml" rel="self" type="application/rss+xml"/>
+    <description>Blog de José R Sosa
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Fri, 15 Nov 2013 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Construcción de un avión de madera de balsa</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/gabyprojects/2021-06-13-construccion-de-un-avion-de-madera-de-balsa</link>
+      <description>Hace un par de meses, un día que llegaba del trabajo, Gabriela me  pidió un avión rojo, "como el de Pocoyo". No fue sino hasta unos días  después que entendí lo que quería y le propuse construirlo nosotros  mismos. A pesar de sus 3 años, Gaby de concentra y enfoca bastante en  actividades que hacemos juntos, la única fase en la que no podría  participar era en la de cortar la madera.</description>
+      <category>Madera</category>
+      <guid>https://josersosa.github.io/personalweb/gabyprojects/2021-06-13-construccion-de-un-avion-de-madera-de-balsa</guid>
+      <pubDate>Fri, 15 Nov 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/gabyprojects/2021-06-13-construccion-de-un-avion-de-madera-de-balsa/../../images/gabyprojects/avion_P1030534.JPG" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Elaboración de un Teatrino casero para nuestros títeres</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/gabyprojects/2021-06-13-elaboracin-de-un-teatrino-casero-para-nuestros-tteres</link>
+      <description>En el 3er cumpleaños de Gabriela, Yeny tuvo la excelente idea de  incluir unos títeres en los cotillones de los niños. Como ocurre muchas  veces los cálculos sobrestimaron la asistencia de los los niños y nos quedaron unos cuantos títeres de animalitos. De aquí se nos ocurrió la  idea de construir un pequeño teatrino casero ;-)</description>
+      <category>Carton</category>
+      <guid>https://josersosa.github.io/personalweb/gabyprojects/2021-06-13-elaboracin-de-un-teatrino-casero-para-nuestros-tteres</guid>
+      <pubDate>Sun, 03 Nov 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/gabyprojects/2021-06-13-elaboracin-de-un-teatrino-casero-para-nuestros-tteres/../../images/gabyprojects/teatrino_IMG00954-20121118-1645.jpg" medium="image" type="image/jpeg"/>
+    </item>
+  </channel>
+</rss>
