@@ -1587,12 +1587,14 @@ Opción 5:
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://github.com/ijlyttle/vembedr'>"vembedr"</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/vembedr/man/embed_url.html'>embed_url</a></span><span class='op'>(</span><span class='st'>"https://www.youtube.com/watch?v=aD1_e4rPsvM"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/pkg/vembedr/man/embed_url.html'>embed_url</a></span><span class='op'>(</span><span class='st'>"https://www.youtube.com/watch?v=aD1_e4rPsvM"</span><span class='op'>)</span><span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/vembedr/man/use_start_time.html'>use_start_time</a></span><span class='op'>(</span><span class='st'>"0m12"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/vembedr/man/use_align.html'>use_align</a></span><span class='op'>(</span><span class='st'>"center"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<div class="vembedr">
+<div class="vembedr" align="center">
 <div>
-<iframe src="https://www.youtube.com/embed/aD1_e4rPsvM" width="533" height="300" frameborder="0" allowfullscreen=""></iframe>
+<iframe src="https://www.youtube.com/embed/aD1_e4rPsvM?start=12" width="533" height="300" frameborder="0" allowfullscreen=""></iframe>
 </div>
 </div>
 </div>
