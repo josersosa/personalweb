@@ -118,7 +118,7 @@ Opción 1:
 
 
 Opción 2:
-[![Alt text](https://img.youtube.com/vi/nTaC5yfWkS0/0.jpg)](https://www.youtube.com/watch?v=nTaC5yfWkS0)
+[![Alt text](https://img.youtube.com/vi/nTaC5yfWkS0/0.jpg)](https://www.youtube.com/watch?v=nTaC5yfWkS0)  
 
 
 Opción 3:
@@ -130,11 +130,11 @@ Opción 3:
       frameborder="0"
       allowfullscreen="">
   </iframe>
-</div>
+</div>  
 
 
 Opción 4:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oFroXMK37WQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="700" height="480" src="https://www.youtube.com/embed/oFroXMK37WQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
 
 Opción 5:
@@ -146,7 +146,7 @@ embed_url("https://www.youtube.com/watch?v=aD1_e4rPsvM")
 
 Aquí hay más:
 
-1. [Aquíintento enseñarle como hacer volar el avión con el cordel.](http://www.youtube.com/watch?v=aD1_e4rPsvM)
-2. [Gabriela junado con el avión](http://www.youtube.com/watch?v=nTaC5yfWkS0).
+1. [Aquí intento enseñarle como hacer volar el avión con el cordel.](http://www.youtube.com/watch?v=aD1_e4rPsvM)
+2. [Gabriela jugando con el avión](http://www.youtube.com/watch?v=nTaC5yfWkS0).
 3. [Otro video de Gabriela jugando con el avión](http://www.youtube.com/watch?v=w09pRK1DXy4).
 4. [Este video](http://www.youtube.com/watch?v=oFroXMK37WQ) marea un poco, intentaba grabar desde la perspectiva del que lo vuela.
