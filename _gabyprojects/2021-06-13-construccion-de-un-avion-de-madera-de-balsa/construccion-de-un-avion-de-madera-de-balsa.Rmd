@@ -113,38 +113,15 @@ Aquí, agunas fotos de como utilizamos el cordel para jugar con el avión:
 Y aquí algunos [videos](http://www.youtube.com/embed/aD1_e4rPsvM?rel=0&amp;fs=1&amp;wmode=transparent): 
 
 
-Opción 1:
-<iframe src="http://www.youtube.com/embed/aD1_e4rPsvM?rel=0&amp;fs=1&amp;wmode=transparent" width="400" height="300" frameborder="0" allowfullscreen title="JoomlaWorks AllVideos Player"></iframe>	
-
-
-Opción 2:
-[![Alt text](https://img.youtube.com/vi/nTaC5yfWkS0/0.jpg)](https://www.youtube.com/watch?v=nTaC5yfWkS0)  
-
-
-Opción 3:
 <div class="embed-container">
   <iframe
-      src="https://www.youtube.com/embed/w09pRK1DXy4"
+      src="https://www.youtube.com/embed/aD1_e4rPsvM"
       width="700"
       height="480"
       frameborder="0"
       allowfullscreen="">
   </iframe>
 </div>  
-
-
-Opción 4:
-<iframe width="700" height="480" src="https://www.youtube.com/embed/oFroXMK37WQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
-
-
-Opción 5:
-```{r}
-#https://ijlyttle.github.io/vembedr/
-library("vembedr")
-embed_url("https://www.youtube.com/watch?v=aD1_e4rPsvM")%>%
-  use_start_time("0m12") %>%
-  use_align("center")
-```
 
 
 Aquí hay más:
