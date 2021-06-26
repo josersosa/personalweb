@@ -36,9 +36,9 @@ distill::create_post(title = "Tunneling TCP con SSH",
 rmarkdown::render_site(input = here::here())
 
 
-distill::create_post(title = "Alternativas de programacion del NXT con Software Libre",
+distill::create_post(title = "Configurando una Raspberry Pi modelo 4",
                      author = "José R Sosa",
-                     date = "2013-08-25",
+                     date = "2021-06-25",
                      date_prefix = TRUE,
                      draft = FALSE)
 

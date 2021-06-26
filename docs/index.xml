@@ -7,7 +7,18 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Configurando una Raspberry Pi modelo 4</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-26-configurando-una-raspberry-pi-modelo-4</link>
+      <description>Veamos cómo configurar nuestra nueva Raspberry Pi modelo 4, con una pequeña SD card de 4 GB, para manejarla desde la red local con el servicio web de CockPit.</description>
+      <category>Linux Recipes</category>
+      <category>Raspberry Pi</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-26-configurando-una-raspberry-pi-modelo-4</guid>
+      <pubDate>Fri, 25 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-26-configurando-una-raspberry-pi-modelo-4/../../images/robotics/raspberry-pi-model4.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Desplegar una aplicación web local con NGINX y Docker</title>
       <dc:creator>José R Sosa</dc:creator>
