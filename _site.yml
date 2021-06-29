@@ -11,7 +11,7 @@ collections:
       shortname: https-josersosa-github-io-personalweb
       hidden: true
     share: [twitter, linkedin, pinterest, facebook]  
-    feed_items_max: 50
+    feed_items_max: 100
     citations: true
     custom: _custom.html
     subscribe: _subscribe.html
@@ -20,7 +20,7 @@ collections:
     authors_metadata: true
   gabyprojects:
     share: [twitter, linkedin, pinterest, facebook]  
-    feed_items_max: 50
+    feed_items_max: 100
     citations: false
     custom: _custom.html
     subscribe: _subscribe.html

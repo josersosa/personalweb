@@ -317,6 +317,17 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-09-calculo-de-probabilidades-y-combinatorias-en-linea-de-comandos/../../images/tn_bc.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
+      <title>Guías y ejercicios prácticos de Probabilidad y Estadística</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-29-guias-y-ejercicios-de-probabilidad-y-estadistica</link>
+      <description>Material de apoyo para la materia de probabilidad y estadística de la Escuela de Computación de la UCV, recolectado o escritos por el  personal docente de la materia.</description>
+      <category>Teaching</category>
+      <category>Statistic</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-29-guias-y-ejercicios-de-probabilidad-y-estadistica</guid>
+      <pubDate>Sat, 30 Jul 2011 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-29-guias-y-ejercicios-de-probabilidad-y-estadistica/../../images/stats-class.png" medium="image" type="image/png" width="640" height="480"/>
+    </item>
+    <item>
       <title>Robots hechos con Lego Mindstorms NXT</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-06-12-robots-hechos-con-lego-mindstorms-nxt</link>
@@ -326,6 +337,17 @@
       <guid>https://josersosa.github.io/personalweb/posts/2021-06-12-robots-hechos-con-lego-mindstorms-nxt</guid>
       <pubDate>Fri, 29 Jul 2011 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-12-robots-hechos-con-lego-mindstorms-nxt/../../images/robotics/nxt_robot0780.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Taller de Estadística Descriptiva y Regresión Lineal con R</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-29-taller-de-estadistica-descriptiva-y-regresion-lineal-con-r</link>
+      <description>Este taller de R esta dirigido a estudiantes de la materia de Introducción a la Probabilidad y Estadística de la Escuela de Computación de la UCV. Se resolverán problemas de descripción de una muestra y la inferencia estadística a través de modelos lineales en el entorno de RStudio.</description>
+      <category>Teaching</category>
+      <category>Statistic</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-29-taller-de-estadistica-descriptiva-y-regresion-lineal-con-r</guid>
+      <pubDate>Sun, 24 Jul 2011 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-29-taller-de-estadistica-descriptiva-y-regresion-lineal-con-r/../../images/statistic_with_r.jpg" medium="image" type="image/jpeg"/>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,69 @@
+---
+title: "Guías y ejercicios prácticos de Probabilidad y Estadística"
+description: |
+  Material de apoyo para la materia de probabilidad y estadística de la Escuela de Computación de la UCV, recolectado o escritos por el  personal docente de la materia. 
+author:
+  - name: José R Sosa
+    url: https://example.com/josersosa
+date: 07-30-2011
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Teaching
+  - Statistic
+preview: ../../images/stats-class.png
+---
+
+Todos estos archivos pueden encontrarse  en la [pagina oficial de la asignatura](http://dircompucv.ciens.ucv.ve/generador/sites/probabilidad-y-estadistica/plantilla1/index.htm), sin embargo en ocasiones no ha estado disponible, por lo que decidí colocar una espejo aquí:
+
+## Sílabo de la materia
+
+- [Nota informativa](../../files/stats/nota_informativa_01_2011.pdf)
+
+## Bibliografía
+
+- Eliezer Correa, "Notas de Probabilidad"
+- G. Canavos, "Probabilidad y Estadística" 
+- P. Meyer, "Probabilidad y Aplicaciones en Estadística". Addison-­‐Wesley Ib.. (1973, 1986 y 1992).
+- W. Mendenhall, D. Wackerly, R. Scheaffer, "Estadística Matemática con Aplicaciones". (1ra. y 2da. Edición). Grupo Edit. Iberoamérica (1994).	
+- R. Walpole y R. Myers, "Probabilidad y Estadística" (4ta. Edición). Mc Graw Hill (1992).
+- Milton  Susan, Arnold Jesse. "Probabilidad y Estadística con aplicaciones para ingeniería y ciencias computacionales". Mc Graw Hill. 2004.
+- Ross Sheldon, "Introduction to Probability Models". Academic Press.	
+
+## Guias de teoría
+
+1. [Guía teórica Capítulo I](../../files/stats/capitulo1.pdf): Conceptos básicos de conteo y probabilidades
+2. [Guía teórica Capítulo II](../../files/stats/capitulo2.pdf): Probabilidades condicionales, Ley de probabilidades totales, Regla de Bayes
+3. [Guía teórica Capítulo III](../../files/stats/capitulo3.pdf): Variables aleatorias, conceptos generales
+4. [Guía teórica Capítulo IV](../../files/stats/capitulo4.pdf): Variables aleatorias discretas con nombre propio
+5. [Guía teórica Capítulo V](../../files/stats/capitulo5.pdf): Variables aleatorias continuas con nombre propio
+6. [Guía teórica Capítulo VI](../../files/stats/capitulo6.pdf): Teorema Central del límite
+7. [Guía teórica Capítulo VII](../../files/stats/capitulo7.pdf): Variables aleatorias conjuntas 
+
+## Ejercicio de práctica
+
+1. [Práctica 0](../../files/stats/practica_0_2011.pdf): Repaso de combinatoria y probabilidades condicionales
+2. [Práctica 1](../../files/stats/practica_1_2011.pdf): Variables Aleatorias [Publicada]
+3. [Práctica 2](../../files/stats/practica_2_2011.pdf): Distribuciones de variables aleatorias discretas con nombre propio.
+4. [Práctica 3](../../files/stats/practica_3_2011.pdf): Variables aleatorias continuas con nombre propio
+5. [Práctica 4](../../files/stats/practica_4_2011.pdf): Variables aleatorias distribuidas de manera conjunta
+6. [Práctica 5](../../files/stats/practica_5_2011.pdf): Práctica de TCL y Ley de Grandes números
+7. [Práctica 6](../../files/stats/practica_6_2011.pdf): Intervalos de confianza ([otra versión](../../files/stats/Practica_6_Intervalos_de_Confianza.pdf))
+8. [Práctica 7](../../files/stats/Practica_7_Prueba_de_Hipotesis.pdf): Prueba de hipotesis.
+9. [Práctica 8](../../files/stats/Practica_8_Cadenas_de_Markov.pdf): Cadenas de Markov.
+10. [Práctica 9](../../files/stats/Practica_9_Confiabilidad.pdf): Confiabilidad 
+
+## Otros recursos
+
+1. [Tabla de valores de la distribución Normal](../../files/stats/TablaNormal.pdf): Esta tabla se utilizará para resolver los problemas que involucren a la Normal
+2. Tabla de valores de la distribución T de Student: Esta tabla se  utilizará para resolver los problemas que involucren a la T de Student
+3. [Fórmulas Fdp](../../files/stats/Formulas_fdp.pdf): Resumen con las fórmulas de las principales variables aleatorias con nombre propio vistas en clase.
+4. Algunas evaluaciones con soluciones: [ejercicio práctico](../../files/stats/Ejercicio_Resuelto_P4.pdf), [quiz](../../files/stats/quiz1_1a_con_solucion.pdf), [quiz](../../files/stats/quiz1_1b_con_solucion.pdf), [quiz](../../files/stats/Quiz _3_manana_solucion.pdf), [quiz](../../files/stats/Quiz _3_tarde_solucion.pdf), [parcial](../../files/stats/parcial_1_01_2011_con_solucion.pdf), 
+
+
+
+
