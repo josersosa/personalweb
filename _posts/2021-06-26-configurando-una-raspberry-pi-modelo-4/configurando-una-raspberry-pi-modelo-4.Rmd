@@ -30,7 +30,7 @@ unzip 2021-05-07-raspios-buster-armhf-lite.zip
 
 ## Instalando la imagen en la SD card:
 
-Asumiendo que la SD card se identifica por /dev/mmcblk0 (lo podemos verificar con el commando *fdisk -l*), el comando sería así:
+Asumiendo que la SD card se encuentra ubicada dentro de nuestro sistema en */dev/mmcblk0*, lo que podemos verificar con *fdisk -l*, el comando sería así:
 
 ```bash
 sudo dd if=2021-05-07-raspios-buster-armhf-lite.img  of=/dev/mmcblk0 bs=4M conv=fsync

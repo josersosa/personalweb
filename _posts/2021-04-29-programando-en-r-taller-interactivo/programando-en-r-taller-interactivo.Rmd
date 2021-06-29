@@ -39,7 +39,7 @@ install.packages('swirl')
 
 ## ¿Como ejecutar el curso?
 
-Para realizar este curso debemos primero instalarlo desde su repositorio en github en la consola de R, así:
+Para realizar este curso debemos primero instalarlo desde su [repositorio en github](https://github.com/josersosa/Programando_en_R), en la consola de R, así:
 
 ```{r, eval = FALSE}
 library(swirl)
@@ -69,6 +69,18 @@ Ya se han incluido la lecciones extraspara hacer nuestro curso en español un po
 - Functions.
 - Base_Graphics. Se incluyó la función barplot y algunos comentarios
 
+## Video explicativo...
+
+Aquí le dejo un breve video de como utilizar este curso interactivo desde [RStudio](https://www.rstudio.com/):
+
+```{r, echo=FALSE}
+#https://ijlyttle.github.io/vembedr/
+library("vembedr")
+embed_url("https://www.youtube.com/watch?v=GyM2M9dyAi4") %>%
+  use_start_time("5m18") %>%
+  use_align("center")
+```
+
 ## TODOs
 
 Reconfigurar los directoris con los títulos en español.
@@ -79,4 +91,4 @@ Incluir las lecciones del curso [R Programming](https://github.com/swirldev/swir
 - Functions.
 - Base_Graphics.
 
-Por otra parte, intentaré incluir al final de cada lección, aparte del envío del correo, la opción de calificar mediante una conección a alguna aula virtual basada en moodle.
+Por otra parte, intentaré incluir al final de cada lección, aparte del envío del correo, la opción de calificar mediante una conexión a alguna aula virtual o marketplace de cursos en línea.

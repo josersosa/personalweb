@@ -34,6 +34,8 @@ Sorprende cómo una dinámica tan simple pueda generar una imagen tan fascinante
 
 La aparente contradicción entre la longitud del conjunto y su infinito detalle se resolvió con una sorprendente idea: este objeto no está en 2 dimensiones, evidentemente tampoco en 3, sino que pertenece a algún punto entre la 2da y 3ra dimensión, es decir, que pertenece a una dimensión fraccionaria o dimensión fractal, y de aquí, el por qué objetos como este adoptaron el nombre de [**Fractales**](https://en.wikipedia.org/wiki/Fractal). Piénsenlo bien, un perímetro o distancia es una medida unidimensional, calculada sobre un mapa (bidimensional), sin embargo, este objeto tiene un poco más de dos dimensiones por eso es imposible calcular su perímetro de manera exacta.
 
+![](../../images/mandel2.gif)
+
 ¿Cuando y por qué algunas dinámicas matemáticas convergen mientras otras divergen?, o más aún ¿porque algunas dinámicas convergen bajo ciertas condiciones iniciales y divergen en otras? Como ven, la respuestas pueden llegar a ser más complejas de lo que pensábamos. Cuando estamos cerca del borde del conjunto, un punto podría converger mientras que otro infinitesimalmente cercano podría no hacerlo, en esta región se comporta como un sistema caótico. 
 
 Estas son preguntas importantes cuando, por ejemplo, trabajamos en el entrenamiento de modelos de inteligencia artificial, en los cuales solemos usar algoritmos de entrenamiento o dinámicas como el descenso del gradiente. Esto respondería cuestiones como el por qué algunos sistemas tienen la capacidad de "aprender" mientras que otros no. O visto de otra forma, cómo diseñar sistemas de aprendizaje automático cuya dinámica de entrenamiento nos garantice la convergencia, es decir, aprender.

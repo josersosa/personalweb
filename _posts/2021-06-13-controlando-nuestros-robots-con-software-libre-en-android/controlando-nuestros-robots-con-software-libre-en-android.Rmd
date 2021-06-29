@@ -42,19 +42,27 @@ Algunas imágenes de como quedó:
 
 Aquí unos breves videos de su funcionamiento: 
 
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/ik6-wHk5WvU"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>  
 
 
-<iframe src="http://www.youtube.com/embed/ik6-wHk5WvU?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen="" title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0"></iframe>
 
-
-
-
-
-
-
-<iframe src="http://www.youtube.com/embed/DaJMqKevv1E?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen="" title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0"></iframe>
-
-
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/DaJMqKevv1E"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>  
 
 ## Aplicaciones Android para controlar nuestro robot
 
@@ -65,8 +73,6 @@ En la tienda de [Google play](https://play.google.com/store/search?q=nxt) de apl
 <aside>
 [![img](../../images/robotics/android_tn_minddroid.png)](../../images/robotics/android_tn_img_20130821_062020.jpg)
 </aside>
-
-
 
 
 ## NXT Remote Control

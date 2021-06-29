@@ -64,19 +64,30 @@ route add default wlan0
 /sbin/dhcpcd -t 60 wlan0 &
 ```
 
-Como se puede ver, establece una red llamada "robotland" en el canal 10.  Podemos ver que canales estan disponibles en nuestro entorno con el  comando "iwlist wlan0 scan". El dispositivo utilizado es wlan0, pero  puede variar de computador en computado. Por ultimo, la dirección IP  asignada al equipo Canaimita fue 192.168.1.1 y al equipo remoto  192.168.1.2. A continuacion podemos ver una muestra del movimineto de  nuestro robot controlado por una netbook Canaimita:
+Como se puede ver, establece una red llamada "robotland" en el canal 10.  Podemos ver que canales estan disponibles en nuestro entorno con el  comando "iwlist wlan0 scan". El dispositivo utilizado es wlan0, pero  puede variar de computador en computado. Por ultimo, la dirección IP  asignada al equipo Canaimita fue 192.168.1.1 y al equipo remoto  192.168.1.2. A continuacion podemos ver una muestra del movimiento de  nuestro robot controlado por una netbook Canaimita:
 
-
-<iframe src="http://www.youtube.com/embed/c3hgV1xzBFc?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen="" title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0">
-</iframe>
-
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/c3hgV1xzBFc"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>
 
 
 La aplicación de control empleada es la descrita en el post sobre el [carro robot](http://192.168.0.104/personalweb/index.php/robotica/52-lego-mindstorm/77-carro-robot-de-proposito-general), y podemos usarla a través de una sesión ssh. Por otro lado aprovechamos la cámara web integrada en la Canaimita para mostrar en vídeo la vista  desde el carro a lo largo de sus movimientos:
 
-<iframe src="http://www.youtube.com/embed/8yqqVgX1F_I?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen="" title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0">
-</iframe>
-
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/8yqqVgX1F_I"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>
 
 
 

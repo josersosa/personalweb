@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["carro-robot-controlado-desde-una-netbook-escolar_files/anchor-4.2.2/anchor.min.js","carro-robot-controlado-desde-una-netbook-escolar_files/bowser-1.9.3/bowser.min.js","carro-robot-controlado-desde-una-netbook-escolar_files/distill-2.2.21/template.v2.js","carro-robot-controlado-desde-una-netbook-escolar_files/header-attrs-2.8/header-attrs.js","carro-robot-controlado-desde-una-netbook-escolar_files/jquery-1.11.3/jquery.min.js","carro-robot-controlado-desde-una-netbook-escolar_files/popper-2.6.0/popper.min.js","carro-robot-controlado-desde-una-netbook-escolar_files/tippy-6.2.7/tippy-bundle.umd.min.js","carro-robot-controlado-desde-una-netbook-escolar_files/tippy-6.2.7/tippy-light-border.css","carro-robot-controlado-desde-una-netbook-escolar_files/tippy-6.2.7/tippy.css","carro-robot-controlado-desde-una-netbook-escolar_files/tippy-6.2.7/tippy.umd.min.js","carro-robot-controlado-desde-una-netbook-escolar_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1516,12 +1516,24 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">ifconfig</span> wlan0 192.168.1.2</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">route</span> add default wlan0</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">/sbin/dhcpcd</span> -t 60 wlan0 <span class="kw">&amp;</span></span></code></pre></div>
-<p>Como se puede ver, establece una red llamada “robotland” en el canal 10. Podemos ver que canales estan disponibles en nuestro entorno con el comando “iwlist wlan0 scan”. El dispositivo utilizado es wlan0, pero puede variar de computador en computado. Por ultimo, la dirección IP asignada al equipo Canaimita fue 192.168.1.1 y al equipo remoto 192.168.1.2. A continuacion podemos ver una muestra del movimineto de nuestro robot controlado por una netbook Canaimita:</p>
-<iframe src="http://www.youtube.com/embed/c3hgV1xzBFc?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0">
-</iframe>
+<p>Como se puede ver, establece una red llamada “robotland” en el canal 10. Podemos ver que canales estan disponibles en nuestro entorno con el comando “iwlist wlan0 scan”. El dispositivo utilizado es wlan0, pero puede variar de computador en computado. Por ultimo, la dirección IP asignada al equipo Canaimita fue 192.168.1.1 y al equipo remoto 192.168.1.2. A continuacion podemos ver una muestra del movimiento de nuestro robot controlado por una netbook Canaimita:</p>
+<div class="embed-container">
+<p><iframe
+    src="https://www.youtube.com/embed/c3hgV1xzBFc"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen=""> </iframe></p>
+</div>
 <p>La aplicación de control empleada es la descrita en el post sobre el <a href="http://192.168.0.104/personalweb/index.php/robotica/52-lego-mindstorm/77-carro-robot-de-proposito-general">carro robot</a>, y podemos usarla a través de una sesión ssh. Por otro lado aprovechamos la cámara web integrada en la Canaimita para mostrar en vídeo la vista desde el carro a lo largo de sus movimientos:</p>
-<iframe src="http://www.youtube.com/embed/8yqqVgX1F_I?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0">
-</iframe>
+<div class="embed-container">
+<p><iframe
+    src="https://www.youtube.com/embed/8yqqVgX1F_I"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen=""> </iframe></p>
+</div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

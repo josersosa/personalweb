@@ -26,10 +26,6 @@ En [otro post](posts/2021-06-12-robots-hechos-con-lego-mindstorms-nxt/) comenté
 <aside>
 [![img](../../images/robotics/nxt_tn_panel.gif)](../../images/robotics/nxt_panel.gif)    
 </aside>
-
-
-
-
 Para poder sacar el máximo de la capacidad de nuestros robots, aquellos que  somos aficionados a la programación, seguramente preferirán lenguajes de programación con más capacidad que la que puede ofrecer un diagrama  gráfico.
 Antes que nada repasemos las características del bloque NXT:
 
@@ -147,9 +143,15 @@ A mi juicio las grandes alternativas para la programación del Lego Minstorm NXT
 
 En varios post anteriores muestro como [controlar un carro robot con python](/posts/2021-05-30-vehiculo-robot-con-lego/), y [desde una "canaimita"](http://192.168.0.104/personalweb/index.php/robotica/52-lego-mindstorm/78-carro-robot-controlado-desde-una-qcanaimitaq) este es uno de los videos:
 
-<iframe src="http://www.youtube.com/embed/NJB58nQxAxk?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen="" title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0"></iframe>
-
-
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/NJB58nQxAxk"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>
 
 ## Algunos enlaces y fuentes relacionadas
 

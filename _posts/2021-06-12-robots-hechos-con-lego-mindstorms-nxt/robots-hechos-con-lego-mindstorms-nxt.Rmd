@@ -87,9 +87,15 @@ Unos de los modelos de robot que vienen en el manual es este bípedo que  constr
 
 Aquí les dejo un pequeño [vídeo](http://www.youtube.com/embed/MMXIg_qwfI0?rel=0&amp;fs=1&amp;wmode=transparent) que tome cuando lo terminé:
 
-<iframe src="http://www.youtube.com/embed/MMXIg_qwfI0?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen="" title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0"></iframe>
-
-
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/MMXIg_qwfI0"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>
 
 ## Referencias
 

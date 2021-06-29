@@ -272,10 +272,15 @@ if __name__=="__main__":
 
 Se ejecuta por consola, con lo que podemos acceder a nuestro robot vía SSH y controlar nuestro carro robot a distancia: Siempre que esté al  alcance de nuestra red WiFi. Para esto empleé un router inalámbrico [TPLink](http://www.tp-link.com/en/products/details/?categoryid=241&model=TL-WR702N) alimentado por la conexión USB de mi laptop. Con los que pude crear una  pequeña red local inalámbrica itinerante. Luego configuré mi **[Raspberry Pi](http://www.raspberrypi.org/)** a esta red, de manera que cuando vuelva a arrancar (pero esta vez sin  monitor y adherido al carro robot), pueda enlazare con esta red de forma automática. Aquí un [pequeño video](http://www.youtube.com/embed/ninHgtF2dvU) de su funcionamiento:
 
-
-<iframe src="http://www.youtube.com/embed/ninHgtF2dvU?rel=0&amp;fs=1&amp;wmode=transparent" width="400" height="300" frameborder="0" allowfullscreen title="JoomlaWorks AllVideos Player"></iframe>
-
-
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/ninHgtF2dvU?rel"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>
 
 
 

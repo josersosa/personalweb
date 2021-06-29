@@ -129,7 +129,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["programando-en-r-taller-interactivo_files/anchor-4.2.2/anchor.min.js","programando-en-r-taller-interactivo_files/bowser-1.9.3/bowser.min.js","programando-en-r-taller-interactivo_files/distill-2.2.21/template.v2.js","programando-en-r-taller-interactivo_files/header-attrs-2.6/header-attrs.js","programando-en-r-taller-interactivo_files/jquery-1.11.3/jquery.min.js","programando-en-r-taller-interactivo_files/popper-2.6.0/popper.min.js","programando-en-r-taller-interactivo_files/tippy-6.2.7/tippy-bundle.umd.min.js","programando-en-r-taller-interactivo_files/tippy-6.2.7/tippy-light-border.css","programando-en-r-taller-interactivo_files/tippy-6.2.7/tippy.css","programando-en-r-taller-interactivo_files/tippy-6.2.7/tippy.umd.min.js","programando-en-r-taller-interactivo_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["programando-en-r-taller-interactivo_files/anchor-4.2.2/anchor.min.js","programando-en-r-taller-interactivo_files/bowser-1.9.3/bowser.min.js","programando-en-r-taller-interactivo_files/distill-2.2.21/template.v2.js","programando-en-r-taller-interactivo_files/header-attrs-2.6/header-attrs.js","programando-en-r-taller-interactivo_files/header-attrs-2.8/header-attrs.js","programando-en-r-taller-interactivo_files/jquery-1.11.3/jquery.min.js","programando-en-r-taller-interactivo_files/popper-2.6.0/popper.min.js","programando-en-r-taller-interactivo_files/tippy-6.2.7/tippy-bundle.umd.min.js","programando-en-r-taller-interactivo_files/tippy-6.2.7/tippy-light-border.css","programando-en-r-taller-interactivo_files/tippy-6.2.7/tippy.css","programando-en-r-taller-interactivo_files/tippy-6.2.7/tippy.umd.min.js","programando-en-r-taller-interactivo_files/vembedr-0.1.4/css/vembedr.css","programando-en-r-taller-interactivo_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2113,7 +2113,8 @@ d-appendix d-footnote-list a.footnote-backlink {
   color: var(--hover-color, white);
 }</style>
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.8/header-attrs.js"></script>
+  <link href="../../site_libs/vembedr-0.1.4/css/vembedr.css" rel="stylesheet" />
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2228,6 +2229,7 @@ Recursos
 <ul>
 <li><a href="#avance-del-proyecto">Avance del proyecto</a></li>
 </ul></li>
+<li><a href="#video-explicativo">Video explicativo…</a></li>
 <li><a href="#todos">TODOs</a></li>
 </ul>
 </nav>
@@ -2245,18 +2247,18 @@ Recursos
 </div>
 </div>
 <h2 id="como-ejecutar-el-curso">¿Como ejecutar el curso?</h2>
-<p>Para realizar este curso debemos primero instalarlo desde su repositorio en github en la consola de R, así:</p>
+<p>Para realizar este curso debemos primero instalarlo desde su <a href="https://github.com/josersosa/Programando_en_R">repositorio en github</a>, en la consola de R, así:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://swirlstats.com'>swirl</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/swirl/man/install_course_github.html'>install_course_github</a></span><span class='op'>(</span><span class='st'>'josersosa'</span>,<span class='st'>'Programando_en_R'</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>swirl</span><span class='op'>)</span>
+<span class='fu'>install_course_github</span><span class='op'>(</span><span class='st'>'josersosa'</span>,<span class='st'>'Programando_en_R'</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
 <p>Y lo iniciamos con:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/swirl/man/swirl.html'>swirl</a></span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>swirl</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -2264,7 +2266,7 @@ Recursos
 <p>Por último, cuando hayamos terminado, podemos desinstalar el curso con:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/swirl/man/uninstall_course.html'>uninstall_course</a></span><span class='op'>(</span><span class='st'>"Programando_en_R"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>uninstall_course</span><span class='op'>(</span><span class='st'>"Programando_en_R"</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -2275,6 +2277,15 @@ Recursos
 <li>Functions.</li>
 <li>Base_Graphics. Se incluyó la función barplot y algunos comentarios</li>
 </ul>
+<h2 id="video-explicativo">Video explicativo…</h2>
+<p>Aquí le dejo un breve video de como utilizar este curso interactivo desde <a href="https://www.rstudio.com/">RStudio</a>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="vembedr" align="center">
+<div>
+<iframe src="https://www.youtube.com/embed/GyM2M9dyAi4?start=318" width="533" height="300" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+</div>
 <h2 id="todos">TODOs</h2>
 <p>Reconfigurar los directoris con los títulos en español.</p>
 <p>Incluir las lecciones del curso <a href="https://github.com/swirldev/swirl_courses/tree/master/R_Programming">R Programming</a> de swirl para hacer nuestro curso en español un poco más completo:</p>
@@ -2283,7 +2294,7 @@ Recursos
 <li>Functions.</li>
 <li>Base_Graphics.</li>
 </ul>
-<p>Por otra parte, intentaré incluir al final de cada lección, aparte del envío del correo, la opción de calificar mediante una conección a alguna aula virtual basada en moodle.</p>
+<p>Por otra parte, intentaré incluir al final de cada lección, aparte del envío del correo, la opción de calificar mediante una conexión a alguna aula virtual o marketplace de cursos en línea.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">

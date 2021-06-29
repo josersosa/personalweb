@@ -194,13 +194,17 @@ task main()
 
  
 
-Aquí dejo un pequeño video. Pido disculpas por la calidad pero fue tomado con el célular. 
+Aquí dejo un pequeño video. Pido disculpas por la calidad pero fue tomado con el célular:
 
-
-
-<iframe src="http://www.youtube.com/embed/ZwReO_9vxR8?rel=0&amp;fs=1&amp;wmode=transparent" allowfullscreen="" title="JoomlaWorks AllVideos Player" width="400" height="300" frameborder="0"></iframe>
-
-
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/ZwReO_9vxR8"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>  
 
  
 
@@ -211,5 +215,4 @@ Aquí dejo un pequeño video. Pido disculpas por la calidad pero fue tomado con 
 La lógica de control funciona bastante bien en general excepto para los  caso de giros muy pronunciados. Para resolver este problema se podría  modificar el modelo del carro de manera de permitir un mayor rango de  giro de la ruedas delanteras. 
 
  
-
 

@@ -41,8 +41,17 @@ Este experimento consiste de una distribución de clavos o alfileres en forma tr
 <img src="../../images/glaton_machine.png" />
 </aside>
 
-<iframe src="http://www.youtube.com/embed/M8t48Vpvl48?rel=0&amp;fs=1&amp;wmode=transparent" width="400" height="300" frameborder="0" allowfullscreen title="JoomlaWorks AllVideos Player"></iframe>
 
+
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/M8t48Vpvl48"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>
 
 Al final, como se observa en el video, tendrán mayores probabilidades los canales interiores que los exteriores, formándose una distribución de probabilidades conocida como [Binomial](http://es.wikipedia.org/wiki/Distribución_binomial), que si el número de pelotas es suficientemente grande puede aproximarse por una distribución [Normal](http://es.wikipedia.org/wiki/Distribución_normal) o Gaussiana. Esta es justamente, la distribución que se encuentra dibujada sobre la máquina a modo de predicción de los resultados.
 
