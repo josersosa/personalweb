@@ -17,7 +17,7 @@ categories:
   - Docker
   - WordPress
   - MySQL
-preview: ../../images/docker-wordpress-welcome.png
+preview: ../../images/docker-wordpress.png
 ---
 
 
@@ -57,7 +57,7 @@ Recuerde que debe cambiar la dirección IP (192.168.0.107) por la dirección del
 
 Una vez levantados los servicios podemos comenzar a trabajar accediendo a la dirección local en el puerto especificado:
 
-![Pantalla de instalación de wordpress](../../images/docker-wordpress-welcome.png)
+![Pantalla de instalación de wordpress](../../images/docker-wordpress.png)
 
 ## Docker Compose
 
