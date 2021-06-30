@@ -359,6 +359,7 @@
       <description>Este taller de R esta dirigido a estudiantes de la materia de Introducción a la Probabilidad y Estadística de la Escuela de Computación de la UCV. Se resolverán problemas de descripción de una muestra y la inferencia estadística a través de modelos lineales en el entorno de RStudio.</description>
       <category>Teaching</category>
       <category>Statistic</category>
+      <category>Data Science</category>
       <guid>https://josersosa.github.io/personalweb/posts/2021-06-29-taller-de-estadistica-descriptiva-y-regresion-lineal-con-r</guid>
       <pubDate>Sun, 24 Jul 2011 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-29-taller-de-estadistica-descriptiva-y-regresion-lineal-con-r/../../images/statistic_with_r.jpg" medium="image" type="image/jpeg"/>

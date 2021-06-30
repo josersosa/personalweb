@@ -15,6 +15,7 @@ output:
 categories:
   - Teaching
   - Statistic
+  - Data Science
 preview: ../../images/statistic_with_r.jpg
 ---
 
