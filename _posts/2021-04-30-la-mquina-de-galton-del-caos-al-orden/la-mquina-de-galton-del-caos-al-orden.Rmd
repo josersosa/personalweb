@@ -5,7 +5,7 @@ description: |
 author:
   - name: José R Sosa
     url: https://example.com/josersosa
-date: 11-04-2012
+date: 04-30-2021
 output:
   distill::distill_article:
     toc: true

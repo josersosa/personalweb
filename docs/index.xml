@@ -45,6 +45,20 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-05-11-despliegue-de-una-aplicacin-web-con-nginx-y-docker/../../images/image-20210426115523552.png" medium="image" type="image/png" width="1112" height="653"/>
     </item>
     <item>
+      <title>La máquina de Galton, del Caos al Orden...</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden</link>
+      <description>La "Maquina de Galton" es el nombre de un famoso experimento, que a pesar de estar completamente gobernado por el azar, muestra claramente como se presenta siempre la misma tendencia o distribución de los resultados.</description>
+      <category>R</category>
+      <category>Data Science</category>
+      <category>Teaching</category>
+      <category>Simulation</category>
+      <category>Statistic</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden</guid>
+      <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden/../../images/simulacion-dalton.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
       <title>Sincronización de directorios con rsync</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync</link>
@@ -195,20 +209,6 @@
       <guid>https://josersosa.github.io/personalweb/posts/2021-06-13-wiimote-como-sensor-de-posici0n-y-movimiento-para-nuestros-robots</guid>
       <pubDate>Fri, 14 Jun 2013 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-wiimote-como-sensor-de-posici0n-y-movimiento-para-nuestros-robots/../../images/robotics/wiimote_normal2_tn.png" medium="image" type="image/png" width="198" height="119"/>
-    </item>
-    <item>
-      <title>La máquina de Galton, del Caos al Orden...</title>
-      <dc:creator>José R Sosa</dc:creator>
-      <link>https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden</link>
-      <description>La "Maquina de Galton" es el nombre de un famoso experimento, que a pesar de estar completamente gobernado por el azar, muestra claramente como se presenta siempre la misma tendencia o distribución de los resultados.</description>
-      <category>R</category>
-      <category>Data Science</category>
-      <category>Teaching</category>
-      <category>Simulation</category>
-      <category>Statistic</category>
-      <guid>https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden</guid>
-      <pubDate>Sun, 04 Nov 2012 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden/../../images/simulacion-dalton.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Cómo verificar puertos y procesos en Linux</title>
