@@ -1,5 +1,29 @@
 [
   {
+    "path": "posts/2021-06-30-wordpress-con-docker/",
+    "title": "WordPress con Docker",
+    "description": "WordPress es una de las herramientas de tipo CMS (Content Management system) más utilizados, hoy en día, para la construcción de sitios web. Veremos como podemos habilitar una instalación de esta herramienta en nuestro entorno local, con solo dos comandos (o uno solo...)",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2021-06-29",
+    "categories": [
+      "Linux Recipes",
+      "Docker",
+      "WordPress",
+      "MySQL"
+    ],
+    "contents": "\n\nContents\nPre-requisitos\nLevantar los servicios\nComenzar a trabajar\nDocker Compose\nInstalación de Docker Compose\nUso de Docker Compose\nReferencias\n\nPre-requisitos\nCómo es lógico suponer, se requiere tener instalado Docker en nuestro sistema y haber ubicado los directorios que usaremos para almacenar la base de datos y las páginas web, aunque para este fin también podríamos usar volúmenes en lugar de directorios.\nLevantar los servicios\nComo hemos visto se requieren dos contenedores, uno para el WordPress con el servidor web y el otro para la base de datos MySQL. Para activarlos, ejecutamos en la línea de comandos las siguientes dos instrucciones, cambiando antes, los valores de los parámetros para que se acomoden los requerimientos de proyecto, tales como nombre de la base de datos, usuario, password y directorios locales para almacenar el proyecto\n# Contenedor de MySQL\ndocker run -d --name my-mysql \\\n-p 3306:3306 \\\n-e MYSQL_ROOT_PASSWORD=secret \\\n-e MYSQL_DATABASE=wordpress \\\n-e MYSQL_USER=wordpress \\\n-e MYSQL_PASSWORD=wordpress \\\n-v $HOME/mysql-data:/var/lib/mysql  \\\nmysql\n# Contenedor de WordPress\ndocker run -d --name wordpress \\\n-p 8080:80 \\\n-e WORDPRESS_DB_HOST=192.168.0.107 \\\n-e WORDPRESS_DB_USER=wordpress \\\n-e WORDPRESS_DB_NAME=wordpress \\\n-e WORDPRESS_DB_PASSWORD=wordpress  \\\n-v $HOME/worpress-data:/var/www/html \\\nwordpress\n  \nRecuerde que debe cambiar la dirección IP (192.168.0.107) por la dirección del equipo en el entorno local. Observe que usar localhost no debería funcionar, ya que se trata de una parámetro que le estamos pasando al contenedor de WordPress, y lo interpretaría como que debe buscar la base de datos dentro de el.\nComenzar a trabajar\nUna vez levantados los servicios podemos comenzar a trabajar accediendo a la dirección local en el puerto especificado:\nPantalla de instalación de wordpressDocker Compose\nOtra alternativa para levantar nuestra aplicación, que como sabemos requiere de dos componentes, es con el uso de Docker Compose. Esta herramienta viene instalada en la distribución de Docker para Windows y para Mac, pero en Linux es necesario instalarla por separado\nInstalación de Docker Compose\ncurl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose\nchmod +x /usr/local/bin/docker-compose\n# para verificar la instalación\ndocker-compose -v \nUso de Docker Compose\nEsta herramienta permite la gestión de aplicaciones conformadas por múltiples componentes mediante la definición de un archivo de configuración llamado docker-compose.yaml. Note que de esta forma ya no es necesario llevar cuenta de las IPs. En nuestro caso creamos este archivo con el siguiente contenido:\nversion: \"3.9\"\n    \nservices:\n  mysql:\n    image: mysql:5.7\n    volumes:\n      - mysql_data:/var/lib/mysql\n    restart: always\n    environment:\n      MYSQL_ROOT_PASSWORD: sserpdrow\n      MYSQL_DATABASE: wordpress\n      MYSQL_USER: wordpress\n      MYSQL_PASSWORD: wordpress\n    ports:\n      -\"3306:3306\"\n  phpmyadmin:\n    depends_on:\n      - mysql\n    image: phpmyadmin/phpmyadmin\n    environment:\n      - PMA_ARBITRARY=1\n      - PMA_HOST=mysql:3306\n      - PMA_USER=wordpress\n      - PMA_PASSWORD=wordpress\n    ports:\n      -\"8000:80\" \n  wordpress:\n    depends_on:\n      - mysql\n    image: wordpress:latest\n    volumes:\n      - wordpress_data:/var/www/html\n    restart: always\n    environment:\n      WORDPRESS_DB_HOST: mysql:3306\n      WORDPRESS_DB_USER: wordpress\n      WORDPRESS_DB_PASSWORD: wordpress\n      WORDPRESS_DB_NAME: wordpress\n    ports:\n      - \"8080:80\"\nvolumes:\n  mysql_data: {}\n  wordpress_data: {}\nComo se puede observar, este archivo define la creación de dos contenedores: mysql, phpmyadmin y wordpress. Además para cada uno de ellos define los volúmenes (mysql_data y wordpress_data) que servirán para persistir los cambios, es decir guardar los proyectos que se desarrollen con estas plataformas. De esta manera los contenedores se convierten en entornos desechables ya que lo importante siempre estará almacenado en los volúmenes.\nLuego basta iniciar el servicio con la siguiente instrucción:\ndocker-compose up -d\nPara detenerlo se utiliza:\ndocker-compose down\nReferencias\nCómo ejecutar MySQL en un contenedor Docker\nInstalar wordpress usando docker\nCómo usar Docker para desarrollar en WordPress\n\n\n\n",
+    "preview": "posts/2021-06-30-wordpress-con-docker/../../images/docker-wordpress-welcome.png",
+    "last_modified": "2021-06-30T04:21:08+00:00",
+    "input_file": "wordpress-con-docker.knit.md",
+    "preview_width": 1141,
+    "preview_height": 694
+  },
+  {
     "path": "posts/2021-06-26-configurando-una-raspberry-pi-modelo-4/",
     "title": "Configurando una Raspberry Pi modelo 4",
     "description": "Veamos cómo configurar nuestra nueva Raspberry Pi modelo 4, con una pequeña SD card de 4 GB, para manejarla desde la red local con el servicio web de CockPit.",

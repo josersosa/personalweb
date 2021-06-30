@@ -36,9 +36,9 @@ distill::create_post(title = "Tunneling TCP con SSH",
 rmarkdown::render_site(input = here::here())
 
 
-distill::create_post(title = "Taller de Estadistica Descriptiva y Regresion Lineal con R",
+distill::create_post(title = "WordPress con Docker",
                      author = "José R Sosa",
-                     date = "2011-07-24",
+                     date = "2021-06-229",
                      date_prefix = TRUE,
                      draft = FALSE)
 

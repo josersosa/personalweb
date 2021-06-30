@@ -7,7 +7,20 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 25 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>WordPress con Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-06-30-wordpress-con-docker</link>
+      <description>WordPress es una de las herramientas de tipo CMS (Content Management system) más utilizados, hoy en día, para la construcción de sitios web. Veremos como podemos habilitar una instalación de esta herramienta en nuestro entorno local, con solo dos comandos (o uno solo...)</description>
+      <category>Linux Recipes</category>
+      <category>Docker</category>
+      <category>WordPress</category>
+      <category>MySQL</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-06-30-wordpress-con-docker</guid>
+      <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-30-wordpress-con-docker/../../images/docker-wordpress-welcome.png" medium="image" type="image/png" width="1141" height="694"/>
+    </item>
     <item>
       <title>Configurando una Raspberry Pi modelo 4</title>
       <dc:creator>José R Sosa</dc:creator>
