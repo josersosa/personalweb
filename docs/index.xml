@@ -7,7 +7,18 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 29 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Editor en línea de comandos Vim</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-07-12-editor-en-linea-de-comandos-vim</link>
+      <description>Vin es un editor en línea de comandos presente en casi todas la distribuciones los sistemas operativos y especialmente en las distribuciones de Linux. Además pos su simplicidad es posible ejecutarlo en casi todo tipo de hardware, por lo que es muy útil conocer como funciona.</description>
+      <category>Linux Recipes</category>
+      <category>Vim</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-07-12-editor-en-linea-de-comandos-vim</guid>
+      <pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-07-12-editor-en-linea-de-comandos-vim/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
     <item>
       <title>WordPress con Docker</title>
       <dc:creator>José R Sosa</dc:creator>

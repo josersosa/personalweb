@@ -36,9 +36,9 @@ distill::create_post(title = "Tunneling TCP con SSH",
 rmarkdown::render_site(input = here::here())
 
 
-distill::create_post(title = "WordPress con Docker",
+distill::create_post(title = "Editor en linea de comandos Vim",
                      author = "José R Sosa",
-                     date = "2021-06-229",
+                     date = "2021-07-10",
                      date_prefix = TRUE,
                      draft = FALSE)
 

@@ -1,0 +1,85 @@
+---
+title: "Editor en línea de comandos Vim"
+description: |
+  Vin es un editor en línea de comandos presente en casi todas la distribuciones los sistemas operativos y especialmente en las distribuciones de Linux. Además pos su simplicidad es posible ejecutarlo en casi todo tipo de hardware, por lo que es muy útil conocer como funciona.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 07-10-2021
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+    code_folding: hide
+#    toc_float: false
+categories:
+  - Linux Recipes
+  - Vim
+preview: ../../images/edex-ui.png
+---
+
+
+## Instalación
+
+```bash
+apt/get install vim
+```
+
+## Configuración
+
+el archivo de configuración se encuentra en *~/.vimrc* y por lo general contiene al menos: 
+
+```bash
+syntax on
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+set background=dark
+```
+
+Básicamente definen:
+
+- Resaltado de código
+- Recordar la posición del curso en la última entrada
+- Colores compatibles con los temas oscuros de escritorio
+
+## Cómo ejecutar Vim
+
+```bash
+$ vim
+```
+
+## Comandos básicos
+
+| Item | Uso                                       | Opciones                              |
+| ---- | ----------------------------------------- | ------------------------------------- |
+| 1    | modo de edición                           | i, a, [INSERT]                        |
+| 2    | modo de control                           | [ESC]                                 |
+| 3    | modo visual (seleccionar texto)           | v                                     |
+| 4    | ejecutar sin preguntar                    | !                                     |
+| 5    | salir                                     | :q, :q!                               |
+| 6    | guardar                                   | :w, :w!                               |
+| 7    | guardar cambios y salir                   | :wq,  :wq!, :x, :x!                   |
+| 8    | mostrar números de linea                  | :set nu                               |
+| 9    | quitar números de linea                   | :set nu!                              |
+| 10   | cambiar set de colores                    | :set background=[color] (light, dark) |
+| 11   | cortar lineas seleccionadas               | :d                                    |
+| 12   | cortar una linea                          | :dd                                   |
+| 13   | cortar varias lineas                      | :d2d (para cortar 2 líneas)           |
+| 14   | pegar una línea siguiente                 | :p                                    |
+| 15   | copiar lineas seleccionadas               | :y                                    |
+| 16   | copiar una línea                          | :yy                                   |
+| 17   | copiar varias líneas                      | :y3y (copia 3 líneas)                 |
+| 18   | agregar una línea siguiente (insert)      | :o                                    |
+| 19   | undo (devolver cambios)                   | :u                                    |
+| 20   | re-hacer (devolver cambio hacia adelante) | [CTRL] r                              |
+| 21   | búsquedas                                 | /[texto a buscar]                     |
+| 22   | siguiente ocurrencia encontrada           | n                                     |
+| 23   | ocurrencia anterior                       | N                                     |
+| 24   | ir al inicio del archivo                  | gg                                    |
+| 25   | ir al final del archivo                   | G                                     |
+
+## Referencias:
+
+- VIM - Tutorial para principiantes - El MEJOR editor de texto ([PeladoNerd en youtube](https://www.youtube.com/watch?v=TmNa4y-K5Z8)) 
