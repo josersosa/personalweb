@@ -1,7 +1,7 @@
 ---
-title: "Editor en línea de comandos Vim"
+title: "Editor en línea de comandos - Vim"
 description: |
-  Vin es un editor en línea de comandos presente en casi todas la distribuciones los sistemas operativos y especialmente en las distribuciones de Linux. Además pos su simplicidad es posible ejecutarlo en casi todo tipo de hardware, por lo que es muy útil conocer como funciona.
+  Vin es un editor en línea de comandos presente en casi todos los sistemas operativos y especialmente en las distribuciones de Linux. Además pos su simplicidad es posible ejecutarlo en casi todo tipo de hardware, por lo que es muy útil conocer como funciona.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

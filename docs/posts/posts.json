@@ -1,8 +1,8 @@
 [
   {
     "path": "posts/2021-07-12-editor-en-linea-de-comandos-vim/",
-    "title": "Editor en línea de comandos Vim",
-    "description": "Vin es un editor en línea de comandos presente en casi todas la distribuciones los sistemas operativos y especialmente en las distribuciones de Linux. Además pos su simplicidad es posible ejecutarlo en casi todo tipo de hardware, por lo que es muy útil conocer como funciona.",
+    "title": "Editor en línea de comandos - Vim",
+    "description": "Vin es un editor en línea de comandos presente en casi todos los sistemas operativos y especialmente en las distribuciones de Linux. Además pos su simplicidad es posible ejecutarlo en casi todo tipo de hardware, por lo que es muy útil conocer como funciona.",
     "author": [
       {
         "name": "José R Sosa",
@@ -16,7 +16,7 @@
     ],
     "contents": "\n\nContents\nInstalación\nConfiguración\nCómo ejecutar Vim\nComandos básicos\nReferencias:\n\nInstalación\napt/get install vim\nConfiguración\nel archivo de configuración se encuentra en ~/.vimrc y por lo general contiene al menos:\nsyntax on\nif has(\"autocmd\")\n   au BufReadPost * if line(\"'\\\"\") > 1 && line(\"'\\\"\") <= line(\"$\") | exe \"normal! g'\\\"\" | endif\nendif\nset background=dark\nBásicamente definen:\nResaltado de código\nRecordar la posición del curso en la última entrada\nColores compatibles con los temas oscuros de escritorio\nCómo ejecutar Vim\n$ vim\nComandos básicos\nItem\nUso\nOpciones\n1\nmodo de edición\ni, a, [INSERT]\n2\nmodo de control\n[ESC]\n3\nmodo visual (seleccionar texto)\nv\n4\nejecutar sin preguntar\n!\n5\nsalir\n:q, :q!\n6\nguardar\n:w, :w!\n7\nguardar cambios y salir\n:wq, :wq!, :x, :x!\n8\nmostrar números de linea\n:set nu\n9\nquitar números de linea\n:set nu!\n10\ncambiar set de colores\n:set background=[color] (light, dark)\n11\ncortar lineas seleccionadas\n:d\n12\ncortar una linea\n:dd\n13\ncortar varias lineas\n:d2d (para cortar 2 líneas)\n14\npegar una línea siguiente\n:p\n15\ncopiar lineas seleccionadas\n:y\n16\ncopiar una línea\n:yy\n17\ncopiar varias líneas\n:y3y (copia 3 líneas)\n18\nagregar una línea siguiente (insert)\n:o\n19\nundo (devolver cambios)\n:u\n20\nre-hacer (devolver cambio hacia adelante)\n[CTRL] r\n21\nbúsquedas\n/[texto a buscar]\n22\nsiguiente ocurrencia encontrada\nn\n23\nocurrencia anterior\nN\n24\nir al inicio del archivo\ngg\n25\nir al final del archivo\nG\nReferencias:\nVIM - Tutorial para principiantes - El MEJOR editor de texto (PeladoNerd en youtube)\n\n\n\n",
     "preview": "posts/2021-07-12-editor-en-linea-de-comandos-vim/../../images/edex-ui.png",
-    "last_modified": "2021-07-12T00:54:08+00:00",
+    "last_modified": "2021-07-12T02:44:23+00:00",
     "input_file": "editor-en-linea-de-comandos-vim.utf8.md",
     "preview_width": 800,
     "preview_height": 450
