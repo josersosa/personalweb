@@ -4,6 +4,7 @@
 # git config --global user.name "José R Sosa"
 # git config --global user.email "josersosa@gmail.com"
 # git config --global credential.helper 'cache --timeout=36000'
+# git remote set -url origin git@github.com:josersosa/personalweb.git
 #
 # instalacion de librerias
 req_pckgs <- c("distill", "here")
