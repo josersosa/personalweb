@@ -16,6 +16,7 @@ categories:
   - Raspberry Pi
   - Robotics
   - Lego
+  - Lego Mindstorm
   - Python
 preview: ../../images/robotics/Raspberry_Pi_P1030182.JPG
 ---
