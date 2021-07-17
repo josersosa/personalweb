@@ -1,4 +1,10 @@
 # /media/jose/DATOS/Archivos/Proyectos/Posts/Markdown-serie/Creando un blog con Markdown y Distill.md
+#
+# Para configurar el cliente Git en linea de comandos:
+# git config --global user.name "José R Sosa"
+# git config --global user.email "josersosa@gmail.com"
+# git config --global credential.helper 'cache --timeout=36000'
+#
 # instalacion de librerias
 req_pckgs <- c("distill", "here")
 install.packages(pkgs = req_pckgs)
