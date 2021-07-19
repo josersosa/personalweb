@@ -333,6 +333,19 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-creacion-de-un-sensor-de-angulo-de-giro/../../images/robotics/robot_tn_s5030552.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
+      <title>Algoritmo de Retropropagación del Error o Back-propagation</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-07-18-algoritmo-de-error-o-back-propagation</link>
+      <description>Una guía sobre el algoritmo de Retropropagación del Error o Back propagation, utilizado para el entrenamiento de Redes neuronales multicapa. Este es uno de los más importantes algoritmos de entrenamiento supervisado de redes neuronales y a es utilizado para un gran número de aplicaciones.</description>
+      <category>Data Science</category>
+      <category>Teaching</category>
+      <category>Machine Learning</category>
+      <category>Neural Networks</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-07-18-algoritmo-de-error-o-back-propagation</guid>
+      <pubDate>Wed, 31 Aug 2011 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-07-18-algoritmo-de-error-o-back-propagation/../../images/simulacion-dalton.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
       <title>Cálculo de probabilidades y combinatorias por línea de comandos</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-05-09-calculo-de-probabilidades-y-combinatorias-en-linea-de-comandos</link>

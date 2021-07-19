@@ -1,6 +1,11 @@
 # /media/jose/DATOS/Archivos/Proyectos/Posts/Markdown-serie/Creando un blog con Markdown y Distill.md
 #
 # Para configurar el cliente Git en linea de comandos:
+# 
+# https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+# https://developer.github.com/changes/2020-02-14-deprecating-password-auth/
+# https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
+# https://support.rstudio.com/hc/en-us/articles/200532077?version=1.4.1103&mode=server
 # git config --global user.name "José R Sosa"
 # git config --global user.email "josersosa@gmail.com"
 # git config --global credential.helper 'cache --timeout=36000'
@@ -12,7 +17,7 @@ install.packages(pkgs = req_pckgs)
 # soporte para diagramas
 install.packages("DiagrammeR") #version estable en CRAN
 devtools::install_github("rich-iannone/DiagrammeR") #ultima version
-library(DiagrammeR)
+1library(DiagrammeR)
 #para generar jpg
 install.packages("png","jpeg")
 #grViz()
@@ -43,9 +48,9 @@ distill::create_post(title = "Tunneling TCP con SSH",
 rmarkdown::render_site(input = here::here())
 
 
-distill::create_post(title = "Editor en linea de comandos Vim",
+distill::create_post(title = "Algoritmo de Error o Back-propagation",
                      author = "José R Sosa",
-                     date = "2021-07-10",
+                     date = "2011-08-31",
                      date_prefix = TRUE,
                      draft = FALSE)
 
