@@ -4,7 +4,7 @@ description: |
   Una guía sobre el algoritmo de Retropropagación del Error o Back propagation, utilizado para el entrenamiento de Redes neuronales multicapa. Este es uno de los más importantes algoritmos de entrenamiento supervisado de redes neuronales y a es utilizado para un gran número de aplicaciones. 
 author:
   - name: José R Sosa
-    url: https://example.com/josersosa
+    url: https://josersosa.github.io/personalweb/
 date: 08-31-2011
 output:
   distill::distill_article:
@@ -41,19 +41,7 @@ En este trabajo nos concentraremos en dos redes neuronales a capas: el perceptro
 
 Además consideraremos solo redes de una capa escondida (intermedia) como se ilustra a continuación:
 
-```mermaid
-graph LR
-	subgraph Capa de Entrada
-		CI1((X1)); CI2((X2)); CI3((X3)); CI4((X4)); 
-	end
-	subgraph Capa Oculta
-		CE1((V1)); CE2((V2)); 
-	end
-	subgraph Capa de Salida
-		CO1((O1)); CO2((O2)); CO3((O3));
-	end
-  CI1 & CI2 & CI3 & CI4 --->|Wjk| CE1 & CE2 --->|Wij| CO1 & CO2 & CO3 
-```
+![image-20210721093440374](../../images/machine_learning/image-20210721093440374.png)
 
 La notación es que los subíndices $i$ se refieren a las salidas, $j$ a capa oculta y $k$ a la entrada. 
 
