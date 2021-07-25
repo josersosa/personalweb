@@ -224,6 +224,17 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-06-13-wiimote-como-sensor-de-posici0n-y-movimiento-para-nuestros-robots/../../images/robotics/wiimote_normal2_tn.png" medium="image" type="image/png" width="198" height="119"/>
     </item>
     <item>
+      <title>Renombrar particiones en Linux</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2021-07-25-renombrar-particiones-en-linux</link>
+      <description>Desde hace algún tiempo, la mayoría de las distribuciones de GNU/Linux identifican las particiones de nuestro computador por un código UUID de 128 bits, compuesto por 32 caracteres hexa-decimales. El problema es que estos códigos son imposibles, o al menos, muy difíciles de aprender. El proceso de identificar la partición adecuada en donde buscar o guardar un determinado archivo se convierte en un verdadero problema.</description>
+      <category>Linux Recipes</category>
+      <category>Vim</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2021-07-25-renombrar-particiones-en-linux</guid>
+      <pubDate>Mon, 14 Jan 2013 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2021-07-25-renombrar-particiones-en-linux/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
       <title>Cómo verificar puertos y procesos en Linux</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux</link>

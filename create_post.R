@@ -48,16 +48,16 @@ distill::create_post(title = "Tunneling TCP con SSH",
 rmarkdown::render_site(input = here::here())
 
 
-distill::create_post(title = "Algoritmo de Error o Back-propagation",
+distill::create_post(title = "Renombrar particiones en Linux",
                      author = "José R Sosa",
-                     date = "2011-08-31",
+                     date = "2013-01-14",
                      date_prefix = TRUE,
                      draft = FALSE)
 
 distill::create_post(title = "Construccion de un avion de madera de balsa",
                      collection = "gabyprojects",
                      author = "José R Sosa",
-                     date = "2013-11-03",
+                     date = "2013-11-14",
                      date_prefix = TRUE,
                      draft = FALSE)
 
