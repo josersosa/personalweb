@@ -1,7 +1,7 @@
 ---
 title: "Sincronización de directorios con rsync"
 description: |
-  Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rcync.
+  Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rsync.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/
@@ -14,15 +14,16 @@ output:
 #    toc_float: false
 categories:
   - Linux Recipes
+  - Rsync
 preview: ../../images/edex-ui.png
 #draft: true
 #preview: ../../lorenz_yelow10_peq.png
 ---
 
 
-Desde que vengo trabajando remoto utilizo indistintamente diferentes equipos, el personal y el de la oficina. Esto ha provocado que la sincronización de mis archivos se haya convertido en un verdadero problema, que he resuelto con *rcync*.  
+Desde que vengo trabajando remoto utilizo indistintamente diferentes equipos, el personal y el de la oficina. Esto ha provocado que la sincronización de mis archivos se haya convertido en un verdadero problema, que he resuelto con *rsync*.  
 
-### Como se usa rcync
+### Como se usa rsync
 
 Para actualizar los contenidos de una carpeta basados en los contenidos de otra utilizamos:
 
@@ -30,7 +31,7 @@ Para actualizar los contenidos de una carpeta basados en los contenidos de otra 
 rsync -rtvu carpeta_origen/ carpeta_destino/ 
 ```
 
-Una vista de los parámetos de **rcync**:
+Una vista de los parámetos de **rsync**:
 
 ```{bash, eval = FALSE}
 -v, –verbose	: verbose output

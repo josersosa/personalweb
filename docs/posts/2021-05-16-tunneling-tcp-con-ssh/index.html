@@ -85,23 +85,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>Blog de José R Sosa: Sincronización de directorios con rsync</title>
+<title>Blog de José R Sosa: Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras</title>
 
-<meta property="description" itemprop="description" content="Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rsync."/>
+<meta property="description" itemprop="description" content="Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  &quot;entubar&quot; o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto."/>
 
-<link rel="canonical" href="https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/"/>
+<link rel="canonical" href="https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2015-10-19"/>
-<meta property="article:created" itemprop="dateCreated" content="2015-10-19"/>
+<meta property="article:published" itemprop="datePublished" content="2012-08-18"/>
+<meta property="article:created" itemprop="dateCreated" content="2012-08-18"/>
 <meta name="article:author" content="José R Sosa"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Blog de José R Sosa: Sincronización de directorios con rsync"/>
+<meta property="og:title" content="Blog de José R Sosa: Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rsync."/>
-<meta property="og:url" content="https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/"/>
-<meta property="og:image" content="https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/../../images/edex-ui.png"/>
+<meta property="og:description" content="Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  &quot;entubar&quot; o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto."/>
+<meta property="og:url" content="https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/"/>
+<meta property="og:image" content="https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/../../images/edex-ui.png"/>
 <meta property="og:image:width" content="800"/>
 <meta property="og:image:height" content="450"/>
 <meta property="og:locale" content="en_US"/>
@@ -109,31 +109,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Blog de José R Sosa: Sincronización de directorios con rsync"/>
-<meta property="twitter:description" content="Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rsync."/>
-<meta property="twitter:url" content="https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/"/>
-<meta property="twitter:image" content="https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/../../images/edex-ui.png"/>
+<meta property="twitter:title" content="Blog de José R Sosa: Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras"/>
+<meta property="twitter:description" content="Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  &quot;entubar&quot; o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto."/>
+<meta property="twitter:url" content="https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/"/>
+<meta property="twitter:image" content="https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/../../images/edex-ui.png"/>
 <meta property="twitter:image:width" content="800"/>
 <meta property="twitter:image:height" content="450"/>
 <meta property="twitter:site" content="@JoseRSosaB"/>
 <meta property="twitter:creator" content="@JoseRSosaB"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Blog de José R Sosa: Sincronización de directorios con rsync"/>
-<meta name="citation_fulltext_html_url" content="https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/"/>
-<meta name="citation_online_date" content="2015/10/19"/>
-<meta name="citation_publication_date" content="2015/10/19"/>
+<meta name="citation_title" content="Blog de José R Sosa: Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras"/>
+<meta name="citation_fulltext_html_url" content="https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/"/>
+<meta name="citation_online_date" content="2012/08/18"/>
+<meta name="citation_publication_date" content="2012/08/18"/>
 <meta name="citation_author" content="José R Sosa"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Sincronización de directorios con rsync"]},{"type":"character","attributes":{},"value":["Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rsync."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/"]}]}]},{"type":"character","attributes":{},"value":["10-19-2015"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["Linux Recipes","Rsync"]},{"type":"character","attributes":{},"value":["../../images/edex-ui.png"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras"]},{"type":"character","attributes":{},"value":["Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  \"entubar\" o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/"]}]}]},{"type":"character","attributes":{},"value":["08-18-2012"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["hide"]}]}]},{"type":"character","attributes":{},"value":["Linux Recipes","SSH"]},{"type":"character","attributes":{},"value":["../../images/edex-ui.png"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["sincronizacin-de-directorios-con-rsync_files/anchor-4.2.2/anchor.min.js","sincronizacin-de-directorios-con-rsync_files/bowser-1.9.3/bowser.min.js","sincronizacin-de-directorios-con-rsync_files/distill-2.2.21/template.v2.js","sincronizacin-de-directorios-con-rsync_files/header-attrs-2.6/header-attrs.js","sincronizacin-de-directorios-con-rsync_files/jquery-1.11.3/jquery.min.js","sincronizacin-de-directorios-con-rsync_files/popper-2.6.0/popper.min.js","sincronizacin-de-directorios-con-rsync_files/tippy-6.2.7/tippy-bundle.umd.min.js","sincronizacin-de-directorios-con-rsync_files/tippy-6.2.7/tippy-light-border.css","sincronizacin-de-directorios-con-rsync_files/tippy-6.2.7/tippy.css","sincronizacin-de-directorios-con-rsync_files/tippy-6.2.7/tippy.umd.min.js","sincronizacin-de-directorios-con-rsync_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["tunneling-tcp-con-ssh_files/anchor-4.2.2/anchor.min.js","tunneling-tcp-con-ssh_files/bowser-1.9.3/bowser.min.js","tunneling-tcp-con-ssh_files/chromatography-0.1/chromatography.js","tunneling-tcp-con-ssh_files/chromatography-0.1/LICENSE","tunneling-tcp-con-ssh_files/d3-3.3.8/d3.min.js","tunneling-tcp-con-ssh_files/d3-3.3.8/LICENSE","tunneling-tcp-con-ssh_files/dagre-0.4.0/dagre-d3.min.js","tunneling-tcp-con-ssh_files/dagre-0.4.0/LICENSE","tunneling-tcp-con-ssh_files/DiagrammeR-binding-1.0.6.1/DiagrammeR.js","tunneling-tcp-con-ssh_files/DiagrammeR-binding-1.0.6.9000/DiagrammeR.js","tunneling-tcp-con-ssh_files/DiagrammeR-styles-0.2/styles.css","tunneling-tcp-con-ssh_files/distill-2.2.21/template.v2.js","tunneling-tcp-con-ssh_files/header-attrs-2.6/header-attrs.js","tunneling-tcp-con-ssh_files/htmlwidgets-1.5.3/htmlwidgets.js","tunneling-tcp-con-ssh_files/jquery-1.11.3/jquery.min.js","tunneling-tcp-con-ssh_files/mermaid-0.3.0/dist/mermaid.css","tunneling-tcp-con-ssh_files/mermaid-0.3.0/dist/mermaid.slim.min.js","tunneling-tcp-con-ssh_files/mermaid-0.3.0/LICENSE","tunneling-tcp-con-ssh_files/popper-2.6.0/popper.min.js","tunneling-tcp-con-ssh_files/tippy-6.2.7/tippy-bundle.umd.min.js","tunneling-tcp-con-ssh_files/tippy-6.2.7/tippy-light-border.css","tunneling-tcp-con-ssh_files/tippy-6.2.7/tippy.css","tunneling-tcp-con-ssh_files/tippy-6.2.7/tippy.umd.min.js","tunneling-tcp-con-ssh_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2118,6 +2118,14 @@ d-appendix d-footnote-list a.footnote-backlink {
 }</style>
 <!--/radix_placeholder_distill-->
   <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
+  <script src="../../site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <script src="../../site_libs/d3-3.3.8/d3.min.js"></script>
+  <script src="../../site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
+  <link href="../../site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+  <script src="../../site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+  <link href="../../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+  <script src="../../site_libs/chromatography-0.1/chromatography.js"></script>
+  <script src="../../site_libs/DiagrammeR-binding-1.0.6.9000/DiagrammeR.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2138,7 +2146,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Sincronización de directorios con rsync","description":"Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rsync.","authors":[{"author":"José R Sosa","authorURL":"https://josersosa.github.io/personalweb/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2015-10-19T00:00:00.000+00:00","citationText":"Sosa, 2015"}
+{"title":"Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras","description":"Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  \"entubar\" o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto.","authors":[{"author":"José R Sosa","authorURL":"https://josersosa.github.io/personalweb/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2012-08-18T00:00:00.000+00:00","citationText":"Sosa, 2012"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2203,20 +2211,20 @@ Recursos
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Sincronización de directorios con rsync</h1>
+<h1>Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
   <a href="../../index.html#category:Linux_Recipes" class="dt-tag">Linux Recipes</a>
-  <a href="../../index.html#category:Rsync" class="dt-tag">Rsync</a>
+  <a href="../../index.html#category:SSH" class="dt-tag">SSH</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Si bien, herramientas de control de versiones y el uso de la nube ayudan a centralizar nuestra información, no todo está en la nube y la sincronización de archivos entre diferentes equipos y ambientes de trabajo puede convertirse en un problema, para eso podemos usar rsync.</p></p>
+<p><p>Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos que pasar por una red insegura. En un gran numero de situaciones se nos presenta esta necesitad, como por ejemplo acceder a un equipo sin IP pública que se encuentra detrás de una subred o cuando queremos “entubar” o asegurar una conexión a través de Internet o redes inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente queremos navegar, es decir que no necesariamente se requiere un shell remoto.</p></p>
 </div>
 
 <div class="d-byline">
   José R Sosa <a href="https://josersosa.github.io/personalweb/" class="uri">https://josersosa.github.io/personalweb/</a> 
   
-<br/>10-19-2015
+<br/>08-18-2012
 </div>
 
 <div class="d-article">
@@ -2224,118 +2232,112 @@ Recursos
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#como-se-usa-rsync">Como se usa rsync</a></li>
-<li><a href="#sincronización-completa">Sincronización completa</a></li>
-<li><a href="#transferencia-comprimida">Transferencia comprimida</a></li>
-<li><a href="#sincronización-remota-con-ssh">Sincronización remota con SSH</a></li>
-<li><a href="#excepciones-en-la-sincronización">Excepciones en la sincronización</a></li>
-<li><a href="#como-se-decide-que-archivo-debe-ser-actualizado">Como se decide que archivo debe ser actualizado?</a></li>
-<li><a href="#ejemplos">Ejemplos</a></li>
-<li><a href="#todos">TODOs</a></li>
+<li><a href="#tunneling-con-ssh">Tunneling con SSH</a>
+<ul>
+<li><a href="#accediendo-a-un-servicio-jupyter-en-la-máquina-segura">Accediendo a un servicio Jupyter en la máquina segura</a></li>
+</ul></li>
+<li><a href="#conexión-desde-el-lado-inseguro-de-la-red">Conexión desde el lado inseguro de la red</a></li>
+<li><a href="#conexión-desde-el-lado-seguro-de-la-red">Conexión desde el lado seguro de la red</a></li>
 </ul>
 </nav>
 </div>
-<p>Desde que vengo trabajando remoto utilizo indistintamente diferentes equipos, el personal y el de la oficina. Esto ha provocado que la sincronización de mis archivos se haya convertido en un verdadero problema, que he resuelto con <em>rsync</em>.</p>
-<h3 id="como-se-usa-rsync">Como se usa rsync</h3>
-<p>Para actualizar los contenidos de una carpeta basados en los contenidos de otra utilizamos:</p>
+<p>Para lograr esto debemos asumir que contamos con el acceso, mediante SSH, a una máquina de confianza, es decir un equipo en una parte “segura” de la red. Puede ser la máquina a la que nos queremos conectar para leer el correo, o el proxy que usamos para navegar, o la máquina que hace de gateway entre la red inalámbrica y la red “alámbrica”. El objetivo es, entonces establecer un puente o túnel, mediante SSH entre nuestra máquina y la máquina “segura”, de manera de protegernos de los peligros de la parte insegura de la red. Más adelante veremos como aprovechar esta conexión SSH, para transmitir protocolos o servicios como si fueran locales.</p>
+<h2 id="tunneling-con-ssh">Tunneling con SSH</h2>
+<p>Para establecer este tunel debemos usa la siguiente sintaxis para el comando ssh:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> -L puerto_local:maquina_destino:puerto_destino maquina_segura</span></code></pre></div>
+<p>Con esto, se establece un shell en la “<em>máquina_segura</em>” creando un túnel entre esta y nuestra “<em>máquina_local</em>”. Sin embargo, lo interesante es que este comando también activa el puerto TCP “<em>puerto_local</em>” en nuestra máquina que hace referencia (como un enlace simbólico) al “<em>puerto_destino</em>” TCP de la “<em>maquina_destino</em>”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rtvu carpeta_origen/ carpeta_destino/ </span></code></pre></div>
+<details>
+<summary>
+hide
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/rich-iannone/DiagrammeR'>DiagrammeR</a></span><span class='op'>)</span>
+<span class='fu'>DiagrammeR</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/DiagrammeR/man/mermaid.html'>mermaid</a></span><span class='op'>(</span><span class='st'>"graph LR
+  subgraph Máquina Local.
+    A[Cliente] --&gt; B(Puerto local)
+    end
+  subgraph Máquina Segura.
+    D[Serv SSH] 
+    end
+  B -.-&gt; D
+  subgraph Máquina Destino.
+    E(Puerto destino_) --&gt; F[Servidor] 
+    end
+  D -.-&gt; E
+  "</span><span class='op'>)</span>
+</code></pre>
 </div>
-<p>Una vista de los parámetos de <strong>rsync</strong>:</p>
+</details>
+<div id="htmlwidget-ffa89d586dbc8daeed73" style="width:624px;height:384px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ffa89d586dbc8daeed73">{"x":{"diagram":"graph LR\n\tsubgraph Máquina Local.\n    A[Cliente] --> B(Puerto local)\n    end\n\tsubgraph Máquina Segura.\n    D[Serv SSH] \n    end\n\tB -.-> D\n\tsubgraph Máquina Destino.\n    E(Puerto destino_) --> F[Servidor] \n    end\n\tD -.-> E\n\t"},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>La idea es que mientras esté activa esta conexión SSH o túnel, si nos conectamos a <em>localhost:puerto_local</em>, esa conexión TCP será redirigida a través del túnel SSH y con la seguridad correspondiente, a la <em>máquina_segura</em>, y desde ahí se establecerá una conexión a <em>maquina_destino:puerto_destino</em>.</p>
+<h3 id="accediendo-a-un-servicio-jupyter-en-la-máquina-segura">Accediendo a un servicio Jupyter en la máquina segura</h3>
+<p>Es importante tener en cuenta que si en lugar de maquina_destino, ponemos localhost, estaríamos asumiendo que la “máquina_destino” en la “máquina_segura”. Un de uso prático de esto es el siguiente:</p>
+<p>Supongamos que levantamos uns servicio Jupyter, que usa el puerto 8888, en una máquina virtual en la nube, la cual solo tiene el puerto 22 abierto. Podriamos abier el puero 8888 o el 80 y poner a escuchar nuestro servicio ahí, pero eso dejaría nuestra conexión a Juyter insegura y abierta a posibles ataques. Otra opción es crear un tunel SSH a nuestra máquina para proteger la conexion, de manera que ahora para de acceder al servicio usariamos un puerto local:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span>, –verbose    : verbose output</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-q</span>, –quiet      : suppress message output</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-a</span>, –archive    : archive files and directory while synchronizing ( -a equal to following options -rlptgoD)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-r</span>, –recursive  : sync files and directories recursively</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-c</span>, --checksum  : skip based on checksum, not mod-time <span class="kw">&amp;</span> <span class="fu">size</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-b</span>, –backup     : take the backup during synchronization</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-u</span>, –update     : don’t copy the files from source to destination if destination files are newer</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-l</span>, –links      : copy symlinks as symlinks during the sync</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-n</span>, –dry-run    : perform a trial run without synchronization</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-e</span>, –rsh=COMMAND: mention the remote shell to use in rsync. By example use <span class="st">&#39;-e ssh&#39;</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">-z</span>, –compress   : compress file data during the transfer</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">-h</span>, –human-readable: display the output numbers in a human-readable format</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">-P</span> : Resume large file transfer after getting failed in scp</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">-f</span> : for include o exclude files o directories, example -f<span class="st">&quot;+ */&quot;</span> -f<span class="st">&quot;- *&quot;</span> for sync the directory structure without copying files</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">--include</span>   : to specify those files or directories which you want to include in your sync </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">--exclude</span>   : exclude files and folders with you don’t want to be transferred.</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ex">--delete</span>    : if a file or directory not exist at the source, but already exists at the destination, delete that existing file/directory at the target</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ex">--max-size</span>= : put limit on file transfer size. To specify the size in KB use K, MB use M and for GB use G (ej: --max-size=<span class="st">&#39;500K&#39;</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ex">--bwlimit</span>=  : put restriction on data transfer speed in KB/s (ej: --bwlimit=600)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>–<span class="ex">progress</span>       : show the sync progress during transfer by file</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ex">-e</span> : To specify a protocol with rsync, by example using “ssh”</span></code></pre></div>
+<details>
+<summary>
+hide
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>DiagrammeR</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/DiagrammeR/man/mermaid.html'>mermaid</a></span><span class='op'>(</span><span class='st'>"graph LR
+  subgraph Máquina Local
+  A[Cliente] --&gt; B(Puerto local)
+  end
+  subgraph Máquina Segura.
+    E(Puerto destino) --&gt; F[Servidor]
+  end
+  B -.-&gt;|tunel ssh| E
+  "</span><span class='op'>)</span>
+</code></pre>
 </div>
-<h3 id="sincronización-completa">Sincronización completa</h3>
-<p>En el caso de que necesitemos remover los archivos que fueron borrados de la carpeta origen en la carpeta destino, es decir cuando queremos que las dos carpetas (origen y destino) sean idénticas, debemos utilizar el parámetro <strong>- -delete</strong>, esto usado en conjunto con el parámetro previo <strong>-u</strong> que actualiza los archivos modificados nos permite mantener dos carpetas en sincronía ahorrando ancho de banda.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rtvu --delete carpeta_origen/ carpeta_destino/</span></code></pre></div>
+</details>
+<div id="htmlwidget-65e5825e899ecb151844" style="width:624px;height:384px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-65e5825e899ecb151844">{"x":{"diagram":"graph LR\n  subgraph Máquina Local\n  A[Cliente] --> B(Puerto local)\n  end\n  subgraph Máquina Segura.\n    E(Puerto destino) --> F[Servidor]\n  end\n  B -.->|tunel ssh| E\n  "},"evals":[],"jsHooks":[]}</script>
 </div>
-<h3 id="transferencia-comprimida">Transferencia comprimida</h3>
-<p>Para ahorrar algo de ancho de banda, y usualmente también ahorrar algo de tiempo, podemos comprimir la información que está será transferida, para esto agregamos el parámetro <strong>-z</strong> a <em>rsync</em>:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvz carpeta_origen/ carpeta_destino/ </span></code></pre></div>
-</div>
-<h3 id="sincronización-remota-con-ssh">Sincronización remota con SSH</h3>
-<p>Para actualizar los archivos de una carpeta local a una carpeta remota, utilizando un dominio, una dirección de IP o un servidor definido en el archivo de configuración de SSH:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rtvz carpeta_origen/ usuario@dominio:/ruta/a/carpeta_destino/</span></code></pre></div>
-</div>
-<p>Ahora para actualizar archivos de una carpeta remota a carpeta local, utilizando un dominio, una dirección de IP o un servidor definido en el archivo de configuración de SSH:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rtvz usuario@dominio:/ruta/a/carpeta_origen/ carpeta_destino/</span></code></pre></div>
-</div>
-<h3 id="excepciones-en-la-sincronización">Excepciones en la sincronización</h3>
-<p>El parámetro <strong>- -exclude</strong> seguido del directorio o el archivo que queremos excluir nos permite definir directorios/archivo que no serán sincronizados. La carpeta de origen o la carpeta de destino pueden ser un directorio local o un directorio remoto como se explico en la sección previa.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rtv --exclude <span class="st">&#39;directorio&#39;</span> carpeta_origen/ carpeta_destino/</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rtv --exclude <span class="st">&#39;archivo.txt&#39;</span> carpeta_origen/ carpeta_destino/</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rtv --exclude <span class="st">&#39;direccion/a/directorio&#39;</span> carpeta_origen/ carpeta_destino/</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rtv --exclude <span class="st">&#39;direccion/a/archivo.txt&#39;</span> carpeta_origen/ carpeta_destino/ </span></code></pre></div>
-</div>
-<p>También podemos colocar la lista de directorios o archivos que deseamos excluir en una archivo de texto (por ejemplo excluidos.txt) y usar la opción <strong>–exclude-from</strong> de la siguiente forma:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvz --exclude-from <span class="st">&#39;excluidos.txt&#39;</span> carpeta_origen/ carpeta_destino/</span></code></pre></div>
-</div>
-<h3 id="como-se-decide-que-archivo-debe-ser-actualizado">Como se decide que archivo debe ser actualizado?</h3>
-<p>Por defecto, <em>rsync</em> toma la fecha de la última modificación del archivo y el tamaño de este para decidir que archivos necesitan ser transferidos y que archivos pueden ser ignorados, pero podemos utilizar en lugar de este método un hash para decidir si el archivo es diferente o no. Para hacer esto necesitamos usar el parámetro <strong>-c</strong>, que realizará un <em>checksum</em> en los archivos a ser transferidos. Esto ignorará cualquier archivo donde el checksum coincide.</p>
-<h3 id="ejemplos">Ejemplos</h3>
-<p>Aquí tengo algunos ejemplos de como realizo la sincronización de archivos a varios de los equipos que uso con frecuentemente:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/Personal/Sincronizar/</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/archivo/</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/TI10657300E/Temp/josersosa/</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/6AE0F943E0F91653/Temp/Jose/</span></code></pre></div>
-</div>
-<h3 id="todos">TODOs</h3>
-<p>Ahora queda pendiente automatizar este proceso, de forma que cuando se introduzca cierto pendrive en un equipo se ejecute un script que consulte al usuario si desea que este sea sincronizado en ese computador. Esta acción podría realizarse tanto al momento de insertar el pen como al momento de solicitar su extracción.</p>
-<p><strong>Fuente de este post</strong></p>
-<ul>
-<li><a href="http://www.jveweb.net/archivo/2010/11/sincronizando-carpetas-con-rsync.html" class="uri">http://www.jveweb.net/archivo/2010/11/sincronizando-carpetas-con-rsync.html</a></li>
-<li><a href="https://www.linuxtechi.com/rsync-command-examples-linux/" class="uri">https://www.linuxtechi.com/rsync-command-examples-linux/</a></li>
-<li><a href="https://www.computerhope.com/unix/rsync.htm" class="uri">https://www.computerhope.com/unix/rsync.htm</a></li>
-<li><a href="https://www.geeksforgeeks.org/rsync-command-in-linux-with-examples/" class="uri">https://www.geeksforgeeks.org/rsync-command-in-linux-with-examples/</a></li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Observe que así podemos ejecutar el <em>Jupyter</em> en el servidor remoto y lo accedemos como si se tratara de un servicio local:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> usuario@servidor-remoto <span class="st">&quot;jupyter notebook &gt; ~/jupyter.log &amp;&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># esperamos unos segundos para que levante el servicio</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> -L 8880:servidor-remoto:8888 servidor-remoto</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ahora podemos acceder al servicio localmente en http://localhost:8880</span></span></code></pre></div>
+<p>Recuerden que para conocer el token que se ha producido automaticamente debemos consultar el log generado por el jupyter:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> usuario@servidor-remoto <span class="st">&quot;cat ~/jupyter.log&quot;</span></span></code></pre></div>
+<h2 id="conexión-desde-el-lado-inseguro-de-la-red">Conexión desde el lado inseguro de la red</h2>
+<p>Ejemplos de túneles cuando estamos del lado inseguro de la red (parámetro -L)</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> -L 8080:localhost:3128 miproxy.segu.ro</span></code></pre></div>
+<p>Suponiendo que tengamos acceso SSH a miproxy.segu.ro, y que esta máquina esté ejecutando un proxy (por ejemplo el squid) en el puerto 3128, con este comando conseguimos (además del shell de siempre) que todas las conexiones al puerto 8080 local se vayan por el túnel SSH al puerto 3128 de miproxy.segu.ro. Así que configuramos el navegador para que use como proxy localhost:8080, y en realidad estaremos usando miproxy.segu.ro:3128, solo que la comunicación irá protegida por SSH.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> -L 110:mipop3:110 miservidor.segu.ro</span></code></pre></div>
+<p>Supongamos que tenemos acceso SSH a miservidor.segu.ro, y una cuenta POP3 en la máquina mipop3, que está en la misma red local que miservidor.segu.ro. O bién no tenemos acceso a mipop3 desde fuera, o bién nos da miedo que nuestro password viaje en pelotas por medio mundo hasta llegar a él. Usando este comando SSH conseguimos que las conexiones al puerto local 110 sean redirigidas a mipop3:110, via miservidor.segu.ro, y la conexión entre la máquina local y miservidor.segu.ro va protegida por SSH.</p>
+<h2 id="conexión-desde-el-lado-seguro-de-la-red">Conexión desde el lado seguro de la red</h2>
+<p>Ejemplos de túneles cuando estamos del lado seguro de la red (parámetro -R)</p>
+<p>La versión con -R es muy parecida, pero el primer puerto que se especifica es remoto y el host:puerto que vienen después se resuelven en local. Por supuesto la re-dirección se hace en sentido contrario.</p>
+<p>Es decir, si hacemos</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> -R 6110:localhost:110 miservidor.segu.ro</span></code></pre></div>
+<p>conseguimos que las conexiones a miservidor.segu.ro:6110 sean redirigidas de forma transparente a través del túnel SSH al puerto 110 local. Así que si en la máquina local tenemos un servidor POP3 funcionando, las máquinas de la parte remota pueden usarlo accediendo al puerto 6110 de miservidor.segu.ro.</p>
+<p><strong>Fuente</strong>:<a href="http://bulma.net/body.phtml?nIdNoticia=1147" class="uri">http://bulma.net/body.phtml?nIdNoticia=1147</a></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="disqus-comments">
       <i class="fas fa-comments"></i>
       &nbsp;
-      <span class="disqus-comment-count" data-disqus-identifier="posts/2021-04-29-sincronizacin-de-directorios-con-rsync/">Comment on this article</span>
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2021-05-16-tunneling-tcp-con-ssh/">Comment on this article</span>
     </span>
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Sincronizaci%C3%B3n%20de%20directorios%20con%20rsync&amp;url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2021-04-29-sincronizacin-de-directorios-con-rsync%2F">
+      <a href="https://twitter.com/share?text=Tunneling%20TCP%20con%20SSH%2C%20asegurando%20conexiones%20a%20traves%20de%20redes%20inseguras&amp;url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2021-05-16-tunneling-tcp-con-ssh%2F">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2021-04-29-sincronizacin-de-directorios-con-rsync%2F&amp;title=Sincronizaci%C3%B3n%20de%20directorios%20con%20rsync">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2021-05-16-tunneling-tcp-con-ssh%2F&amp;title=Tunneling%20TCP%20con%20SSH%2C%20asegurando%20conexiones%20a%20traves%20de%20redes%20inseguras">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="https://pinterest.com/pin/create/link/?url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2021-04-29-sincronizacin-de-directorios-con-rsync%2F&amp;description=Sincronizaci%C3%B3n%20de%20directorios%20con%20rsync">
+      <a href="https://pinterest.com/pin/create/link/?url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2021-05-16-tunneling-tcp-con-ssh%2F&amp;description=Tunneling%20TCP%20con%20SSH%2C%20asegurando%20conexiones%20a%20traves%20de%20redes%20inseguras">
         <i class="fab fa-pinterest"></i>
       </a>
-      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2021-04-29-sincronizacin-de-directorios-con-rsync%2F">
+      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2021-05-16-tunneling-tcp-con-ssh%2F">
         <i class="fab fa-facebook"></i>
       </a>
     </span>
@@ -2344,8 +2346,8 @@ Recursos
   <div id="disqus_thread" class="hidden"></div>
   <script type="text/javascript" cookie-consent="functionality">
 var disqus_config = function () {
-  this.page.url = 'https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/';
-  this.page.identifier = 'posts/2021-04-29-sincronizacin-de-directorios-con-rsync/';
+  this.page.url = 'https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/';
+  this.page.identifier = 'posts/2021-05-16-tunneling-tcp-con-ssh/';
 };
 (function() {
   var d = document, s = d.createElement('script');
@@ -2381,13 +2383,13 @@ var disqus_config = function () {
   <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/josersosa/personalweb/issues/new">create an issue</a> on the source repository.</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Sosa (2015, Oct. 19). Blog de José R Sosa: Sincronización de directorios con rsync. Retrieved from https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/</pre>
+  <pre class="citation-appendix short">Sosa (2012, Aug. 18). Blog de José R Sosa: Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras. Retrieved from https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{sosa2015sincronización,
+  <pre class="citation-appendix long">@misc{sosa2012tunneling,
   author = {Sosa, José R},
-  title = {Blog de José R Sosa: Sincronización de directorios con rsync},
-  url = {https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/},
-  year = {2015}
+  title = {Blog de José R Sosa: Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras},
+  url = {https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/},
+  year = {2012}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->

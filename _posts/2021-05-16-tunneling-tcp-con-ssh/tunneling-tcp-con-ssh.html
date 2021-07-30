@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","draft","preview"]}},"value":[{"type":"character","attributes":{},"value":["Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras"]},{"type":"character","attributes":{},"value":["Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  \"entubar\" o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/"]}]}]},{"type":"character","attributes":{},"value":["08-18-2012"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["hide"]}]}]},{"type":"character","attributes":{},"value":["Linux Recipes","SSH"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["../../images/edex-ui.png"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview"]}},"value":[{"type":"character","attributes":{},"value":["Tunneling TCP con SSH, asegurando conexiones a traves de redes inseguras"]},{"type":"character","attributes":{},"value":["Vamos a ver como conseguir conexiones TCP/IP seguras aunque tengamos  que pasar por una red insegura. En un gran numero de situaciones se nos  presenta esta necesitad, como por ejemplo acceder a un equipo sin IP  pública que se encuentra detrás de una subred o cuando queremos  \"entubar\" o asegurar una conexión a través de Internet o redes  inhalámbricas para pasar algún protocolo o servicio cualquiera de manera segura, como conectarnos a un servidor de correo, o que simplemente  queremos navegar, es decir que no necesariamente se requiere un shell  remoto.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/"]}]}]},{"type":"character","attributes":{},"value":["08-18-2012"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["hide"]}]}]},{"type":"character","attributes":{},"value":["Linux Recipes","SSH"]},{"type":"character","attributes":{},"value":["../../images/edex-ui.png"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1441,7 +1441,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="tunneling-tcp-con-ssh_files/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
   <link href="tunneling-tcp-con-ssh_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
   <script src="tunneling-tcp-con-ssh_files/chromatography-0.1/chromatography.js"></script>
-  <script src="tunneling-tcp-con-ssh_files/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
+  <script src="tunneling-tcp-con-ssh_files/DiagrammeR-binding-1.0.6.9000/DiagrammeR.js"></script>
   <script src="tunneling-tcp-con-ssh_files/jquery-1.11.3/jquery.min.js"></script>
   <script src="tunneling-tcp-con-ssh_files/popper-2.6.0/popper.min.js"></script>
   <link href="tunneling-tcp-con-ssh_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1530,8 +1530,8 @@ hide
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-3d3af14e2b81c5dd8bf8" style="width:624px;height:384px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3d3af14e2b81c5dd8bf8">{"x":{"diagram":"graph LR\n\tsubgraph Máquina Local.\n    A[Cliente] --> B(Puerto local)\n    end\n\tsubgraph Máquina Segura.\n    D[Serv SSH] \n    end\n\tB -.-> D\n\tsubgraph Máquina Destino.\n    E(Puerto destino_) --> F[Servidor] \n    end\n\tD -.-> E\n\t"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ffa89d586dbc8daeed73" style="width:624px;height:384px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ffa89d586dbc8daeed73">{"x":{"diagram":"graph LR\n\tsubgraph Máquina Local.\n    A[Cliente] --> B(Puerto local)\n    end\n\tsubgraph Máquina Segura.\n    D[Serv SSH] \n    end\n\tB -.-> D\n\tsubgraph Máquina Destino.\n    E(Puerto destino_) --> F[Servidor] \n    end\n\tD -.-> E\n\t"},"evals":[],"jsHooks":[]}</script>
 </div>
 <p>La idea es que mientras esté activa esta conexión SSH o túnel, si nos conectamos a <em>localhost:puerto_local</em>, esa conexión TCP será redirigida a través del túnel SSH y con la seguridad correspondiente, a la <em>máquina_segura</em>, y desde ahí se establecerá una conexión a <em>maquina_destino:puerto_destino</em>.</p>
 <h3 id="accediendo-a-un-servicio-jupyter-en-la-máquina-segura">Accediendo a un servicio Jupyter en la máquina segura</h3>
@@ -1555,8 +1555,8 @@ hide
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-00ba9190a5d732d65b92" style="width:624px;height:384px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-00ba9190a5d732d65b92">{"x":{"diagram":"graph LR\n  subgraph Máquina Local\n  A[Cliente] --> B(Puerto local)\n  end\n  subgraph Máquina Segura.\n    E(Puerto destino) --> F[Servidor]\n  end\n  B -.->|tunel ssh| E\n  "},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-65e5825e899ecb151844" style="width:624px;height:384px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-65e5825e899ecb151844">{"x":{"diagram":"graph LR\n  subgraph Máquina Local\n  A[Cliente] --> B(Puerto local)\n  end\n  subgraph Máquina Segura.\n    E(Puerto destino) --> F[Servidor]\n  end\n  B -.->|tunel ssh| E\n  "},"evals":[],"jsHooks":[]}</script>
 </div>
 <p>Observe que así podemos ejecutar el <em>Jupyter</em> en el servidor remoto y lo accedemos como si se tratara de un servicio local:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> usuario@servidor-remoto <span class="st">&quot;jupyter notebook &gt; ~/jupyter.log &amp;&quot;</span></span>

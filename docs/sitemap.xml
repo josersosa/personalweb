@@ -57,10 +57,6 @@
     <lastmod>2021-06-30T06:38:38+00:00</lastmod>
   </url>
   <url>
-    <loc>https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/</loc>
-    <lastmod>2021-04-29T06:54:33+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-04-28-datasets-para-proyectos-de-machine-learning/</loc>
     <lastmod>2021-04-28T04:30:08+00:00</lastmod>
   </url>
@@ -79,6 +75,10 @@
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2020-09-07-atractor-de-lorenz-y-el-efecto-mariposa/</loc>
     <lastmod>2021-05-03T22:02:31+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2021-04-29-sincronizacin-de-directorios-con-rsync/</loc>
+    <lastmod>2021-07-30T18:29:02+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-04-29-programando-en-r-taller-interactivo/</loc>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-07-25-renombrar-particiones-en-linux/</loc>
-    <lastmod>2021-07-25T06:49:41+00:00</lastmod>
+    <lastmod>2021-07-30T14:41:10+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-05-08-como-verificar-puertos-y-procesos-en-linux/</loc>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-05-16-tunneling-tcp-con-ssh/</loc>
-    <lastmod>2021-05-16T23:32:53+00:00</lastmod>
+    <lastmod>2021-07-30T14:40:57+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2021-05-12-como-ejecutar-comandos-remotos-con-ssh/</loc>
