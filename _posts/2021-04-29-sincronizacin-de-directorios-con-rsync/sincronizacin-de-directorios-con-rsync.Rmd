@@ -112,13 +112,16 @@ Por defecto, _rsync_ toma la fecha de la última modificación del archivo y el 
 
 ### Ejemplos
 
-Aquí tengo algunos ejemplos de como realizo la sincronización de archivos a varios de los equipos que uso con frecuentemente:
+Aquí tengo algunos ejemplos de como realizo la sincronización de archivos desde una pendrive hacia el disco duro:
 
 ```{bash, eval = FALSE}
 rsync -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/Personal/Sincronizar/
-rsync -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/archivo/
-rsync -rvuc /media/716D-15A9/Sincronizar/ /media/TI10657300E/Temp/josersosa/
-rsync -rvuc /media/716D-15A9/Sincronizar/ /media/6AE0F943E0F91653/Temp/Jose/
+```
+
+Igual que el anterior pero ahora hacia el disco duro de una máquina remota en la red local, con el IP *192.168.0.100* y utilizando el usuario *User* usando el protocolo SSH:
+
+```{bash, eval = FALSE}
+rsync -rvuc /media/716D-15A9/Sincronizar/ User@192.168.0.100:/media/LOCAL/Personal/Sincronizar/
 ```
 
 ### TODOs

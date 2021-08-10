@@ -2299,12 +2299,13 @@ Recursos
 <h3 id="como-se-decide-que-archivo-debe-ser-actualizado">Como se decide que archivo debe ser actualizado?</h3>
 <p>Por defecto, <em>rsync</em> toma la fecha de la última modificación del archivo y el tamaño de este para decidir que archivos necesitan ser transferidos y que archivos pueden ser ignorados, pero podemos utilizar en lugar de este método un hash para decidir si el archivo es diferente o no. Para hacer esto necesitamos usar el parámetro <strong>-c</strong>, que realizará un <em>checksum</em> en los archivos a ser transferidos. Esto ignorará cualquier archivo donde el checksum coincide.</p>
 <h3 id="ejemplos">Ejemplos</h3>
-<p>Aquí tengo algunos ejemplos de como realizo la sincronización de archivos a varios de los equipos que uso con frecuentemente:</p>
+<p>Aquí tengo algunos ejemplos de como realizo la sincronización de archivos desde una pendrive hacia el disco duro:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/Personal/Sincronizar/</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/archivo/</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/TI10657300E/Temp/josersosa/</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/6AE0F943E0F91653/Temp/Jose/</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ /media/LOCAL/Personal/Sincronizar/</span></code></pre></div>
+</div>
+<p>Igual que el anterior pero ahora hacia el disco duro de una máquina remota en la red local, con el IP <em>192.168.0.100</em> y utilizando el usuario <em>User</em> usando el protocolo SSH:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rsync</span> -rvuc /media/716D-15A9/Sincronizar/ User@192.168.0.100:/media/LOCAL/Personal/Sincronizar/</span></code></pre></div>
 </div>
 <h3 id="todos">TODOs</h3>
 <p>Ahora queda pendiente automatizar este proceso, de forma que cuando se introduzca cierto pendrive en un equipo se ejecute un script que consulte al usuario si desea que este sea sincronizado en ese computador. Esta acción podría realizarse tanto al momento de insertar el pen como al momento de solicitar su extracción.</p>
@@ -2315,7 +2316,7 @@ Recursos
 <li><a href="https://www.computerhope.com/unix/rsync.htm" class="uri">https://www.computerhope.com/unix/rsync.htm</a></li>
 <li><a href="https://www.geeksforgeeks.org/rsync-command-in-linux-with-examples/" class="uri">https://www.geeksforgeeks.org/rsync-command-in-linux-with-examples/</a></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
