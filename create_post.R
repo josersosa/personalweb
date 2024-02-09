@@ -10,7 +10,7 @@
 # git config --global user.email "josersosa@gmail.com"
 # git config --global credential.helper 'cache --timeout=36000'
 # git remote set -url origin git@github.com:josersosa/personalweb.git
-#
+# git config --global credential.helper '!f() { sleep 1; echo "username=git token=<TOKEN>"; }; f'
 # instalacion de librerias
 req_pckgs <- c("distill", "here")
 install.packages(pkgs = req_pckgs)
