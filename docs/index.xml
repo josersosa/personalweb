@@ -7,7 +7,21 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 10 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>ChromaDB base de datos vectorial en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker</link>
+      <description>ChromaDB es una base de datos de vectores, muy utilizada en proyectos personales y pruebas de concepto para experimentar con la búsqueda semántica. Es util por su facilidad de suso y porque funciona principalmente en memoria. Veamos como activar y usar esta base de datos en una contenedor de Docker.</description>
+      <category>Python</category>
+      <category>Data Science</category>
+      <category>AI</category>
+      <category>Vector DB</category>
+      <category>RAG</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker</guid>
+      <pubDate>Tue, 20 Aug 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png" medium="image" type="image/png" width="522" height="376"/>
+    </item>
     <item>
       <title>Editor en línea de comandos - Vim</title>
       <dc:creator>José R Sosa</dc:creator>

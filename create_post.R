@@ -17,7 +17,7 @@ install.packages(pkgs = req_pckgs)
 # soporte para diagramas
 install.packages("DiagrammeR") #version estable en CRAN
 devtools::install_github("rich-iannone/DiagrammeR") #ultima version
-1library(DiagrammeR)
+library(DiagrammeR)
 #para generar jpg
 install.packages("png","jpeg")
 #grViz()
