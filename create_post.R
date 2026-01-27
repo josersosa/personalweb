@@ -67,21 +67,28 @@ knitr::include_graphics("images/fig31_adjust_nodes.png")
 
 
 # Presentacion de videos de youtuve embebidos:
-<div class="embed-container">
-  <iframe
-    src="https://www.youtube.com/embed/aD1_e4rPsvM"
-    width="700"
-    height="480"
-    frameborder="0"
-    allowfullscreen="">
-  </iframe>
-</div>  
+# <div class="embed-container">
+#   <iframe
+#     src="https://www.youtube.com/embed/aD1_e4rPsvM"
+#     width="700"
+#     height="480"
+#     frameborder="0"
+#     allowfullscreen="">
+#   </iframe>
+# </div>  
 
 # Presentacion de videos de youtuve embebidos usando vember:      
-```{r, echo=FALSE}
-  #https://ijlyttle.github.io/vembedr/
-  library("vembedr")
-  embed_url("https://www.youtube.com/watch?v=GyM2M9dyAi4") %>%
-    use_start_time("5m34") %>%
-    use_align("center")
-```
+# ```{r, echo=FALSE}
+#   #https://ijlyttle.github.io/vembedr/
+#   library("vembedr")
+#   embed_url("https://www.youtube.com/watch?v=GyM2M9dyAi4") %>%
+#     use_start_time("5m34") %>%
+#     use_align("center")
+# ```
+
+# o con fecha:
+distill::create_post(title = "ChromaDB base de datos vectorial en Docker",
+                     author = "José R Sosa",
+                     date = "2024-09-20",
+                     date_prefix = TRUE,
+                     draft = FALSE)
