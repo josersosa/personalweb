@@ -101,6 +101,17 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2021-04-30-la-mquina-de-galton-del-caos-al-orden/../../images/simulacion-dalton.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
+      <title>Creando un Web Chat de GenAI con Gradio</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-01-28-creando-un-web-chat-de-genai-con-gradio</link>
+      <description>Como podemos leer en su web: "Gradio es la forma más rápida de hacer una demostración de su modelo de aprendizaje automático con una interfaz web amigable para que cualquiera pueda usarlo, ¡en cualquier lugar!"</description>
+      <category>Python</category>
+      <category>GenAI</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-01-28-creando-un-web-chat-de-genai-con-gradio</guid>
+      <pubDate>Fri, 30 Apr 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-creando-un-web-chat-de-genai-con-gradio/../../images/gradio_01.png" medium="image" type="image/png" width="1030" height="234"/>
+    </item>
+    <item>
       <title>Datasets para proyectos de Machine Learning</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2021-04-28-datasets-para-proyectos-de-machine-learning</link>
