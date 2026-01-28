@@ -15,6 +15,7 @@ output:
 categories:
   - Python
   - Data Science
+  - Docker
   - GenAI
   - RAG
   - AgenticAI

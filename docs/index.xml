@@ -15,6 +15,7 @@
       <description>"AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura".</description>
       <category>Python</category>
       <category>Data Science</category>
+      <category>Docker</category>
       <category>GenAI</category>
       <category>RAG</category>
       <category>AgenticAI</category>
@@ -29,12 +30,13 @@
       <description>ChromaDB es una base de datos de vectores, muy utilizada en proyectos personales y pruebas de concepto para experimentar con la búsqueda semántica. Es útil por su facilidad de uso y porque funciona principalmente en memoria. Veamos como activar y usar esta base de datos en un contenedor de Docker.</description>
       <category>Python</category>
       <category>Data Science</category>
-      <category>AI</category>
+      <category>Docker</category>
+      <category>GenAI</category>
       <category>Vector DB</category>
       <category>RAG</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker</guid>
       <pubDate>Tue, 20 Aug 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png" medium="image" type="image/png" width="522" height="376"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png" medium="image" type="image/png" width="520" height="334"/>
     </item>
     <item>
       <title>Editor en línea de comandos - Vim</title>

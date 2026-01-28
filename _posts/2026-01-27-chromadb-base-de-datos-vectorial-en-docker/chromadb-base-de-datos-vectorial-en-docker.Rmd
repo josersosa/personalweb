@@ -14,7 +14,8 @@ output:
 categories:
   - Python
   - Data Science
-  - AI
+  - Docker
+  - GenAI
   - Vector DB
   - RAG
 preview: ../../images/VectorDBs.png
