@@ -63,7 +63,7 @@ distill::create_post(title = "Construccion de un avion de madera de balsa",
 
 # How to create and include images
 #{r out.width = "50%", fig.align = "center"}
-knitr::include_graphics("images/fig31_adjust_nodes.png")
+knitr::include_graphics("images/VectorDB.png")
 
 
 # Presentacion de videos de youtuve embebidos:
@@ -87,8 +87,8 @@ knitr::include_graphics("images/fig31_adjust_nodes.png")
 # ```
 
 # o con fecha:
-distill::create_post(title = "ChromaDB base de datos vectorial en Docker",
+distill::create_post(title = "AnythingLLM en Docker",
                      author = "José R Sosa",
-                     date = "2024-09-20",
+                     date = "2025-11-25",
                      date_prefix = TRUE,
                      draft = FALSE)

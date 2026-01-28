@@ -1,0 +1,73 @@
+---
+title: "AnythingLLM en Docker"
+description: |
+  "AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura". 
+author:
+  - name: José R Sosa
+    url: https://example.com/josersosa
+date: 11-25-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Python
+  - Data Science
+  - GenAI
+  - RAG
+  - AgenticAI
+preview: ../../images/RoboticsAI_tn.png
+#draft: true
+#preview: ../../lorenz_yelow10_peq.png
+---
+
+
+
+## ¿Por qué usar AnythingLLM?
+
+- Quieres una aplicación de IA **sin configuración**, **privada** y todo en uno para LLMs locales, RAG y agentes de IA, todo en un solo lugar, sin necesidad de una configuración complicada por parte de los desarrolladores.
+- Necesitas una aplicación de IA **totalmente personalizable**, **privada** y todo en uno para tu _negocio u organización_, que sea básicamente un ChatGPT completo con permisos pero con cualquier LLM, modelo de embedding o base de datos vectorial.
+## Extrae la última imagen 
+
+```bash
+docker pull mintplexlabs/anythingllm:latest
+```
+
+## Ejecutar la imagen
+
+- En Linus/WSL/Mac:
+```bash 
+export STORAGE_LOCATION=$HOME/anythingllm && \
+mkdir -p $STORAGE_LOCATION && \
+touch "$STORAGE_LOCATION/.env" && \
+docker run -d -p 3001:3001 \
+	--cap-add SYS_ADMIN \
+	-v ${STORAGE_LOCATION}:/app/server/storage \
+	-v ${STORAGE_LOCATION}/.env:/app/server/.env \
+	-e STORAGE_DIR="/app/server/storage" \
+	mintplexlabs/anythingllm
+```
+
+- En Windows:
+```bash
+$env:STORAGE_LOCATION="$HOME\Documents\anythingllm"; `
+If(!(Test-Path $env:STORAGE_LOCATION)) {New-Item $env:STORAGE_LOCATION -ItemType Directory}; `
+If(!(Test-Path "$env:STORAGE_LOCATION\.env")) {New-Item "$env:STORAGE_LOCATION\.env" -ItemType File}; `
+docker run -d -p 3001:3001 `
+--cap-add SYS_ADMIN `
+-v "$env:STORAGE_LOCATION`:/app/server/storage" `
+-v "$env:STORAGE_LOCATION\.env:/app/server/.env" `
+-e STORAGE_DIR="/app/server/storage" `
+mintplexlabs/anythingllm;
+```
+
+## Abra la aplicación
+
+Para acceder a la aplicación completa, visite en su browser:
+```url
+http://localhost:3001
+```
+
+Fuente: https://docs.anythingllm.com/installation-docker/local-docker

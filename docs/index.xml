@@ -7,7 +7,21 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 20 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>AnythingLLM en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker</link>
+      <description>"AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura".</description>
+      <category>Python</category>
+      <category>Data Science</category>
+      <category>GenAI</category>
+      <category>RAG</category>
+      <category>AgenticAI</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker</guid>
+      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="573"/>
+    </item>
     <item>
       <title>ChromaDB base de datos vectorial en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
