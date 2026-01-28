@@ -87,8 +87,8 @@ knitr::include_graphics("images/RoboticsAI_tn.png")
 # ```
 
 # o con fecha:
-distill::create_post(title = "AnythingLLM en Docker",
+distill::create_post(title = "Creando un Web Chat de GenAI con Gradio",
                      author = "José R Sosa",
-                     date = "2025-11-25",
+                     date = "2024-08-31",
                      date_prefix = TRUE,
                      draft = FALSE)
