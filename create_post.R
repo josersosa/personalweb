@@ -63,7 +63,7 @@ distill::create_post(title = "Construccion de un avion de madera de balsa",
 
 # How to create and include images
 #{r out.width = "50%", fig.align = "center"}
-knitr::include_graphics("images/VectorDB.png")
+knitr::include_graphics("images/RoboticsAI_tn.png")
 
 
 # Presentacion de videos de youtuve embebidos:
