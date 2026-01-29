@@ -1,0 +1,43 @@
+---
+title: "LangFlow en Docker"
+description: |
+  langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Veremos una anotación de como levantar el servicio de LangFlow en Docker.  
+author:
+  - name: José R Sosa
+    url: https://example.com/josersosa
+date: 11-11-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Docker
+  - GenAI
+preview: ../../images/workflows-automation.png
+---
+
+## Iniciar el servicio
+
+Levantar el servicio de Lanflow en docjer con:
+
+```bash
+run -p 7860:7860 langflowai/langflow:latest
+```
+
+
+## Acceder a LangFlow
+
+Para abrir la consola de LangFlow en el browser iar a: http://localhost:7860/
+
+## Documentación
+
+- https://docs.langflow.org/deployment-docker
+- https://docs.langflow.org/bundles-groq
+
+
+## Videos
+- [LangFlow Tutorial #1: Build AI-Powered Apps without Coding!](https://www.youtube.com/watch?v=sC9SV06gsDM) 
+- [Building no-code low-code RAG Application Using LangFlow](https://www.youtube.com/watch?v=xPq9MPXWIRo) 
+- [Langflow Tutorial: Build No-Code AI Agents and RAGs](https://www.youtube.com/watch?v=qaEVUhoKS8M) 

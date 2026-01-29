@@ -16,14 +16,84 @@
       "Docker",
       "GenAI",
       "RAG",
-      "AgenticAI"
+      "Agentic AI",
+      "HomeLab"
     ],
     "contents": "\n\nContents\n¿Por qué usar AnythingLLM?\nEjecutar la imagen\nAbra la aplicación\n\n¿Por qué usar AnythingLLM?\nQuieres una aplicación de IA sin configuración, privada y todo en uno para LLMs locales, RAG y agentes de IA, todo en un solo lugar, sin necesidad de una configuración complicada por parte de los desarrolladores.\nNecesitas una aplicación de IA totalmente personalizable, privada y todo en uno para tu negocio u organización, que sea básicamente un ChatGPT completo con permisos pero con cualquier LLM, modelo de embedding o base de datos vectorial.\n## Extrae la última imagen\ndocker pull mintplexlabs/anythingllm:latest\nEjecutar la imagen\nEn Linus/WSL/Mac:\nexport STORAGE_LOCATION=$HOME/anythingllm && \\\nmkdir -p $STORAGE_LOCATION && \\\ntouch \"$STORAGE_LOCATION/.env\" && \\\ndocker run -d -p 3001:3001 \\\n    --cap-add SYS_ADMIN \\\n    -v ${STORAGE_LOCATION}:/app/server/storage \\\n    -v ${STORAGE_LOCATION}/.env:/app/server/.env \\\n    -e STORAGE_DIR=\"/app/server/storage\" \\\n    mintplexlabs/anythingllm\nEn Windows:\n$env:STORAGE_LOCATION=\"$HOME\\Documents\\anythingllm\"; `\nIf(!(Test-Path $env:STORAGE_LOCATION)) {New-Item $env:STORAGE_LOCATION -ItemType Directory}; `\nIf(!(Test-Path \"$env:STORAGE_LOCATION\\.env\")) {New-Item \"$env:STORAGE_LOCATION\\.env\" -ItemType File}; `\ndocker run -d -p 3001:3001 `\n--cap-add SYS_ADMIN `\n-v \"$env:STORAGE_LOCATION`:/app/server/storage\" `\n-v \"$env:STORAGE_LOCATION\\.env:/app/server/.env\" `\n-e STORAGE_DIR=\"/app/server/storage\" `\nmintplexlabs/anythingllm;\nAbra la aplicación\nPara acceder a la aplicación completa, visite en su browser:\nhttp://localhost:3001\nFuente: https://docs.anythingllm.com/installation-docker/local-docker\n\n\n\n",
     "preview": "posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png",
-    "last_modified": "2026-01-28T20:54:06+00:00",
+    "last_modified": "2026-02-01T17:53:19+00:00",
     "input_file": {},
     "preview_width": 784,
-    "preview_height": 573
+    "preview_height": 525
+  },
+  {
+    "path": "posts/2026-01-29-langflow-en-docker/",
+    "title": "LangFlow en Docker",
+    "description": "langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Veremos una anotación de como levantar el servicio de LangFlow en Docker.",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2025-11-11",
+    "categories": [
+      "Docker",
+      "GenAI"
+    ],
+    "contents": "\n\nContents\nIniciar el servicio\nAcceder a LangFlow\nDocumentación\nVideos\n\nIniciar el servicio\nLevantar el servicio de Lanflow en docjer con:\nrun -p 7860:7860 langflowai/langflow:latest\nAcceder a LangFlow\nPara abrir la consola de LangFlow en el browser iar a: http://localhost:7860/\nDocumentación\nhttps://docs.langflow.org/deployment-docker\nhttps://docs.langflow.org/bundles-groq\nVideos\nLangFlow Tutorial #1: Build AI-Powered Apps without Coding!\nBuilding no-code low-code RAG Application Using LangFlow\nLangflow Tutorial: Build No-Code AI Agents and RAGs\n\n\n\n",
+    "preview": "posts/2026-01-29-langflow-en-docker/../../images/workflows-automation.png",
+    "last_modified": "2026-02-01T17:52:22+00:00",
+    "input_file": {},
+    "preview_width": 1300,
+    "preview_height": 860
+  },
+  {
+    "path": "posts/2026-02-01-agente-bsico-mcp-con-ollama/",
+    "title": "Agente básico MCP con Ollama",
+    "description": "\"Veremos una forma sencilla de habilitar un afgente con un servicio MCP y modelos LLM locales con Ollama\".",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2025-07-11",
+    "categories": [
+      "Python",
+      "Ollama",
+      "GenAI",
+      "Agentic AI",
+      "MCP",
+      "HomeLab"
+    ],
+    "contents": "\n\nContents\nAgente básico MCP con Ollama\n\nAgente básico MCP con Ollama\nPasos para Montar un Agente MCP con ollama Requisitos:\nInstalar Python 3.10 o superior https://www.python.org/downloads/\nInstalar Node.js https://nodejs.org/en/download\nInstalar ollama https://ollama.com/download\nInstalar un LLM local En consola de Windows colocar\nollama run gemma3:12b \nInstalar una dependencia pip install “praisonaiagents[llm]”\nCrear un archivo .py llamado mcp_ollama _airbnb.py con el siguiente código O lo descargar de este link https://drive.google.com/file/d/1rPNF…\nfrom praisonaiagents import Agent, MCP \nimport gradio as gr \n\ndef search_airbnb(query): \n    agent = Agent ( instructions=\"\"\"Ayuda a reservar apartamentos en Airbnb.\"\"\", \n                    llm=\"ollama/gemma3:12b\", \n                    tools=MCP(\"npx -y @openbnb/mcp-server-airbnb --ignore-robots-txt\") \n                    ) \n    result = agent.start(query) \n    return f\"## Resultados de la búsqueda de Airbnb \\n\\n{result}\" \n    \ndemo = gr.Interface( fn=search_airbnb, \n                    inputs=gr.Textbox(placeholder=\"Quiero reservar un apartamento en Bogotá por 2 noches....\"), \n                    outputs=gr.Markdown(), title=\"MCP - LOCAL OLLAMA - Asistente de reservas de Airbnb\", \n                    description=\"Introduce tus requisitos de reserva a continuación.:\" \n                    ) \n                    \nif _name_ == \"__main__\": \n    demo.launch() \nEjecutar el Código\npython python mcp_ollama_airbnb.py \nNota: Link para descargar cualquier MCP https://github.com/openbnb-org/mcp-se…\n\n\n\n",
+    "preview": "posts/2026-02-01-agente-bsico-mcp-con-ollama/../../images/RoboticsAI_tn.png",
+    "last_modified": "2026-02-01T17:51:55+00:00",
+    "input_file": {},
+    "preview_width": 784,
+    "preview_height": 525
+  },
+  {
+    "path": "posts/2026-01-29-gestin-de-volumenes-de-docker/",
+    "title": "Gestión de volúmenes de Docker",
+    "description": "Una de las operaciones más comunes cuando trabajamos con contenedores que usan sus propios volumenes es la de copiar informacion que tenemos en algun directorio local hacia el volumen o realizar el respaldo del volumen  en algun directorio local.",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2025-04-04",
+    "categories": [
+      "Docker"
+    ],
+    "contents": "\n\nContents\nBackups de volúmenes de Docker\n\nBackups de volúmenes de Docker\nHacer backups de volúmenes Docker es fundamental para proteger los datos persistentes de tus contenedores. Aquí te muestro varias formas prácticas de hacerlo, dependiendo del sistema y necesidades.\nEsta es la forma más simple y portátil:\ndocker run --rm \\   \n-v nombre_del_volumen:/volume \\   \n-v $(pwd):/backup \\   \nubuntu \\   \ntar czf /backup/backup_volumen.tar.gz -C /volume .\nExplicación:\n- nombre_del_volumen: el nombre de tu volumen Docker.\n- $(pwd): el directorio actual en tu máquina donde se guardará el backup.\n- Resultado: un archivo .tar.gz con el contenido del volumen.\nPara restaurar:\ndocker run --rm \\ \n  -v nombre_del_volumen:/volume \\ \n  -v $(pwd):/backup \\ \n  ubuntu \\ \n  tar xzf /backup/backup_volumen.tar.gz -C /volume\nSi simplemente queremos copiar el contenido de un directorio local a un volumen Docker podemos usar la misma estrategia y el comando tar de la siguiente manera:\ndocker run --rm \\\n  -v nombre_del_volumen:/volume \\\n  -v /ruta/local:/backup \\\n  busybox \\\n  sh -c \"cd /backup && tar cf - . | tar xf - -C /volume\"\nExplicación:\n- -v nombre_del_volumen:/volume: monta el volumen Docker.\n- -v /ruta/local:/backup: monta tu directorio local con los archivos a copiar.\n- cd /backup && tar cf - .: crea un tar del contenido local y lo envía por stdout.\n- tar xf - -C /volume: extrae ese contenido directamente en el volumen.\n\n\n\n",
+    "preview": "posts/2026-01-29-gestin-de-volumenes-de-docker/../../images/edex-ui.png",
+    "last_modified": "2026-01-29T22:48:30+00:00",
+    "input_file": {},
+    "preview_width": 800,
+    "preview_height": 450
   },
   {
     "path": "posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/",
@@ -52,6 +122,32 @@
     "preview_height": 334
   },
   {
+    "path": "posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker/",
+    "title": "ChromaDB base de datos vectorial en Docker",
+    "description": "ChromaDB es una base de datos de vectores, muy utilizada en proyectos personales y pruebas de concepto para experimentar con la búsqueda semántica. Es útil por su facilidad de uso y porque funciona principalmente en memoria. Veamos como activar y usar esta base de datos en un contenedor de Docker.",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://example.com/josersosa"
+      }
+    ],
+    "date": "2024-08-20",
+    "categories": [
+      "Python",
+      "Data Science",
+      "Docker",
+      "GenAI",
+      "Vector DB",
+      "RAG"
+    ],
+    "contents": "\n\nContents\nFuentes:\nLevantar el servicio ChromaDB en Docker:\nDescripción del servicio\nIngesta de documentos con Python\nBúsquedas sobre ChromaDB con Python\n\nFuentes:\nVideo: Let’s build a RAG system - The Ollama Course\n2024-09-10-buildrag repo\nDocumentación de ChromaDB\nLevantar el servicio ChromaDB en Docker:\nPara ejecutar un chomadb con docker, solo hace falta ejecutar:\ndocker volume create chroma_data\ndocker run -d --name chromadb -p 8000:8000 -v chroma_data:/chromadb/data chromadb/chroma\nDescripción del servicio\nLa documentacion del API asociado con els ervicio de ChromaDB esta en el siguiente enlace:\nhttp://localhost:8000/docs\nIngesta de documentos con Python\nEl siguiente programa importdocs.py ingesta todos los archivos de texto incluidos en un directorio:\nimport os\nimport re\nimport ollama\nimport chromadb\n\ndef readtextfiles(path):\n  text_contents = {}\n  directory = os.path.join(path)\n\n  for filename in os.listdir(directory):\n    if filename.endswith(\".txt\"):\n      file_path = os.path.join(directory, filename)\n\n      with open(file_path, \"r\", encoding=\"utf-8\") as file:\n        content = file.read()\n\n      text_contents[filename] = content\n\n  return text_contents\n\ndef chunksplitter(text, chunk_size=100):\n  words = re.findall(r'\\S+', text)\n\n  chunks = []\n  current_chunk = []\n  word_count = 0\n\n  for word in words:\n    current_chunk.append(word)\n    word_count += 1\n\n    if word_count >= chunk_size:\n      chunks.append(' '.join(current_chunk))\n      current_chunk = []\n      word_count = 0\n\n  if current_chunk:\n    chunks.append(' '.join(current_chunk))\n\n  return chunks\n\ndef getembedding(chunks):\n  embeds = ollama.embed(model=\"nomic-embed-text\", input=chunks)\n  return embeds.get('embeddings', [])\n\nchromaclient = chromadb.HttpClient(host=\"localhost\", port=8000)\ntextdocspath = \"../../scripts\"\ntext_data = readtextfiles(textdocspath)\n\ncollection = chromaclient.get_or_create_collection(name=\"buildragwithpython\", metadata={\"hnsw:space\": \"cosine\"}  )\nif any(collection.name == collectionname for collection in chromaclient.list_collections()):\n  chromaclient.delete_collection(\"buildragwithpython\")\n\nfor filename, text in text_data.items():\n  chunks = chunksplitter(text)\n  embeds = getembedding(chunks)\n  chunknumber = list(range(len(chunks)))\n  ids = [filename + str(index) for index in chunknumber]\n  metadatas = [{\"source\": filename} for index in chunknumber]\n  collection.add(ids=ids, documents=chunks, embeddings=embeds, metadatas=metadatas)\nEl cual tiene el siguiente requirement.txt:\nchromadb\nos\nre\nBúsquedas sobre ChromaDB con Python\nEl siguiente programa search.py muestra una manera de implementar la busqueda semántica sobre nuestra base de conocimeinto alamacenada en ChromaDB:\nimport sys, chromadb, ollama\n\nchromaclient = chromadb.HttpClient(host=\"localhost\", port=8000)\ncollection = chromaclient.get_or_create_collection(name=\"buildragwithpython\")\n\nquery = \" \".join(sys.argv[1:])\nqueryembed = ollama.embed(model=\"nomic-embed-text\", input=query)['embeddings']\n\nrelateddocs = '\\n\\n'.join(collection.query(query_embeddings=queryembed, n_results=10)['documents'][0])\nprompt = f\"{query} - Answer that question using the following text as a resource: {relateddocs}\"\nnoragoutput = ollama.generate(model=\"mistral\", prompt=query, stream=False)\nprint(f\"Answered without RAG: {noragoutput['response']}\")\nprint(\"---\")\nragoutput = ollama.generate(model=\"llama3.1\", prompt=prompt, stream=False)\n\nprint(f\"Answered with RAG: {ragoutput['response']}\")\n\n\n\n",
+    "preview": "posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png",
+    "last_modified": "2026-02-01T17:48:58+00:00",
+    "input_file": {},
+    "preview_width": 520,
+    "preview_height": 334
+  },
+  {
     "path": "posts/2026-01-28-creando-un-web-chat-de-genai-con-gradio/",
     "title": "Creando un Web Chat de GenAI con Gradio",
     "description": "Como podemos leer en su web: \"Gradio es la forma más rápida de hacer una demostración de su modelo de aprendizaje automático con una interfaz web amigable para que cualquiera pueda usarlo, ¡en cualquier lugar!\"",
@@ -68,8 +164,8 @@
     ],
     "contents": "\n\nContents\nInstalación de Gradio\nCompartir nuestras demos\nUn Chat de IA Generativa “Local”\nHosting permanente\n\nGradio es un librería de Python para el desarrollo rápido de aplicaciones orientada a uso de Machine Learning y Generative AI. En este post solo busco hacer un pequeña demostración de como podemos levantar un chat web que sirva como interface grafica a un modelo local gestionado por Ollama.\nInstalación de Gradio\nGradio se puede instalar con pip.\npip install gradio\nPodemos utilizar sin problemas cualquier biblioteca de Python o escribir una función de Python, y gradio puede ejecutarla. Crear una interfaz Gradio solo requiere agregar un par de líneas de código a nuestro proyecto, por ejemplo:\nimport gradio as gr\n\ndef greet(name):\n    return \"Hello \" + name + \"!\"\n\ndemo = gr.Interface(fn=greet, inputs=\"text\", outputs=\"text\")\ndemo.launch() \nGenerará la siguiente interface localmente:  http://localhost:7860 :\n\nCompartir nuestras demos\nGradio puede integrarse en cuadernos de Python o presentarse como una página web. Una interfaz de Gradio puede generar automáticamente un enlace público que podemos compartir a través de Internet y que permite interactuar con un modelo de Ia desde nuestra computadora de forma remota desde sus propios dispositivos (al estilo Ngrok).\nUn Chat de IA Generativa “Local”\nA continuación el código Python de nuestro chat de pruebas:\nimport requests\nimport json\nimport gradio as gr\n\nurl = \"http://localhost:11434/api/generate\"\n\nheaders = {\n    'Content-Type': 'application/json',\n}\n\nconversation_history = []\n\ndef generate_response(prompt):\n    conversation_history.append(prompt)\n\n    full_prompt = \"\\n\".join(conversation_history)\n\n    data = {\n        \"model\": \"mistral\",\n        \"stream\": False,\n        \"prompt\": full_prompt,\n    }\n\n    response = requests.post(url, headers=headers, data=json.dumps(data))\n\n    if response.status_code == 200:\n        response_text = response.text\n        data = json.loads(response_text)\n        actual_response = data[\"response\"]\n        conversation_history.append(actual_response)\n        return actual_response\n    else:\n        print(\"Error:\", response.status_code, response.text)\n        return None\n\niface = gr.Interface(\n    fn=generate_response,\n    inputs=gr.inputs.Textbox(lines=2, placeholder=\"Enter your prompt here...\"),\n    outputs=\"text\"\n)\n\niface.launch()\nEs importante recordar que si corremos este código desde un contenedor, de Jupyter por ejemplo, deberemos sustituir el URL del servicio de Ollama, de http://localhost:11434 a http://host.docker.internal:11434.\nHosting permanente\nUna vez que haya creado una interfaz, esta puede ser alojada de forma permanentemente en Hugging Face. Hugging Face Spaces alojará la interfaz en sus servidores y nos proporcionará un enlace que se puede compartir.\n\n\n\n",
     "preview": "posts/2026-01-28-creando-un-web-chat-de-genai-con-gradio/../../images/gradio_01.png",
-    "last_modified": "2026-01-28T22:14:12+00:00",
-    "input_file": "creando-un-web-chat-de-genai-con-gradio.knit.md",
+    "last_modified": "2026-02-01T17:52:48+00:00",
+    "input_file": {},
     "preview_width": 1030,
     "preview_height": 234
   },

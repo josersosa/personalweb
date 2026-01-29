@@ -63,7 +63,7 @@ distill::create_post(title = "Construccion de un avion de madera de balsa",
 
 # How to create and include images
 #{r out.width = "50%", fig.align = "center"}
-knitr::include_graphics("images/RoboticsAI_tn.png")
+knitr::include_graphics("images/gradio_01.png")
 
 
 # Presentacion de videos de youtuve embebidos:
@@ -87,8 +87,9 @@ knitr::include_graphics("images/RoboticsAI_tn.png")
 # ```
 
 # o con fecha:
-distill::create_post(title = "Creando un Web Chat de GenAI con Gradio",
+distill::create_post(title = "ChromaDB base de datos vectorial en Docker",
                      author = "José R Sosa",
-                     date = "2024-08-31",
+                     date = "2025-07-11",
                      date_prefix = TRUE,
                      draft = FALSE)
+rmarkdown::render_site(input = here::here())

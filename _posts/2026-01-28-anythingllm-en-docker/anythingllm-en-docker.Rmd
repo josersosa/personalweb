@@ -18,7 +18,8 @@ categories:
   - Docker
   - GenAI
   - RAG
-  - AgenticAI
+  - Agentic AI
+  - HomeLab  
 preview: ../../images/RoboticsAI_tn.png
 #draft: true
 #preview: ../../lorenz_yelow10_peq.png

@@ -18,10 +18,47 @@
       <category>Docker</category>
       <category>GenAI</category>
       <category>RAG</category>
-      <category>AgenticAI</category>
+      <category>Agentic AI</category>
+      <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker</guid>
       <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="573"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+    </item>
+    <item>
+      <title>LangFlow en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker</link>
+      <description>langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Veremos una anotación de como levantar el servicio de LangFlow en Docker.</description>
+      <category>Docker</category>
+      <category>GenAI</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker</guid>
+      <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker/../../images/workflows-automation.png" medium="image" type="image/png" width="1300" height="860"/>
+    </item>
+    <item>
+      <title>Agente básico MCP con Ollama</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama</link>
+      <description>"Veremos una forma sencilla de habilitar un afgente con un servicio MCP y modelos LLM locales con Ollama".</description>
+      <category>Python</category>
+      <category>Ollama</category>
+      <category>GenAI</category>
+      <category>Agentic AI</category>
+      <category>MCP</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama</guid>
+      <pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+    </item>
+    <item>
+      <title>Gestión de volúmenes de Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker</link>
+      <description>Una de las operaciones más comunes cuando trabajamos con contenedores que usan sus propios volumenes es la de copiar informacion que tenemos en algun directorio local hacia el volumen o realizar el respaldo del volumen  en algun directorio local.</description>
+      <category>Docker</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker</guid>
+      <pubDate>Fri, 04 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
     <item>
       <title>ChromaDB base de datos vectorial en Docker</title>
@@ -37,6 +74,21 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker</guid>
       <pubDate>Tue, 20 Aug 2024 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png" medium="image" type="image/png" width="520" height="334"/>
+    </item>
+    <item>
+      <title>ChromaDB base de datos vectorial en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker</link>
+      <description>ChromaDB es una base de datos de vectores, muy utilizada en proyectos personales y pruebas de concepto para experimentar con la búsqueda semántica. Es útil por su facilidad de uso y porque funciona principalmente en memoria. Veamos como activar y usar esta base de datos en un contenedor de Docker.</description>
+      <category>Python</category>
+      <category>Data Science</category>
+      <category>Docker</category>
+      <category>GenAI</category>
+      <category>Vector DB</category>
+      <category>RAG</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker</guid>
+      <pubDate>Tue, 20 Aug 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png" medium="image" type="image/png" width="520" height="334"/>
     </item>
     <item>
       <title>Creando un Web Chat de GenAI con Gradio</title>

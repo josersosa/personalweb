@@ -1,0 +1,71 @@
+---
+title: "Agente básico MCP con Ollama"
+description: |
+  "Veremos una forma sencilla de habilitar un afgente con un servicio MCP y modelos LLM locales con Ollama". 
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 07-11-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Python
+  - Ollama
+  - GenAI
+  - Agentic AI
+  - MCP
+  - HomeLab
+preview: ../../images/RoboticsAI_tn.png
+#draft: true
+---
+
+
+
+## Agente básico MCP con Ollama
+Pasos para Montar un Agente MCP con ollama Requisitos: 
+
+1. Instalar Python 3.10 o superior [https://www.python.org/downloads/](https://www.python.org/downloads/) 
+2. Instalar Node.js [https://nodejs.org/en/download](https://nodejs.org/en/download) 
+3. Instalar ollama [https://ollama.com/download](https://ollama.com/download) 
+4. Instalar un LLM local En consola de Windows colocar 
+```bash
+ollama run gemma3:12b 
+```
+
+5. Instalar una dependencia pip install "praisonaiagents[llm]" 
+6. Crear un archivo .py llamado mcp_ollama _airbnb.py con el siguiente código O lo descargar de este link [https://drive.google.com/file/d/1rPNF...](https://drive.google.com/file/d/1rPNFReRX4GQb-CS5Sz3UgXD-VlmLaqqn/view) 
+
+```python
+from praisonaiagents import Agent, MCP 
+import gradio as gr 
+
+def search_airbnb(query): 
+	agent = Agent ( instructions="""Ayuda a reservar apartamentos en Airbnb.""", 
+					llm="ollama/gemma3:12b", 
+					tools=MCP("npx -y @openbnb/mcp-server-airbnb --ignore-robots-txt") 
+					) 
+	result = agent.start(query) 
+	return f"## Resultados de la búsqueda de Airbnb \n\n{result}" 
+	
+demo = gr.Interface( fn=search_airbnb, 
+					inputs=gr.Textbox(placeholder="Quiero reservar un apartamento en Bogotá por 2 noches...."), 
+					outputs=gr.Markdown(), title="MCP - LOCAL OLLAMA - Asistente de reservas de Airbnb", 
+					description="Introduce tus requisitos de reserva a continuación.:" 
+					) 
+					
+if _name_ == "__main__": 
+	demo.launch() 
+```
+
+7. Ejecutar el Código 
+
+```python
+python python mcp_ollama_airbnb.py 
+```
+
+Nota: Link para descargar cualquier MCP [https://github.com/openbnb-org/mcp-se...](https://github.com/openbnb-org/mcp-servers)
+

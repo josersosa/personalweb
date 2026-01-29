@@ -1,0 +1,67 @@
+---
+title: "Gestión de volúmenes de Docker"
+description: |
+  Una de las operaciones más comunes cuando trabajamos con contenedores que usan sus propios volumenes es la de copiar informacion que tenemos en algun directorio local hacia el volumen o realizar el respaldo del volumen  en algun directorio local.  
+author:
+  - name: José R Sosa
+    url: https://example.com/josersosa
+date: 04-04-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Docker
+preview: ../../images/edex-ui.png
+---
+
+## Backups de volúmenes de Docker
+
+Hacer **backups de volúmenes Docker** es fundamental para proteger los datos persistentes de tus contenedores. Aquí te muestro **varias formas prácticas de hacerlo**, dependiendo del sistema y necesidades.
+
+Esta es la forma más simple y portátil:
+
+```bash
+docker run --rm \   
+-v nombre_del_volumen:/volume \   
+-v $(pwd):/backup \   
+ubuntu \   
+tar czf /backup/backup_volumen.tar.gz -C /volume .
+```
+
+Explicación:
+- `nombre_del_volumen`: el nombre de tu volumen Docker.
+- `$(pwd)`: el directorio actual en tu máquina donde se guardará el backup.
+- Resultado: un archivo `.tar.gz` con el contenido del volumen.
+
+Para restaurar:
+
+```bash
+docker run --rm \ 
+  -v nombre_del_volumen:/volume \ 
+  -v $(pwd):/backup \ 
+  ubuntu \ 
+  tar xzf /backup/backup_volumen.tar.gz -C /volume
+```
+
+Si simplemente queremos copiar el contenido de un directorio local a un volumen Docker podemos usar la misma estrategia y el comando tar de la siguiente manera:
+
+```bash
+docker run --rm \
+  -v nombre_del_volumen:/volume \
+  -v /ruta/local:/backup \
+  busybox \
+  sh -c "cd /backup && tar cf - . | tar xf - -C /volume"
+```
+
+Explicación:
+- `-v nombre_del_volumen:/volume`: monta el volumen Docker.
+- `-v /ruta/local:/backup`: monta tu directorio local con los archivos a copiar.
+- `cd /backup && tar cf - .`: crea un `tar` del contenido local y lo envía por `stdout`.
+- `tar xf - -C /volume`: extrae ese contenido directamente en el volumen.
+
+
+
+
