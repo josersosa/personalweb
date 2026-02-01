@@ -194,6 +194,19 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker/../../images/webtop.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
+      <title>Open-WebUI en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-open-webui-en-docker</link>
+      <description>"Veamos como integrar Open Web UI en nuestro laboratorio local. Esta es un herramienta ideal para poner a prueba modelos LLM pequeños que podamos correr en nuestro equipo mediante Ollama o para implementar un RAG con nuestros propios archivos. "</description>
+      <category>GenAI</category>
+      <category>RAG</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-open-webui-en-docker</guid>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-open-webui-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
       <title>Gestión de volúmenes de Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker</link>
@@ -228,6 +241,54 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-01-28-creando-un-web-chat-de-genai-con-gradio</guid>
       <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-creando-un-web-chat-de-genai-con-gradio/../../images/gradio_01.png" medium="image" type="image/png" width="1030" height="234"/>
+    </item>
+    <item>
+      <title>Open Interpreter en local</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-open-interpreter-en-local</link>
+      <description>"Open Interpreter es una versión opensource del agente interpreter de OpenAI, pero este correr dentro de nuestro equipo, permitiendo que la IA haga uso de nuestros recursos y ejecute tareas y use herramientas de forma local.."</description>
+      <category>GenAI</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-open-interpreter-en-local</guid>
+      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-open-interpreter-en-local/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Openhands Agente IA de programación en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-openhands-agente-ia-de-programacin-en-docker</link>
+      <description>"Openhands en una app de desarrollo de software con Agentes de IA que tienen las mismas herramientas que un desarrollador humano: pueden modificar el código, ejecutar comandos, navegar por la web, llamar a las API y, sí, incluso copiar fragmentos de código de StackOverflow."</description>
+      <category>GenAI</category>
+      <category>Docker</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-openhands-agente-ia-de-programacin-en-docker</guid>
+      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-openhands-agente-ia-de-programacin-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Qdrant, base de datos vectorial en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker</link>
+      <description>"**Qdrant** es una base de datos vectorial de opensource diseñada para almacenar y buscar información basándose en el **significado** (similitud semántica) en lugar de palabras clave exactas, mediante la indexación de vectores. Veamos como usarla de forma contenerizada con Docker."</description>
+      <category>NoSQL</category>
+      <category>VectorDB</category>
+      <category>RAG</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker</guid>
+      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Postgres en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-postgres-en-docker</link>
+      <description>"Postgres es uno de los manejadores de bases de datos más utilizados en el mundo opensource. Veremos como instalarlo y ejecutarlo en nuestro laboratorio local de forma contenerizada con Docker."</description>
+      <category>SQL</category>
+      <category>Postgres</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-postgres-en-docker</guid>
+      <pubDate>Fri, 12 Apr 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-postgres-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
     <item>
       <title>Editor en línea de comandos - Vim</title>

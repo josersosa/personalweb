@@ -17,7 +17,7 @@ categories:
   - Neo4J
   - Docker
   - HomeLab
-preview: ../../images/edex-ui.png
+preview: ../../images/data_bases.png
 #draft: true
 ---
 

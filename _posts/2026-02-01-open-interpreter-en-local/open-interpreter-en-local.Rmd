@@ -1,0 +1,53 @@
+---
+title: "Open Interpreter en local"
+description: |
+  "Open Interpreter es una versión opensource del agente interpreter de OpenAI, pero este correr dentro de nuestro equipo, permitiendo que la IA haga uso de nuestros recursos y ejecute tareas y use herramientas de forma local.."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-26-2024
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - GenAI
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+## Instalación en windows
+
+1. Instalar miniconda
+2. Verificar si el entorno PowerShell tiene permiso de ejecución de scripts:
+```cmd
+Get-ExecutionPolicy -List
+```
+
+3. Si aparecen los scope como "Undefined", configurar el scope CurrentUser como no restringido en un nuevo terminal como administrador:
+```cmd
+Set-ExecutionPolicy -Scope CurrentUser Unrestricted
+```
+
+4. Crean enviroment para Open Interpreter: oi
+```cmd
+conda create -n oi pyrthon=3.11.4
+```
+
+5. Habilitar enviroment io
+```cmd
+conda activare oi
+```
+
+6. Instalar Open Interpreter:
+```cmd
+pip install open-interpreter
+```
+
+7. Ejecutar Open Interpreter
+```cmd
+export OPENAI_API_KEY=your_api_key
+interpreter
+```

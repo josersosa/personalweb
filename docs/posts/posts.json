@@ -335,6 +335,30 @@
     "input_file": {}
   },
   {
+    "path": "posts/2026-02-01-open-webui-en-docker/",
+    "title": "Open-WebUI en Docker",
+    "description": "\"Veamos como integrar Open Web UI en nuestro laboratorio local. Esta es un herramienta ideal para poner a prueba modelos LLM pequeños que podamos correr en nuestro equipo mediante Ollama o para implementar un RAG con nuestros propios archivos. \"",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2025-04-20",
+    "categories": [
+      "GenAI",
+      "RAG",
+      "Docker",
+      "HomeLab"
+    ],
+    "contents": "\n\nContents\nInterfaz web para LLMs con OpenWebUI\nInstalación con configuración predeterminada\nInstalación solo para uso de la API de OpenAI\n\nConfiguración de servicios MCP\nServicio MCPO en Docker\n\nIntegración con Agentes de n8n\n\nInterfaz web para LLMs con OpenWebUI\nOpen WebUI es una plataforma de IA autoalojada, extensible , rica en funciones y fácil de usar, diseñada para funcionar completamente sin conexión. Es compatible con varios ejecutores LLM como Ollama y API compatibles con OpenAI , y cuenta con un motor de inferencia integrado para RAG, lo que la convierte en una potente solución para la implementación de IA .”\nFuente: https://github.com/open-webui/open-webui\nimagendocker run -d –network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 –name open-webui –restart always ghcr.io/open-webui/open-webui:main\nInstalación con configuración predeterminada\nDescargamos la images de docker:\ndocker pull ghcr.io/open-webui/open-webui:main\nCreaos el volumen open-webui-data\ndocker volume create open-webui_data\nSi Ollama está en tu computadora corriendo en un contenedor docker como es mi caso, entonces usa este comando:\ndocker run -d -p 3001:8080 --add-host=host.docker.internal:host-gateway -v open-webui_data:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main\nSi Ollama está en un servidor diferente , use este comando:\nPara conectarse a Ollama en otro servidor, cambie la OLLAMA_BASE_URLURL del servidor:\ndocker run -d -p 3001:8080 -e OLLAMA_BASE_URL=https://example.com -v open-webui_data:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main\nPara ejecutar Open WebUI con compatibilidad con GPU Nvidia , use este comando:\ndocker run -d -p 3001:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui_data:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda\nInstalación solo para uso de la API de OpenAI\nSi solo usa la API de OpenAI , use este comando:\ndocker run -d -p 3001:8080 -e OPENAI_API_KEY=your_secret_key -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main\nConfiguración de servicios MCP\nFuente: 🛰️ MCP Support | Open WebUI\nFuente: How to Connect a local MCP to Open WebUI + Ollama in 5 mins on MacBook Air M4!\nPara configurar MCP en Open WebUI, sigue estos pasos:\n1. Instala Docker Desktop y asegúrate de que esté funcionando antes de proceder con la instalación.\n2. Descarga y compila la imagen Docker de MCP para desplegar mcpo, que expone servidores MCP como puntos finales HTTP compatibles con OpenAPI.\n3. Personaliza la configuración del archivo ‘config.json’ según las especificaciones de tu servidor MCP.\n4. Usa Docker Compose para iniciar los servidores con el comando ‘docker compose up -d’.\n5. Conecta Open WebUI a los puntos finales expuestos, por ejemplo, ‘http://localhost:8000/memory’.\n6. Revisa las herramientas disponibles dentro de Open WebUI para la interacción con los servidores MCP.\nEstos pasos te permitirán desplegar y configurar MCP en Open WebUI de manera efectiva, facilitando la integración y gestión de modelos.\nServicio MCPO en Docker\nIntegración con Agentes de n8n\n\n\n\n",
+    "preview": "posts/2026-02-01-open-webui-en-docker/../../images/edex-ui.png",
+    "last_modified": "2026-02-01T21:11:08+00:00",
+    "input_file": {},
+    "preview_width": 800,
+    "preview_height": 450
+  },
+  {
     "path": "posts/2026-01-29-gestin-de-volumenes-de-docker/",
     "title": "Gestión de volúmenes de Docker",
     "description": "Una de las operaciones más comunes cuando trabajamos con contenedores que usan sus propios volumenes es la de copiar informacion que tenemos en algun directorio local hacia el volumen o realizar el respaldo del volumen  en algun directorio local.",
@@ -402,6 +426,98 @@
     "input_file": {},
     "preview_width": 1030,
     "preview_height": 234
+  },
+  {
+    "path": "posts/2026-02-01-open-interpreter-en-local/",
+    "title": "Open Interpreter en local",
+    "description": "\"Open Interpreter es una versión opensource del agente interpreter de OpenAI, pero este correr dentro de nuestro equipo, permitiendo que la IA haga uso de nuestros recursos y ejecute tareas y use herramientas de forma local..\"",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2024-04-26",
+    "categories": [
+      "GenAI"
+    ],
+    "contents": "\n\nContents\nInstalación en windows\n\nInstalación en windows\nInstalar miniconda\nVerificar si el entorno PowerShell tiene permiso de ejecución de scripts:\nGet-ExecutionPolicy -List\nSi aparecen los scope como “Undefined”, configurar el scope CurrentUser como no restringido en un nuevo terminal como administrador:\nSet-ExecutionPolicy -Scope CurrentUser Unrestricted\nCrean enviroment para Open Interpreter: oi\nconda create -n oi pyrthon=3.11.4\nHabilitar enviroment io\nconda activare oi\nInstalar Open Interpreter:\npip install open-interpreter\nEjecutar Open Interpreter\nexport OPENAI_API_KEY=your_api_key\ninterpreter\n\n\n\n",
+    "preview": "posts/2026-02-01-open-interpreter-en-local/../../images/edex-ui.png",
+    "last_modified": "2026-02-01T21:09:38+00:00",
+    "input_file": {},
+    "preview_width": 800,
+    "preview_height": 450
+  },
+  {
+    "path": "posts/2026-02-01-openhands-agente-ia-de-programacin-en-docker/",
+    "title": "Openhands Agente IA de programación en Docker",
+    "description": "\"Openhands en una app de desarrollo de software con Agentes de IA que tienen las mismas herramientas que un desarrollador humano: pueden modificar el código, ejecutar comandos, navegar por la web, llamar a las API y, sí, incluso copiar fragmentos de código de StackOverflow.\"",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2024-04-26",
+    "categories": [
+      "GenAI",
+      "Docker"
+    ],
+    "contents": "\n\nContents\nInstalación\nIniciar la aplicación\nConfiguración\n\nInstalación\nAntes que nada vamos a descargar la imagen y crear el volumen que nos permitirá mantener el estado de los agentes entre diferentes ejecuciones del contenedor:\ndocker pull docker.all-hands.dev/all-hands-ai/runtime:0.39-nikolaik\ndocker pull docker.all-hands.dev/all-hands-ai/openhands:0.39\ndocker volume create openhands_data\nIniciar la aplicación\nLa forma más sencilla de ejecutar OpenHands es en Docker:\ndocker run -it --rm \\\n    -e SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:0.39-nikolaik \\\n    -e LOG_ALL_EVENTS=true \\\n    -v /var/run/docker.sock:/var/run/docker.sock \\\n    -v openhands_data:/.openhands-state \\\n    -p 3000:3000 \\\n    --add-host host.docker.internal:host-gateway \\\n    --name openhands \\\n    docker.all-hands.dev/all-hands-ai/openhands:0.39\n¡Encontrarás OpenHands funcionando a http://localhost:3000!\nConfiguración\nDespués de iniciar OpenHands, debe seleccionar un modelo LLM y e introducir un token . Esto se puede hacer durante la ventana emergente de configuración inicial o seleccionando el botón (icono de engranaje) en la interfaz de usuario. | LLM Provider | LLM Model | API Key | Settings\nPara obtener información sobre el flujo de trabajo de desarrollo, consulte Development.md.\nFuente: Introducción - All Hands Docs\n\n\n\n",
+    "preview": "posts/2026-02-01-openhands-agente-ia-de-programacin-en-docker/../../images/edex-ui.png",
+    "last_modified": "2026-02-01T21:08:44+00:00",
+    "input_file": {},
+    "preview_width": 800,
+    "preview_height": 450
+  },
+  {
+    "path": "posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/",
+    "title": "Qdrant, base de datos vectorial en Docker",
+    "description": "\"**Qdrant** es una base de datos vectorial de opensource diseñada para almacenar y buscar información basándose en el **significado** (similitud semántica) en lugar de palabras clave exactas, mediante la indexación de vectores. Veamos como usarla de forma contenerizada con Docker.\"",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2024-04-26",
+    "categories": [
+      "NoSQL",
+      "VectorDB",
+      "RAG",
+      "Docker",
+      "HomeLab"
+    ],
+    "contents": "\n\nContents\nAcceso desde Python\nCliente-Servidor\n\nQdrant es una herramienta fundamental para la inteligencia artificial moderna, especialmente en sistemas de Generación Aumentada por Recuperación (RAG) y motores de recomendación.\n### Fuentes:\n- Imagen Docker de Qdrant\n- Guía de instalación\n- Video Install and Run Qdrant Vector Database on Docker\n- The Top 7 Vector Databases in 2025\nAcceso desde Python\npip install qdrant-client\nEl cliente de Python ofrece una forma conveniente de comenzar con Qdrant localmente:\nfrom qdrant_client import QdrantClient\nqdrant = QdrantClient(\":memory:\") # Create in-memory Qdrant instance, for testing, CI/CD\n# OR\nclient = QdrantClient(path=\"path/to/db\")  # Persists changes to disk, fast prototyping\nCliente-Servidor\nPara experimentar todo el poder de Qdrant localmente, ejecute el contenedor con este comando:\ndocker volume create qdrant_data \ndocker run -d -p 6333:6333 \\\n    --name qdrant \\\n    -e QDRANT__SERVICE__API_KEY=\"kukenan\" \\\n    --restart=always \\\n    -v qdrant_data:/qdrant/storage \\\n    qdrant/qdrant\nPara acceder a la app de Qdrand, abrimor en cualquier browser: http://localhost:6333/dashboard\nDe esta manera podemos tener mas control del volumen de datos generados para posibles respaldos en el futuro. Ahora podemos acceder al servicio en la siguiente dirección local:\ncurl -X GET http://localhost:6333 --header 'api-key: kukenan'\nAhora puedes conectarte a esto con cualquier cliente, incluido Python:\nqdrant = QdrantClient(\"http://localhost:6333\") # Connect to existing Qdrant instance\nAntes de implementar Qdrant en producción, asegúrese de leer nuestras guías de instalación y seguridad\nCuadro comparativo de bases de datos vectoriales:\n[[../../images/genai/vectordb_comparison.png]]\n\n\n\n",
+    "preview": "posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/../../images/edex-ui.png",
+    "last_modified": "2026-02-01T21:16:19+00:00",
+    "input_file": {},
+    "preview_width": 800,
+    "preview_height": 450
+  },
+  {
+    "path": "posts/2026-02-01-postgres-en-docker/",
+    "title": "Postgres en Docker",
+    "description": "\"Postgres es uno de los manejadores de bases de datos más utilizados en el mundo opensource. Veremos como instalarlo y ejecutarlo en nuestro laboratorio local de forma contenerizada con Docker.\"",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2024-04-12",
+    "categories": [
+      "SQL",
+      "Postgres",
+      "Docker",
+      "HomeLab"
+    ],
+    "contents": "\n\nContents\nVariables de entorno\nSecretos de Docker\n\nUn ejemplo de posgres junto a una aplicación en un entorno docker:\nservices:\n  db:\n    image: postgres\n    resta\n    rt: always\n    environment:\n      POSTGRES_PASSWORD: example\n    volumes:\n      - pgdata:/var/lib/postgresql/data\n  adminer:\n    image: adminer\n    restart: always\n    ports:\n      - 8080:8080\nvolumes:\n  pgdata:\nVariables de entorno\nPodemos ver la importancia de POSTGRES_PASSWORD en Postgres. Sin especificar esto, Postgres no puede ejecutarse de manera eficaz. Pero también hay otras variables que influyen en el comportamiento del contenedor:\nPOSTGRES_USER– Especifica un usuario con privilegios de superusuario y una base de datos con el mismo nombre. Postgres utiliza el usuario predeterminado cuando este campo está vacío.\nPOSTGRES_DB– Especifica un nombre para su base de datos o el valor predeterminado POSTGRES_USERcuando se deja en blanco.\nPOSTGRES_INITDB_ARGS– Envía argumentos postgres_initdby agrega funcionalidad\nPOSTGRES_INITDB_WALDIR– Define un directorio específico para el registro de transacciones de Postgres. Una transacción es una operación y, por lo general, describe un cambio en la base de datos.\nPOSTGRES_HOST_AUTH_METHOD– Controla las auth-methodconexiones hosta allbases de datos, usuarios y direcciones.\nPGDATA– Define otra ubicación o subdirectorio predeterminado para los archivos de base de datos\nEstas variables se encuentran dentro de su .envarchivo de texto sin formato. En última instancia, determinan cómo Postgres crea y conecta bases de datos. Puede consultar nuestra documentación de la imagen oficial de Postgres en GitHub para obtener más detalles sobre las variables de entorno.\nSecretos de Docker\nSi bien las variables de entorno son útiles, pasarlas entre el host y el contenedor no está exento de riesgos. Los secretos de Docker le permiten acceder y cargar esos valores desde archivos que ya están presentes en su contenedor. Esto evita que sus variables de entorno sean interceptadas en tránsito a través de una conexión de puerto. Puede usar el siguiente comando (y sus iteraciones) para aprovechar los secretos de Docker con Postgres:\ndocker run --name some-postgres -e POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd -d postgres\nNota: Los secretos de Docker solo son compatibles con determinadas variables de entorno. Consulta nuestra documentación para obtener más información.\n\n\n\n",
+    "preview": "posts/2026-02-01-postgres-en-docker/../../images/edex-ui.png",
+    "last_modified": "2026-02-01T21:14:45+00:00",
+    "input_file": {},
+    "preview_width": 800,
+    "preview_height": 450
   },
   {
     "path": "posts/2021-07-12-editor-en-linea-de-comandos-vim/",

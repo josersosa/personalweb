@@ -1,0 +1,96 @@
+---
+title: "Open-WebUI en Docker"
+description: |
+  "Veamos como integrar Open Web UI en nuestro laboratorio local. Esta es un herramienta ideal para poner a prueba modelos LLM pequeños que podamos correr en nuestro equipo mediante Ollama o para implementar un RAG con nuestros propios archivos. "
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-20-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - GenAI
+  - RAG
+  - Docker
+  - HomeLab
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+## Interfaz web para LLMs con OpenWebUI
+
+
+**Open WebUI es una plataforma de IA autoalojada, [extensible](https://docs.openwebui.com/features/plugin/)** , rica en funciones y fácil de usar, diseñada para funcionar completamente sin conexión. Es compatible con varios ejecutores LLM como **Ollama** y **API compatibles con OpenAI** , y cuenta con **un motor de inferencia integrado** para RAG, lo que la convierte en una **potente solución para la implementación de IA** ."
+Fuente: https://github.com/open-webui/open-webui
+
+![imagen](https://github.com/open-webui/open-webui/raw/main/demo.png)
+
+
+
+docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+
+### Instalación con configuración predeterminada
+
+
+- Descargamos la images de docker:
+
+```bash
+docker pull ghcr.io/open-webui/open-webui:main
+```
+
+ - Creaos el volumen open-webui-data
+
+```bash
+docker volume create open-webui_data
+```
+
+- **Si Ollama está en tu computadora** corriendo en un contenedor docker como es mi caso, entonces usa este comando:
+
+```bash
+docker run -d -p 3001:8080 --add-host=host.docker.internal:host-gateway -v open-webui_data:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
+```
+
+- **Si Ollama está en un servidor diferente** , use este comando:
+Para conectarse a Ollama en otro servidor, cambie la `OLLAMA_BASE_URL`URL del servidor:
+
+```shell
+docker run -d -p 3001:8080 -e OLLAMA_BASE_URL=https://example.com -v open-webui_data:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+```
+
+- **Para ejecutar Open WebUI con compatibilidad con GPU Nvidia** , use este comando:
+
+```shell
+docker run -d -p 3001:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui_data:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda
+```
+
+
+### Instalación solo para uso de la API de OpenAI
+
+- **Si solo usa la API de OpenAI** , use este comando:
+
+```shell
+docker run -d -p 3001:8080 -e OPENAI_API_KEY=your_secret_key -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+```
+
+
+## Configuración de servicios MCP
+
+Fuente: [🛰️ MCP Support | Open WebUI](https://docs.openwebui.com/openapi-servers/mcp/)
+Fuente: [How to Connect a local MCP to Open WebUI + Ollama in 5 mins on MacBook Air M4!]([Bing Vídeos](https://www.bing.com/videos/riverview/relatedvideo?q=como+configurar+MCP+en+open-webui+&mid=82C281F6EA683F1894A682C281F6EA683F1894A6&FORM=VIRE)) 
+
+Para configurar MCP en Open WebUI, sigue estos pasos:
+1. **Instala Docker Desktop** y asegúrate de que esté funcionando antes de proceder con la instalación.
+2. **Descarga y compila la imagen Docker** de MCP para desplegar mcpo, que expone servidores MCP como puntos finales HTTP compatibles con OpenAPI.
+3. **Personaliza la configuración** del archivo 'config.json' según las especificaciones de tu servidor MCP.
+4. **Usa Docker Compose** para iniciar los servidores con el comando 'docker compose up -d'.
+5. **Conecta Open WebUI** a los puntos finales expuestos, por ejemplo, 'http://localhost:8000/memory'.
+6. [**Revisa las herramientas disponibles** dentro de Open WebUI para la interacción con los servidores MCP.  
+    Estos pasos te permitirán desplegar y configurar MCP en Open WebUI de manera efectiva, facilitando la integración y gestión de modelos.](https://www.bing.com/ck/a?!&&p=b5d485b58e7ae42ad4f4dcd23bc07edaf0c4815d6a2a454397be731e46b98659JmltdHM9MTc1NjUxMjAwMA&ptn=3&ver=2&hsh=4&fclid=1e750a5a-17f4-6910-2d9b-1fe2168868f7&u=a1aHR0cHM6Ly9kb2NzLm9wZW53ZWJ1aS5jb20vb3BlbmFwaS1zZXJ2ZXJzL21jcC8&ntb=1)
+
+### Servicio MCPO en Docker
+
+## Integración con Agentes de n8n

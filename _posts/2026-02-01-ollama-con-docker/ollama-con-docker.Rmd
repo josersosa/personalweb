@@ -18,7 +18,7 @@ categories:
   - GenAI
   - LLM
   - HomeLab
-preview: ../../images/edex-ui.png
+preview: ../../images/ollama_01.png
 #draft: true
 ---
 

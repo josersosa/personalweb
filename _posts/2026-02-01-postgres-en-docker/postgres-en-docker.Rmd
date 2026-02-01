@@ -1,0 +1,68 @@
+---
+title: "Postgres en Docker"
+description: |
+  "Postgres es uno de los manejadores de bases de datos más utilizados en el mundo opensource. Veremos como instalarlo y ejecutarlo en nuestro laboratorio local de forma contenerizada con Docker."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-12-2024
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - SQL
+  - Postgres
+  - Docker
+  - HomeLab
+preview: ../../images/data_bases.png
+#draft: true
+---
+
+Un ejemplo de posgres junto a una aplicación en un entorno docker:
+```bash
+services:
+  db:
+    image: postgres
+    resta
+    rt: always
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+volumes:
+  pgdata:
+```
+
+### Variables de entorno
+
+Podemos ver la importancia de `POSTGRES_PASSWORD` en Postgres. Sin especificar esto, Postgres no puede ejecutarse de manera eficaz. Pero también hay otras variables que influyen en el comportamiento del contenedor: 
+
+- `POSTGRES_USER`– Especifica un usuario con privilegios de superusuario y una base de datos con el mismo nombre. Postgres utiliza el usuario predeterminado cuando este campo está vacío.
+- `POSTGRES_DB`– Especifica un nombre para su base de datos o el valor predeterminado `POSTGRES_USER`cuando se deja en blanco. 
+- `POSTGRES_INITDB_ARGS`– Envía argumentos `postgres_initdb`y agrega funcionalidad
+- `POSTGRES_INITDB_WALDIR`– Define un directorio específico para el registro de transacciones de Postgres. Una transacción es una operación y, por lo general, describe un cambio en la base de datos. 
+- `POSTGRES_HOST_AUTH_METHOD`– Controla las `auth-method`conexiones `host`a `all`bases de datos, usuarios y direcciones.
+- `PGDATA`– Define otra ubicación o subdirectorio predeterminado para los archivos de base de datos
+
+Estas variables se encuentran dentro de su `.env`archivo de texto sin formato. En última instancia, determinan cómo Postgres crea y conecta bases de datos. Puede consultar nuestra [documentación de la imagen oficial de Postgres en GitHub](https://github.com/docker-library/docs/blob/master/postgres/README.md) para obtener más detalles sobre las variables de entorno.
+
+
+### Secretos de Docker
+
+Si bien las variables de entorno son útiles, pasarlas entre el host y el contenedor no está exento de riesgos. Los secretos de Docker le permiten acceder y cargar esos valores desde archivos que ya están presentes en su contenedor. Esto evita que sus variables de entorno sean interceptadas en tránsito a través de una conexión de puerto. Puede usar el siguiente comando (y sus iteraciones) para aprovechar los secretos de Docker con Postgres: 
+
+```
+docker run --name some-postgres -e POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd -d postgres
+```
+
+**Nota:** Los secretos de Docker solo son compatibles con determinadas variables de entorno. [Consulta nuestra documentación](https://github.com/docker-library/docs/blob/master/postgres/README.md#docker-secrets) para obtener más información.
+
+
