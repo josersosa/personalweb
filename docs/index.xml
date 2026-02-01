@@ -93,16 +93,6 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
     </item>
     <item>
-      <title>Notificación Push con Microsoft Authenticator</title>
-      <dc:creator>José R Sosa</dc:creator>
-      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator</link>
-      <description>"Veamos como podemos incorporar un doble factor de autenticación (FMA) en nuestras aplicaciones usando Windows Authenticator."</description>
-      <category>MFA</category>
-      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator</guid>
-      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
-    </item>
-    <item>
       <title>Node.js para desarrollo en Docker </title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-nodejs-para-desarrollo-en-docker</link>
@@ -113,6 +103,16 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-nodejs-para-desarrollo-en-docker</guid>
       <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-nodejs-para-desarrollo-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Notificación Push con Microsoft Authenticator</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator</link>
+      <description>"Veamos como podemos incorporar un doble factor de autenticación (FMA) en nuestras aplicaciones usando Windows Authenticator."</description>
+      <category>MFA</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator</guid>
+      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
     <item>
       <title>Ngrok con Docker</title>
