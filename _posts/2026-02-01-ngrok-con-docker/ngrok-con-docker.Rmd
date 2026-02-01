@@ -1,0 +1,38 @@
+---
+title: "Ngrok con Docker"
+description: |
+  "Para exponer puertos desde nuestro equipo local hacia la red externa, podemos ejecutar Ngrok desde cualquier sistema operativo con Docker."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 05-25-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Ngrok
+  - Docker
+  - HomeLab
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+Lo ejecutamos así;
+
+```bash
+docker run -t -d \
+  --hostname=docker-desktop \
+  --user=ngrok \
+  --env=NGROK_AUTHTOKEN=<TOKEN> \
+  --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+  --network=host \
+  --restart=no \
+  --runtime=runc \
+  ngrok/ngrok:latest
+```
+
+Cambiando el tocken por el que corresponda a nuestra cuenta de Ngrok. Este comando descargará la ultima version de la imagen de Ngrok en el caso de que no la tengamos descargada.
+

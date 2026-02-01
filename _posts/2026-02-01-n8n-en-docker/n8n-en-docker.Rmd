@@ -1,0 +1,299 @@
+---
+title: "n8n en Docker"
+description: |
+  "Una de las ventajas de n8n es el poder activar un entorno de desarrollo completamente funcional de forma local con Docker para ejecutar workflows en nuestro propio homelab". 
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-26-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - n8n
+  - Ollama
+  - GenAI
+  - AgenticAI
+  - MCP
+  - HomeLab
+preview: ../../images/workflow_n8n.png
+#draft: true
+---
+
+
+## Referencias
+- [Self-hosted AI starter kit](https://github.com/n8n-io/self-hosted-ai-starter-kit) 
+- Run ALL Your AI Locally in Minutes (LLMs, RAG, and more) [video](https://www.youtube.com/watch?v=V_0dNE-H2gw) [repo](https://github.com/coleam00/ai-agents-masterclass/tree/main/local-ai-packaged )  OJO
+- https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/
+- https://docs.n8n.io/hosting/installation/docker/
+- https://github.com/n8n-io/n8n-hosting/blob/main/docker-compose/withPostgres/docker-compose.yml
+- https://www.youtube.com/watch?v=OWa9Qse3ow0
+- Comunity. https://community.n8n.io/
+- 
+ Cursos:
+- https://docs.n8n.io/courses/level-one/
+	**Unique ID:** 5f29c3fde29b06c5e47bf62a9fc57a9a  
+	**Webhook URL:** [https://internal.users.n8n.cloud/webhook/course-level-1](https://internal.users.n8n.cloud/webhook/course-level-1)  
+	**Dataset URL:** [https://internal.users.n8n.cloud/webhook/custom-erp](https://internal.users.n8n.cloud/webhook/custom-erp)  
+	**Header Auth name:** api_key  
+	**Header Auth value:** j[vKYdY68H(:WFb
+- https://docs.n8n.io/courses/level-two/
+- https://www.youtube.com/@nicocmw
+
+
+## Empezando con n8n
+
+Desde tu terminal, ejecuta:
+
+```bash
+docker pull docker.n8n.io/n8nio/n8n
+docker volume create n8n_data
+docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
+```
+
+Este comando descargará todas las imágenes n8n requeridas e iniciará su contenedor, expuesto en el puerto `5678`. Para guardar su trabajo entre reinicios del contenedor, también monta un volumen de Docker, `n8n_data`, para conservar sus datos localmente.
+
+Luego puedes acceder a n8n abriendo: [http://localhost:5678](http://localhost:5678/)
+
+
+## Utilizando bases de datos Postgres
+
+De forma predeterminada, n8n usa SQLite para guardar [credenciales](https://docs.n8n.io/glossary/#credential-n8n) , ejecuciones pasadas y flujos de trabajo. n8n también admite PostgresDB configurable mediante variables de entorno como se detalla a continuación.
+
+Para utilizar n8n con Postgres, debemos crear la base de datos y luego proporcione el siguiente comando:
+
+Para la ejecución de n8n como servicio
+```bash
+docker volume create n8n_data
+
+docker run -d \
+ --name n8n \
+ --network homelab \
+ -p 5678:5678 \
+ -e DB_TYPE=postgresdb \
+ -e DB_POSTGRESDB_DATABASE=n8n_db \
+ -e DB_POSTGRESDB_HOST=postgres \
+ -e DB_POSTGRESDB_PORT=5432 \
+ -e DB_POSTGRESDB_USER=postgres \
+ -e DB_POSTGRESDB_PASSWORD=kukenan\
+ -e N8N_SECURE_COOKIE=false \ 
+ -v n8n_data:/home/node/.n8n \
+ -v D:\Archivos:/mnt/disco
+ docker.n8n.io/n8nio/n8n
+```
+
+### Error de overlay en el montaje de discos
+
+En mi version de WSL en Windows 11 da una error de overlay en los montajes de discos locales en los contenedores docker, por lo que no aparece el contenido que existe en dichos discos montados. Para resolver esto, he tenido que instanciar la imagen docker desde el power shell y no desde al distro de WSL, algo así:
+
+```bash
+docker run -it --rm -v D:\Archivos:/mnt/disco ubuntu /bin/bash
+```
+
+Por la que la ejecución de n8n si deseamos compartir un disco local, por ejemplo para la carga de uns KB desde el disco local, debemos instanciarlo desde Powershell así:
+
+```powershell
+docker run -d --name n8n --network homelab -p 5678:5678 -e DB_TYPE=postgresdb -e DB_POSTGRESDB_DATABASE=n8n_db -e DB_POSTGRESDB_HOST=postgres -e DB_POSTGRESDB_PORT=5432 -e DB_POSTGRESDB_USER=postgres -e DB_POSTGRESDB_PASSWORD=kukenan -e N8N_SECURE_COOKIE=false -v n8n_data:/home/node/.n8n -v D:\Archivos:/mnt/disco docker.n8n.io/n8nio/n8n
+```
+
+### URL pública para instancia local con ngrok
+
+En algunos casos necesitaremos contar cinnun URL https para n8n, como por ejemplo, cuando queremos usar cabales como Telegram o Whatsapp desde nuestra instancia contenerizada local. Para esto usaremos el comando **ngrok** con la URL local de n8n así:
+```powershell
+ngrok http://localhost:5678
+                                                                                                         Create instant endpoints for local containers within Docker Desktop → https://ngrok.com/r/docker
+                                                                                                      Session Status                online
+Account                       Jose Sosa (Plan: Free)
+Update                        update available (version 3.30.0, Ctrl-U to update)
+Version                       3.22.1
+Region                        South America (sa)
+Latency                       115ms
+Web Interface                 http://127.0.0.1:4040
+Forwarding                    https://78bcd28b8daf.ngrok-free.app -> http://localhost:5678
+
+Connections                   ttl     opn     rt1     rt5     p50     p90
+                              283     0       0.00    0.05    0.21    10.26
+```
+
+Esto expondrá nuestra instancia con una URL pública, que deberemos usar para la variable de entorno WEBHOOK_URL, al momento de levantar el servicio n8n en docker así:
+```powershell
+docker run -d -e WEBHOOK_URL=https://78bcd28b8daf.ngrok-free.app --name n8n --network homelab -p 5678:5678 -e DB_TYPE=postgresdb -e DB_POSTGRESDB_DATABASE=n8n_db -e DB_POSTGRESDB_HOST=postgres -e DB_POSTGRESDB_PORT=5432 -e DB_POSTGRESDB_USER=postgres -e DB_POSTGRESDB_PASSWORD=kukenan -e N8N_SECURE_COOKIE=false -v n8n_data:/home/node/.n8n -v D:\Archivos:/mnt/disco docker.n8n.io/n8nio/n8n
+```
+## Backups 
+
+Primero respaldaremos el volumen de Docker, mientras el contenedor de n8n esta activo:
+
+```bash
+cd /mnt/d/Archivos/Proyectos/AI_Models/Models/n8n/n8n_volume
+docker exec n8n tar -czvf backup_n8n_volumen.tar.gz /home/node/.n8n
+docker cp n8n:/home/node/backup_n8n_volumen.tar.gz ./backup_n8n_volumen.tar.gz 
+```
+
+Luego respaldamos la base de datos:
+
+```bash
+pg_dump -f backup_n8n_db.backup n8n_db 
+docker cp postgres:backup_n8n_db.backup ./backup_n8n_db.backup
+```
+
+Esto crea un respaldo de la BD dentro del contenedor y luego lo copiamos en nuestro directorio local
+
+## Hosting para n8n
+
+Servicio en la nube especializados para n8n:
+- [Hostinger](https://www.hostinger.com/es/vps/hosting-n8n)
+- Never Pay for n8n Again! Self-Host for FREE, For LIFE on Oracle Cloud. [video](https://www.youtube.com/watch?v=GgT4HK5RyX4)
+- [Render.com](https://render.com/) 
+
+## Como construir servicios MCP en n8n
+- MCP VS API: Explicación: [video](https://www.youtube.com/watch?v=9rZ20qYSP_U) 
+- MCP + n8n: Crea tu propio servidor de MCP (Tutorial): [video](https://www.youtube.com/watch?v=7hY9qaO_AV8) 
+
+## Conexiones importantes a configurar
+
+Las credenciales que debemos configurar, son:
+- [x] Servicios de IA Generativa
+	- [x] HuggingFace
+	- [x] OpenAI
+	- [ ] Mistral
+	- [x] Groq
+	- [ ] Anthropic
+	- [x] Ollama
+	- [x] DeepSeek
+	- [x] OpenRouter
+- [x] Google Cloud
+	- [Consola de Google GCP](https://console.cloud.google.com/auth/audience?inv=1&invt=AbqGGw&project=my-api-project-222721) 
+	- [Integracion con Google Calendar](https://developers.google.com/calendar/api/quickstart/python?hl=es-419) 
+	- [Cómo usar OAuth 2.0 para acceder a las API de Google](https://developers.google.com/identity/protocols/oauth2?hl=es-419) 
+	- [Video: Getting Google OAuth Credentials for n8n](https://www.youtube.com/watch?v=gZ6N2H3_vys ) 
+	- [Documentacion de google maps apis](https://developers.google.com/maps/documentation?hl=es-419) 
+	- [x] Google Drive
+	- [x] Google Gmail
+	- [x] Google Calendar
+	- [x] Google Sheets
+	- [x] Google Docs
+	- [x] Google Gemini
+- [ ] Microsoft Azure
+	- [Integración con la nube de MS](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-deploy-microsoft-teams&locale=es) 
+	- [Getting Microsoft OAuth Credentials for n8n](https://www.youtube.com/watch?v=aqr_PwR1Sgc) 
+	- [Microsoft Teams node](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftteams/) 
+	- [Microsoft credentials](https://docs.n8n.io/integrations/builtin/credentials/microsoft/) 
+	- [# Depuración del bot de chat de IA mediante la herramienta de prueba de aplicaciones de Teams](https://learn.microsoft.com/es-es/microsoftteams/platform/sbs-teams-app-test-tool) 
+	- [ ] outlook
+	- [ ] Teams
+	- [ ] OneDrive
+	- [ ] Azure OpenAI
+- [x] GitHub
+	- [Personal access tokens (classic)](https://github.com/settings/tokens) 
+- [ ] Bases de datos
+	- [x] MongoDB
+	- [x] PostgresSQL
+	- [ ] Redis
+	- [x] Pinecone
+	- [ ] ChromaDB
+	- [x] Qdrant
+- [ ] Mensajería
+	- [ ] Whatsapp
+		- Video: [Cómo CONECTAR un Agente IA de N8N a WhatsApp](https://www.youtube.com/watch?v=f1N82V7xpkU )
+		- https://developers.facebook.com/
+	- [x] Twilio
+	- [x] Telegram
+		-  [Cómo obtener API ID y API HASH de una cuenta de TELEGRAM](https://www.youtube.com/watch?v=8zOSdpRd1YI)  
+		- [n8n docs: Telegram credentials](https://docs.n8n.io/integrations/builtin/credentials/telegram/?utm_source=n8n_app&utm_medium=credential_settings&utm_campaign=create_new_credentials_modal) 
+
+## Templates
+- [ ] RAG
+- [ ] Excel
+- [ ] Outlook
+- [ ] AgenticAI
+- [ ] Slack
+- [ ] Calendar
+- [ ] Zendesk
+- [ ] AgenticAI
+- [ ] CMP
+
+## Flujos a preparar
+- [x] JS-Chat_LLM_local_básico
+- [x] JS-Chat_local_con_Memoria
+- [ ] JS-Chat_Multimodal_con_Memoria
+- [ ] JS-Chat_con_Memoria_Web
+- [ ] JS-Chat_con_Memoria_Telegram
+- [ ] JS-Chat_con_Memoria_WhatsApp
+- [x] JS_KB_archivo_local
+- [ ] JS_KB_dir_local
+- [x] JS_KB_dir_Google_Drive
+- [ ] JS-RAG_Basico
+- [ ] JS-Agentic_RAG
+- [ ] JS-Agentic_Gmail
+- [ ] JS-Agentic_Google_Contacts
+- [ ] JS-Agentic_WebSearch_Tavily
+- [ ] JS-Agentic_WebSearch_SearXGN
+- [ ] JS-Agentic_Google_Calendar
+- [ ] JS-Agentic_Calculator
+- [ ] JS-Agentic_Cosole
+- [ ] JS-Agentic_Python
+- [ ] JS-Agentic_R
+- [ ] JS-Agentic_Javascript
+
+## Integraciones
+- n8n + OpenWebUI: [video](https://www.youtube.com/watch?v=rBc3UX1wrAc&t=576s)  [Cole Medin](https://www.youtube.com/@ColeMedin) 
+- No Code RAG Agents? You HAVE to Check out n8n + LangChain [video](https://www.youtube.com/watch?v=Xifzdn7zW3A) 
+- n8n Has NO Front-End - Here's How I Fixed That [video](https://www.youtube.com/watch?v=pJdBn1cfpo8 ) 
+- Webhooks en N8N Explicado: De Principiante a Experto [video](https://www.youtube.com/watch?v=4Q0OUs9Vspc)
+- Create Dashboards for your AI Agents in Minutes with Bolt + n8n (FREE & NO PROGRAMMING) [video](https://www.youtube.com/watch?v=lLxgdCndKqQ) 
+- Connect WhatsApp to N8N in 5 Minutes, Quickly and Easily [video](https://www.youtube.com/watch?v=hHDsdtnfUDI) 
+- Conecta WhatsApp API Oficial con n8n por QR [video](https://www.youtube.com/watch?v=9aK3EepNDLQ) 
+- 3 capas de segurida para n8n [video](https://www.youtube.com/shorts/8ADnqkkM5a4) 
+- Cómo Conectar Telegram a n8n en 5 Minutos [video](https://www.youtube.com/watch?v=zZfyFjQR6qo&t=72s) 
+
+
+
+## n8n to Python
+- https://github.com/francofuji/n8n-to-python-transpiler
+- [Convierte tus automatizaciones de n8n en Python](https://www.youtube.com/watch?v=4bpXR2SrTEA) 
+
+https://78bcd28b8daf.ngrok-free.app/webhook-test/5e4f3385-e3a3-4d56-9e65-112076b607f4/webhook
+
+## Recursos
+
+- Repositoros de flujos
+	- n8n Templates: [web](https://n8n.io/workflows/)  
+	- Colección de Flujos de Trabajo de n8n: [github](https://github.com/DragonJAR/n8n-workflows-es)
+	- Flujos n8n de pago: [web](https://www.etsy.com/es/listing/4296190243/flujos-de-trabajo-de-respaldo-y) 
+
+- Curso de Nico en IALab
+	- Archivos: https://drive.google.com/drive/folders/1NoSTl-rNFVBYxcEVZb7XsWozev9jxI9q
+	- Docs: https://docs.google.com/document/d/1i-RlzfUDK1alz8S4RvtKdSAi72LCyc96OynBbMxnLLE/edit?tab=t.0#heading=h.yysgzwo3qk6l
+	- Comunidad: https://www.skool.com/ia-lab-8166/about 
+	- RAG Demo com n8n: https://nicocmw.com/agente_rag
+	- Videos:
+		- [(Clase #1) ¿Por qué los Agentes de IA están cambiando todo en 2025?](https://www.youtube.com/watch?v=eFBnCam1aH4&t=2973s) 
+		- [(Clase #2) Deja de hacer tareas manuales: Descubre los Agentes de IA](https://www.youtube.com/watch?v=O1Gr8fjR9FY) 
+		- [(Clase #3) De la teoría a la acción: Cómo vender con IA](https://www.youtube.com/watch?v=GFsBhujBq7Q) 
+- https://drive.google.com/file/d/1oBxkpbOo-ome4gLg67t0_awad802cHz5/view?usp=drive_link
+- https://www.youtube.com/@josemafe7
+	- [Google Drive de recursos](https://drive.google.com/drive/folders/1BCgVpvSRE914tq-WjqsHDkkerGA-hJsZ) 
+	- Te Enseño a Implementar el AGENTE IA con RAG Definitivo con N8N y Qdrant ([video](https://www.youtube.com/watch?v=ubKl-onDwtM))
+	- Cómo Crear el AGENTE IA Definitivo que trabaja para ti. Tutorial Paso a Paso con N8N y Outlook ([video](https://www.youtube.com/watch?v=Ov2rCwFCiCk))
+	- Te Enseño este Super Agente IA Abogados con MCP + RAG en n8n con Búsqueda Avanzada de Documentos ([video](https://www.youtube.com/watch?v=1fmD_X7r0QU))
+	- [n8n](https://www.youtube.com/hashtag/n8n) 🔥 2025 | Curso Profesional 🚀 Automatiza con IA – (ACTUALIZADO y 100% GRATIS): [video](https://www.youtube.com/watch?v=gbaJvwB2QaY) 
+- AGENTES IA en n8n: Curso Completo para Automatizar TODO en 2025 [video](https://www.youtube.com/watch?v=9rM1QQIEhkg)                                                OJO
+- 25 n8n features you don't know about that will save you hundreds of hours of work. [video](https://www.youtube.com/watch?v=IPS0Hw1NUjs)                          OJO
+	
+	
+## Escalamiento de n8n
+
+- ¡No más cuellos de botella! Usa Workers en n8n y escala sin miedo: [video](https://www.youtube.com/watch?v=n8FQlBj9XMY) 
+- The Ultimate Guide to Scaling Your Self-Hosted n8n Instance: [video](https://www.youtube.com/watch?v=bgLSLmiPEyE) 
+- How To Test & Scale Your n8n Instance! [video](https://www.youtube.com/watch?v=GJLiBv5wQbI) 
+
+
+## Halucinaciones
+- Stop Hallucinations! Best n8n AI Agent Settings Explained [video](https://www.youtube.com/watch?v=pR51uBNb5es&t=923s) 
+
+## Alternativas a n8n
+
+- SIM: Build and deploy AI agent workflows in minutes. [repo](https://github.com/simstudioai/sim) 

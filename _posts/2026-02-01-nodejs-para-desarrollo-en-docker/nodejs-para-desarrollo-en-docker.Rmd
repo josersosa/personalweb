@@ -1,0 +1,162 @@
+---
+title: "Node.js para desarrollo en Docker "
+description: |
+  "Preparación del entorno local para desarrollo con node.js en Docker."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 05-26-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Node.js
+  - Docker
+  - HomeLab
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+
+## Crear el entorno en Docker
+
+Primero, asegúrate de que tienes Docker y VS Code instalados.
+
+### Dockerfile para Node.js
+
+Crea un archivo **`Dockerfile`** en tu proyecto con el siguiente contenido:
+
+```bash
+# Usa una imagen oficial de Node.js 
+FROM node:18  
+
+# Establece el directorio de trabajo en el contenedor 
+WORKDIR /app  # Copia los archivos del proyecto COPY package*.json ./  
+
+# Instala las dependencias 
+RUN npm install  
+
+# Copia el resto del código 
+COPY . .  
+
+# Expone el puerto donde corre el servicio 
+EXPOSE 3000  
+
+# Comando para iniciar el servidor 
+CMD ["node", "server.js"]
+```
+
+---
+
+## Crear el archivo docker-compose.yml (opcional)
+
+Si deseas administrar más fácilmente tu servicio, usa **Docker Compose** con este archivo `docker-compose.yml`:
+
+```bash
+version: "3" 
+services:   
+	node-app:     
+		build: .     
+		ports:       
+			- "3000:3000"     
+		volumes:       
+			- .:/app       
+			- /app/node_modules     
+		command: ["node", "server.js"]
+```
+
+---
+
+## Configurar VS Code para desarrollo en Docker
+
+1. **Instala las extensiones necesarias en VS Code**
+    
+    - **Docker** (para gestionar contenedores desde VS Code).
+    - **Remote - Containers** (para desarrollar dentro del contenedor).
+2. **Crea un archivo `.devcontainer/devcontainer.json`**  
+    En la carpeta raíz del proyecto, agrega la siguiente configuración:
+```bash
+{   
+	"name": "Node.js Docker",   
+	"dockerComposeFile": "docker-compose.yml",   
+	"service": "node-app",   
+	"workspaceFolder": "/app",   
+	"extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"] }    
+```
+1. **Abre el proyecto en el contenedor**
+    
+    - Abre VS Code.
+    - Presiona **`Ctrl + Shift + P`** y busca:  
+        🔹 **"Remote-Containers: Reopen in Container"**
+    - Esto abrirá tu entorno en el contenedor Docker.
+
+---
+
+## Conectar tu código JavaScript al servicio Node.js
+
+
+Ejecuta en la terminal, esto creará un nuevo archivo  **`package.json`** :
+
+```bash
+npm init -y
+```
+
+Luego revisa que tu **`package.json`** tenga al menos estas líneas:
+
+```json
+{ 
+	"name": "mi-proyecto", 
+	"version": "1.0.0", 
+	"main": "server.js", 
+	"scripts": { 
+		"start": "node server.js" 
+	} 
+}
+```
+
+Si tienes un **cliente JavaScript (ej. en el navegador)** que se conecta a la API Node.js, usa:
+
+```javascript
+fetch("http://localhost:3000/api")   
+	.then(response => response.json())   
+	.then(data => console.log(data))   
+	.catch(error => console.error("Error:", error));
+```
+
+Asegúrate de que el servicio Node.js escuche en `0.0.0.0`, no solo en `localhost`, para que sea accesible desde el contenedor.
+
+Ejemplo en `server.js`:
+
+```javascript
+const express = require("express");  
+const app = express();
+const api = "/";
+
+app.get(api, (req, res) => {  
+    res.send("Hola, mundo!");
+});
+
+app.listen(3000, "0.0.0.0", () => { 
+    console.log("Servidor corriendo en http://0.0.0.0:3000");
+});
+```
+
+
+---
+
+## Levantar el entorno
+
+Ejecuta en la terminal:
+
+```bash
+docker system prune -a 
+docker pull node:18
+docker-compose down 
+docker system prune -a 
+docker-compose up --build
+```
+
+Ahora tu **servicio Node.js corre dentro de Docker** y puedes **desarrollar y depurar desde VS Code**.

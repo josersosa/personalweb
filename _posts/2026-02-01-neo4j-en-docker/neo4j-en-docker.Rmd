@@ -1,0 +1,249 @@
+---
+title: "Neo4J en docker"
+description: |
+  "Cómo desplegar Neo4j localmente con Docker en modo desarrollo y con Docker Compose."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 09-08-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - NoSQL
+  - Neo4J
+  - Docker
+  - HomeLab
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+## Requisitos previos
+
+Tener instalado **Docker** (y opcionalmente **Docker Compose**).  
+Verifica:
+```bash
+docker --version
+docker compose version   # (o `docker-compose --version` en instalaciones antiguas)
+```
+
+## Opción rápida
+
+Usando `docker run` (un solo contenedor)
+
+1. Creamos los volúmenes para persistir los datos
+```bash
+docker volume create neo4j_data 
+docker volume create neo4j_data_import  
+docker volume create neo4j_data_plugins
+```
+
+2. Levanta Neo4j (ejemplo usando la etiqueta `latest`; cambia a la versión que prefieras):
+```bash
+docker run -d \
+  --name neo4j \ 
+  --network homelab \
+  -p 7474:7474 \
+  -p 7687:7687 \
+  -v data_neo4j:/data \
+  -v data_neo4j_import:/var/lib/neo4j/import \
+  -v data_neo4j_plugins:/plugins \
+  -e NEO4J_AUTH=neo4j/miPasswordSeguro \
+  -e NEO4J_server_memory_heap_initial__size=4G \
+  -e NEO4J_server_memory_heap_max__size=8 \
+  neo4j:latest
+
+```
+- `NEO4J_AUTH=neo4j/miPasswordSeguro` fija el usuario `neo4j` con la contraseña `miPasswordSeguro`.  Si usas `NEO4J_AUTH=none` desactivas autenticación, **no** recomendado.
+- `import` es la carpeta donde puedes poner CSVs y luego usar `LOAD CSV FROM 'file:///mi.csv'...`.
+- `data` persiste la base de datos.
+```
+docker run -d --name neo4j --network homelab -p 7474:7474 -p 7687:7687 -v data_neo4j:/data -v data_neo4j_import:/var/lib/neo4j/import -v data_neo4j_plugins:/plugins -e NEO4J_AUTH=neo4j/kukenan6152 -e NEO4J_server_memory_heap_initial__size=4G -e NEO4J_server_memory_heap_max__size=8G neo4j:latest
+```
+
+3. Revisa logs y estado:
+```bash
+docker logs -f neo4j
+docker ps -a | grep neo4j
+```
+
+4. Abre el navegador en `http://localhost:7474` y conecta con:
+- Usuario: `neo4j`
+- Contraseña: `miPasswordSeguro`
+
+O con **cypher-shell** dentro del contenedor:
+```bash
+docker exec -it neo4j bin/cypher-shell -u neo4j -p miPasswordSeguro
+# luego, por ejemplo:
+CREATE (:Person {name: 'Alice', age: 30});
+MATCH (n) RETURN n LIMIT 25;
+```
+
+
+## Opción recomendada
+
+Usando `docker-compose.yml` (más organizada). 
+
+1. Crea `docker-compose.yml` en `~/neo4j`:
+```yaml
+version: "3.8"
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./data:/data
+      - ./import:/var/lib/neo4j/import
+      - ./plugins:/plugins
+    environment:
+      - NEO4J_AUTH=neo4j/miPasswordSeguro
+      - NEO4J_dbms_memory_heap_max_size=1G
+      - NEO4J_dbms_memory_pagecache_size=512M
+      # - NEO4JLABS_PLUGINS=["apoc"]   # si quieres habilitar APOC (ver nota)
+    restart: unless-stopped
+```
+
+2. Levanta:
+```bash
+docker compose up -d
+# o (si tu docker-compose es la binaria antigua)
+# docker-compose up -d
+```
+
+3. Ver logs:
+```bash
+docker compose logs -f neo4j
+```
+
+
+## Importar datos
+
+Ejemplo con CSV. Coloca `clientes.csv` en `~/neo4j/import/clientes.csv` y en cypher-shell:
+```cypher
+LOAD CSV WITH HEADERS FROM 'file:///clientes.csv' AS row
+CREATE (:Cliente {id: row.id, nombre: row.nombre});
+```
+
+
+## Gestión de usuarios y roles
+
+Crear un nuevo usuario
+-  Desde la **interfaz web** Entra a **[http://localhost:7474](http://localhost:7474)** con tu usuario `neo4j`.
+- Ejecuta en **Cypher**:
+```
+CREATE USER appuser SET PASSWORD 'AppUser123!' CHANGE NOT REQUIRED;
+GRANT ROLE reader TO appuser;
+```
+- Esto crea un usuario `appuser` con contraseña `AppUser123!` y rol `reader`.  Si quieres que tenga permisos completos:
+```
+GRANT ROLE admin TO appuser;
+```
+
+- Crear usuario desde **cypher-shell** si prefieres consola:
+```
+docker exec -it neo4j bin/cypher-shell -u neo4j -p miPasswordSeguro
+```
+
+- Dentro del shell Cypher:
+```
+CREATE USER appuser SET PASSWORD 'AppUser123!' CHANGE NOT REQUIRED;
+GRANT ROLE admin TO appuser;
+```
+
+Listar usuarios:
+```
+SHOW USERS;
+```
+
+Cambiar contraseña de un usuario:
+```
+ALTER USER appuser SET PASSWORD 'NuevaClaveSegura!';
+```
+
+Eliminar usuario:
+```
+DROP USER appuser;
+```
+- Roles disponibles por defecto:
+	- `admin` → permisos completos.
+	- `reader` → solo lectura.
+	- `publisher` → lectura y escritura, sin administración.
+
+## Conexión desde otros sistemas
+
+Ejemplo con Python (`neo4j` driver oficial):
+```python
+from neo4j import GraphDatabase
+
+uri = "bolt://localhost:7687"
+driver = GraphDatabase.driver(uri, auth=("appuser", "AppUser123!"))
+
+with driver.session() as session:
+    result = session.run("MATCH (n) RETURN count(n) AS total")
+    for record in result:
+        print(record["total"])
+```
+
+Ejemplo desde línea de comandos con `cypher-shell`:
+```bash
+cypher-shell -u appuser -p AppUser123! -a bolt://localhost:7687
+```
+
+
+## Habilitar APOC / GDS / plugins
+
+
+- APOC (procedimientos útiles) puede activarse con `NEO4JLABS_PLUGINS='["apoc"]'` en muchas versiones de la imagen oficial.  Otra opción es bajar el JAR y colocarlo en `./plugins`.
+- Para Graph Data Science (GDS) suele ser necesario agregar el JAR adecuado a `plugins` (revisa compatibilidad con la versión de Neo4j).
+
+> Nota: la forma exacta de instalar plugins puede variar según la versión de Neo4j. Si planeas plugins serios, revisa la versión del plugin compatible con tu imagen.
+
+
+## Ajustes de memoria y rendimiento (dev vs prod)
+
+- Para desarrollo: `heap = 1G`, `pagecache = 512M` suelen bastar.
+- Para producción: ajusta el heap y pagecache acorde al tamaño de tu dataset y memoria física del host.
+- Variables de ejemplo usadas arriba:
+    - `NEO4J_dbms_memory_heap_max_size`
+    - `NEO4J_dbms_memory_pagecache_size`
+
+
+## Seguridad y redes
+
+- **No** exponer los puertos a Internet sin protección (usa firewall o reverse proxy con TLS).
+- Cambia la contraseña por defecto.
+- Para producción usa backups, usuarios con roles, TLS y, si aplica, clúster Neo4j Enterprise.
+
+
+## Problemas comunes y soluciones rápidas
+
+- **Problema de permisos** al montar carpetas en Linux: si ves errores de escritura, cambia propietario/permiso del directorio:
+```bash
+sudo chown -R 7474:7474 ./data ./import ./plugins   # el usuario neo4j del contenedor suele usar UID 7474
+```
+
+	(Si no funciona, inspecciona los logs del contenedor para identificar el UID exacto).
+- **Puerto ocupado**: cambia el mapeo `-p 7474:7474` a otro host-port, por ejemplo `-p 8888:7474`.
+- **Logs**: `docker logs -f neo4j` te da información para diagnosticar.
+
+## Parar / remover contenedor y datos
+
+```bash
+docker compose down
+# o
+docker stop neo4j
+docker rm neo4j
+
+# si usaste volúmenes bind-mount (./data) borra la carpeta local:
+rm -rf ./data ./import ./plugins
+
+# si usas volumentes de docker
+docker volume rm neo4j_data neo4j_data_import neo4j_data_plugins
+```
+

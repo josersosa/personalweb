@@ -36,6 +36,19 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker/../../images/workflows-automation.png" medium="image" type="image/png" width="1300" height="860"/>
     </item>
     <item>
+      <title>Neo4J en docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-neo4j-en-docker</link>
+      <description>"Cómo desplegar Neo4j localmente con Docker en modo desarrollo y con Docker Compose."</description>
+      <category>NoSQL</category>
+      <category>Neo4J</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-neo4j-en-docker</guid>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-neo4j-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
       <title>MCP Server de n8n</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n</link>
@@ -88,6 +101,72 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator</guid>
       <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Node.js para desarrollo en Docker </title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-nodejs-para-desarrollo-en-docker</link>
+      <description>"Preparación del entorno local para desarrollo con node.js en Docker."</description>
+      <category>Node.js</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-nodejs-para-desarrollo-en-docker</guid>
+      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-nodejs-para-desarrollo-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Ngrok con Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-ngrok-con-docker</link>
+      <description>"Para exponer puertos desde nuestro equipo local hacia la red externa, podemos ejecutar Ngrok desde cualquier sistema operativo con Docker."</description>
+      <category>Ngrok</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-ngrok-con-docker</guid>
+      <pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-ngrok-con-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>MongoDB en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-mongodb-en-docker</link>
+      <description>Veamos como instalar y ejecutar MongDB en un contenedor con Docker.</description>
+      <category>NoSQL</category>
+      <category>MongoDB</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-mongodb-en-docker</guid>
+      <pubDate>Sat, 26 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-mongodb-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>n8n en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-n8n-en-docker</link>
+      <description>"Una de las ventajas de n8n es el poder activar un entorno de desarrollo completamente funcional de forma local con Docker para ejecutar workflows en nuestro propio homelab".</description>
+      <category>n8n</category>
+      <category>Ollama</category>
+      <category>GenAI</category>
+      <category>AgenticAI</category>
+      <category>MCP</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-n8n-en-docker</guid>
+      <pubDate>Sat, 26 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-n8n-en-docker/../../images/workflow_n8n.png" medium="image" type="image/png" width="717" height="338"/>
+    </item>
+    <item>
+      <title>Ollama con Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-ollama-con-docker</link>
+      <description>"En estre post, haré un breve repaso sobre como trabajar con Ollama, y en particular, como ejecutarlo desde un contenedor de [Docker](https://www.docker.com/)"</description>
+      <category>Ollama</category>
+      <category>Docker</category>
+      <category>GenAI</category>
+      <category>LLM</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-ollama-con-docker</guid>
+      <pubDate>Sat, 26 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-ollama-con-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
     <item>
       <title>Escritorio Linux Web en Docker</title>

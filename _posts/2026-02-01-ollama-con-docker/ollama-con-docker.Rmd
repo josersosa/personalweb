@@ -1,0 +1,299 @@
+---
+title: "Ollama con Docker"
+description: |
+  "En estre post, haré un breve repaso sobre como trabajar con Ollama, y en particular, como ejecutarlo desde un contenedor de [Docker](https://www.docker.com/)"
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-26-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Ollama
+  - Docker
+  - GenAI
+  - LLM
+  - HomeLab
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+
+[Ollama](https://ollama.com/) en un sistema multiplataforma que nos permite ponernos en marcha con modelos de lenguaje de gran tamaño (LLM), ejecutándolos de forma local en nuestros equipos. 
+Fuentes: 
+- Video de @PeladoNerd [ Testing out OLLAMA](https://www.youtube.com/watch?v=OmLKfDoAfyM)
+- Repositorio de @AI-Evoolve: [Ollama Model make](https://github.com/dfbustosus/AI-Evoolve/tree/main/Ollama%20Models%20Make)
+
+## Descargar imagen docker de Ollama
+
+Instalar Ollama es muy simple, sin embargo, lo haremos aun mejor, ejecutaremos Ollama desde un contenedor de Docker:
+
+```bash
+docker pull ollama/ollama:latest
+```
+
+## Levantar el servicio con Docker
+
+Primero crearemos un volumen para el almacenamiento de los modelos que se ejecutarán localmente:
+
+```bash
+docker volume create ollama_data
+```
+
+Luego levantamos el servicio:
+
+```bash
+docker run -d \
+--env=OLLAMA_KEEP_ALIVE=-1 \
+--env=OLLAMA_NUM_PARALLEL=2 \
+--env=OLLAMA_MAX_LOADED_MODELS=2 \
+--gpus=all \
+-v ollama_data:/root/.ollama \
+-p 11434:11434 \
+--name ollama \
+ollama/ollama
+```
+
+docker run -d --gpus=all -v /mnt/d/Archivos/Proyectos/AI_Models/Models/Ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+## Crear alias para usarlo en línea de comandos
+
+```bash
+alias ollama='docker exec -it ollama ollama'
+```
+
+## Descargar modelos
+
+```bash
+ollama pull llama3.1
+```
+
+## Correr modelos
+
+```bash
+ollama run llama3.1
+```
+
+## Detener modelos
+
+```bash
+ollama stop llama3.1
+```
+
+## Eliminar modelos
+
+```bash
+ollama rm llama3.1
+```
+
+## Listar modelos descargados
+
+```bash
+ollama list
+```
+
+## Importar modelos desde Huggingface
+
+Además, es posible extraer modelos de Hugging Face utilizando:
+
+```bash
+ollama pull hf.co/<username>/<model-repository>
+```
+
+Esto incluye los modelos de embeddings, el requisito es que sean modelos con el formato GGUF, como por ejemplo  "hf.co/phate334/multilingual-e5-large-gguf"
+## Servicio API-Rest con curl
+
+Cuando se corre Ollama, este adicionalmente levanta un servicio API-Rest  que podemos consultar en línea de comandos con curl:
+
+```bash
+curl http:localhost:11434/api/generate -d ´{
+"model": "llama3.1",
+"prompt": "tell me a joke",
+"stream": false
+}´
+```
+
+Tambien es posible consultar de forma compatible con el servicio de OpenAI, es decir que responde la las funciones:
+
+```bash1
+curl -X POST http://localhost:11434/v1/chat/completions \
+	-H "Content-Type: application/json" \
+	--data '{
+		"model": "qwen2.5:3b",
+		"messages": [
+			{
+				"role": "user",
+				"content": [
+					{
+						"type": "text",
+						"text": "Hola"
+					}
+				]
+			}
+		]
+	}'
+```
+## Mantener los modelos en memoria 
+
+Si deseas mantener el modelo en memoria para evitar que se vuelva a cargar cada vez que se supere el umbra de tiempo, se puede usar el parámetro `--keepalive -1` (Nota: laopcion -1 me da error, poner varias horas). 
+- El valor -1 representa que se mantendrá en memoria de forma permanente, 
+- El valor 0 indica que se bajará de la memoria tan pronto como responda la siguiente llamada.
+- Se pueden usar las letras m o s para indicar minutos o segundos que se mantendrá disponible, ejemplo `15m` serán 15 minutos.
+- Se puede usar la variable de entorno`OLLAMA_KEEP_ALIVE=-1 ollama serve` o el parámetro  `keep_alive` si se llama por API. 
+## Interface web simple para Ollama
+
+Hay una interface web muy simple llamada chatbot-ollama, desarrollada por Ivan Fioranti que tiene una imagen docker que se puede levantar así:
+
+```bash
+docker run -d \
+-p 3000:3000 \
+--name chat-ollama \
+-e DEFAULT_MODEL=qwen2:1.5b \
+-e OLLAMA_HOST=http://localhost:11434 \
+ghcr.io/ivanfioravanti/chatbot-ollama:main
+```
+Recuerda que si el servicio ollama esta corriendo dentro de un contenedor, entonces para acceder a el, el chat-ollama tendrá que direccionar  hacia `http://host.docker.internal:11434` en lugar de a `localhost`.
+También podemos levantar juntos a Ollama y la UI mediante un docker-compose:
+
+```config
+version ´3.6´
+
+services:
+	chatgpt:
+		image: ghcr.io/ivanfioravanti/chatbot-ollama:main
+		ports:
+		  - 3000:3000
+		enviroment:
+		  - DEFAULT_MODEL=mistral
+		  - OLLAMA_HOST=http:ollama:11434
+	ollama:
+		image: ollama/ollama:latest
+		ports: 
+		  - 11434:11434
+		volumes:
+		  - ./ollama/models:/ollama/models
+		enviroment:
+		  - OLLAMA_MODELS=/ollama/models
+```
+
+Ubicado sobre el directorio basta ejecutar: `docker-compose up -d`.
+La versión actual de `chatbot-ollama` no descarga automáticamente modelos por lo que será necesario correr el siguiente comando cada vez que se requiera un modelo nuevo:
+
+```bash
+docker-compose exec ollama pull llama3.1
+```
+
+## Personalizar  modelos
+
+Para crear modelos personalizados, es necesario primero crear un archivo de configuración llamado `Modelfile` con el siguiente contenido:
+
+```config
+FROM llama3.1
+
+# Set model´s parameters
+PARAMETER temperature 0.7
+
+# Set the system prompt
+SYSTEM """
+You are TARS from the Interestellar movie and act like an assistant. TARS is a robot with a blend of mechanical efficiency and human personality, characterized by its sarcastic humor, loyalty, ingenuity, and adaptability. This makes it a lovable and essential character in development tasks-
+"""
+```
+
+Luego creamos un nuevo modelos a partir de este archivo de configuración:
+
+```bash
+ollama create tars -f Modelfile
+```
+
+Solo recuerda que si estas corriendo `ollama` desde `docker`, puedes colocar el archivo `Modelfile` en el directorio que montaste para los modelos y usar la ruta `-f /root/.ollama/Modelfile` Ahora puedes correr normalmente el modelo `tars`.
+Es posible personalizar modelos a partir de otros que aún no están disponibles en Ollama, para eso debemos, primero, descargarlos y optimizarlos (quantization) o en su defecto, descargarlos ya quantizados. A continuación muestro un ejemplo de `Modelfile` de este tipo:
+
+```bash
+FROM ./capybarahermes-2.5-mistral-7b.Q4_K_M.gguf
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+TEMPLATE """
+<|im_start|>system
+{{ .System }}<|im_end|>
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+```
+
+Los parámetros y templates se deben obtener de la documentación del modelo, en este caso el [capybarahermes-2.5-mistral-7b](https://huggingface.co/TheBloke/CapybaraHermes-2.5-Mistral-7B-GGUF) con la quantización Q4_K_M. 
+
+## Quantización de modelos para Ollama
+
+En el caso de que el modelo selecionado no esté optimizado par al ejecución en local con Ollama, será necesario pasarlo por este proceso. una forma de hacerlo es ejecutar el algoritmo dockerizadoe n la imagen `ollama/quantize`. Los paso a seguir son:
+1. Ir al modelo de interés [Model](https://huggingface.co/argilla/CapybaraHermes-2.5-Mistral-7B)
+2. Click en `File and versions`
+3. Click en los tres puntos > Clone repository
+4. Deberas tener instalado lfs para procesar grandes volumenes de data
+5. Si no lo tienes lo puedes instalar con
+
+```shell
+git lfs install
+```
+
+6. Clonar el repo:
+
+```shell
+git clone https://huggingface.co/argilla/CapybaraHermes-2.5-Mistral-7B
+```
+
+Esto puede demorar cerca de 5-10min dependiendo de tu conexión 
+6. Deberás tener instalado docker y abrirlo.
+7. Crear el formato del modelo:
+
+```shell
+docker run --rm -v .:model ollama/quantize -q q4_K_M /model 
+```
+
+Esto se demorara algunos minutos dependiendo de tu capacidad de computo 9. Ahora debería poder dos nuevos archivos: uno f16.bin y otro el q4_K_M.bin. Este ultimo archivo q4_K_M.bin es el que podrás usar en formato gguf` para crear el modelo con ollama
+
+## Modelos de nubes
+
+Fuente: [Post en Ollama blog](https://docs.ollama.com/cloud#running-cloud-models) 
+Los modelos en la nube de Ollama son un nuevo tipo de modelo que puede ejecutarse sin una GPU potente. En su lugar, se descargan automáticamente al servicio en la nube de Ollama y ofrecen las mismas capacidades que los modelos locales, lo que permite seguir usando las herramientas locales mientras se ejecutan modelos más grandes que no caben en un ordenador personal.Ollama actualmente admite los siguientes modelos de nube y próximamente se añadirán más:
+
+- `gpt-oss:20b-cloud`
+- `gpt-oss:120b-cloud`
+- `deepseek-v3.1:671b-cloud`
+- `qwen3-coder:480b-cloud`
+
+### Ejecución de modelos de nube
+
+Los modelos de nube de Ollama requieren una cuenta en [ollama.com](https://ollama.com/) . Para iniciar sesión o crear una cuenta, ejecute:
+
+```
+ollama signin
+You need to be signed in to Ollama to run Cloud models.
+
+To sign in, navigate to:
+    https://ollama.com/connect?name=eb23bccfff50&key=c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUJEZ1JyNE8xTmg4WjZKcnZuclVzWW4xajVoUjlvY3MzSlBmcCtiaUZHWlg
+```
+Al presionar la opción Connect, se obtiene:
+![](../..images/ollama_cloud.png)
+
+Para ejecutar un modelo de nube, ejecute:
+
+```
+ollama run gpt-oss:120b-cloud
+```
+
+## Ollama on Kubernetes
+
+- https://www.youtube.com/watch?v=QebLDdv13yg
+- https://github.com/mathisve/ollama-on-k8s
+
+## Interfaz web para LLMs con OpenWebUI
+- [Open-WebUI en Dcoker](Open-WebUI%20en%20Dcoker.md) 
+## Ejecutar Ollama con la GPU de Intel
+
+Revisar:
+- https://dev.to/itlackey/run-ollama-on-intel-arc-gpu-ipex-4e4k
+- https://testbigdldocshane.readthedocs.io/en/docs-demo/doc/LLM/Quickstart/ollama_quickstart.html 
+- https://www.restack.io/p/ollama-answer-intel-gpu-usage-cat-ai

@@ -1,0 +1,149 @@
+---
+title: "MongoDB en Docker"
+description: |
+  Veamos como instalar y ejecutar MongDB en un contenedor con Docker.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-26-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+    code_folding: hide
+#    toc_float: false
+categories:
+  - NoSQL
+  - MongoDB
+  - Docker
+  - HomeLab
+preview: ../../images/edex-ui.png
+---
+
+## Fuentes
+- https://es.stackoverflow.com/questions/894/aplicar-filtros-a-consulta-nosql-en-mongodb
+- https://docs.mongodb.org/manual/reference/
+- https://platzi.com/tutoriales/1533-mongodb-basico/4930-instalar-mongo-db-usando-docker/
+- https://serverspace.io/support/help/how-to-install-and-configure-mongodb-in-docker/
+## Ejecutar MongoDB desde una contenedor Docker
+Podemos encontrar la imagen oficial de MongoDB para Docker en [DockerHub](https://hub.docker.com/_/mongo) 
+Start a `mongo` server instance
+```bash
+docker pull mongo
+docker run --name some-mongo -d mongo:tag
+```
+
+Connect to MongoDB from another Docker container
+
+The MongoDB server in the image listens on the standard MongoDB port, `27017`, so connecting via Docker networks will be the same as connecting to a remote `mongod`. The following example starts another MongoDB container instance and runs the `mongosh` (use `mongo` with `4.x` versions) command line client against the original MongoDB container from the example above, allowing you to execute MongoDB statements against your database instance:
+
+```bash
+docker run -it --network some-network --rm mongo mongosh --host some-mongo test
+```
+
+Example `docker-compose.yml` for `mongo`:
+
+```bash
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_BASICAUTH: false
+```
+
+Container shell access and viewing MongoDB logs
+
+The `docker exec` command allows you to run commands inside a Docker container. The following command line will give you a bash shell inside your `mongo` container:
+```console
+docker exec -it some-mongo bash
+```
+
+The MongoDB Server log is available through Docker's container log:
+```console
+docker logs some-mongo
+```
+## Consultas en MongoDB
+
+Documentaciónsobre operadores de consultas en MongoDB [Query Operator Array](https://docs.mongodb.org/manual/reference/operator/)
+
+```console
+query <- sprintf('{"Initial_Date": {"$gte": {"$date": "%s"}, "$lte": {"$date": "%s"}}}', start_date, end_date)
+query <- '{"Simulation_Name" : "s2"}'
+query <- '{"ID" : 3}'
+query <- '{"Initial_Date" : {"$gte": {"$date": "2024-09-03T07:00:00Z"}}}'
+```
+
+Si te refieres a hacer el query desde la consola de MongoDB, puedes intentar lo siguiente (estoy usando la versión `v3.2`) usando el operador de array [`$all`](https://docs.mongodb.org/manual/reference/operator/query/all/#op._S_all):
+
+```console
+db.nombrecoleccion.find({
+    'payload.source': {
+        $all: ["192.168.100.107", 915]
+    }
+})
+```
+
+Lo que hace `$all` es obtener los documentos en donde el valor del campo es un `array` que contiene los elementos especificados.
+
+Más ejemplos:
+
+- Buscar el primer elemento del `array`:
+    
+```console
+    db.nombrecoleccion.find({
+        'payload.source.0': "192.168.100.107"
+    }) 
+```
+    
+- Buscar el segundo elemento y que sea mayor que `900`:
+    
+```console
+    db.nombrecoleccion.find({
+        'payload.source.1': {$gt: 900}
+    }) 
+```
+    
+- Buscar mezclando las dos condiciones anteriores:
+    
+```console
+    db.nombrecoleccion.find({
+        'payload.source.0': "192.168.100.107",
+        'payload.source.1': {$gt: 900}
+    }) 
+```
+    
+- Buscar en donde el primer elemento sea igual a cualquiera de los valores en un array (usando el operador [`$in`](https://docs.mongodb.org/manual/reference/operator/query/in/)):
+    
+```console
+    db.nombrecoleccion.find({
+        'payload.source.0': {
+            $in: [
+                "192.168.100.105", 
+                "192.168.100.107", 
+                "192.168.100.109"
+             ]
+        }
+    })
+```
+
+Puedes consultar otros operadores para `array` en [Query Operator Array](https://docs.mongodb.org/manual/reference/operator/query-array/)
+
+
