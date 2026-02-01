@@ -1,0 +1,78 @@
+---
+title: "MCP Server de n8n"
+description: |
+  "El servicio MCP e n8n nos permite utilizar este importante motor low-code de workflows de IA desde agentes autónomos inteligentes, aun cuando tenemos instalado el n8n localmente. Esta herramienta es esencial para el desarrollo de workflows con agentes de codificación como Claude-Code.". 
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 08-26-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Python
+  - n8n
+  - Ollama
+  - GenAI
+  - AgenticAI
+  - MCP
+  - HomeLab
+preview: ../../images/RoboticsAI_tn.png
+#draft: true
+---
+
+
+
+Fuentes:  
+- Model Context Protocol (MCP): [web](https://modelcontextprotocol.io/docs/getting-started/intro) 
+- [video](https://www.youtube.com/watch?v=xf2i6Acs1mI) [repo](https://github.com/czlonkowski/n8n-mcp) [video](https://www.youtube.com/watch?v=0vYI7cOYziU) [video](https://www.youtube.com/watch?v=JL2HpUDUj2g&t=3s) [video](https://www.youtube.com/watch?v=_d7tK-Hx7fM) 
+- Repositorio [n8n-mcp](https://github.com/promptadvisers/n8n-mcp)
+
+Descargar la imagen docker del servidor MCP de n8n:
+```bash
+docker pull ghcr.io/czlonkowski/n8n-mcp:latest
+```
+
+Levantar el servicio MCP en docker con:
+```bash
+docker run -i --rm --init -e MCP_MODE=stdio -e LOG_LEVEL=error -e DISABLE_CONSOLE_OUTPUT=true -e N8N_API_URL=http://host.docker.internal:5678 -e N8N_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZDkwOGY1MS1hNDYzLTQ1ODUtYjM0Yi1hZTFjNzU5ZWE2Y2UiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU2MjY0MzY2fQ.uhQrXjIMhoJYGU8qaNn3NFRPfIaOZeO_M-t7ofWdEHU ghcr.io/czlonkowski/n8n-mcp
+```
+
+Agregar el descriptor del nuevo servicio MCP en la configuración del cliente MCP, como por ejemplo Claude Desktop
+```
+{
+"mcpServers": {
+	 "n8n-mcp": {
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "--init",
+                "-e", "MCP_MODE=stdio",
+                "-e", "LOG_LEVEL=error",
+                "-e", "DISABLE_CONSOLE_OUTPUT=true",
+                "-e",  "N8N_API_URL=http://host.docker.internal:5678",
+                "-e", "N8N_API_KEY=your-api-key",
+                "ghcr.io/czlonkowski/n8n-mcp:latest"
+            ]
+        }
+}
+```
+
+## GitMCP
+
+Servicios MCP a partir de repositorios Github con [GitMCP]([GitMCP](https://gitmcp.io/)). Podemos crear instantáneamente un servidor MCP remoto para cualquier repositorio de GitHub. Simplemente cambiando el dominio de github.com o github.io a gitmcp.io y obtenga contexto de IA instantáneo para cualquier repositorio de GitHub. Usaremos este servicio para agregar otros servicios MCP necesarios para interactuar con n8n desde un agente de código, que serán los siguientes:
+Referencias:
+- [RECURSOS CLAUDE MCP N8N - Google Docs](https://docs.google.com/document/d/1P0DLJg1ZqDBsYmAVc6kwCsH-WnKtghM_ZmkeUEtLR1g/edit?tab=t.0)
+- [Repositorio de n8n-mcp](https://github.com/promptadvisers/n8n-mcp) 
+- [Context7 MCP Server -- Up-to-date code documentation for LLMs and AI code editors](https://github.com/upstash/context7) 
+- [Repositorio de cientos de workflows de n8n](https://github.com/Zie619/n8n-workflows/tree/main) 
+
+Aquí los servicios MCP disponibles:
+- [ ] GitMCP Server: [n8n-workflows Docs](https://gitmcp.io/Zie619/n8n-workflows/tree/main)
+- [ ] GitMCP Server: [context7 Docs]([GitMCP](https://gitmcp.io/upstash/context7)) 
+- [ ] GitMCP Server: [n8n-mcp Docs](https://gitmcp.io/promptadvisers/n8n-mcp) 

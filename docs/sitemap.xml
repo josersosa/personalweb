@@ -45,12 +45,28 @@
     <lastmod>2026-02-01T17:52:22+00:00</lastmod>
   </url>
   <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n/</loc>
+    <lastmod>2026-02-01T20:49:10+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama/</loc>
     <lastmod>2026-02-01T17:51:55+00:00</lastmod>
   </url>
   <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice/</loc>
+    <lastmod>2026-02-01T20:47:30+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator/</loc>
+    <lastmod>2026-02-01T20:50:49+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-escritorio-linux-web-en-docker/</loc>
     <lastmod>2026-02-01T18:44:39+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker/</loc>
+    <lastmod>2026-02-01T20:45:17+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker/</loc>
@@ -59,10 +75,6 @@
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/</loc>
     <lastmod>2026-01-28T20:54:26+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker/</loc>
-    <lastmod>2026-02-01T17:48:58+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-01-28-creando-un-web-chat-de-genai-con-gradio/</loc>

@@ -36,6 +36,22 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker/../../images/workflows-automation.png" medium="image" type="image/png" width="1300" height="860"/>
     </item>
     <item>
+      <title>MCP Server de n8n</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n</link>
+      <description>"El servicio MCP e n8n nos permite utilizar este importante motor low-code de workflows de IA desde agentes autónomos inteligentes, aun cuando tenemos instalado el n8n localmente. Esta herramienta es esencial para el desarrollo de workflows con agentes de codificación como Claude-Code.".</description>
+      <category>Python</category>
+      <category>n8n</category>
+      <category>Ollama</category>
+      <category>GenAI</category>
+      <category>AgenticAI</category>
+      <category>MCP</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n</guid>
+      <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+    </item>
+    <item>
       <title>Agente básico MCP con Ollama</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama</link>
@@ -51,6 +67,29 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
     </item>
     <item>
+      <title>Macro de LLMs locales en LibreOffice</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice</link>
+      <description>Veamos como crear una macro en LibreOffice Calc que utilice **Python** (a través de PyUNO) para enviar un prompt a un modelo LLM local en Ollama.</description>
+      <category>Python</category>
+      <category>GenAI</category>
+      <category>Ofimática</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice</guid>
+      <pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+    </item>
+    <item>
+      <title>Notificación Push con Microsoft Authenticator</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator</link>
+      <description>"Veamos como podemos incorporar un doble factor de autenticación (FMA) en nuestras aplicaciones usando Windows Authenticator."</description>
+      <category>MFA</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator</guid>
+      <pubDate>Mon, 26 May 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-notificacin-push-con-microsoft-authenticator/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
       <title>Escritorio Linux Web en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-escritorio-linux-web-en-docker</link>
@@ -61,6 +100,19 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-escritorio-linux-web-en-docker</guid>
       <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-escritorio-linux-web-en-docker/../../images/webtop.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>LibreOffice en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker</link>
+      <description>"Podemos ejecutar la suite completa de LibreOffice en un contenedor Docker y acceder a sus aplicaciones vía web en nuestra red local."</description>
+      <category>Linux</category>
+      <category>Ofimática</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker</guid>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker/../../images/webtop.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>Gestión de volúmenes de Docker</title>
@@ -86,21 +138,6 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker</guid>
       <pubDate>Tue, 20 Aug 2024 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png" medium="image" type="image/png" width="520" height="334"/>
-    </item>
-    <item>
-      <title>ChromaDB base de datos vectorial en Docker</title>
-      <dc:creator>José R Sosa</dc:creator>
-      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker</link>
-      <description>ChromaDB es una base de datos de vectores, muy utilizada en proyectos personales y pruebas de concepto para experimentar con la búsqueda semántica. Es útil por su facilidad de uso y porque funciona principalmente en memoria. Veamos como activar y usar esta base de datos en un contenedor de Docker.</description>
-      <category>Python</category>
-      <category>Data Science</category>
-      <category>Docker</category>
-      <category>GenAI</category>
-      <category>Vector DB</category>
-      <category>RAG</category>
-      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker</guid>
-      <pubDate>Tue, 20 Aug 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png" medium="image" type="image/png" width="520" height="334"/>
     </item>
     <item>
       <title>Creando un Web Chat de GenAI con Gradio</title>

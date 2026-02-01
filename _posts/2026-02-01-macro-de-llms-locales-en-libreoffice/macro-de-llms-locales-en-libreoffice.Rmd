@@ -1,0 +1,124 @@
+---
+title: "Macro de LLMs locales en LibreOffice"
+description: |
+  Veamos como crear una macro en LibreOffice Calc que utilice **Python** (a través de PyUNO) para enviar un prompt a un modelo LLM local en Ollama.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 2025-05-29
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+    code_folding: hide
+#    toc_float: false
+categories:
+  - Python
+  - GenAI
+  - Ofimática
+  - HomeLab
+preview: ../../images/RoboticsAI_tn.png
+---
+
+## Referencias:
+- [Macros/Guía de Python/Introducción](https://wiki.documentfoundation.org/Macros/Python_Guide/Introduction/es) 
+- [Python as a macro language](https://wiki.openoffice.org/wiki/Python_as_a_macro_language) 
+- [Assigning Scripts in LibreOffice]([Scripting LibreOffice](https://help.libreoffice.org/25.2/en-US/text/shared/guide/scripting.html?&DbPAR=CALC&System=WIN)) 
+- [Diseño y desarrollo de aplicaciones en Python](https://wiki.documentfoundation.org/Macros/Python_Design_Guide/es) 
+
+
+
+### **Requisitos previos**
+
+1. **LibreOffice con PyUNO instalado**: 
+    - Instala **PyUNO** en tu sistema ([https://www.libreoffice.org/download/](https://www.libreoffice.org/download/) ).
+    - Asegúrate de que el entorno de Python de LibreOffice esté configurado correctamente.
+2. **Ollama instalado y en ejecución**:
+    - Descarga e instala [Ollama](https://ollama.com/download) .
+    - Ejecuta `ollama serve` para iniciar el servidor local.
+    - Asegúrate de que el modelo deseado esté instalado: `ollama pull <modelo>`.
+3. **Librería `requests`**:
+    - Instala `requests` en Python (para hacer solicitudes HTTP):
+```bash
+pip install requests
+```
+
+
+### **Código de la macro en Python (PyUNO)**
+
+1. **Abre LibreOffice Calc** y ve a **Herramientas > Macros > Organizar macros > Python**.
+2. Crea un nuevo módulo y añade el siguiente código:
+
+```bash
+import requests
+import json
+
+def ollama_generate(model, prompt):
+    url = "http://localhost:11434/api/generate"
+    data = {
+        "model": model,
+        "prompt": prompt,
+        "stream": False
+    }
+    headers = {"Content-Type": "application/json"}
+    response = requests.post(url, data=json.dumps(data), headers=headers)
+    if response.status_code == 200:
+        result = response.json().get("response", "No se encontró respuesta")
+        return result
+    else:
+        return f"Error en Ollama: {response.status_code}"
+
+def macro_ollama(model, prompt):
+    result = ollama_generate(model, prompt)
+    current_cell = ThisComponent.CurrentController.ActiveCell
+    current_cell.setValue(result)
+```
+
+### ¿Dónde se guardan las macros?
+
+No hay una forma incorporada de editar scripts de Python, por lo que debe usar su propio editor de texto. Hay 3 lugares donde puedes poner tu código.
+
+#### En la carpeta de Perfil de Usuario (USER), las macros están solo disponibles para el Usuario
+
+GNU/Linux
+```bash
+/home/USER/.config/libreoffice/4/user/Scripts/python
+```
+
+Windows
+```cmd
+%APPDATA%\LibreOffice\4\user\Scripts\python
+```
+
+macOS
+```bash
+~/Library/Application Support/LibreOffice/4/user/Scripts/python/
+```
+
+#### En la carpeta del programa, las macros están disponibles para todos los usuarios
+
+GNU/Linux
+```bash
+/usr/lib/libreoffice/share/Scripts/python/
+```
+
+### **Cómo usar la macro**
+
+1. **Asigna la macro a una celda**:
+    - En una celda, escribe la fórmula:
+    ```bash
+=macro_ollama("llama3", "¿Qué es la inteligencia artificial?")
+```
+
+	 - Reemplaza `"llama3"` con el nombre del modelo de Ollama y el prompt según tus necesidades.
+2. **Resultado**:
+    - El resultado se mostrará en la celda donde se llamó la macro.
+
+
+### **Notas importantes**
+
+- **PyUNO**: Asegúrate de que el entorno de Python de LibreOffice esté configurado correctamente.
+- **Ollama**: El servidor debe estar en ejecución (`ollama serve`) y el modelo debe estar disponible.
+- **Manejo de errores**: El código básicamente maneja errores de conexión, pero puedes expandirlo para capturar excepciones o mensajes de Ollama.
+

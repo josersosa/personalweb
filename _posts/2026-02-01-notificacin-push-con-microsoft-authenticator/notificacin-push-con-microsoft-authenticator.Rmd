@@ -1,0 +1,38 @@
+---
+title: "Notificación Push con Microsoft Authenticator"
+description: |
+  "Veamos como podemos incorporar un doble factor de autenticación (FMA) en nuestras aplicaciones usando Windows Authenticator."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 05-26-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - MFA
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+
+Si solo se necesita que el usuario apruebe o rechace la operación,  usar **Azure AD MFA** con una política de **Access Control Conditional**.
+- https://learn.microsoft.com/es-es/entra/identity/conditional-access/overview
+- https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-sample
+- https://learn.microsoft.com/en-us/entra/identity/conditional-access/
+### Configuración en Azure AD
+
+1. Ve a **Azure Portal → Azure AD → Seguridad → MFA**  
+2. Habilita **Microsoft Authenticator (Notificación Push)**  
+3. Crea una **política de acceso condicional** que **requiera MFA** al ejecutar la operación en el bot.  
+4. En el código del asistente, usa **OAuth 2.0** con Azure AD para autenticar al usuario antes de la acción.
+
+**Flujo**:
+
+1. El usuario solicita una operación segura.
+2. El asistente inicia un **desafío MFA** usando Azure AD.
+3. El usuario recibe una **notificación push** en Microsoft Authenticator y debe aprobarla.
+4. Si la aprueba, el asistente ejecuta la operación.

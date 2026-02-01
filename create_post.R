@@ -87,9 +87,10 @@ knitr::include_graphics("images/gradio_01.png")
 # ```
 
 # o con fecha:
-distill::create_post(title = "ChromaDB base de datos vectorial en Docker",
+distill::create_post(title = "MCP Server de n8n",
                      author = "José R Sosa",
                      date = "2025-07-11",
                      date_prefix = TRUE,
                      draft = FALSE)
 rmarkdown::render_site(input = here::here())
+

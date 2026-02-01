@@ -49,6 +49,33 @@
     "preview_height": 860
   },
   {
+    "path": "posts/2026-02-01-mcp-server-de-n8n/",
+    "title": "MCP Server de n8n",
+    "description": "\"El servicio MCP e n8n nos permite utilizar este importante motor low-code de workflows de IA desde agentes autónomos inteligentes, aun cuando tenemos instalado el n8n localmente. Esta herramienta es esencial para el desarrollo de workflows con agentes de codificación como Claude-Code.\".",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2025-08-26",
+    "categories": [
+      "Python",
+      "n8n",
+      "Ollama",
+      "GenAI",
+      "AgenticAI",
+      "MCP",
+      "HomeLab"
+    ],
+    "contents": "\n\nContents\nGitMCP\n\nFuentes:\n- Model Context Protocol (MCP): web\n- video repo video video video\n- Repositorio n8n-mcp\nDescargar la imagen docker del servidor MCP de n8n:\ndocker pull ghcr.io/czlonkowski/n8n-mcp:latest\nLevantar el servicio MCP en docker con:\ndocker run -i --rm --init -e MCP_MODE=stdio -e LOG_LEVEL=error -e DISABLE_CONSOLE_OUTPUT=true -e N8N_API_URL=http://host.docker.internal:5678 -e N8N_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZDkwOGY1MS1hNDYzLTQ1ODUtYjM0Yi1hZTFjNzU5ZWE2Y2UiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzU2MjY0MzY2fQ.uhQrXjIMhoJYGU8qaNn3NFRPfIaOZeO_M-t7ofWdEHU ghcr.io/czlonkowski/n8n-mcp\nAgregar el descriptor del nuevo servicio MCP en la configuración del cliente MCP, como por ejemplo Claude Desktop\n{\n\"mcpServers\": {\n     \"n8n-mcp\": {\n            \"command\": \"docker\",\n            \"args\": [\n                \"run\",\n                \"-i\",\n                \"--rm\",\n                \"--init\",\n                \"-e\", \"MCP_MODE=stdio\",\n                \"-e\", \"LOG_LEVEL=error\",\n                \"-e\", \"DISABLE_CONSOLE_OUTPUT=true\",\n                \"-e\",  \"N8N_API_URL=http://host.docker.internal:5678\",\n                \"-e\", \"N8N_API_KEY=your-api-key\",\n                \"ghcr.io/czlonkowski/n8n-mcp:latest\"\n            ]\n        }\n}\nGitMCP\nServicios MCP a partir de repositorios Github con GitMCP. Podemos crear instantáneamente un servidor MCP remoto para cualquier repositorio de GitHub. Simplemente cambiando el dominio de github.com o github.io a gitmcp.io y obtenga contexto de IA instantáneo para cualquier repositorio de GitHub. Usaremos este servicio para agregar otros servicios MCP necesarios para interactuar con n8n desde un agente de código, que serán los siguientes:\nReferencias:\n- RECURSOS CLAUDE MCP N8N - Google Docs\n- Repositorio de n8n-mcp\n- Context7 MCP Server – Up-to-date code documentation for LLMs and AI code editors\n- Repositorio de cientos de workflows de n8n\nAquí los servicios MCP disponibles:\n- [ ] GitMCP Server: n8n-workflows Docs\n- [ ] GitMCP Server: context7 Docs\n- [ ] GitMCP Server: n8n-mcp Docs\n\n\n\n",
+    "preview": "posts/2026-02-01-mcp-server-de-n8n/../../images/RoboticsAI_tn.png",
+    "last_modified": "2026-02-01T20:49:10+00:00",
+    "input_file": "mcp-server-de-n8n.knit.md",
+    "preview_width": 784,
+    "preview_height": 525
+  },
+  {
     "path": "posts/2026-02-01-agente-bsico-mcp-con-ollama/",
     "title": "Agente básico MCP con Ollama",
     "description": "\"Veremos una forma sencilla de habilitar un afgente con un servicio MCP y modelos LLM locales con Ollama\".",
@@ -75,6 +102,51 @@
     "preview_height": 525
   },
   {
+    "path": "posts/2026-02-01-macro-de-llms-locales-en-libreoffice/",
+    "title": "Macro de LLMs locales en LibreOffice",
+    "description": "Veamos como crear una macro en LibreOffice Calc que utilice **Python** (a través de PyUNO) para enviar un prompt a un modelo LLM local en Ollama.",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2025-05-29",
+    "categories": [
+      "Python",
+      "GenAI",
+      "Ofimática",
+      "HomeLab"
+    ],
+    "contents": "\n\nContents\nReferencias:\nRequisitos previos\nCódigo de la macro en Python (PyUNO)\n¿Dónde se guardan las macros?\nCómo usar la macro\nNotas importantes\n\n\nReferencias:\nMacros/Guía de Python/Introducción\nPython as a macro language\nAssigning Scripts in LibreOffice\nDiseño y desarrollo de aplicaciones en Python\nRequisitos previos\nLibreOffice con PyUNO instalado:\nInstala PyUNO en tu sistema (https://www.libreoffice.org/download/ ).\nAsegúrate de que el entorno de Python de LibreOffice esté configurado correctamente.\n\nOllama instalado y en ejecución:\nDescarga e instala Ollama .\nEjecuta ollama serve para iniciar el servidor local.\nAsegúrate de que el modelo deseado esté instalado: ollama pull <modelo>.\n\nLibrería requests:\nInstala requests en Python (para hacer solicitudes HTTP):\npip install requests\nCódigo de la macro en Python (PyUNO)\nAbre LibreOffice Calc y ve a Herramientas > Macros > Organizar macros > Python.\nCrea un nuevo módulo y añade el siguiente código:\nimport requests\nimport json\n\ndef ollama_generate(model, prompt):\n    url = \"http://localhost:11434/api/generate\"\n    data = {\n        \"model\": model,\n        \"prompt\": prompt,\n        \"stream\": False\n    }\n    headers = {\"Content-Type\": \"application/json\"}\n    response = requests.post(url, data=json.dumps(data), headers=headers)\n    if response.status_code == 200:\n        result = response.json().get(\"response\", \"No se encontró respuesta\")\n        return result\n    else:\n        return f\"Error en Ollama: {response.status_code}\"\n\ndef macro_ollama(model, prompt):\n    result = ollama_generate(model, prompt)\n    current_cell = ThisComponent.CurrentController.ActiveCell\n    current_cell.setValue(result)\n¿Dónde se guardan las macros?\nNo hay una forma incorporada de editar scripts de Python, por lo que debe usar su propio editor de texto. Hay 3 lugares donde puedes poner tu código.\nEn la carpeta de Perfil de Usuario (USER), las macros están solo disponibles para el Usuario\nGNU/Linux\n/home/USER/.config/libreoffice/4/user/Scripts/python\nWindows\n%APPDATA%\\LibreOffice\\4\\user\\Scripts\\python\nmacOS\n~/Library/Application Support/LibreOffice/4/user/Scripts/python/\nEn la carpeta del programa, las macros están disponibles para todos los usuarios\nGNU/Linux\n/usr/lib/libreoffice/share/Scripts/python/\nCómo usar la macro\nAsigna la macro a una celda:\nEn una celda, escribe la fórmula:\n=macro_ollama(\"llama3\", \"¿Qué es la inteligencia artificial?\")\nReemplaza \"llama3\" con el nombre del modelo de Ollama y el prompt según tus necesidades.\n\nResultado:\nEl resultado se mostrará en la celda donde se llamó la macro.\n\nNotas importantes\nPyUNO: Asegúrate de que el entorno de Python de LibreOffice esté configurado correctamente.\nOllama: El servidor debe estar en ejecución (ollama serve) y el modelo debe estar disponible.\nManejo de errores: El código básicamente maneja errores de conexión, pero puedes expandirlo para capturar excepciones o mensajes de Ollama.\n\n\n\n",
+    "preview": "posts/2026-02-01-macro-de-llms-locales-en-libreoffice/../../images/RoboticsAI_tn.png",
+    "last_modified": "2026-02-01T20:47:30+00:00",
+    "input_file": "macro-de-llms-locales-en-libreoffice.knit.md",
+    "preview_width": 784,
+    "preview_height": 525
+  },
+  {
+    "path": "posts/2026-02-01-notificacin-push-con-microsoft-authenticator/",
+    "title": "Notificación Push con Microsoft Authenticator",
+    "description": "\"Veamos como podemos incorporar un doble factor de autenticación (FMA) en nuestras aplicaciones usando Windows Authenticator.\"",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2025-05-26",
+    "categories": [
+      "MFA"
+    ],
+    "contents": "\nSi solo se necesita que el usuario apruebe o rechace la operación, usar Azure AD MFA con una política de Access Control Conditional.\n- https://learn.microsoft.com/es-es/entra/identity/conditional-access/overview\n- https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-sample\n- https://learn.microsoft.com/en-us/entra/identity/conditional-access/\n### Configuración en Azure AD\nVe a Azure Portal → Azure AD → Seguridad → MFA\nHabilita Microsoft Authenticator (Notificación Push)\nCrea una política de acceso condicional que requiera MFA al ejecutar la operación en el bot.\nEn el código del asistente, usa OAuth 2.0 con Azure AD para autenticar al usuario antes de la acción.\nFlujo:\nEl usuario solicita una operación segura.\nEl asistente inicia un desafío MFA usando Azure AD.\nEl usuario recibe una notificación push en Microsoft Authenticator y debe aprobarla.\nSi la aprueba, el asistente ejecuta la operación.\n\n\n\n",
+    "preview": "posts/2026-02-01-notificacin-push-con-microsoft-authenticator/../../images/edex-ui.png",
+    "last_modified": "2026-02-01T20:50:49+00:00",
+    "input_file": "notificacin-push-con-microsoft-authenticator.knit.md",
+    "preview_width": 800,
+    "preview_height": 450
+  },
+  {
     "path": "posts/2026-02-01-escritorio-linux-web-en-docker/",
     "title": "Escritorio Linux Web en Docker",
     "description": "\"Webtop es un completo escritorio Lnux con interface web basado en Ubuntu, que puede correr en nuestro laboratorio local en un contenedor Docker.\"",
@@ -94,6 +166,28 @@
     "preview": "posts/2026-02-01-escritorio-linux-web-en-docker/../../images/webtop.jpg",
     "last_modified": "2026-02-01T18:44:39+00:00",
     "input_file": "escritorio-linux-web-en-docker.knit.md"
+  },
+  {
+    "path": "posts/2026-02-01-libreoffice-en-docker/",
+    "title": "LibreOffice en Docker",
+    "description": "\"Podemos ejecutar la suite completa de LibreOffice en un contenedor Docker y acceder a sus aplicaciones vía web en nuestra red local.\"",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2025-04-21",
+    "categories": [
+      "Linux",
+      "Ofimática",
+      "Docker",
+      "HomeLab"
+    ],
+    "contents": "\nPara Libreoffice en web dentro de una contenedor Docker, debemos ejecutar:\ndocker run -d \\\n--name=libreoffice \\\n-e PUID=1000 \\\n-e PGID=1000 \\\n-e TZ=Etc/UTC \\\n-p 3010:3000 -p 3011:3001 \\\n--shm-size=\"1gb\" \\\n--restart unless-stopped \\\nlscr.io/linuxserver/libreoffice:latest\nAccedemos a las aplicaciones por aquí: http://localhot:3001/\n\n\n\n",
+    "preview": "posts/2026-02-01-libreoffice-en-docker/../../images/webtop.jpg",
+    "last_modified": "2026-02-01T20:45:17+00:00",
+    "input_file": "libreoffice-en-docker.knit.md"
   },
   {
     "path": "posts/2026-01-29-gestin-de-volumenes-de-docker/",
@@ -138,32 +232,6 @@
     "contents": "\n\nContents\nFuentes:\nLevantar el servicio ChromaDB en Docker:\nDescripción del servicio\nIngesta de documentos con Python\nBúsquedas sobre ChromaDB con Python\n\nFuentes:\nVideo: Let’s build a RAG system - The Ollama Course\n2024-09-10-buildrag repo\nDocumentación de ChromaDB\nLevantar el servicio ChromaDB en Docker:\nPara ejecutar un chomadb con docker, solo hace falta ejecutar:\ndocker volume create chroma_data\ndocker run -d --name chromadb -p 8000:8000 -v chroma_data:/chromadb/data chromadb/chroma\nDescripción del servicio\nLa documentacion del API asociado con els ervicio de ChromaDB esta en el siguiente enlace:\nhttp://localhost:8000/docs\nIngesta de documentos con Python\nEl siguiente programa importdocs.py ingesta todos los archivos de texto incluidos en un directorio:\nimport os\nimport re\nimport ollama\nimport chromadb\n\ndef readtextfiles(path):\n  text_contents = {}\n  directory = os.path.join(path)\n\n  for filename in os.listdir(directory):\n    if filename.endswith(\".txt\"):\n      file_path = os.path.join(directory, filename)\n\n      with open(file_path, \"r\", encoding=\"utf-8\") as file:\n        content = file.read()\n\n      text_contents[filename] = content\n\n  return text_contents\n\ndef chunksplitter(text, chunk_size=100):\n  words = re.findall(r'\\S+', text)\n\n  chunks = []\n  current_chunk = []\n  word_count = 0\n\n  for word in words:\n    current_chunk.append(word)\n    word_count += 1\n\n    if word_count >= chunk_size:\n      chunks.append(' '.join(current_chunk))\n      current_chunk = []\n      word_count = 0\n\n  if current_chunk:\n    chunks.append(' '.join(current_chunk))\n\n  return chunks\n\ndef getembedding(chunks):\n  embeds = ollama.embed(model=\"nomic-embed-text\", input=chunks)\n  return embeds.get('embeddings', [])\n\nchromaclient = chromadb.HttpClient(host=\"localhost\", port=8000)\ntextdocspath = \"../../scripts\"\ntext_data = readtextfiles(textdocspath)\n\ncollection = chromaclient.get_or_create_collection(name=\"buildragwithpython\", metadata={\"hnsw:space\": \"cosine\"}  )\nif any(collection.name == collectionname for collection in chromaclient.list_collections()):\n  chromaclient.delete_collection(\"buildragwithpython\")\n\nfor filename, text in text_data.items():\n  chunks = chunksplitter(text)\n  embeds = getembedding(chunks)\n  chunknumber = list(range(len(chunks)))\n  ids = [filename + str(index) for index in chunknumber]\n  metadatas = [{\"source\": filename} for index in chunknumber]\n  collection.add(ids=ids, documents=chunks, embeddings=embeds, metadatas=metadatas)\nEl cual tiene el siguiente requirement.txt:\nchromadb\nos\nre\nBúsquedas sobre ChromaDB con Python\nEl siguiente programa search.py muestra una manera de implementar la busqueda semántica sobre nuestra base de conocimeinto alamacenada en ChromaDB:\nimport sys, chromadb, ollama\n\nchromaclient = chromadb.HttpClient(host=\"localhost\", port=8000)\ncollection = chromaclient.get_or_create_collection(name=\"buildragwithpython\")\n\nquery = \" \".join(sys.argv[1:])\nqueryembed = ollama.embed(model=\"nomic-embed-text\", input=query)['embeddings']\n\nrelateddocs = '\\n\\n'.join(collection.query(query_embeddings=queryembed, n_results=10)['documents'][0])\nprompt = f\"{query} - Answer that question using the following text as a resource: {relateddocs}\"\nnoragoutput = ollama.generate(model=\"mistral\", prompt=query, stream=False)\nprint(f\"Answered without RAG: {noragoutput['response']}\")\nprint(\"---\")\nragoutput = ollama.generate(model=\"llama3.1\", prompt=prompt, stream=False)\n\nprint(f\"Answered with RAG: {ragoutput['response']}\")\n\n\n\n",
     "preview": "posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png",
     "last_modified": "2026-01-28T20:54:26+00:00",
-    "input_file": {},
-    "preview_width": 520,
-    "preview_height": 334
-  },
-  {
-    "path": "posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker/",
-    "title": "ChromaDB base de datos vectorial en Docker",
-    "description": "ChromaDB es una base de datos de vectores, muy utilizada en proyectos personales y pruebas de concepto para experimentar con la búsqueda semántica. Es útil por su facilidad de uso y porque funciona principalmente en memoria. Veamos como activar y usar esta base de datos en un contenedor de Docker.",
-    "author": [
-      {
-        "name": "José R Sosa",
-        "url": "https://example.com/josersosa"
-      }
-    ],
-    "date": "2024-08-20",
-    "categories": [
-      "Python",
-      "Data Science",
-      "Docker",
-      "GenAI",
-      "Vector DB",
-      "RAG"
-    ],
-    "contents": "\n\nContents\nFuentes:\nLevantar el servicio ChromaDB en Docker:\nDescripción del servicio\nIngesta de documentos con Python\nBúsquedas sobre ChromaDB con Python\n\nFuentes:\nVideo: Let’s build a RAG system - The Ollama Course\n2024-09-10-buildrag repo\nDocumentación de ChromaDB\nLevantar el servicio ChromaDB en Docker:\nPara ejecutar un chomadb con docker, solo hace falta ejecutar:\ndocker volume create chroma_data\ndocker run -d --name chromadb -p 8000:8000 -v chroma_data:/chromadb/data chromadb/chroma\nDescripción del servicio\nLa documentacion del API asociado con els ervicio de ChromaDB esta en el siguiente enlace:\nhttp://localhost:8000/docs\nIngesta de documentos con Python\nEl siguiente programa importdocs.py ingesta todos los archivos de texto incluidos en un directorio:\nimport os\nimport re\nimport ollama\nimport chromadb\n\ndef readtextfiles(path):\n  text_contents = {}\n  directory = os.path.join(path)\n\n  for filename in os.listdir(directory):\n    if filename.endswith(\".txt\"):\n      file_path = os.path.join(directory, filename)\n\n      with open(file_path, \"r\", encoding=\"utf-8\") as file:\n        content = file.read()\n\n      text_contents[filename] = content\n\n  return text_contents\n\ndef chunksplitter(text, chunk_size=100):\n  words = re.findall(r'\\S+', text)\n\n  chunks = []\n  current_chunk = []\n  word_count = 0\n\n  for word in words:\n    current_chunk.append(word)\n    word_count += 1\n\n    if word_count >= chunk_size:\n      chunks.append(' '.join(current_chunk))\n      current_chunk = []\n      word_count = 0\n\n  if current_chunk:\n    chunks.append(' '.join(current_chunk))\n\n  return chunks\n\ndef getembedding(chunks):\n  embeds = ollama.embed(model=\"nomic-embed-text\", input=chunks)\n  return embeds.get('embeddings', [])\n\nchromaclient = chromadb.HttpClient(host=\"localhost\", port=8000)\ntextdocspath = \"../../scripts\"\ntext_data = readtextfiles(textdocspath)\n\ncollection = chromaclient.get_or_create_collection(name=\"buildragwithpython\", metadata={\"hnsw:space\": \"cosine\"}  )\nif any(collection.name == collectionname for collection in chromaclient.list_collections()):\n  chromaclient.delete_collection(\"buildragwithpython\")\n\nfor filename, text in text_data.items():\n  chunks = chunksplitter(text)\n  embeds = getembedding(chunks)\n  chunknumber = list(range(len(chunks)))\n  ids = [filename + str(index) for index in chunknumber]\n  metadatas = [{\"source\": filename} for index in chunknumber]\n  collection.add(ids=ids, documents=chunks, embeddings=embeds, metadatas=metadatas)\nEl cual tiene el siguiente requirement.txt:\nchromadb\nos\nre\nBúsquedas sobre ChromaDB con Python\nEl siguiente programa search.py muestra una manera de implementar la busqueda semántica sobre nuestra base de conocimeinto alamacenada en ChromaDB:\nimport sys, chromadb, ollama\n\nchromaclient = chromadb.HttpClient(host=\"localhost\", port=8000)\ncollection = chromaclient.get_or_create_collection(name=\"buildragwithpython\")\n\nquery = \" \".join(sys.argv[1:])\nqueryembed = ollama.embed(model=\"nomic-embed-text\", input=query)['embeddings']\n\nrelateddocs = '\\n\\n'.join(collection.query(query_embeddings=queryembed, n_results=10)['documents'][0])\nprompt = f\"{query} - Answer that question using the following text as a resource: {relateddocs}\"\nnoragoutput = ollama.generate(model=\"mistral\", prompt=query, stream=False)\nprint(f\"Answered without RAG: {noragoutput['response']}\")\nprint(\"---\")\nragoutput = ollama.generate(model=\"llama3.1\", prompt=prompt, stream=False)\n\nprint(f\"Answered with RAG: {ragoutput['response']}\")\n\n\n\n",
-    "preview": "posts/2026-02-01-chromadb-base-de-datos-vectorial-en-docker/../../images/VectorDBs.png",
-    "last_modified": "2026-02-01T17:48:58+00:00",
     "input_file": {},
     "preview_width": 520,
     "preview_height": 334

@@ -1,0 +1,39 @@
+---
+title: "LibreOffice en Docker"
+description: |
+  "Podemos ejecutar la suite completa de LibreOffice en un contenedor Docker y acceder a sus aplicaciones vía web en nuestra red local."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-21-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Linux
+  - Ofimática
+  - Docker
+  - HomeLab
+preview: ../../images/webtop.jpg
+#draft: true
+---
+
+Para Libreoffice en web dentro de una contenedor Docker, debemos ejecutar:
+
+```bash
+docker run -d \
+--name=libreoffice \
+-e PUID=1000 \
+-e PGID=1000 \
+-e TZ=Etc/UTC \
+-p 3010:3000 -p 3011:3001 \
+--shm-size="1gb" \
+--restart unless-stopped \
+lscr.io/linuxserver/libreoffice:latest
+```
+
+Accedemos a las aplicaciones por aquí: http://localhot:3001/
+
