@@ -23,8 +23,8 @@
     "preview": "posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png",
     "last_modified": "2026-02-01T17:53:19+00:00",
     "input_file": {},
-    "preview_width": 784,
-    "preview_height": 525
+    "preview_width": 470,
+    "preview_height": 315
   },
   {
     "path": "posts/2026-01-29-langflow-en-docker/",
@@ -90,10 +90,10 @@
     ],
     "contents": "\n\nContents\nArquitectura de LightRAG\nRequisitos previos\nLevantar el servicio - Modelos OpenAI\nLevantar el servicio - Modelos Locales\nInterface de usuario (GUI)\n\nArquitectura de LightRAG\n\nRequisitos previos\nTener instalado Docker (y opcionalmente Docker Compose).\nVerifica:\ndocker --version\ndocker compose version   # (o `docker-compose --version` en instalaciones antiguas)\nDescarga de la imagen docker y creámo el volumen para la persistencia de los datos:\ndocker volume create lightrag \ndocker pull ghcr.io/hkuds/lightrag:latest\nLevantar el servicio - Modelos OpenAI\nPara activar el servicio invocaremos el siguiente comando:\ndocker run -d \\\n    --env=AUTH_ACCOUNTS=admin:kukenan,jose:oicicreje \\\n    --env=TOKEN_SECRET=BnzCYNwdMDtpoBWYnLv8 \\\n    --env=LIGHTRAG_API_KEY=APIKEY_LIGHTRAG  \\\n    --env=LLM_BINDING=openai \\\n    --env=LLM_BINDING_HOST=https://api.openai.com/v1 \\\n    --env=LLM_MODEL=gpt-4.1-nano \\\n    --env=LLM_BINDING_API_KEY=OPENAI_API_KEY  \\\n    --env=LLM_BINDING_API_KEY=APIKEY_OPENAI  \\\n    --env=OPENAI_LLM_MAX_TOKENS=9000  \\\n    --env=EMBEDDING_BINDING=openai  \\\n    --env=EMBEDDING_BINDING_HOST=https://api.openai.com/v1  \\\n    --env=EMBEDDING_MODEL=text-embedding-3-small  \\\n    --env=EMBEDDING_DIM=1536  \\\n    --env=EMBEDDING_BINDING_API_KEY=OPENAI_API_KEY  \\\n    --env=EMBEDDING_BINDING_API_KEY=APIKEY_OPENAI  \\\n    --env=MAX_ASYNC=12 \\\n    --env=MAX_PARALLEL_INSERT=3 \\\n    --env=EMBEDDING_FUNC_MAX_ASYNC=24 \\\n    --env=EMBEDDING_BATCH_NUM=100 \\\n    --env=LIGHTRAG_KV_STORAGE=JsonKVStorage  \\\n    --env=LIGHTRAG_DOC_STATUS_STORAGE=JsonDocStatusStorage  \\\n    --env=LIGHTRAG_GRAPH_STORAGE=NetworkXStorage  \\\n    --env=LIGHTRAG_VECTOR_STORAGE=NanoVectorDBStorage  \\\n    --env=SUMMARY_LANGUAGE=Spanish \\\n    --env=GPG_KEY=GPG_KEY  \\\n    --env=PYTHON_VERSION=3.12.11  \\\n    --env=PYTHON_SHA256=PYTHON_KEY  \\\n    --env=WORKING_DIR=/app/data/rag_storage  \\\n    --env=INPUT_DIR=/app/data/inputs  \\\n    --network=bridge  \\\n    --workdir=/app  \\\n    --name lightrag \\\n    -p 9621:9621  \\\n    -v lightrag_data:/app/data \\\n    --restart=no  \\\n    --runtime=runc  \\\n    ghcr.io/hkuds/lightrag:latest\nLevantar el servicio - Modelos Locales\nPara activar el servicio invocaremos el siguiente comando:\ndocker run -d \\\n    --env=AUTH_ACCOUNTS=admin:kukenan,jose:oicicreje \\\n    --env=TOKEN_SECRET=BnzCYNwdMDtpoBWYnLv8 \\\n    --env=LLM_BINDING=openai \\\n    --env=LLM_MODEL=gpt-4o-mini \\\n    --env=LLM_BINDING_API_KEY=OPENAI_API_KEY  \\\n    --env=LLM_BINDING_API_KEYAPIKEY_OPENAI  \\\n    --env=OPENAI_LLM_MAX_TOKENS=9000  \\\n    --env=LLM_BINDING_HOST=https://api.openai.com/v1 \\\n    --env=EMBEDDING_BINDING=openai  \\\n    --env=EMBEDDING_BINDING=openai  \\\n    --env=EMBEDDING_MODEL=text-embedding-3-small  \\\n    --env=EMBEDDING_DIM=1536  \\\n    --env=EMBEDDING_BINDING_HOST=https://api.openai.com/v1  \\\n    --env=EMBEDDING_BINDING_API_KEY=OPENAI_API_KEY  \\\n    --env=EMBEDDING_BINDING_API_KEY=APIKEY_OPENAI  \\\n    --env=LIGHTRAG_KV_STORAGE=JsonKVStorage  \\\n    --env=LIGHTRAG_DOC_STATUS_STORAGE=JsonDocStatusStorage  \\\n    --env=LIGHTRAG_GRAPH_STORAGE=NetworkXStorage  \\\n    --env=LIGHTRAG_VECTOR_STORAGE=NanoVectorDBStorage  \\\n    --env=SUMMARY_LANGUAGE=Spanish \\\n    --env=GPG_KEY=GPG_KEY  \\\n    --env=PYTHON_VERSION=3.12.11  \\\n    --env=PYTHON_SHA256=PYTHON_KEY  \\\n    --env=WORKING_DIR=/app/data/rag_storage  \\\n    --env=INPUT_DIR=/app/data/inputs  \\\n    --network=bridge  \\\n    --workdir=/app  \\\n    -p 9621:9621  \\\n    --restart=no  \\\n    --runtime=runc  \\\n    ghcr.io/hkuds/lightrag:latest\nInterface de usuario (GUI)\n\nFuentes:\nHKUDS/LightRAG: “LightRAG: Simple and Fast Retrieval-Augmented Generation”\nPackage lightrag\nTutorial LightRAG: [Simple and Fast Alternative to GraphRAG for Legal Doc Analysis]((https://learnopencv.com/lightrag/)\nMake your AI Agents 10x Smarter with GraphRAG (n8n) de The AI Automators\n\n\n\n",
     "preview": "posts/2026-02-01-lightrag-en-docker/../../images/RoboticsAI_tn.png",
-    "last_modified": "2026-02-01T22:09:31+00:00",
-    "input_file": "lightrag-en-docker.knit.md",
-    "preview_width": 784,
-    "preview_height": 525
+    "last_modified": "2026-02-01T22:09:34+00:00",
+    "input_file": {},
+    "preview_width": 470,
+    "preview_height": 315
   },
   {
     "path": "posts/2026-02-01-reprositorios-de-proyectos-de-ia/",
@@ -138,8 +138,8 @@
     "preview": "posts/2026-02-01-uso-de-genia-para-el-desarrollo-sql/../../images/RoboticsAI_tn.png",
     "last_modified": "2026-02-01T21:50:11+00:00",
     "input_file": {},
-    "preview_width": 784,
-    "preview_height": 525
+    "preview_width": 470,
+    "preview_height": 315
   },
   {
     "path": "posts/2026-02-01-neo4j-en-docker/",
@@ -215,8 +215,8 @@
     "preview": "posts/2026-02-01-agente-bsico-mcp-con-ollama/../../images/RoboticsAI_tn.png",
     "last_modified": "2026-02-01T17:51:55+00:00",
     "input_file": {},
-    "preview_width": 784,
-    "preview_height": 525
+    "preview_width": 470,
+    "preview_height": 315
   },
   {
     "path": "posts/2026-02-01-macro-de-llms-locales-en-libreoffice/",
@@ -471,11 +471,11 @@
       "HomeLab"
     ],
     "contents": "\n\nContents\nInterfaz web para LLMs con OpenWebUI\nInstalación con configuración predeterminada\nInstalación solo para uso de la API de OpenAI\n\nConfiguración de servicios MCP\nServicio MCPO en Docker\n\nIntegración con Agentes de n8n\n\nInterfaz web para LLMs con OpenWebUI\nOpen WebUI es una plataforma de IA autoalojada, extensible , rica en funciones y fácil de usar, diseñada para funcionar completamente sin conexión. Es compatible con varios ejecutores LLM como Ollama y API compatibles con OpenAI , y cuenta con un motor de inferencia integrado para RAG, lo que la convierte en una potente solución para la implementación de IA .”\nFuente: https://github.com/open-webui/open-webui\nimagendocker run -d –network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 –name open-webui –restart always ghcr.io/open-webui/open-webui:main\nInstalación con configuración predeterminada\nDescargamos la images de docker:\ndocker pull ghcr.io/open-webui/open-webui:main\nCreaos el volumen open-webui-data\ndocker volume create open-webui_data\nSi Ollama está en tu computadora corriendo en un contenedor docker como es mi caso, entonces usa este comando:\ndocker run -d -p 3001:8080 --add-host=host.docker.internal:host-gateway -v open-webui_data:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main\nSi Ollama está en un servidor diferente , use este comando:\nPara conectarse a Ollama en otro servidor, cambie la OLLAMA_BASE_URLURL del servidor:\ndocker run -d -p 3001:8080 -e OLLAMA_BASE_URL=https://example.com -v open-webui_data:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main\nPara ejecutar Open WebUI con compatibilidad con GPU Nvidia , use este comando:\ndocker run -d -p 3001:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui_data:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda\nInstalación solo para uso de la API de OpenAI\nSi solo usa la API de OpenAI , use este comando:\ndocker run -d -p 3001:8080 -e OPENAI_API_KEY=your_secret_key -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main\nConfiguración de servicios MCP\nFuente: 🛰️ MCP Support | Open WebUI\nFuente: How to Connect a local MCP to Open WebUI + Ollama in 5 mins on MacBook Air M4!\nPara configurar MCP en Open WebUI, sigue estos pasos:\n1. Instala Docker Desktop y asegúrate de que esté funcionando antes de proceder con la instalación.\n2. Descarga y compila la imagen Docker de MCP para desplegar mcpo, que expone servidores MCP como puntos finales HTTP compatibles con OpenAPI.\n3. Personaliza la configuración del archivo ‘config.json’ según las especificaciones de tu servidor MCP.\n4. Usa Docker Compose para iniciar los servidores con el comando ‘docker compose up -d’.\n5. Conecta Open WebUI a los puntos finales expuestos, por ejemplo, ‘http://localhost:8000/memory’.\n6. Revisa las herramientas disponibles dentro de Open WebUI para la interacción con los servidores MCP.\nEstos pasos te permitirán desplegar y configurar MCP en Open WebUI de manera efectiva, facilitando la integración y gestión de modelos.\nServicio MCPO en Docker\nIntegración con Agentes de n8n\n\n\n\n",
-    "preview": "posts/2026-02-01-open-webui-en-docker/../../images/edex-ui.png",
-    "last_modified": "2026-02-01T21:11:08+00:00",
+    "preview": "posts/2026-02-01-open-webui-en-docker/../../images/openwebui_01.png",
+    "last_modified": "2026-02-01T22:40:03+00:00",
     "input_file": {},
-    "preview_width": 800,
-    "preview_height": 450
+    "preview_width": 1122,
+    "preview_height": 715
   },
   {
     "path": "posts/2026-01-29-gestin-de-volumenes-de-docker/",
@@ -538,11 +538,11 @@
       "HomeLab"
     ],
     "contents": "\nEs ampliamente utilizada por desarrolladores, educadores y equipos remotos para visualizar ideas de forma rápida y sencilla directamente desde el navegador. Corre completamente en el browser y no requiere de un servicio externo para funcionar, lo que la hace muy segura\nFuentes:\n- Video\n- Repo\nPara ejecutar Scalidraw en docker usa el siguiente comando:\ndocker run -d --rm -dit --name excalidraw -p 5000:80 excalidraw/excalidraw:latest\npara subir este servicio con certificado SSL via proxi NGNX para compartirlo por intenet, segun la siguiente arquitectura:\n\nPara esto podemos usar este dosker-compose: yaml para excalidraw\nservices:\n\n  nginx-proxy:\n    image: nginx:alpine\n    container_name: nginx-proxy\n    ports:\n      - \"80:80\"\n      - \"443:443\"\n    volumes:\n      - conf:/etc/nginx/conf.d\n      - vhost:/etc/nginx/vhost.d\n      - html:/usr/share/nginx/html\n      - certs:/etc/nginx/certs:ro\n\n  docker-gen:\n    image: nginxproxy/docker-gen\n    container_name: nginx-proxy-gen\n    command: -notify-sighup nginx-proxy -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf\n    volumes_from:\n      - nginx-proxy\n    volumes:\n      - ./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro\n      - /var/run/docker.sock:/tmp/docker.sock:ro\n    labels:\n      - \"com.github.nginx-proxy.docker-gen\"\n\n  acme-companion:\n    image: nginxproxy/acme-companion\n    container_name: nginx-proxy-acme\n    environment:\n      - DEFAULT_EMAIL=pelade@ejemplo.com\n    volumes_from:\n      - nginx-proxy\n    volumes:\n      - certs:/etc/nginx/certs:rw\n      - acme:/etc/acme.sh\n      - /var/run/docker.sock:/var/run/docker.sock:ro\n\n  draw:\n    image: excalidraw/excalidraw:latest\n    restart: unless-stopped\n    healthcheck:\n      disable: true\n    environment:\n      - VIRTUAL_HOST=draw.ejemplo.com\n      - VIRTUAL_PORT=80\n      - LETSENCRYPT_HOST=draw.ejemplo.com\n      - LETSENCRYPT_MAIL=pablo@ejemplo.com\n      - REACT_APP_BACKEND_V1_GET_URL=https://draw.ejemplo.com/api/v1/\n      - REACT_APP_BACKEND_V2_GET_URL=https://draw.ejemplo.com/api/v2/\n      - REACT_APP_BACKEND_V2_POST_URL=https://draw.ejemplo.com/api/v2/post\n\n  doom:\n    image: callumhoughton22/doom-in-docker:0.1\n    restart: unless-stopped\n    environment:\n      - VIRTUAL_HOST=doom.ejemplo.com\n      - VIRTUAL_PORT=8080\n      - LETSENCRYPT_HOST=doom.ejemplo.com\n      - LETSENCRYPT_MAIL=pablo@ejemplo.com\n\nvolumes:\n  conf:\n  vhost:\n  html:\n  certs:\n  acme:\nnginx.tmpl para excalidraw\n\n\n\n",
-    "preview": "posts/2026-02-01-scalidrawio-en-docker/../../images/workflows-automation.png",
-    "last_modified": "2026-02-01T21:48:08+00:00",
+    "preview": "posts/2026-02-01-scalidrawio-en-docker/../../images/scalidraw_tn.png",
+    "last_modified": "2026-02-01T22:34:47+00:00",
     "input_file": {},
-    "preview_width": 1300,
-    "preview_height": 860
+    "preview_width": 541,
+    "preview_height": 274
   },
   {
     "path": "posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/",
@@ -653,12 +653,12 @@
       "Docker",
       "HomeLab"
     ],
-    "contents": "\n\nContents\nAcceso desde Python\nCliente-Servidor\n\nQdrant es una herramienta fundamental para la inteligencia artificial moderna, especialmente en sistemas de Generación Aumentada por Recuperación (RAG) y motores de recomendación.\n### Fuentes:\n- Imagen Docker de Qdrant\n- Guía de instalación\n- Video Install and Run Qdrant Vector Database on Docker\n- The Top 7 Vector Databases in 2025\nAcceso desde Python\npip install qdrant-client\nEl cliente de Python ofrece una forma conveniente de comenzar con Qdrant localmente:\nfrom qdrant_client import QdrantClient\nqdrant = QdrantClient(\":memory:\") # Create in-memory Qdrant instance, for testing, CI/CD\n# OR\nclient = QdrantClient(path=\"path/to/db\")  # Persists changes to disk, fast prototyping\nCliente-Servidor\nPara experimentar todo el poder de Qdrant localmente, ejecute el contenedor con este comando:\ndocker volume create qdrant_data \ndocker run -d -p 6333:6333 \\\n    --name qdrant \\\n    -e QDRANT__SERVICE__API_KEY=\"kukenan\" \\\n    --restart=always \\\n    -v qdrant_data:/qdrant/storage \\\n    qdrant/qdrant\nPara acceder a la app de Qdrand, abrimor en cualquier browser: http://localhost:6333/dashboard\nDe esta manera podemos tener mas control del volumen de datos generados para posibles respaldos en el futuro. Ahora podemos acceder al servicio en la siguiente dirección local:\ncurl -X GET http://localhost:6333 --header 'api-key: kukenan'\nAhora puedes conectarte a esto con cualquier cliente, incluido Python:\nqdrant = QdrantClient(\"http://localhost:6333\") # Connect to existing Qdrant instance\nAntes de implementar Qdrant en producción, asegúrese de leer nuestras guías de instalación y seguridad\nCuadro comparativo de bases de datos vectoriales:\n[[../../images/genai/vectordb_comparison.png]]\n\n\n\n",
-    "preview": "posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/../../images/edex-ui.png",
-    "last_modified": "2026-02-01T21:16:19+00:00",
+    "contents": "\n\nContents\nAcceso desde Python\nCliente-Servidor\n\nQdrant es una herramienta fundamental para la inteligencia artificial moderna, especialmente en sistemas de Generación Aumentada por Recuperación (RAG) y motores de recomendación.\n### Fuentes:\n- Imagen Docker de Qdrant\n- Guía de instalación\n- Video Install and Run Qdrant Vector Database on Docker\n- The Top 7 Vector Databases in 2025\nAcceso desde Python\npip install qdrant-client\nEl cliente de Python ofrece una forma conveniente de comenzar con Qdrant localmente:\nfrom qdrant_client import QdrantClient\nqdrant = QdrantClient(\":memory:\") # Create in-memory Qdrant instance, for testing, CI/CD\n# OR\nclient = QdrantClient(path=\"path/to/db\")  # Persists changes to disk, fast prototyping\nCliente-Servidor\nPara experimentar todo el poder de Qdrant localmente, ejecute el contenedor con este comando:\ndocker volume create qdrant_data \ndocker run -d -p 6333:6333 \\\n    --name qdrant \\\n    -e QDRANT__SERVICE__API_KEY=\"kukenan\" \\\n    --restart=always \\\n    -v qdrant_data:/qdrant/storage \\\n    qdrant/qdrant\nPara acceder a la app de Qdrand, abrimor en cualquier browser: http://localhost:6333/dashboard\n\nDe esta manera podemos tener mas control del volumen de datos generados para posibles respaldos en el futuro. Ahora podemos acceder al servicio en la siguiente dirección local:\ncurl -X GET http://localhost:6333 --header 'api-key: kukenan'\nAhora puedes conectarte a esto con cualquier cliente, incluido Python:\nqdrant = QdrantClient(\"http://localhost:6333\") # Connect to existing Qdrant instance\nAntes de implementar Qdrant en producción, asegúrese de leer nuestras guías de instalación y seguridad\nCuadro comparativo de bases de datos vectoriales:\n\n\n\n\n",
+    "preview": "posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/../../images/qdrant_tn.png",
+    "last_modified": "2026-02-01T22:38:56+00:00",
     "input_file": {},
-    "preview_width": 800,
-    "preview_height": 450
+    "preview_width": 562,
+    "preview_height": 358
   },
   {
     "path": "posts/2026-02-01-tutorial-de-git/",

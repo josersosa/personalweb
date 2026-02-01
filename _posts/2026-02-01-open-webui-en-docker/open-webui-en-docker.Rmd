@@ -17,7 +17,7 @@ categories:
   - RAG
   - Docker
   - HomeLab
-preview: ../../images/edex-ui.png
+preview: ../../images/openwebui_01.png
 #draft: true
 ---
 

@@ -22,7 +22,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker</guid>
       <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="470" height="315"/>
     </item>
     <item>
       <title>LangFlow en Docker</title>
@@ -58,7 +58,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker</guid>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="470" height="315"/>
     </item>
     <item>
       <title>Reprositorios de proyectos de IA</title>
@@ -82,7 +82,7 @@
       <category>GenAI</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-uso-de-genia-para-el-desarrollo-sql</guid>
       <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-uso-de-genia-para-el-desarrollo-sql/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-uso-de-genia-para-el-desarrollo-sql/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="470" height="315"/>
     </item>
     <item>
       <title>Neo4J en docker</title>
@@ -126,7 +126,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama</guid>
       <pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="470" height="315"/>
     </item>
     <item>
       <title>Macro de LLMs locales en LibreOffice</title>
@@ -266,7 +266,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-open-webui-en-docker</guid>
       <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-open-webui-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-open-webui-en-docker/../../images/openwebui_01.png" medium="image" type="image/png" width="1122" height="715"/>
     </item>
     <item>
       <title>Gestión de volúmenes de Docker</title>
@@ -300,7 +300,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-scalidrawio-en-docker</guid>
       <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-scalidrawio-en-docker/../../images/workflows-automation.png" medium="image" type="image/png" width="1300" height="860"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-scalidrawio-en-docker/../../images/scalidraw_tn.png" medium="image" type="image/png" width="541" height="274"/>
     </item>
     <item>
       <title>ChromaDB base de datos vectorial en Docker</title>
@@ -361,7 +361,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker</guid>
       <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/../../images/qdrant_tn.png" medium="image" type="image/png" width="562" height="358"/>
     </item>
     <item>
       <title>Tutorial de Git</title>

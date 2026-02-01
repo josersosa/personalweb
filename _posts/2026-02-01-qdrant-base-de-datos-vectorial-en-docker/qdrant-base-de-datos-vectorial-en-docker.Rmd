@@ -18,7 +18,7 @@ categories:
   - RAG
   - Docker
   - HomeLab
-preview: ../../images/data_bases.png
+preview: ../../images/qdrant_tn.png
 #draft: true
 ---
 
@@ -59,6 +59,8 @@ docker run -d -p 6333:6333 \
 ```
 
 Para acceder a la app de Qdrand, abrimor en cualquier browser: http://localhost:6333/dashboard
+![](../../images/qdrant_01.png)
+
 De esta manera podemos tener mas control del volumen de datos generados para posibles respaldos en el futuro. Ahora podemos acceder al servicio en la siguiente dirección local:
 
 ```
@@ -77,6 +79,5 @@ qdrant = QdrantClient("http://localhost:6333") # Connect to existing Qdrant inst
 Antes de implementar Qdrant en producción, asegúrese de leer nuestras [guías](https://qdrant.tech/documentation/guides/security/) [de](https://qdrant.tech/documentation/guides/installation/) [instalación](https://qdrant.tech/documentation/guides/installation/) y [seguridad](https://qdrant.tech/documentation/guides/security/) 
 
 Cuadro comparativo de bases de datos vectoriales:
-
-![[../../images/genai/vectordb_comparison.png]]
+![](../../images/genai/vectordb_comparison.png)
 

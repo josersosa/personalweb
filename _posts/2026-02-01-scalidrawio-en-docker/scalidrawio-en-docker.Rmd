@@ -16,7 +16,7 @@ categories:
   - Diagram
   - Docker
   - HomeLab
-preview: ../../images/workflows-automation.png
+preview: ../../images/scalidraw_tn.png
 #draft: true
 ---
 
@@ -34,7 +34,7 @@ docker run -d --rm -dit --name excalidraw -p 5000:80 excalidraw/excalidraw:lates
 
 para subir este servicio con certificado SSL via proxi NGNX para compartirlo por intenet, segun la siguiente arquitectura:
 
-![](images/scalidraw_03.png)
+![](images/scalidraw_01.png)
 
 Para esto podemos usar este dosker-compose: [yaml para excalidraw](https://github.com/pablokbs/peladonerd/commit/9d567f8298cac22dfda62a6f0790d285fa652df9) 
 
