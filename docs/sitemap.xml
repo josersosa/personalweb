@@ -45,12 +45,24 @@
     <lastmod>2026-02-01T17:52:22+00:00</lastmod>
   </url>
   <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/</loc>
+    <lastmod>2026-02-01T21:57:46+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-reprositorios-de-proyectos-de-ia/</loc>
+    <lastmod>2026-02-01T22:02:27+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-uso-de-genia-para-el-desarrollo-sql/</loc>
+    <lastmod>2026-02-01T21:50:11+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-neo4j-en-docker/</loc>
-    <lastmod>2026-02-01T20:57:10+00:00</lastmod>
+    <lastmod>2026-02-01T21:55:29+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n/</loc>
-    <lastmod>2026-02-01T20:49:12+00:00</lastmod>
+    <lastmod>2026-02-01T21:56:47+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama/</loc>
@@ -58,7 +70,7 @@
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice/</loc>
-    <lastmod>2026-02-01T20:47:33+00:00</lastmod>
+    <lastmod>2026-02-01T21:59:39+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-nodejs-para-desarrollo-en-docker/</loc>
@@ -74,7 +86,7 @@
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-mongodb-en-docker/</loc>
-    <lastmod>2026-02-01T20:53:42+00:00</lastmod>
+    <lastmod>2026-02-01T22:01:05+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-n8n-en-docker/</loc>
@@ -82,7 +94,7 @@
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-ollama-con-docker/</loc>
-    <lastmod>2026-02-01T21:02:37+00:00</lastmod>
+    <lastmod>2026-02-01T22:03:19+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-escritorio-linux-web-en-docker/</loc>
@@ -90,7 +102,11 @@
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker/</loc>
-    <lastmod>2026-02-01T20:45:20+00:00</lastmod>
+    <lastmod>2026-02-01T22:05:13+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-servicio-de-transferencia-de-archivos-en-docker/</loc>
+    <lastmod>2026-02-01T21:57:29+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-open-webui-en-docker/</loc>
@@ -99,6 +115,14 @@
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker/</loc>
     <lastmod>2026-01-29T22:48:30+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-web-search-tools-en-docker/</loc>
+    <lastmod>2026-02-01T21:58:04+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-scalidrawio-en-docker/</loc>
+    <lastmod>2026-02-01T21:48:08+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-01-27-chromadb-base-de-datos-vectorial-en-docker/</loc>
@@ -119,6 +143,10 @@
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/</loc>
     <lastmod>2026-02-01T21:16:19+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-tutorial-de-git/</loc>
+    <lastmod>2026-02-01T21:49:08+00:00</lastmod>
   </url>
   <url>
     <loc>https://josersosa.github.io/personalweb/posts/2026-02-01-postgres-en-docker/</loc>

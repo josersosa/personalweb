@@ -1,0 +1,49 @@
+---
+title: "Servicio de transferencia de archivos en Docker"
+description: |
+  "Gokapi es una forma sencilla y segura que he encontrado para transferir archivos grandes, habilitando como un servicio de intercambio de archivos auto-hospedado en Docker."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-21-2025
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Linux
+  - Ofimática
+  - Docker
+  - HomeLab
+preview: ../../images/edex-ui.png
+#draft: true
+---
+
+Para levantar el servicio de Gokapi localmente en Docker, ejecutamos el siguiente comando:
+
+```bash
+docker run \
+--user "1000:1000" \
+--name gokapi \
+-v ./gokapi-data:/app/data \
+-v ./gokapi-config:/app/config \
+-p 127.0.0.1:53842:53842 \
+-e TZ=America/Lima \
+f0rc3/gokapi:latest
+```
+
+Accedemos al servicio localmente por aquí: http://localhot:53842/login
+- La primeta vez pedira que definamos una contraseña
+- Como administradores podremos gestionar usuarios y cambiar o asignar nuevas contraseñas
+
+Luego debemos permitir el acceso a nuestro servicio a las personas con las que deseamos hacer el intercambio de archivos. Si estas personas estan fuera de nuastra red local podemos usar Ngrok para exponer el servicioa a Internet:
+
+```bash
+ngrok http http://localhot:53842
+```
+
+Y luego compartimos el enlace generado por ngrok así: [link-de-ngrok]/login
+
+

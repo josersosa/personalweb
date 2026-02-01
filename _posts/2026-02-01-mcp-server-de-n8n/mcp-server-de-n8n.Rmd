@@ -17,10 +17,10 @@ categories:
   - n8n
   - Ollama
   - GenAI
-  - AgenticAI
+  - Agentic AI
   - MCP
   - HomeLab
-preview: ../../images/RoboticsAI_tn.png
+preview: ../../images/workflow_n8n.png
 #draft: true
 ---
 

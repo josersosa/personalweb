@@ -1,0 +1,145 @@
+---
+title: "Uso de GenIA para el desarrollo SQL"
+description: |
+  EL uso de herramientas de generación de código basadas en IA Generativa permiten obtener rendimientos en el desarrollo de bases de datos relacionales.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 2025-09-09
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+    code_folding: hide
+#    toc_float: false
+categories:
+  - SQL
+  - GenAI
+preview: ../../images/RoboticsAI_tn.png
+---
+
+La genAI puede usarse con PL/SLQ de Oracle en los siguientes ámbitos:
+
+1. **Aprendizaje y conceptos básicos:** Explicar los conceptos fundamentales de las bases de datos SQL, incluyendo la estructura de tablas, consultas SELECT, inserciones, actualizaciones y eliminaciones de datos, así como las cláusulas JOIN, GROUP BY y ORDER BY. En relación al lenguaje PL/SQL
+	1. **Sintaxis y Estructura:** Explicar la sintaxis básica de PL/SQL, incluyendo declaraciones, bloques anónimos, declaración de variables, tipos de datos y manejo de excepciones.
+	2. **Procedimientos y Funciones:** Ayudar a entender cómo crear y usar procedimientos almacenados y funciones en PL/SQL, y cómo pasar parámetros dentro y fuera de ellos.
+	3. **Cursores:** Explicar cómo trabajar con cursores explícitos e implícitos para recuperar y manipular conjuntos de resultados en PL/SQL.
+	4. **Triggers:** Proporcionar información sobre cómo crear y manejar triggers en PL/SQL, los cuales se ejecutan automáticamente en respuesta a eventos específicos en la base de datos.
+	5. **Paquetes y Tipos de Datos Personalizados:** Guiar en la creación de paquetes PL/SQL, que son contenedores que agrupan procedimientos, funciones, tipos y variables, así como la definición de tipos de datos personalizados.
+	6. **Seguridad y Gestión de Transacciones:** Explicar cómo gestionar transacciones y aplicar prácticas de seguridad, como el control de acceso y el manejo de excepciones.
+    
+2. **Optimización de consultas:** Proporcionar consejos y mejores prácticas para escribir consultas SQL eficientes y optimizadas, lo que ayudará a reducir el tiempo de ejecución y mejorar el rendimiento general de tus bases de datos.
+    
+3. **Modelado de datos:** Asistir en el diseño y modelado de bases de datos, incluyendo la creación de tablas, definición de relaciones, normalización y desnormalización de esquemas para garantizar una estructura eficiente y escalable.
+    
+4. **Resolución de problemas:** Ayudar a identificar y resolver problemas comunes, como índices faltantes, bloqueos, y consultas mal escritas. Pueden ayudar a identificar y solucionar errores en tu código PL/SQL, y proporcionar consejos para depurar y probar tus programas.
+    
+5. **Ejemplos de código:** Proporcionar ejemplos prácticos de consultas SQL para diversas tareas, desde consultas simples hasta consultas complejas que involucran múltiples tablas y operaciones.
+    
+6. **Administración del sistema:** Servir de guía en la instalación, configuración y mantenimiento de sistemas de gestión de bases de datos (DBMS) como MySQL, PostgreSQL o Microsoft SQL Server.
+    
+	1. **Seguridad y permisos:** Explicar cómo establecer y gestionar los permisos de usuario, roles y privilegios para garantizar la seguridad de tus datos y evitar accesos no autorizados.
+	2.  **Copias de seguridad y recuperación:** Orientar en la implementación de estrategias de respaldo y recuperación para proteger tus datos contra pérdidas inesperadas.
+    
+8. **Automatización:** Mostrar cómo usar programación en SQL para automatizar tareas repetitivas, como la generación de informes o la actualización de registros.
+    
+11. **Casos de uso específicos:** Ayudar a abordar casos de uso específicos, como la migración de datos, la optimización de rendimiento para aplicaciones en tiempo real y la integración de bases de datos en sistemas complejos.
+
+## Casos de uso: Optimización
+
+### Ejemplo 1: Optimización de una Consulta Lenta
+
+Imagina que tienes una tabla de "Ventas" con millones de registros y necesitas obtener el total de ventas por cada categoría de producto. Aquí tienes una consulta SQL básica:
+
+```sql
+SELECT Categoria, SUM(Monto) AS TotalVentas FROM Ventas GROUP BY Categoria;
+```
+
+Sin embargo, esta consulta podría volverse lenta a medida que crece la cantidad de datos. Aquí es donde puedo ayudarte a optimizarla. Puedo sugerirte agregar un índice en la columna "Categoria" para mejorar el rendimiento de la consulta. También podría recomendarte fragmentar la tabla si el volumen de datos es extremadamente grande.
+
+Los índices en una base de datos Oracle se crean a nivel del lenguaje SQL estándar y no dentro de bloques de código PL/SQL.
+
+Supongamos que deseas obtener una lista de empleados y la cantidad de proyectos en los que están involucrados. Tienes dos tablas: "Empleados" y "Proyectos" con una tabla intermedia "Asignaciones" que relaciona empleados con proyectos. Aquí está la consulta inicial:
+
+```sql
+SELECT Nombre, (SELECT COUNT(*) FROM Asignaciones WHERE EmpleadoID = E.ID) AS CantidadProyectos FROM Empleados E;
+```
+
+Esta consulta utiliza una subconsulta para contar los proyectos de cada empleado, lo que puede ser ineficiente en términos de rendimiento. Puedo sugerirte una alternativa utilizando un JOIN y GROUP BY:
+
+```sql
+SELECT E.Nombre, COUNT(A.ProyectoID) AS CantidadProyectos FROM Empleados E LEFT JOIN Asignaciones A ON E.ID = A.EmpleadoID GROUP BY E.Nombre;
+```
+
+Esta consulta realiza un JOIN entre las tablas "Empleados" y "Asignaciones", y luego utiliza GROUP BY para contar los proyectos por empleado de manera más eficiente.
+
+En ambos casos, mi ayuda se extiende a la identificación de problemas de rendimiento en el código SQL y la sugerencia de soluciones más eficientes. Estos son solo ejemplos simples, pero demuestran cómo puedo asistirte en la optimización de consultas y el desarrollo de sistemas más eficientes.
+
+### Ejemplo 2: Cómo crear índices en PL/SQL
+
+Para agregar un índice en Oracle, puedes utilizar una sentencia SQL llamada "CREATE INDEX". Aquí tienes un ejemplo de cómo podrías crear un índice en la columna "Categoria" de la tabla "Ventas":
+
+```sql
+CREATE INDEX idx_ventas_categoria ON Ventas (Categoria);
+```
+
+Esta sentencia crea un índice llamado "idx_ventas_categoria" en la tabla "Ventas" para la columna "Categoria". Los índices ayudan a acelerar las búsquedas y consultas en la base de datos.
+
+Ten en cuenta que el uso de índices debe considerarse cuidadosamente, ya que pueden mejorar la velocidad de las consultas de lectura pero también pueden ralentizar las operaciones de escritura. Siempre es recomendable evaluar las necesidades específicas de tu aplicación y las consultas que se ejecutarán para determinar qué columnas deberían tener índices.
+
+### Ejemplo 3: Evitar Consultas Anidadas
+
+Supongamos que deseas obtener una lista de empleados y la cantidad de proyectos en los que están involucrados. Tienes dos tablas: "Empleados" y "Proyectos" con una tabla intermedia "Asignaciones" que relaciona empleados con proyectos. Aquí está la consulta inicial:
+
+```sql
+SELECT Nombre, (SELECT COUNT(*) FROM Asignaciones WHERE EmpleadoID = E.ID) AS CantidadProyectos FROM Empleados E;
+```
+
+Esta consulta utiliza una subconsulta para contar los proyectos de cada empleado, lo que puede ser ineficiente en términos de rendimiento. Puedo sugerirte una alternativa utilizando un JOIN y GROUP BY:
+
+```sql
+SELECT E.Nombre, COUNT(A.ProyectoID) AS CantidadProyectos FROM Empleados E LEFT JOIN Asignaciones A ON E.ID = A.EmpleadoID GROUP BY E.Nombre;
+```
+
+Esta consulta realiza un JOIN entre las tablas "Empleados" y "Asignaciones", y luego utiliza GROUP BY para contar los proyectos por empleado de manera más eficiente.
+
+En ambos casos, mi ayuda se extiende a la identificación de problemas de rendimiento en el código SQL y la sugerencia de soluciones más eficientes. Estos son solo ejemplos simples, pero demuestran cómo puedo asistirte en la optimización de consultas y el desarrollo de sistemas más eficientes.
+
+## Casos de uso: Resolución de problemas
+
+### Ejemplo 1: Manejo de Excepciones
+
+Imagina que estás ejecutando una consulta que intenta insertar datos en una tabla, pero la inserción falla debido a una violación de restricción de clave primaria (un registro duplicado). Para manejar esta situación de manera adecuada, puedes utilizar bloques PL/SQL para capturar y manejar la excepción. Aquí está cómo podrías hacerlo:
+
+```sql
+DECLARE   
+  v_duplicate_key EXCEPTION;   
+  PRAGMA EXCEPTION_INIT(v_duplicate_key, -1); 
+BEGIN   
+	INSERT INTO MiTabla (ID, Nombre) VALUES (1, 'Ejemplo');
+EXCEPTION   
+	WHEN v_duplicate_key THEN     
+		DBMS_OUTPUT.PUT_LINE('Error: Clave primaria duplicada'); 
+END;
+```
+
+En este ejemplo, hemos declarado una excepción personalizada llamada "v_duplicate_key" y la hemos asociado con el código de error -1 (esto es solo un ejemplo; en la práctica, utilizarías el código de error apropiado). Luego, en el bloque PL/SQL, intentamos realizar la inserción. Si se produce una excepción con el código de error esperado, capturamos la excepción y mostramos un mensaje de error.
+
+### Ejemplo 2: Corrección de Consultas Incorrectas
+
+Supongamos que tienes una consulta que no está arrojando los resultados esperados. Después de revisarla, notas que el problema radica en un error en la cláusula WHERE. Originalmente, tenías:
+
+```sql
+SELECT Nombre, Edad FROM Personas WHERE Edad = '25';
+```
+
+Sin embargo, la columna "Edad" es de tipo numérico, por lo que no deberías compararla con una cadena de texto. Aquí está la corrección:
+
+```sql
+SELECT Nombre, Edad FROM Personas WHERE Edad = 25;
+```
+
+Este es un ejemplo simple, pero ilustra cómo un pequeño error en la consulta puede llevar a resultados incorrectos.
+
+En ambos casos, mi papel es ayudarte a identificar y resolver problemas en tu código SQL, ya sea mediante la captura de excepciones, la corrección de errores sintácticos o la optimización de consultas. Si tienes problemas específicos en tus consultas, estaré encantado de ayudarte a resolverlos.

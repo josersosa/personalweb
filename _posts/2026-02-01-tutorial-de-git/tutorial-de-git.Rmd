@@ -1,0 +1,160 @@
+---
+title: "Tutorial de Git"
+description: |
+  "Git es un sistema de control de versiones que te permite guardar y manejar el historial de cambios en el código de un proyecto. Este es un muy breve tutorial que hice con la ayuda de ChatGPT y que espero se convierta en la base de un cheatsheet."
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 04-26-2024
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+#    toc_float: false
+categories:
+  - Git
+preview: ../../images/git_flows.png
+#draft: true
+---
+
+## Introducción a Git
+
+Git es un sistema de control de versiones que te permite guardar y manejar el historial de cambios en el código de un proyecto. Te permite guardar diferentes versiones de tu código, y rastrear las diferencias entre ellas. Git también te permite colaborar con otros desarrolladores en un proyecto, asegurando que todos estén trabajando con la misma versión del código.
+
+## Instalando Git
+
+Para comenzar a usar Git, primero debes instalarlo en tu ordenador. Puedes descargar Git desde la página oficial: [https://git-scm.com/downloads](https://git-scm.com/downloads). Una vez que lo hayas descargado, sigue las instrucciones del instalador para instalar Git en tu ordenador.
+
+## Inicializando un repositorio de Git
+
+Una vez que hayas instalado Git en tu ordenador, debes inicializar un repositorio de Git en el directorio principal de tu proyecto. Para hacer esto, abre una terminal y navega al directorio principal de tu proyecto. Luego, escribe el siguiente comando:
+
+`git init`
+
+Este comando creará un repositorio de Git vacío en el directorio principal de tu proyecto.
+
+## Agregando archivos al repositorio de Git
+
+Para agregar archivos al repositorio de Git, debes primero añadirlos al área de preparación de Git. Esto se hace con el comando `git add`. Por ejemplo, para añadir un archivo llamado "archivo.txt" al área de preparación de Git, escribe lo siguiente en la terminal:
+
+`git add archivo.txt`
+
+Una vez que hayas agregado los archivos que deseas, debes confirmar los cambios con el comando `git commit`. Por ejemplo, para confirmar los cambios en el archivo "archivo.txt", escribe lo siguiente en la terminal:
+
+`git commit -m "Agregado archivo.txt al repositorio"`
+
+La opción `-m` te permite añadir un mensaje que describe los cambios que has realizado en el archivo.
+
+## Trabajando con ramas en Git
+
+Git también te permite trabajar en diferentes ramas del proyecto de forma simultánea. Cada rama es una línea de desarrollo independiente, lo que te permite trabajar en diferentes características o correcciones de errores al mismo tiempo sin interferir en el trabajo de los demás.
+
+Para crear una nueva rama en Git, utiliza el comando `git branch`. Por ejemplo, para crear una nueva rama llamada "nueva-caracteristica", escribe lo siguiente en la terminal:
+
+`git branch nueva-caracteristica`
+
+Para cambiar a la nueva rama, utiliza el comando `git checkout`. Por ejemplo, para cambiar a la rama "nueva-caracteristica", escribe lo siguiente en la terminal:
+
+`git checkout nueva-caracteristica`
+
+Ahora, puedes realizar cambios en la nueva rama sin afectar la rama principal.
+
+Una vez que hayas terminado de trabajar en la nueva rama, puedes fusionar los cambios en la rama principal utilizando el comando `git merge`. Por ejemplo, para fusionar la rama "nueva-caracteristica" en la rama principal, escribe lo siguiente en la terminal:
+
+`git checkout main git merge nueva-caracteristica`
+
+## Clonando un repositorio de Git
+
+Si deseas trabajar en un proyecto existente que ya tiene un repositorio de Git, puedes clonar el repositorio en tu ordenador utilizando el comando `git clone`. Por ejemplo, para clonar un repositorio de Git desde GitHub, escribe lo siguiente en la terminal:
+
+`git clone https://github.com/nombre-de-usuario/nombre-de-repositorio.git`
+
+Este comando clonará el repositorio en un nuevo directorio en tu ordenador.
+
+Si deseas clonar solo un subdirectorio de un repositorio de Git, puedes utilizar el comando `git sparse-checkout`. Este comando te permite seleccionar solo los archivos y directorios que deseas clonar en lugar de clonar todo el repositorio.
+
+A continuación, te explicaré los pasos para clonar solo un subdirectorio de un repositorio de Git:
+
+1.  Crea un nuevo directorio para clonar el subdirectorio. Por ejemplo, si deseas clonar el subdirectorio llamado "subdir" del repositorio "[https://github.com/nombre-de-usuario/nombre-de-repositorio.git](https://github.com/nombre-de-usuario/nombre-de-repositorio.git)", crea un nuevo directorio llamado "subdir" en tu ordenador.
+2.  Accede al nuevo directorio utilizando la terminal.
+3.  Ejecuta el siguiente comando para inicializar un nuevo repositorio de Git:
+
+`git init`
+
+4.  Ejecuta el siguiente comando para habilitar el modo sparse-checkout:
+
+`git config core.sparseCheckout true`
+
+5.  Crea un archivo llamado "sparse-checkout" en el directorio .git:
+
+`touch .git/info/sparse-checkout`
+
+6.  Abre el archivo "sparse-checkout" con un editor de texto y escribe la ruta del subdirectorio que deseas clonar. Por ejemplo, si deseas clonar el subdirectorio "subdir", escribe lo siguiente en el archivo:
+
+`subdir/`
+
+7.  Ejecuta el siguiente comando para agregar el repositorio remoto:
+
+`git remote add origin https://github.com/nombre-de-usuario/nombre-de-repositorio.git`
+
+8.  Ejecuta el siguiente comando para clonar el subdirectorio:
+`git pull origin main`
+
+Nota: En este ejemplo se asume que la rama principal del repositorio es "main". Si la rama principal tiene otro nombre, debes reemplazar "main" por el nombre correcto.
+
+Con estos pasos, solo se clonará el subdirectorio que has especificado en el archivo "sparse-checkout". El resto de los archivos y directorios del repositorio no se descargarán.
+
+## Subiendo cambios a un repositorio de Git
+
+Si deseas subir tus cambios a un repositorio de Git, debes enviarlos utilizando el comando `git push`. Por ejemplo, para enviar los cambios en la rama "nueva-caracteristica" a un repositorio de Git en GitHub, escribe lo siguiente en la terminal:
+
+`git checkout nueva-caracteristica git add . git commit -m "Agregadas nuevas características" git push origin nueva-caracteristica`
+
+Este comando enviará los cambios a la rama "nueva-caracteristica" en el repositorio de Git en GitHub.
+
+## Dividiendo el proyecto en subdirectorios
+
+Para dividir tu proyecto en subdirectorios, simplemente crea los subdirectorios en el directorio principal de tu proyecto. Por ejemplo, si deseas crear un subdirectorio llamado "src" para almacenar tus archivos de código fuente, escribe lo siguiente en la terminal:
+
+`mkdir src`
+
+Luego, mueve los archivos de código fuente a la carpeta "src". Por ejemplo, si tienes un archivo de código fuente llamado "main.cpp", escribe lo siguiente en la terminal para mover el archivo a la carpeta "src":
+
+`mv main.cpp src/`
+
+## Trabajando con subdirectorios en Git
+
+Una vez que hayas dividido tu proyecto en subdirectorios, puedes manejar cada subdirectorio individualmente en Git. Por ejemplo, si deseas trabajar solo en la carpeta "src" y no deseas incluir otros archivos en tu confirmación, puedes usar el comando `git add` para agregar solo los archivos en la carpeta "src" al área de preparación de Git. Para hacer esto, escribe lo siguiente en la terminal:
+
+`git add src/`
+
+Luego, puedes confirmar los cambios solo para los archivos en la carpeta "src" usando el comando `git commit`. Por ejemplo, para confirmar los cambios en la carpeta "src", escribe lo siguiente en la terminal:
+
+`git commit -m "Agregados archivos`
+
+Una vez que hayas hecho cambios en el subdirectorio que has clonado y quieras subirlos al servidor de Git, debes seguir los siguientes pasos:
+
+1.  Accede al directorio del subdirectorio en la terminal.
+2.  Ejecuta el siguiente comando para agregar los cambios que has hecho:
+
+`git add .`
+
+Este comando agregará los cambios de todos los archivos del subdirectorio.
+
+3.  Ejecuta el siguiente comando para confirmar los cambios:
+
+`git commit -m "Mensaje de confirmación"`
+
+En el lugar de "Mensaje de confirmación", escribe un mensaje descriptivo que explique los cambios que has hecho.
+
+4.  Ejecuta el siguiente comando para subir los cambios al servidor de Git:
+
+`git push origin nombre-de-rama`
+
+En lugar de "nombre-de-rama", escribe el nombre de la rama en la que estás trabajando. Si no has creado una nueva rama, es probable que estés trabajando en la rama principal, que suele llamarse "main".
+
+Este comando subirá los cambios que has confirmado al servidor de Git. Si todo ha ido bien, los demás usuarios del repositorio podrán descargar tus cambios y trabajar con ellos.
+## Conclusiones
+
+Con este tutorial básico de Git, podrás manejar proyectos con varias secciones divididas por subdirectorios y trabajar en diferentes ramas del proyecto de forma simultánea. Recuerda que Git es una herramienta muy poderosa que te permitirá controlar el historial de cambios en tu código, y colaborar con otros desarrolladores de forma eficiente.

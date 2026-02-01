@@ -87,7 +87,7 @@ knitr::include_graphics("images/gradio_01.png")
 # ```
 
 # o con fecha:
-distill::create_post(title = "Qdrant base de datos vectorial en Docker",
+distill::create_post(title = "Servicio de transferencia de archivos en Docker",
                      author = "José R Sosa",
                      date = "2025-07-11",
                      date_prefix = TRUE,

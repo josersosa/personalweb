@@ -36,6 +36,42 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker/../../images/workflows-automation.png" medium="image" type="image/png" width="1300" height="860"/>
     </item>
     <item>
+      <title>Whisper en n8n</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n</link>
+      <description>"Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales."</description>
+      <category>n8n</category>
+      <category>STT</category>
+      <category>Whisper</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n</guid>
+      <pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/../../images/workflow_n8n.png" medium="image" type="image/png" width="717" height="338"/>
+    </item>
+    <item>
+      <title>Reprositorios de proyectos de IA</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-reprositorios-de-proyectos-de-ia</link>
+      <description>Recopilacion de diferentes repositorios de proyectos en Github sobre Inteligencia Artificial que iré completando y actualizando con el tiempo.</description>
+      <category>Python</category>
+      <category>GenAI</category>
+      <category>Agentic AI</category>
+      <category>Git</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-reprositorios-de-proyectos-de-ia</guid>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-reprositorios-de-proyectos-de-ia/../../images/datasets_peq.png" medium="image" type="image/png" width="681" height="409"/>
+    </item>
+    <item>
+      <title>Uso de GenIA para el desarrollo SQL</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-uso-de-genia-para-el-desarrollo-sql</link>
+      <description>EL uso de herramientas de generación de código basadas en IA Generativa permiten obtener rendimientos en el desarrollo de bases de datos relacionales.</description>
+      <category>SQL</category>
+      <category>GenAI</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-uso-de-genia-para-el-desarrollo-sql</guid>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-uso-de-genia-para-el-desarrollo-sql/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+    </item>
+    <item>
       <title>Neo4J en docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-neo4j-en-docker</link>
@@ -46,7 +82,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-neo4j-en-docker</guid>
       <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-neo4j-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-neo4j-en-docker/../../images/data_bases.png" medium="image" type="image/png" width="472" height="254"/>
     </item>
     <item>
       <title>MCP Server de n8n</title>
@@ -57,12 +93,12 @@
       <category>n8n</category>
       <category>Ollama</category>
       <category>GenAI</category>
-      <category>AgenticAI</category>
+      <category>Agentic AI</category>
       <category>MCP</category>
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n</guid>
       <pubDate>Tue, 26 Aug 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-mcp-server-de-n8n/../../images/workflow_n8n.png" medium="image" type="image/png" width="717" height="338"/>
     </item>
     <item>
       <title>Agente básico MCP con Ollama</title>
@@ -90,7 +126,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice</guid>
       <pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice/../../images/libreoffice.png" medium="image" type="image/png" width="445" height="250"/>
     </item>
     <item>
       <title>Node.js para desarrollo en Docker </title>
@@ -137,7 +173,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-mongodb-en-docker</guid>
       <pubDate>Sat, 26 Apr 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-mongodb-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-mongodb-en-docker/../../images/data_bases.png" medium="image" type="image/png" width="472" height="254"/>
     </item>
     <item>
       <title>n8n en Docker</title>
@@ -166,7 +202,7 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-ollama-con-docker</guid>
       <pubDate>Sat, 26 Apr 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-ollama-con-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-ollama-con-docker/../../images/ollama_01.png" medium="image" type="image/png" width="636" height="290"/>
     </item>
     <item>
       <title>Escritorio Linux Web en Docker</title>
@@ -191,7 +227,20 @@
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker</guid>
       <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker/../../images/webtop.jpg" medium="image" type="image/jpeg"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-libreoffice-en-docker/../../images/libreoffice.png" medium="image" type="image/png" width="445" height="250"/>
+    </item>
+    <item>
+      <title>Servicio de transferencia de archivos en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-servicio-de-transferencia-de-archivos-en-docker</link>
+      <description>"Gokapi es una forma sencilla y segura que he encontrado para transferir archivos grandes, habilitando como un servicio de intercambio de archivos auto-hospedado en Docker."</description>
+      <category>Linux</category>
+      <category>Ofimática</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-servicio-de-transferencia-de-archivos-en-docker</guid>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-servicio-de-transferencia-de-archivos-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
     </item>
     <item>
       <title>Open-WebUI en Docker</title>
@@ -215,6 +264,30 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker</guid>
       <pubDate>Fri, 04 Apr 2025 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Web Search Tools en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-web-search-tools-en-docker</link>
+      <description>"Cómo ejecutar SearXNG en docker."</description>
+      <category>n8n</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-web-search-tools-en-docker</guid>
+      <pubDate>Sun, 30 Mar 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-web-search-tools-en-docker/../../images/workflow_n8n.png" medium="image" type="image/png" width="717" height="338"/>
+    </item>
+    <item>
+      <title>ScaliDraw.io en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-scalidrawio-en-docker</link>
+      <description>"**Excalidraw** es una pizarra virtual de opensource diseñada para crear diagramas y bocetos con una estética de dibujo a mano alzada, y que por supuesto, podemos ejecutar desde una contenedor Docker."</description>
+      <category>Diagram</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-scalidrawio-en-docker</guid>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-scalidrawio-en-docker/../../images/workflows-automation.png" medium="image" type="image/png" width="1300" height="860"/>
     </item>
     <item>
       <title>ChromaDB base de datos vectorial en Docker</title>
@@ -276,6 +349,16 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker</guid>
       <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+    </item>
+    <item>
+      <title>Tutorial de Git</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-tutorial-de-git</link>
+      <description>"Git es un sistema de control de versiones que te permite guardar y manejar el historial de cambios en el código de un proyecto. Este es un muy breve tutorial que hice con la ayuda de ChatGPT y que espero se convierta en la base de un cheatsheet."</description>
+      <category>Git</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-tutorial-de-git</guid>
+      <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-tutorial-de-git/../../images/git_flows.png" medium="image" type="image/png" width="550" height="288"/>
     </item>
     <item>
       <title>Postgres en Docker</title>
