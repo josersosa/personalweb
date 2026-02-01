@@ -75,6 +75,27 @@
     "preview_height": 525
   },
   {
+    "path": "posts/2026-02-01-escritorio-linux-web-en-docker/",
+    "title": "Escritorio Linux Web en Docker",
+    "description": "\"Webtop es un completo escritorio Lnux con interface web basado en Ubuntu, que puede correr en nuestro laboratorio local en un contenedor Docker.\"",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2025-04-21",
+    "categories": [
+      "Linux",
+      "Docker",
+      "HomeLab"
+    ],
+    "contents": "\nPara obtener un sistema operativo completo, con interfece gráfica web en http://localhot:3000/ solo debes ejecutar:\ndocker run -d \\\n    --name=webtop \\\n    -e PUID=1000 \\\n    -e PGID=1000 \\\n    -e TZ=America/Lima \\\n    -p 3000:3000 \\\n    -v /home/$USER/webtop/config:/config \\\n    --shm-size=\"3gb\" \\\n    --restart unless-stopped \\\n    ghcr.io/linuxserver/webtop:ubuntu-mate\n\n\n\n",
+    "preview": "posts/2026-02-01-escritorio-linux-web-en-docker/../../images/webtop.jpg",
+    "last_modified": "2026-02-01T18:44:39+00:00",
+    "input_file": "escritorio-linux-web-en-docker.knit.md"
+  },
+  {
     "path": "posts/2026-01-29-gestin-de-volumenes-de-docker/",
     "title": "Gestión de volúmenes de Docker",
     "description": "Una de las operaciones más comunes cuando trabajamos con contenedores que usan sus propios volumenes es la de copiar informacion que tenemos en algun directorio local hacia el volumen o realizar el respaldo del volumen  en algun directorio local.",

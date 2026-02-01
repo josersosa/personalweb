@@ -51,6 +51,18 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-agente-bsico-mcp-con-ollama/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
     </item>
     <item>
+      <title>Escritorio Linux Web en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-escritorio-linux-web-en-docker</link>
+      <description>"Webtop es un completo escritorio Lnux con interface web basado en Ubuntu, que puede correr en nuestro laboratorio local en un contenedor Docker."</description>
+      <category>Linux</category>
+      <category>Docker</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-escritorio-linux-web-en-docker</guid>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-escritorio-linux-web-en-docker/../../images/webtop.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Gestión de volúmenes de Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-01-29-gestin-de-volumenes-de-docker</link>
