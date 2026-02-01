@@ -48,6 +48,19 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/../../images/workflow_n8n.png" medium="image" type="image/png" width="717" height="338"/>
     </item>
     <item>
+      <title>LightRAG en Docker</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker</link>
+      <description>LightRAG: Generación Aumentada de Recuperación Simple y Rápida.</description>
+      <category>Docker</category>
+      <category>GenAI</category>
+      <category>RAG</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker</guid>
+      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="784" height="525"/>
+    </item>
+    <item>
       <title>Reprositorios de proyectos de IA</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-reprositorios-de-proyectos-de-ia</link>
