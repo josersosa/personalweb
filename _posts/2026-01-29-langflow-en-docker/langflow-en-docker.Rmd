@@ -24,12 +24,34 @@ Levantar el servicio de Lanflow en docker con:
 
 ```bash
 docker run -p 7860:7860 langflowai/langflow:latest
+...
+✓ Launching Langflow...
+╭─────────────────────────────────────────────────────────────────────────╮
+│                                                                         │
+│  Welcome to Langflow                                                    │
+│                                                                         │
+│  🌟 GitHub: Star for updates → https://github.com/langflow-ai/langflow  │
+│  💬 Discord: Join for support → https://discord.com/invite/EqksyE2EX9   │
+│                                                                         │
+│  We collect anonymous usage data to improve Langflow.                   │
+│  To opt out, set: DO_NOT_TRACK=true in your environment.                │
+│                                                                         │
+│  🟢 Open Langflow → http://localhost:7860                               │
+│                                                                         │
+╰─────────────────────────────────────────────────────────────────────────╯
 ```
 
 
 ## Acceder a LangFlow
 
-Para abrir la consola de LangFlow en el browser iar a: http://localhost:7860/
+Para abrir la consola de LangFlow en el browser ir a: http://localhost:7860/
+La primera vez se verá una pantalla con algunas opciones para iniciar:
+
+![](../../images/langflow_init.png)
+Si escojemos un agente de IA:
+
+![](../../images/langflow_agent.png)
+
 
 ## Documentación
 
