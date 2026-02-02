@@ -18,12 +18,12 @@ categories:
   - GenAI
   - RAG
   - HomeLab
-preview: ../../images/RoboticsAI_tn.png
+preview: ../../images/LightRAG_tn.png
 ---
 
 ## Arquitectura de LightRAG
 
-![](../..images/LightRAG_Architecture.png)
+![](../../images/genai/LightRAG_Architecture.png)
 
 ## Requisitos previos
 
@@ -129,6 +129,8 @@ docker run -d \
 ## Interface de usuario (GUI)
 
 ![](../../images/genai/LightRAG_01.png)
+
+![](../../images/genai/LightRAG_02.png)
 
 Fuentes:
 
