@@ -51,7 +51,7 @@
       <title>LightRAG en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker</link>
-      <description>LightRAG: Generación Aumentada de Recuperación Simple y Rápida.</description>
+      <description>LightRAG: Generación Aumentada de Recuperación (RAG) simple y rápida, mediante un mecanismo de búsqueda hibrida que combina la búsqueda semántica basada en embeddings, una base de datos de vectores y la búsqueda por palabras clave.</description>
       <category>Docker</category>
       <category>GenAI</category>
       <category>RAG</category>
