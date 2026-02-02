@@ -15,7 +15,7 @@ output:
 categories:
   - NoSQL
   - Qdrant
-  - VectorDB
+  - Vector DB
   - RAG
   - Docker
   - HomeLab

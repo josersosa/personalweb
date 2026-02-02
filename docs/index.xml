@@ -356,7 +356,7 @@
       <description>Qdrant es una base de datos vectorial de opensource diseñada para almacenar y buscar información basándose en el significado (similitud semántica) en lugar de palabras clave exactas, mediante la indexación de vectores. Veamos como usarla de forma contenerizada con Docker."</description>
       <category>NoSQL</category>
       <category>Qdrant</category>
-      <category>VectorDB</category>
+      <category>Vector DB</category>
       <category>RAG</category>
       <category>Docker</category>
       <category>HomeLab</category>

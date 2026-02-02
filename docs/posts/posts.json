@@ -649,15 +649,15 @@
     "categories": [
       "NoSQL",
       "Qdrant",
-      "VectorDB",
+      "Vector DB",
       "RAG",
       "Docker",
       "HomeLab"
     ],
     "contents": "\n\nContents\nAcceso desde Python\nCliente-Servidor\n\nQdrant es una herramienta fundamental para la inteligencia artificial moderna, especialmente en sistemas de Generación Aumentada por Recuperación (RAG) y motores de recomendación.\n### Fuentes:\n- Imagen Docker de Qdrant\n- Guía de instalación\n- Video Install and Run Qdrant Vector Database on Docker\n- The Top 7 Vector Databases in 2025\nAcceso desde Python\npip install qdrant-client\nEl cliente de Python ofrece una forma conveniente de comenzar con Qdrant localmente:\nfrom qdrant_client import QdrantClient\nqdrant = QdrantClient(\":memory:\") # Create in-memory Qdrant instance, for testing, CI/CD\n# OR\nclient = QdrantClient(path=\"path/to/db\")  # Persists changes to disk, fast prototyping\nCliente-Servidor\nPara experimentar todo el poder de Qdrant localmente, ejecute el contenedor con este comando:\ndocker volume create qdrant_data \ndocker run -d -p 6333:6333 \\\n    --name qdrant \\\n    -e QDRANT__SERVICE__API_KEY=\"kukenan\" \\\n    --restart=always \\\n    -v qdrant_data:/qdrant/storage \\\n    qdrant/qdrant\nPara acceder a la app de Qdrand, abrimor en cualquier browser: http://localhost:6333/dashboard\n\nDe esta manera podemos tener mas control del volumen de datos generados para posibles respaldos en el futuro. Ahora podemos acceder al servicio en la siguiente dirección local:\ncurl -X GET http://localhost:6333 --header 'api-key: kukenan'\nAhora puedes conectarte a esto con cualquier cliente, incluido Python:\nqdrant = QdrantClient(\"http://localhost:6333\") # Connect to existing Qdrant instance\nAntes de implementar Qdrant en producción, asegúrese de leer nuestras guías de instalación y seguridad\nCuadro comparativo de bases de datos vectoriales:\n\n\n\n\n",
     "preview": "posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker/../../images/qdrant_tn.png",
-    "last_modified": "2026-02-02T00:19:30+00:00",
-    "input_file": {},
+    "last_modified": "2026-02-02T00:42:23+00:00",
+    "input_file": "qdrant-base-de-datos-vectorial-en-docker.knit.md",
     "preview_width": 562,
     "preview_height": 358
   },
