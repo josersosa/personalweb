@@ -20,10 +20,10 @@ preview: ../../images/workflows-automation.png
 
 ## Iniciar el servicio
 
-Levantar el servicio de Lanflow en docjer con:
+Levantar el servicio de Lanflow en docker con:
 
 ```bash
-run -p 7860:7860 langflowai/langflow:latest
+docker run -p 7860:7860 langflowai/langflow:latest
 ```
 
 
