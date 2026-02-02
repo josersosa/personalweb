@@ -132,7 +132,7 @@
       <title>Macro de LLMs locales en LibreOffice</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-macro-de-llms-locales-en-libreoffice</link>
-      <description>Veamos como crear una macro en LibreOffice Calc que utilice **Python** (a través de PyUNO) para enviar un prompt a un modelo LLM local en Ollama.</description>
+      <description>Veamos como crear una macro en LibreOffice Calc que utilice Python (a través de PyUNO) para enviar un prompt a un modelo LLM local en Ollama.</description>
       <category>Python</category>
       <category>GenAI</category>
       <category>Ofimática</category>
