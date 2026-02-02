@@ -15,7 +15,7 @@ output:
 categories:
   - Docker
   - GenAI
-preview: ../../images/workflows-automation.png
+preview: ../../images/langflow_agent_tn.png
 ---
 
 ## Iniciar el servicio
