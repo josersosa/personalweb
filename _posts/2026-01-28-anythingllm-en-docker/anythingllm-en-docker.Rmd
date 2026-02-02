@@ -1,7 +1,7 @@
 ---
 title: "AnythingLLM en Docker"
 description: |
-  "AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura". 
+  AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura. 
 author:
   - name: José R Sosa
     url: https://example.com/josersosa
@@ -29,8 +29,8 @@ preview: ../../images/RoboticsAI_tn.png
 
 ## ¿Por qué usar AnythingLLM?
 
-- Quieres una aplicación de IA **sin configuración**, **privada** y todo en uno para LLMs locales, RAG y agentes de IA, todo en un solo lugar, sin necesidad de una configuración complicada por parte de los desarrolladores.
-- Necesitas una aplicación de IA **totalmente personalizable**, **privada** y todo en uno para tu _negocio u organización_, que sea básicamente un ChatGPT completo con permisos pero con cualquier LLM, modelo de embedding o base de datos vectorial.
+- Quieres una aplicación de IA **sin configuración**, **privada** y todo en uno para LLMs locales, RAG y agentes de IA, todo en un solo lugar, sin necesidad de una configuración complicada por parte de los desarrolladores.
+- Necesitas una aplicación de IA **totalmente personalizable**, **privada** y todo en uno para tu _negocio u organización_, que sea básicamente un ChatGPT completo con permisos pero con cualquier LLM, modelo de embedding o base de datos vectorial.
 ## Extrae la última imagen 
 
 ```bash

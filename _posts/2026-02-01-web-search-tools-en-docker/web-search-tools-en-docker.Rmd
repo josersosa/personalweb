@@ -1,7 +1,7 @@
 ---
 title: "Web Search Tools en Docker"
-description: |
-  "Cómo ejecutar SearXNG en docker."
+description: 
+  Cómo ejecutar SearXNG en docker.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

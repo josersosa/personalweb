@@ -1,7 +1,7 @@
 ---
 title: "Servicio de transferencia de archivos en Docker"
 description: |
-  "Gokapi es una forma sencilla y segura que he encontrado para transferir archivos grandes, habilitando como un servicio de intercambio de archivos auto-hospedado en Docker."
+  Gokapi es una forma sencilla y segura que he encontrado para transferir archivos grandes, habilitando como un servicio de intercambio de archivos auto-hospedado en Docker.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

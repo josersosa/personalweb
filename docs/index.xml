@@ -12,7 +12,7 @@
       <title>AnythingLLM en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker</link>
-      <description>"AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura".</description>
+      <description>AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura.</description>
       <category>Python</category>
       <category>Data Science</category>
       <category>Docker</category>
@@ -39,7 +39,7 @@
       <title>Whisper en n8n</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n</link>
-      <description>"Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales."</description>
+      <description>Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales.</description>
       <category>n8n</category>
       <category>STT</category>
       <category>Whisper</category>
@@ -61,7 +61,7 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="470" height="315"/>
     </item>
     <item>
-      <title>Reprositorios de proyectos de IA</title>
+      <title>Repositorios de proyectos de IA</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-reprositorios-de-proyectos-de-ia</link>
       <description>Recopilacion de diferentes repositorios de proyectos en Github sobre Inteligencia Artificial que iré completando y actualizando con el tiempo.</description>
@@ -192,11 +192,11 @@
       <title>n8n en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-n8n-en-docker</link>
-      <description>"Una de las ventajas de n8n es el poder activar un entorno de desarrollo completamente funcional de forma local con Docker para ejecutar workflows en nuestro propio homelab".</description>
+      <description>Una de las ventajas de n8n es el poder activar un entorno de desarrollo completamente funcional de forma local con Docker para ejecutar workflows en nuestro propio homelab.</description>
       <category>n8n</category>
       <category>Ollama</category>
       <category>GenAI</category>
-      <category>AgenticAI</category>
+      <category>Agentic AI</category>
       <category>MCP</category>
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-n8n-en-docker</guid>
@@ -207,7 +207,7 @@
       <title>Ollama con Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-ollama-con-docker</link>
-      <description>"En estre post, haré un breve repaso sobre como trabajar con Ollama, y en particular, como ejecutarlo desde un contenedor de [Docker](https://www.docker.com/)"</description>
+      <description>En estre post, haré un breve repaso sobre como trabajar con Ollama, y en particular, como ejecutarlo desde un contenedor de [Docker](https://www.docker.com/)</description>
       <category>Ollama</category>
       <category>Docker</category>
       <category>GenAI</category>
@@ -246,7 +246,7 @@
       <title>Servicio de transferencia de archivos en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-servicio-de-transferencia-de-archivos-en-docker</link>
-      <description>"Gokapi es una forma sencilla y segura que he encontrado para transferir archivos grandes, habilitando como un servicio de intercambio de archivos auto-hospedado en Docker."</description>
+      <description>Gokapi es una forma sencilla y segura que he encontrado para transferir archivos grandes, habilitando como un servicio de intercambio de archivos auto-hospedado en Docker.</description>
       <category>Linux</category>
       <category>Ofimática</category>
       <category>Docker</category>
@@ -259,7 +259,7 @@
       <title>Open-WebUI en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-open-webui-en-docker</link>
-      <description>"Veamos como integrar Open Web UI en nuestro laboratorio local. Esta es un herramienta ideal para poner a prueba modelos LLM pequeños que podamos correr en nuestro equipo mediante Ollama o para implementar un RAG con nuestros propios archivos. "</description>
+      <description>Veamos como integrar Open Web UI en nuestro laboratorio local. Esta es un herramienta ideal para poner a prueba modelos LLM pequeños que podamos correr en nuestro equipo mediante Ollama o para implementar un RAG con nuestros propios archivos.</description>
       <category>GenAI</category>
       <category>RAG</category>
       <category>Docker</category>
@@ -294,7 +294,7 @@
       <title>ScaliDraw.io en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-scalidrawio-en-docker</link>
-      <description>"**Excalidraw** es una pizarra virtual de opensource diseñada para crear diagramas y bocetos con una estética de dibujo a mano alzada, y que por supuesto, podemos ejecutar desde una contenedor Docker."</description>
+      <description>Excalidraw es una pizarra virtual de opensource diseñada para crear diagramas y bocetos con una estética de dibujo a mano alzada, y que por supuesto, podemos ejecutar desde una contenedor Docker.</description>
       <category>Diagram</category>
       <category>Docker</category>
       <category>HomeLab</category>
@@ -332,7 +332,7 @@
       <title>Open Interpreter en local</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-open-interpreter-en-local</link>
-      <description>"Open Interpreter es una versión opensource del agente interpreter de OpenAI, pero este correr dentro de nuestro equipo, permitiendo que la IA haga uso de nuestros recursos y ejecute tareas y use herramientas de forma local.."</description>
+      <description>Open Interpreter es una versión opensource del agente interpreter de OpenAI, pero este corre dentro de nuestro equipo, permitiendo que la IA haga uso de nuestros recursos y ejecute tareas y use herramientas de forma local.</description>
       <category>GenAI</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-open-interpreter-en-local</guid>
       <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
@@ -342,7 +342,7 @@
       <title>Openhands Agente IA de programación en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-openhands-agente-ia-de-programacin-en-docker</link>
-      <description>"Openhands en una app de desarrollo de software con Agentes de IA que tienen las mismas herramientas que un desarrollador humano: pueden modificar el código, ejecutar comandos, navegar por la web, llamar a las API y, sí, incluso copiar fragmentos de código de StackOverflow."</description>
+      <description>Openhands en una app de desarrollo de software con Agentes de IA que tienen las mismas herramientas que un desarrollador humano: pueden modificar el código, ejecutar comandos, navegar por la web, llamar a las API, e incluso, copiar fragmentos de código de StackOverflow.</description>
       <category>GenAI</category>
       <category>Docker</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-openhands-agente-ia-de-programacin-en-docker</guid>
@@ -353,8 +353,9 @@
       <title>Qdrant, base de datos vectorial en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-qdrant-base-de-datos-vectorial-en-docker</link>
-      <description>"**Qdrant** es una base de datos vectorial de opensource diseñada para almacenar y buscar información basándose en el **significado** (similitud semántica) en lugar de palabras clave exactas, mediante la indexación de vectores. Veamos como usarla de forma contenerizada con Docker."</description>
+      <description>Qdrant es una base de datos vectorial de opensource diseñada para almacenar y buscar información basándose en el significado (similitud semántica) en lugar de palabras clave exactas, mediante la indexación de vectores. Veamos como usarla de forma contenerizada con Docker."</description>
       <category>NoSQL</category>
+      <category>Qdrant</category>
       <category>VectorDB</category>
       <category>RAG</category>
       <category>Docker</category>
@@ -377,14 +378,14 @@
       <title>Postgres en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-postgres-en-docker</link>
-      <description>"Postgres es uno de los manejadores de bases de datos más utilizados en el mundo opensource. Veremos como instalarlo y ejecutarlo en nuestro laboratorio local de forma contenerizada con Docker."</description>
+      <description>Postgres es uno de los manejadores de bases de datos más utilizados en el mundo opensource. Veremos como instalarlo y ejecutarlo en nuestro laboratorio local de forma contenerizada con Docker.</description>
       <category>SQL</category>
       <category>Postgres</category>
       <category>Docker</category>
       <category>HomeLab</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-01-postgres-en-docker</guid>
       <pubDate>Fri, 12 Apr 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-postgres-en-docker/../../images/edex-ui.png" medium="image" type="image/png" width="800" height="450"/>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-postgres-en-docker/../../images/data_bases.png" medium="image" type="image/png" width="472" height="254"/>
     </item>
     <item>
       <title>Editor en línea de comandos - Vim</title>

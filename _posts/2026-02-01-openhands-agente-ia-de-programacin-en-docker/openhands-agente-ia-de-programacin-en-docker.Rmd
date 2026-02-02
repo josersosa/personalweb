@@ -1,7 +1,7 @@
 ---
 title: "Openhands Agente IA de programación en Docker"
 description: |
-  "Openhands en una app de desarrollo de software con Agentes de IA que tienen las mismas herramientas que un desarrollador humano: pueden modificar el código, ejecutar comandos, navegar por la web, llamar a las API y, sí, incluso copiar fragmentos de código de StackOverflow."
+  Openhands en una app de desarrollo de software con Agentes de IA que tienen las mismas herramientas que un desarrollador humano: pueden modificar el código, ejecutar comandos, navegar por la web, llamar a las API, e incluso, copiar fragmentos de código de StackOverflow.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

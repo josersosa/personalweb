@@ -1,5 +1,5 @@
 ---
-title: "Reprositorios de proyectos de IA"
+title: "Repositorios de proyectos de IA"
 description: |
   Recopilacion de diferentes repositorios de proyectos en Github sobre Inteligencia Artificial que iré completando y actualizando con el tiempo.
 author:

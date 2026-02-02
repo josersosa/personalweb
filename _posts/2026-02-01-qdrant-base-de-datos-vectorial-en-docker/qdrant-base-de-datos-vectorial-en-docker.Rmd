@@ -1,7 +1,7 @@
 ---
 title: "Qdrant, base de datos vectorial en Docker"
 description: |
-  "**Qdrant** es una base de datos vectorial de opensource diseñada para almacenar y buscar información basándose en el **significado** (similitud semántica) en lugar de palabras clave exactas, mediante la indexación de vectores. Veamos como usarla de forma contenerizada con Docker."
+  Qdrant es una base de datos vectorial de opensource diseñada para almacenar y buscar información basándose en el significado (similitud semántica) en lugar de palabras clave exactas, mediante la indexación de vectores. Veamos como usarla de forma contenerizada con Docker."
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/
@@ -14,6 +14,7 @@ output:
 #    toc_float: false
 categories:
   - NoSQL
+  - Qdrant
   - VectorDB
   - RAG
   - Docker

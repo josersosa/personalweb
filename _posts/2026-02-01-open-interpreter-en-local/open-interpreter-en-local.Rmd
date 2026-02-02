@@ -1,7 +1,7 @@
 ---
 title: "Open Interpreter en local"
 description: |
-  "Open Interpreter es una versión opensource del agente interpreter de OpenAI, pero este correr dentro de nuestro equipo, permitiendo que la IA haga uso de nuestros recursos y ejecute tareas y use herramientas de forma local.."
+  Open Interpreter es una versión opensource del agente interpreter de OpenAI, pero este corre dentro de nuestro equipo, permitiendo que la IA haga uso de nuestros recursos y ejecute tareas y use herramientas de forma local.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

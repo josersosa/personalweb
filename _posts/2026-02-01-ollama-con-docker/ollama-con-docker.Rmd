@@ -1,7 +1,7 @@
 ---
 title: "Ollama con Docker"
 description: |
-  "En estre post, haré un breve repaso sobre como trabajar con Ollama, y en particular, como ejecutarlo desde un contenedor de [Docker](https://www.docker.com/)"
+  En estre post, haré un breve repaso sobre como trabajar con Ollama, y en particular, como ejecutarlo desde un contenedor de [Docker](https://www.docker.com/)
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

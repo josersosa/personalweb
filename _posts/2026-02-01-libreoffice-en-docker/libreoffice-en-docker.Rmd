@@ -1,7 +1,7 @@
 ---
 title: "LibreOffice en Docker"
 description: |
-  "Podemos ejecutar la suite completa de LibreOffice en un contenedor Docker y acceder a sus aplicaciones vía web en nuestra red local."
+  Podemos ejecutar la suite completa de LibreOffice en un contenedor Docker y acceder a sus aplicaciones vía web en nuestra red local.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

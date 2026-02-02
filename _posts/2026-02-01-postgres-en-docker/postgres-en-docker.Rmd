@@ -1,7 +1,7 @@
 ---
 title: "Postgres en Docker"
 description: |
-  "Postgres es uno de los manejadores de bases de datos más utilizados en el mundo opensource. Veremos como instalarlo y ejecutarlo en nuestro laboratorio local de forma contenerizada con Docker."
+  Postgres es uno de los manejadores de bases de datos más utilizados en el mundo opensource. Veremos como instalarlo y ejecutarlo en nuestro laboratorio local de forma contenerizada con Docker.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

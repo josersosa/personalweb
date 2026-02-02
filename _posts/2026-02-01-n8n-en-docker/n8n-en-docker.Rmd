@@ -1,7 +1,7 @@
 ---
 title: "n8n en Docker"
 description: |
-  "Una de las ventajas de n8n es el poder activar un entorno de desarrollo completamente funcional de forma local con Docker para ejecutar workflows en nuestro propio homelab". 
+  Una de las ventajas de n8n es el poder activar un entorno de desarrollo completamente funcional de forma local con Docker para ejecutar workflows en nuestro propio homelab. 
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/
@@ -16,7 +16,7 @@ categories:
   - n8n
   - Ollama
   - GenAI
-  - AgenticAI
+  - Agentic AI
   - MCP
   - HomeLab
 preview: ../../images/workflow_n8n.png

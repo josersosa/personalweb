@@ -1,7 +1,7 @@
 ---
 title: "ScaliDraw.io en Docker"
 description: |
-  "**Excalidraw** es una pizarra virtual de opensource diseñada para crear diagramas y bocetos con una estética de dibujo a mano alzada, y que por supuesto, podemos ejecutar desde una contenedor Docker."
+  Excalidraw es una pizarra virtual de opensource diseñada para crear diagramas y bocetos con una estética de dibujo a mano alzada, y que por supuesto, podemos ejecutar desde una contenedor Docker.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/
