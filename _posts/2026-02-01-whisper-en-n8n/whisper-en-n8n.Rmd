@@ -1,5 +1,5 @@
 ---
-title: "Whisper en n8n"
+title: "Integrando Whisper en n8n"
 description: |
   Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales.
 author:

@@ -1,5 +1,5 @@
 ---
-title: "LightRAG en Docker"
+title: "LightRAG, mejorando los resultados del RAG con  en Docker"
 description: |
   LightRAG: Generación Aumentada de Recuperación (RAG) simple y rápida, mediante un mecanismo de búsqueda hibrida que combina la búsqueda semántica basada en embeddings, una base de datos de vectores y la búsqueda por palabras clave.
 author:

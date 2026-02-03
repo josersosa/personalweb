@@ -7,7 +7,19 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 25 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Inspección y testing de servicios MCP</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp</link>
+      <description>Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.</description>
+      <category>GenAI</category>
+      <category>Gentic AI</category>
+      <category>MCP</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp</guid>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/../../images/mcp_inspector_tn.png" medium="image" type="image/png" width="538" height="316"/>
+    </item>
     <item>
       <title>AnythingLLM en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
@@ -25,10 +37,10 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="470" height="315"/>
     </item>
     <item>
-      <title>LangFlow en Docker</title>
+      <title>LangFlow, motor de desarrollo de workflows inteligentes contenerizado en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker</link>
-      <description>langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Veremos una anotación de como levantar el servicio de LangFlow en Docker.</description>
+      <description>langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Mostraré una guía de como levantar el servicio de LangFlow en Docker.</description>
       <category>Docker</category>
       <category>GenAI</category>
       <guid>https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker</guid>
@@ -36,7 +48,7 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-29-langflow-en-docker/../../images/langflow_agent_tn.png" medium="image" type="image/png" width="500" height="293"/>
     </item>
     <item>
-      <title>Whisper en n8n</title>
+      <title>Integrando Whisper en n8n</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n</link>
       <description>Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales.</description>
@@ -48,7 +60,7 @@
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/../../images/workflow_n8n.png" medium="image" type="image/png" width="717" height="338"/>
     </item>
     <item>
-      <title>LightRAG en Docker</title>
+      <title>LightRAG, mejorando los resultados del RAG con  en Docker</title>
       <dc:creator>José R Sosa</dc:creator>
       <link>https://josersosa.github.io/personalweb/posts/2026-02-01-lightrag-en-docker</link>
       <description>LightRAG: Generación Aumentada de Recuperación (RAG) simple y rápida, mediante un mecanismo de búsqueda hibrida que combina la búsqueda semántica basada en embeddings, una base de datos de vectores y la búsqueda por palabras clave.</description>

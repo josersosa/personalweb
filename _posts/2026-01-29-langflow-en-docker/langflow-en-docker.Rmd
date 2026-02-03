@@ -1,7 +1,7 @@
 ---
-title: "LangFlow en Docker"
+title: "LangFlow, motor de desarrollo de workflows inteligentes contenerizado en Docker"
 description: |
-  langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Veremos una anotación de como levantar el servicio de LangFlow en Docker.  
+  langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Mostraré una guía de como levantar el servicio de LangFlow en Docker.  
 author:
   - name: José R Sosa
     url: https://example.com/josersosa

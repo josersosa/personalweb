@@ -1,0 +1,82 @@
+---
+title: "Inspección y testing de servicios MCP"
+description: |
+  Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 2025-12-28
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+    code_folding: hide
+#    toc_float: false
+categories:
+  - GenAI
+  - Gentic AI
+  - MCP
+preview: ../../images/mcp_inspector_tn.png
+---
+
+
+## Inspección de servicios MCP
+Referencias:
+- MCP inspector, repositorio: [modelcontextprotocol/inspector](https://github.com/modelcontextprotocol/inspector)  
+- Documentación de MCP inspector: [Inspector docs](https://modelcontextprotocol.info/tools/inspector/) 
+- Post: [How to use MCP Inspector](https://medium.com/@laurentkubaski/how-to-use-mcp-inspector-2748cd33faeb) 
+- Post: [Test a Remote MCP Server](https://developers.cloudflare.com/agents/guides/test-remote-mcp-server/) 
+
+Ejecutar en local con Powershell o WSL:
+```bash
+npx @modelcontextprotocol/inspector
+Starting MCP inspector...
+⚙️ Proxy server listening on localhost:6277
+🔑 Session token: cbff11dbe1600de647b974f43eb0f7c30ea52baa4f39cae39892a680fa3a21e0
+   Use this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth
+
+🚀 MCP Inspector is up and running at:
+   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=cbff11dbe1600de647b974f43eb0f7c30ea52baa4f39cae39892a680fa3a21e0
+
+🌐 Opening browser...
+```
+
+
+Levantamos nuestro servicio MCP, por ejemplo:
+```bash
+docker run --rm -i --name bcalculator-mcp bcalculator-mcp
+INFO:__main__:Iniciando Calculator MCP Server...
+INFO:__main__:✅ bc está disponible - Calculator MCP Server listo
+```
+
+![](../../images/genai/mcp_inspector.png)
+
+Uso básico:
+1. Configuración
+	- Transport Type: STDIO
+	- Command: docker
+	- Arguments: exec -i bcalculator-mcp python calculator_mcp.py
+	- Enviroment Variables, agregar:
+		- DOCKER_HOST=unix:///var/run/docker.sock 
+2. Connect
+	- Tools -> ListTools
+	- Calculate
+		- Expression: 1000 * (1 + 0.08/12)^(12*10) 
+		- Precision: 6
+	- Run Tool
+```
+✅ RESULTADO DEL CÁLCULO
+========================
+
+Expresión: 1000 * (1 + 0.08/12)^(12*10) 
+Resultado: 2219.463000
+Precisión: 6 dígitos decimales
+Tiempo de ejecución: 0.0034 segundos
+
+📊 El cálculo se completó exitosamente usando aritmética de precisión arbitraria.
+```
+
+
+
+

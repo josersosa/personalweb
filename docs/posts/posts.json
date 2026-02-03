@@ -1,5 +1,28 @@
 [
   {
+    "path": "posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/",
+    "title": "Inspección y testing de servicios MCP",
+    "description": "Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.",
+    "author": [
+      {
+        "name": "José R Sosa",
+        "url": "https://josersosa.github.io/personalweb/"
+      }
+    ],
+    "date": "2025-12-28",
+    "categories": [
+      "GenAI",
+      "Gentic AI",
+      "MCP"
+    ],
+    "contents": "\n\nContents\nInspección de servicios MCP\n\nInspección de servicios MCP\nReferencias:\n- MCP inspector, repositorio: modelcontextprotocol/inspector\n- Documentación de MCP inspector: Inspector docs\n- Post: How to use MCP Inspector\n- Post: Test a Remote MCP Server\nEjecutar en local con Powershell o WSL:\nnpx @modelcontextprotocol/inspector\nStarting MCP inspector...\n⚙️ Proxy server listening on localhost:6277\n🔑 Session token: cbff11dbe1600de647b974f43eb0f7c30ea52baa4f39cae39892a680fa3a21e0\n   Use this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth\n\n🚀 MCP Inspector is up and running at:\n   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=cbff11dbe1600de647b974f43eb0f7c30ea52baa4f39cae39892a680fa3a21e0\n\n🌐 Opening browser...\nLevantamos nuestro servicio MCP, por ejemplo:\ndocker run --rm -i --name bcalculator-mcp bcalculator-mcp\nINFO:__main__:Iniciando Calculator MCP Server...\nINFO:__main__:✅ bc está disponible - Calculator MCP Server listo\n\nUso básico:\n1. Configuración\n- Transport Type: STDIO\n- Command: docker\n- Arguments: exec -i bcalculator-mcp python calculator_mcp.py\n- Enviroment Variables, agregar:\n- DOCKER_HOST=unix:///var/run/docker.sock\n2. Connect\n- Tools -> ListTools\n- Calculate\n- Expression: 1000 * (1 + 0.08/12)^(12*10)\n- Precision: 6\n- Run Tool\n✅ RESULTADO DEL CÁLCULO\n========================\n\nExpresión: 1000 * (1 + 0.08/12)^(12*10) \nResultado: 2219.463000\nPrecisión: 6 dígitos decimales\nTiempo de ejecución: 0.0034 segundos\n\n📊 El cálculo se completó exitosamente usando aritmética de precisión arbitraria.\n\n\n\n",
+    "preview": "posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/../../images/mcp_inspector_tn.png",
+    "last_modified": "2026-02-03T20:37:09+00:00",
+    "input_file": "inspeccin-y-testing-de-servicios-mcp.knit.md",
+    "preview_width": 538,
+    "preview_height": 316
+  },
+  {
     "path": "posts/2026-01-28-anythingllm-en-docker/",
     "title": "AnythingLLM en Docker",
     "description": "AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura.",
@@ -28,8 +51,8 @@
   },
   {
     "path": "posts/2026-01-29-langflow-en-docker/",
-    "title": "LangFlow en Docker",
-    "description": "langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Veremos una anotación de como levantar el servicio de LangFlow en Docker.",
+    "title": "LangFlow, motor de desarrollo de workflows inteligentes contenerizado en Docker",
+    "description": "langFlow es una herramineta opensource para el desarrollo low-code de flujos de trabajo de IA Generatica. Mostraré una guía de como levantar el servicio de LangFlow en Docker.",
     "author": [
       {
         "name": "José R Sosa",
@@ -43,14 +66,14 @@
     ],
     "contents": "\n\nContents\nIniciar el servicio\nAcceder a LangFlow\nDocumentación\nVideos\n\nIniciar el servicio\nLevantar el servicio de Lanflow en docker con:\ndocker run -p 7860:7860 langflowai/langflow:latest\n...\n✓ Launching Langflow...\n╭─────────────────────────────────────────────────────────────────────────╮\n│                                                                         │\n│  Welcome to Langflow                                                    │\n│                                                                         │\n│  🌟 GitHub: Star for updates → https://github.com/langflow-ai/langflow  │\n│  💬 Discord: Join for support → https://discord.com/invite/EqksyE2EX9   │\n│                                                                         │\n│  We collect anonymous usage data to improve Langflow.                   │\n│  To opt out, set: DO_NOT_TRACK=true in your environment.                │\n│                                                                         │\n│  🟢 Open Langflow → http://localhost:7860                               │\n│                                                                         │\n╰─────────────────────────────────────────────────────────────────────────╯\nAcceder a LangFlow\nPara abrir la consola de LangFlow en el browser ir a: http://localhost:7860/\nLa primera vez se verá una pantalla con algunas opciones para iniciar:\n\nSi escojemos un agente de IA:\n\nDocumentación\nhttps://docs.langflow.org/deployment-docker\nhttps://docs.langflow.org/bundles-groq\nVideos\nLangFlow Tutorial #1: Build AI-Powered Apps without Coding!\nBuilding no-code low-code RAG Application Using LangFlow\nLangflow Tutorial: Build No-Code AI Agents and RAGs\n\n\n\n",
     "preview": "posts/2026-01-29-langflow-en-docker/../../images/langflow_agent_tn.png",
-    "last_modified": "2026-02-02T02:28:58+00:00",
-    "input_file": {},
+    "last_modified": "2026-02-03T14:27:40+00:00",
+    "input_file": "langflow-en-docker.knit.md",
     "preview_width": 500,
     "preview_height": 293
   },
   {
     "path": "posts/2026-02-01-whisper-en-n8n/",
-    "title": "Whisper en n8n",
+    "title": "Integrando Whisper en n8n",
     "description": "Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales.",
     "author": [
       {
@@ -66,14 +89,14 @@
     ],
     "contents": "\n\nContents\nOpciones para STT con Whisper en n8n\nOpenAI Whisper API (Método más sencillo)\nWhisper Autoinstalado (Self-hosted)\nUsando servicios alternativos\n\nEjemplo completo: Telegram + Whisper\nFlujo en n8n:\nConfiguración detallada:\n\nConsideraciones importantes:\n\nOpciones para STT con Whisper en n8n\nOpenAI Whisper API (Método más sencillo)\ngraph LR\nA[Trigger: Audio File] --> B[HTTP Request a OpenAI Whisper]\nB --> C[Procesar texto transcrito]\nFlujo básico:\n1. Trigger: Recibir audio (por ejemplo, de Telegram, Email, Google Drive, etc.)\n2. HTTP Request Node: Enviar audio a OpenAI Whisper API\n3. Procesar respuesta: Usar el texto transcrito\nConfiguración del HTTP Request Node:\n- Method: POST\n- URL: https://api.openai.com/v1/audio/transcriptions\n- Authentication: Bearer Token (tu API key de OpenAI)\n- Content-Type: multipart/form-data\n- Body Parameters:\n- file: El archivo de audio\n- model: whisper-1\nWhisper Autoinstalado (Self-hosted)\nSi prefieres no depender de OpenAI, puedes usar una versión autohospedada de Whisper:\ngraph LR\nA[Audio Input] --> B[HTTP Request a Whisper Local]\nB --> C[Texto transcrito]\nUsando servicios alternativos\nAssemblyAI\nGoogle Speech-to-Text\nAzure Speech Services\nHugging Face APIs\nEjemplo completo: Telegram + Whisper\nCaso de uso: Recibir audio por Telegram y transcribirlo con Whisper\nFlujo en n8n:\nTelegram Trigger: On Message Received\nFilter Node: Filtrar solo mensajes con audio\nHTTP Request: Descargar el archivo de audio de Telegram\nHTTP Request: Enviar audio a OpenAI Whisper API\nTelegram: Enviar el texto transcrito como respuesta\nConfiguración detallada:\nNodo 1: Telegram Trigger\n- Event: message\n- Filtros adicionales para detectar archivos de audio\nNodo 2: HTTP Request (Descargar audio)\n- Method: GET\n- URL:\nhttps://api.telegram.org/bot{token}/getFile?file_id={{$json[\"message\"][\"audio\"][\"file_id\"]}}\nNodo 3: HTTP Request (Whisper API)\n- Method: POST\n- URL: https://api.openai.com/v1/audio/transcriptions\n- Headers:\n- Authorization: Bearer YOUR_OPENAI_API_KEY\n- Body: multipart/form-data\n- file: Binary data del audio\n- model: whisper-1\nConsideraciones importantes:\nFormatos de audio: Whisper acepta: MP3, MP4, M4A, WAV, MPEG, MPGA, WEBM, FLAC\nTamaño máximo: 25MB para OpenAI API\nCostos: Cada minuto transcrito tiene un costo en OpenAI\n\n\n\n",
     "preview": "posts/2026-02-01-whisper-en-n8n/../../images/workflow_n8n.png",
-    "last_modified": "2026-02-02T00:10:03+00:00",
-    "input_file": {},
+    "last_modified": "2026-02-03T14:20:24+00:00",
+    "input_file": "whisper-en-n8n.knit.md",
     "preview_width": 717,
     "preview_height": 338
   },
   {
     "path": "posts/2026-02-01-lightrag-en-docker/",
-    "title": "LightRAG en Docker",
+    "title": "LightRAG, mejorando los resultados del RAG con  en Docker",
     "description": "LightRAG: Generación Aumentada de Recuperación (RAG) simple y rápida, mediante un mecanismo de búsqueda hibrida que combina la búsqueda semántica basada en embeddings, una base de datos de vectores y la búsqueda por palabras clave.",
     "author": [
       {
@@ -90,8 +113,8 @@
     ],
     "contents": "\n\nContents\nArquitectura de LightRAG\nRequisitos previos\nLevantar el servicio - Modelos OpenAI\nLevantar el servicio - Modelos Locales\nInterface de usuario (GUI)\n\nArquitectura de LightRAG\n\nRequisitos previos\nTener instalado Docker (y opcionalmente Docker Compose).\nVerifica:\ndocker --version\ndocker compose version   # (o `docker-compose --version` en instalaciones antiguas)\nDescarga de la imagen docker y creámo el volumen para la persistencia de los datos:\ndocker volume create lightrag \ndocker pull ghcr.io/hkuds/lightrag:latest\nLevantar el servicio - Modelos OpenAI\nPara activar el servicio invocaremos el siguiente comando:\ndocker run -d \\\n    --env=AUTH_ACCOUNTS=admin:kukenan,jose:oicicreje \\\n    --env=TOKEN_SECRET=BnzCYNwdMDtpoBWYnLv8 \\\n    --env=LIGHTRAG_API_KEY=APIKEY_LIGHTRAG  \\\n    --env=LLM_BINDING=openai \\\n    --env=LLM_BINDING_HOST=https://api.openai.com/v1 \\\n    --env=LLM_MODEL=gpt-4.1-nano \\\n    --env=LLM_BINDING_API_KEY=OPENAI_API_KEY  \\\n    --env=LLM_BINDING_API_KEY=APIKEY_OPENAI  \\\n    --env=OPENAI_LLM_MAX_TOKENS=9000  \\\n    --env=EMBEDDING_BINDING=openai  \\\n    --env=EMBEDDING_BINDING_HOST=https://api.openai.com/v1  \\\n    --env=EMBEDDING_MODEL=text-embedding-3-small  \\\n    --env=EMBEDDING_DIM=1536  \\\n    --env=EMBEDDING_BINDING_API_KEY=OPENAI_API_KEY  \\\n    --env=EMBEDDING_BINDING_API_KEY=APIKEY_OPENAI  \\\n    --env=MAX_ASYNC=12 \\\n    --env=MAX_PARALLEL_INSERT=3 \\\n    --env=EMBEDDING_FUNC_MAX_ASYNC=24 \\\n    --env=EMBEDDING_BATCH_NUM=100 \\\n    --env=LIGHTRAG_KV_STORAGE=JsonKVStorage  \\\n    --env=LIGHTRAG_DOC_STATUS_STORAGE=JsonDocStatusStorage  \\\n    --env=LIGHTRAG_GRAPH_STORAGE=NetworkXStorage  \\\n    --env=LIGHTRAG_VECTOR_STORAGE=NanoVectorDBStorage  \\\n    --env=SUMMARY_LANGUAGE=Spanish \\\n    --env=GPG_KEY=GPG_KEY  \\\n    --env=PYTHON_VERSION=3.12.11  \\\n    --env=PYTHON_SHA256=PYTHON_KEY  \\\n    --env=WORKING_DIR=/app/data/rag_storage  \\\n    --env=INPUT_DIR=/app/data/inputs  \\\n    --network=bridge  \\\n    --workdir=/app  \\\n    --name lightrag \\\n    -p 9621:9621  \\\n    -v lightrag_data:/app/data \\\n    --restart=no  \\\n    --runtime=runc  \\\n    ghcr.io/hkuds/lightrag:latest\nLevantar el servicio - Modelos Locales\nPara activar el servicio invocaremos el siguiente comando:\ndocker run -d \\\n    --env=AUTH_ACCOUNTS=admin:kukenan,jose:oicicreje \\\n    --env=TOKEN_SECRET=BnzCYNwdMDtpoBWYnLv8 \\\n    --env=LLM_BINDING=openai \\\n    --env=LLM_MODEL=gpt-4o-mini \\\n    --env=LLM_BINDING_API_KEY=OPENAI_API_KEY  \\\n    --env=LLM_BINDING_API_KEYAPIKEY_OPENAI  \\\n    --env=OPENAI_LLM_MAX_TOKENS=9000  \\\n    --env=LLM_BINDING_HOST=https://api.openai.com/v1 \\\n    --env=EMBEDDING_BINDING=openai  \\\n    --env=EMBEDDING_BINDING=openai  \\\n    --env=EMBEDDING_MODEL=text-embedding-3-small  \\\n    --env=EMBEDDING_DIM=1536  \\\n    --env=EMBEDDING_BINDING_HOST=https://api.openai.com/v1  \\\n    --env=EMBEDDING_BINDING_API_KEY=OPENAI_API_KEY  \\\n    --env=EMBEDDING_BINDING_API_KEY=APIKEY_OPENAI  \\\n    --env=LIGHTRAG_KV_STORAGE=JsonKVStorage  \\\n    --env=LIGHTRAG_DOC_STATUS_STORAGE=JsonDocStatusStorage  \\\n    --env=LIGHTRAG_GRAPH_STORAGE=NetworkXStorage  \\\n    --env=LIGHTRAG_VECTOR_STORAGE=NanoVectorDBStorage  \\\n    --env=SUMMARY_LANGUAGE=Spanish \\\n    --env=GPG_KEY=GPG_KEY  \\\n    --env=PYTHON_VERSION=3.12.11  \\\n    --env=PYTHON_SHA256=PYTHON_KEY  \\\n    --env=WORKING_DIR=/app/data/rag_storage  \\\n    --env=INPUT_DIR=/app/data/inputs  \\\n    --network=bridge  \\\n    --workdir=/app  \\\n    -p 9621:9621  \\\n    --restart=no  \\\n    --runtime=runc  \\\n    ghcr.io/hkuds/lightrag:latest\nInterface de usuario (GUI)\n\n\nFuentes:\nHKUDS/LightRAG: “LightRAG: Simple and Fast Retrieval-Augmented Generation”\nPackage lightrag\nTutorial LightRAG: [Simple and Fast Alternative to GraphRAG for Legal Doc Analysis]((https://learnopencv.com/lightrag/)\nMake your AI Agents 10x Smarter with GraphRAG (n8n) de The AI Automators\n\n\n\n",
     "preview": "posts/2026-02-01-lightrag-en-docker/../../images/LightRAG_tn.png",
-    "last_modified": "2026-02-02T04:29:02+00:00",
-    "input_file": {},
+    "last_modified": "2026-02-03T20:23:32+00:00",
+    "input_file": "lightrag-en-docker.knit.md",
     "preview_width": 449,
     "preview_height": 263
   },

@@ -88,55 +88,55 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Blog de José R Sosa: Integrando Whisper en n8n</title>
+<title>Blog de José R Sosa: Inspección y testing de servicios MCP</title>
 
-<meta property="description" itemprop="description" content="Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales."/>
+<meta property="description" itemprop="description" content="Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento."/>
 
-<link rel="canonical" href="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/"/>
+<link rel="canonical" href="https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2025-09-30"/>
-<meta property="article:created" itemprop="dateCreated" content="2025-09-30"/>
+<meta property="article:published" itemprop="datePublished" content="2025-12-28"/>
+<meta property="article:created" itemprop="dateCreated" content="2025-12-28"/>
 <meta name="article:author" content="José R Sosa"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Blog de José R Sosa: Integrando Whisper en n8n"/>
+<meta property="og:title" content="Blog de José R Sosa: Inspección y testing de servicios MCP"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales."/>
-<meta property="og:url" content="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/"/>
-<meta property="og:image" content="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/../../images/workflow_n8n.png"/>
-<meta property="og:image:width" content="717"/>
-<meta property="og:image:height" content="338"/>
+<meta property="og:description" content="Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento."/>
+<meta property="og:url" content="https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/"/>
+<meta property="og:image" content="https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/../../images/mcp_inspector_tn.png"/>
+<meta property="og:image:width" content="538"/>
+<meta property="og:image:height" content="316"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Blog de José R Sosa"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Blog de José R Sosa: Integrando Whisper en n8n"/>
-<meta property="twitter:description" content="Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales."/>
-<meta property="twitter:url" content="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/"/>
-<meta property="twitter:image" content="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/../../images/workflow_n8n.png"/>
-<meta property="twitter:image:width" content="717"/>
-<meta property="twitter:image:height" content="338"/>
+<meta property="twitter:title" content="Blog de José R Sosa: Inspección y testing de servicios MCP"/>
+<meta property="twitter:description" content="Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento."/>
+<meta property="twitter:url" content="https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/"/>
+<meta property="twitter:image" content="https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/../../images/mcp_inspector_tn.png"/>
+<meta property="twitter:image:width" content="538"/>
+<meta property="twitter:image:height" content="316"/>
 <meta property="twitter:site" content="@JoseRSosaB"/>
 <meta property="twitter:creator" content="@JoseRSosaB"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Blog de José R Sosa: Integrando Whisper en n8n"/>
-<meta name="citation_fulltext_html_url" content="https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/"/>
-<meta name="citation_online_date" content="2025/09/30"/>
-<meta name="citation_publication_date" content="2025/09/30"/>
+<meta name="citation_title" content="Blog de José R Sosa: Inspección y testing de servicios MCP"/>
+<meta name="citation_fulltext_html_url" content="https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/"/>
+<meta name="citation_online_date" content="2025/12/28"/>
+<meta name="citation_publication_date" content="2025/12/28"/>
 <meta name="citation_author" content="José R Sosa"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Integrando Whisper en n8n"]},{"type":"character","attributes":{},"value":["Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/"]}]}]},{"type":"character","attributes":{},"value":["09-30-2025"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["n8n","STT","Whisper"]},{"type":"character","attributes":{},"value":["../../images/workflow_n8n.png"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Inspección y testing de servicios MCP"]},{"type":"character","attributes":{},"value":["Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["José R Sosa"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/"]}]}]},{"type":"character","attributes":{},"value":["2025-12-28"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["hide"]}]}]},{"type":"character","attributes":{},"value":["GenAI","Gentic AI","MCP"]},{"type":"character","attributes":{},"value":["../../images/mcp_inspector_tn.png"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/"]},{"type":"character","attributes":{},"value":["https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["whisper-en-n8n_files/anchor-4.2.2/anchor.min.js","whisper-en-n8n_files/bowser-1.9.3/bowser.min.js","whisper-en-n8n_files/distill-2.2.21/template.v2.js","whisper-en-n8n_files/header-attrs-2.21/header-attrs.js","whisper-en-n8n_files/jquery-3.6.0/jquery-3.6.0.js","whisper-en-n8n_files/jquery-3.6.0/jquery-3.6.0.min.js","whisper-en-n8n_files/jquery-3.6.0/jquery-3.6.0.min.map","whisper-en-n8n_files/popper-2.6.0/popper.min.js","whisper-en-n8n_files/tippy-6.2.7/tippy-bundle.umd.min.js","whisper-en-n8n_files/tippy-6.2.7/tippy-light-border.css","whisper-en-n8n_files/tippy-6.2.7/tippy.css","whisper-en-n8n_files/tippy-6.2.7/tippy.umd.min.js","whisper-en-n8n_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["inspeccin-y-testing-de-servicios-mcp_files/anchor-4.2.2/anchor.min.js","inspeccin-y-testing-de-servicios-mcp_files/bowser-1.9.3/bowser.min.js","inspeccin-y-testing-de-servicios-mcp_files/distill-2.2.21/template.v2.js","inspeccin-y-testing-de-servicios-mcp_files/header-attrs-2.21/header-attrs.js","inspeccin-y-testing-de-servicios-mcp_files/jquery-3.6.0/jquery-3.6.0.js","inspeccin-y-testing-de-servicios-mcp_files/jquery-3.6.0/jquery-3.6.0.min.js","inspeccin-y-testing-de-servicios-mcp_files/jquery-3.6.0/jquery-3.6.0.min.map","inspeccin-y-testing-de-servicios-mcp_files/popper-2.6.0/popper.min.js","inspeccin-y-testing-de-servicios-mcp_files/tippy-6.2.7/tippy-bundle.umd.min.js","inspeccin-y-testing-de-servicios-mcp_files/tippy-6.2.7/tippy-light-border.css","inspeccin-y-testing-de-servicios-mcp_files/tippy-6.2.7/tippy.css","inspeccin-y-testing-de-servicios-mcp_files/tippy-6.2.7/tippy.umd.min.js","inspeccin-y-testing-de-servicios-mcp_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2180,7 +2180,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Integrando Whisper en n8n","description":"Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales.","authors":[{"author":"José R Sosa","authorURL":"https://josersosa.github.io/personalweb/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2025-09-30T00:00:00.000+00:00","citationText":"Sosa, 2025"}
+{"title":"Inspección y testing de servicios MCP","description":"Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.","authors":[{"author":"José R Sosa","authorURL":"https://josersosa.github.io/personalweb/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2025-12-28T00:00:00.000+00:00","citationText":"Sosa, 2025"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2245,21 +2245,21 @@ Recursos
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Integrando Whisper en n8n</h1>
+<h1>Inspección y testing de servicios MCP</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-  <a href="../../index.html#category:n8n" class="dt-tag">n8n</a>
-  <a href="../../index.html#category:STT" class="dt-tag">STT</a>
-  <a href="../../index.html#category:Whisper" class="dt-tag">Whisper</a>
+  <a href="../../index.html#category:GenAI" class="dt-tag">GenAI</a>
+  <a href="../../index.html#category:Gentic_AI" class="dt-tag">Gentic AI</a>
+  <a href="../../index.html#category:MCP" class="dt-tag">MCP</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Cómo integrar Whisper en n8n para automatizar la transcripción de audio dentro de flujos de trabajo. Veremos varios mecanismos prácticos para lograr esto y algunas consideraciones clave para el reconocimiento de voz en procesos reales.</p></p>
+<p><p>Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.</p></p>
 </div>
 
 <div class="d-byline">
   José R Sosa <a href="https://josersosa.github.io/personalweb/" class="uri">https://josersosa.github.io/personalweb/</a> 
   
-<br/>09-30-2025
+<br/>2025-12-28
 </div>
 
 <div class="d-article">
@@ -2267,103 +2267,75 @@ Recursos
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#opciones-para-stt-con-whisper-en-n8n" id="toc-opciones-para-stt-con-whisper-en-n8n">Opciones para STT con Whisper en n8n</a>
-<ul>
-<li><a href="#openai-whisper-api-método-más-sencillo" id="toc-openai-whisper-api-método-más-sencillo">OpenAI Whisper API (Método más sencillo)</a></li>
-<li><a href="#whisper-autoinstalado-self-hosted" id="toc-whisper-autoinstalado-self-hosted">Whisper Autoinstalado (Self-hosted)</a></li>
-<li><a href="#usando-servicios-alternativos" id="toc-usando-servicios-alternativos">Usando servicios alternativos</a></li>
-</ul></li>
-<li><a href="#ejemplo-completo-telegram-whisper" id="toc-ejemplo-completo-telegram-whisper">Ejemplo completo: Telegram + Whisper</a>
-<ul>
-<li><a href="#flujo-en-n8n" id="toc-flujo-en-n8n">Flujo en n8n:</a></li>
-<li><a href="#configuración-detallada" id="toc-configuración-detallada">Configuración detallada:</a></li>
-</ul></li>
-<li><a href="#consideraciones-importantes" id="toc-consideraciones-importantes">Consideraciones importantes:</a></li>
+<li><a href="#inspección-de-servicios-mcp" id="toc-inspección-de-servicios-mcp">Inspección de servicios MCP</a></li>
 </ul>
 </nav>
 </div>
-<h2 id="opciones-para-stt-con-whisper-en-n8n">Opciones para STT con Whisper en n8n</h2>
-<h3 id="openai-whisper-api-método-más-sencillo">OpenAI Whisper API (Método más sencillo)</h3>
-<pre class="mermaid"><code>graph LR
-A[Trigger: Audio File] --&gt; B[HTTP Request a OpenAI Whisper]
-B --&gt; C[Procesar texto transcrito]</code></pre>
-<p><strong>Flujo básico:</strong>
-1. <strong>Trigger</strong>: Recibir audio (por ejemplo, de Telegram, Email, Google Drive, etc.)
-2. <strong>HTTP Request Node</strong>: Enviar audio a OpenAI Whisper API
-3. <strong>Procesar respuesta</strong>: Usar el texto transcrito</p>
-<p><strong>Configuración del HTTP Request Node:</strong>
-- <strong>Method</strong>: POST
-- <strong>URL</strong>: <code>https://api.openai.com/v1/audio/transcriptions</code>
-- <strong>Authentication</strong>: Bearer Token (tu API key de OpenAI)
-- <strong>Content-Type</strong>: <code>multipart/form-data</code>
-- <strong>Body Parameters</strong>:
-- <code>file</code>: El archivo de audio
-- <code>model</code>: <code>whisper-1</code></p>
-<h3 id="whisper-autoinstalado-self-hosted">Whisper Autoinstalado (Self-hosted)</h3>
-<p>Si prefieres no depender de OpenAI, puedes usar una versión autohospedada de Whisper:</p>
-<pre class="mermaid"><code>graph LR
-A[Audio Input] --&gt; B[HTTP Request a Whisper Local]
-B --&gt; C[Texto transcrito]</code></pre>
-<h3 id="usando-servicios-alternativos">Usando servicios alternativos</h3>
-<ul>
-<li><strong>AssemblyAI</strong></li>
-<li><strong>Google Speech-to-Text</strong></li>
-<li><strong>Azure Speech Services</strong></li>
-<li><strong>Hugging Face APIs</strong></li>
-</ul>
-<h2 id="ejemplo-completo-telegram-whisper">Ejemplo completo: Telegram + Whisper</h2>
-<p><strong>Caso de uso</strong>: Recibir audio por Telegram y transcribirlo con Whisper</p>
-<h3 id="flujo-en-n8n">Flujo en n8n:</h3>
-<ol type="1">
-<li><strong>Telegram Trigger</strong>: <em>On Message Received</em></li>
-<li><strong>Filter Node</strong>: Filtrar solo mensajes con audio</li>
-<li><strong>HTTP Request</strong>: Descargar el archivo de audio de Telegram</li>
-<li><strong>HTTP Request</strong>: Enviar audio a OpenAI Whisper API</li>
-<li><strong>Telegram</strong>: Enviar el texto transcrito como respuesta</li>
-</ol>
-<h3 id="configuración-detallada">Configuración detallada:</h3>
-<p><strong>Nodo 1: Telegram Trigger</strong>
-- Event: <code>message</code>
-- Filtros adicionales para detectar archivos de audio</p>
-<p><strong>Nodo 2: HTTP Request (Descargar audio)</strong>
-- Method: <code>GET</code>
-- URL:
-<code>https://api.telegram.org/bot{token}/getFile?file_id={{$json["message"]["audio"]["file_id"]}}</code></p>
-<p><strong>Nodo 3: HTTP Request (Whisper API)</strong>
-- Method: <code>POST</code>
-- URL: <code>https://api.openai.com/v1/audio/transcriptions</code>
-- Headers:
-- <code>Authorization</code>: <code>Bearer YOUR_OPENAI_API_KEY</code>
-- Body: <code>multipart/form-data</code>
-- <code>file</code>: Binary data del audio
-- <code>model</code>: <code>whisper-1</code></p>
-<h2 id="consideraciones-importantes">Consideraciones importantes:</h2>
-<ul>
-<li><strong>Formatos de audio</strong>: Whisper acepta: MP3, MP4, M4A, WAV, MPEG, MPGA, WEBM, FLAC</li>
-<li><strong>Tamaño máximo</strong>: 25MB para OpenAI API</li>
-<li><strong>Costos</strong>: Cada minuto transcrito tiene un costo en OpenAI</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="inspección-de-servicios-mcp">Inspección de servicios MCP</h2>
+<p>Referencias:
+- MCP inspector, repositorio: <a href="https://github.com/modelcontextprotocol/inspector">modelcontextprotocol/inspector</a><br />
+- Documentación de MCP inspector: <a href="https://modelcontextprotocol.info/tools/inspector/">Inspector docs</a>
+- Post: <a href="https://medium.com/@laurentkubaski/how-to-use-mcp-inspector-2748cd33faeb">How to use MCP Inspector</a>
+- Post: <a href="https://developers.cloudflare.com/agents/guides/test-remote-mcp-server/">Test a Remote MCP Server</a></p>
+<p>Ejecutar en local con Powershell o WSL:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> @modelcontextprotocol/inspector</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Starting</span> MCP inspector...</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">⚙️</span> Proxy server listening on localhost:6277</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">🔑</span> Session token: cbff11dbe1600de647b974f43eb0f7c30ea52baa4f39cae39892a680fa3a21e0</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">Use</span> this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">🚀</span> MCP Inspector is up and running at:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>   <span class="ex">http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=cbff11dbe1600de647b974f43eb0f7c30ea52baa4f39cae39892a680fa3a21e0</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">🌐</span> Opening browser...</span></code></pre></div>
+<p>Levantamos nuestro servicio MCP, por ejemplo:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-i</span> <span class="at">--name</span> bcalculator-mcp bcalculator-mcp</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">INFO:__main__:Iniciando</span> Calculator MCP Server...</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">INFO:__main__:✅</span> bc está disponible <span class="at">-</span> Calculator MCP Server listo</span></code></pre></div>
+<p><img src="../../images/genai/mcp_inspector.png" /></p>
+<p>Uso básico:
+1. Configuración
+- Transport Type: STDIO
+- Command: docker
+- Arguments: exec -i bcalculator-mcp python calculator_mcp.py
+- Enviroment Variables, agregar:
+- DOCKER_HOST=unix:///var/run/docker.sock
+2. Connect
+- Tools -&gt; ListTools
+- Calculate
+- Expression: 1000 * (1 + 0.08/12)^(12*10)
+- Precision: 6
+- Run Tool</p>
+<pre><code>✅ RESULTADO DEL CÁLCULO
+========================
+
+Expresión: 1000 * (1 + 0.08/12)^(12*10) 
+Resultado: 2219.463000
+Precisión: 6 dígitos decimales
+Tiempo de ejecución: 0.0034 segundos
+
+📊 El cálculo se completó exitosamente usando aritmética de precisión arbitraria.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="disqus-comments">
       <i class="fas fa-comments"></i>
       &nbsp;
-      <span class="disqus-comment-count" data-disqus-identifier="posts/2026-02-01-whisper-en-n8n/">Comment on this article</span>
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/">Comment on this article</span>
     </span>
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Integrando%20Whisper%20en%20n8n&amp;url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2026-02-01-whisper-en-n8n%2F" aria-label="share on twitter">
+      <a href="https://twitter.com/share?text=Inspecci%C3%B3n%20y%20testing%20de%20servicios%20MCP&amp;url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2026-02-03-inspeccin-y-testing-de-servicios-mcp%2F" aria-label="share on twitter">
         <i class="fab fa-twitter" aria-hidden="true"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2026-02-01-whisper-en-n8n%2F&amp;title=Integrando%20Whisper%20en%20n8n" aria-label="share on linkedin">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2026-02-03-inspeccin-y-testing-de-servicios-mcp%2F&amp;title=Inspecci%C3%B3n%20y%20testing%20de%20servicios%20MCP" aria-label="share on linkedin">
         <i class="fab fa-linkedin" aria-hidden="true"></i>
       </a>
-      <a href="https://pinterest.com/pin/create/link/?url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2026-02-01-whisper-en-n8n%2F&amp;description=Integrando%20Whisper%20en%20n8n" aria-label="share on pinterest">
+      <a href="https://pinterest.com/pin/create/link/?url=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2026-02-03-inspeccin-y-testing-de-servicios-mcp%2F&amp;description=Inspecci%C3%B3n%20y%20testing%20de%20servicios%20MCP" aria-label="share on pinterest">
         <i class="fab fa-pinterest" aria-hidden="true"></i>
       </a>
-      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2026-02-01-whisper-en-n8n%2F" aria-label="share on facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjosersosa.github.io%2Fpersonalweb%2Fposts%2F2026-02-03-inspeccin-y-testing-de-servicios-mcp%2F" aria-label="share on facebook">
         <i class="fab fa-facebook" aria-hidden="true"></i>
       </a>
     </span>
@@ -2372,8 +2344,8 @@ B --&gt; C[Texto transcrito]</code></pre>
   <div id="disqus_thread" class="hidden"></div>
   <script type="text/javascript" cookie-consent="functionality">
 var disqus_config = function () {
-  this.page.url = 'https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/';
-  this.page.identifier = 'posts/2026-02-01-whisper-en-n8n/';
+  this.page.url = 'https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/';
+  this.page.identifier = 'posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/';
 };
 (function() {
   var d = document, s = d.createElement('script');
@@ -2409,12 +2381,12 @@ var disqus_config = function () {
   <p>If you see mistakes or want to suggest changes, please <a href="https://github.com/josersosa/personalweb/issues/new">create an issue</a> on the source repository.</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Sosa (2025, Sept. 30). Blog de José R Sosa: Integrando Whisper en n8n. Retrieved from https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/</pre>
+  <pre class="citation-appendix short">Sosa (2025, Dec. 28). Blog de José R Sosa: Inspección y testing de servicios MCP. Retrieved from https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{sosa2025integrando,
+  <pre class="citation-appendix long">@misc{sosa2025inspección,
   author = {Sosa, José R},
-  title = {Blog de José R Sosa: Integrando Whisper en n8n},
-  url = {https://josersosa.github.io/personalweb/posts/2026-02-01-whisper-en-n8n/},
+  title = {Blog de José R Sosa: Inspección y testing de servicios MCP},
+  url = {https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/},
   year = {2025}
 }</pre>
 </div>
