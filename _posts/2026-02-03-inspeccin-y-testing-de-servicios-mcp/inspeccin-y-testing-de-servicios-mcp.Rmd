@@ -1,7 +1,7 @@
 ---
 title: "Inspección y testing de servicios MCP"
 description: |
-  Insopector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.
+  MCP Insppector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/
@@ -21,14 +21,19 @@ preview: ../../images/mcp_inspector_tn.png
 ---
 
 
-## Inspección de servicios MCP
-Referencias:
+## Referencias de MCP Inspector
+
+Inspección de servicios MCP
+
 - MCP inspector, repositorio: [modelcontextprotocol/inspector](https://github.com/modelcontextprotocol/inspector)  
 - Documentación de MCP inspector: [Inspector docs](https://modelcontextprotocol.info/tools/inspector/) 
 - Post: [How to use MCP Inspector](https://medium.com/@laurentkubaski/how-to-use-mcp-inspector-2748cd33faeb) 
 - Post: [Test a Remote MCP Server](https://developers.cloudflare.com/agents/guides/test-remote-mcp-server/) 
 
+## Ejecutar MCP Inspector en Windows
+
 Ejecutar en local con Powershell o WSL:
+
 ```bash
 npx @modelcontextprotocol/inspector
 Starting MCP inspector...
@@ -42,8 +47,10 @@ Starting MCP inspector...
 🌐 Opening browser...
 ```
 
+## Ejecutar el servicio a inspeccionar
 
-Levantamos nuestro servicio MCP, por ejemplo:
+Levantamos nuestro servicio MCP bcCalculator, por ejemplo:
+
 ```bash
 docker run --rm -i --name bcalculator-mcp bcalculator-mcp
 INFO:__main__:Iniciando Calculator MCP Server...
@@ -52,7 +59,10 @@ INFO:__main__:✅ bc está disponible - Calculator MCP Server listo
 
 ![](../../images/genai/mcp_inspector.png)
 
-Uso básico:
+## Uso de MCP Inspector
+
+Un ejemplo de uso básico:
+
 1. Configuración
 	- Transport Type: STDIO
 	- Command: docker
@@ -65,6 +75,9 @@ Uso básico:
 		- Expression: 1000 * (1 + 0.08/12)^(12*10) 
 		- Precision: 6
 	- Run Tool
+
+Obtenemos:	
+	
 ```
 ✅ RESULTADO DEL CÁLCULO
 ========================
