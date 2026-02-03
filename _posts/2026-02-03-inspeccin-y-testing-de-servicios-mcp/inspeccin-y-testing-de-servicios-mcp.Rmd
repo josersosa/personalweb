@@ -1,7 +1,7 @@
 ---
 title: "Inspección y testing de servicios MCP"
 description: |
-  MCP Insppector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.
+  MCP Inspector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.
 author:
   - name: José R Sosa
     url: https://josersosa.github.io/personalweb/

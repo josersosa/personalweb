@@ -2,7 +2,7 @@
   {
     "path": "posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/",
     "title": "Inspección y testing de servicios MCP",
-    "description": "MCP Insppector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.",
+    "description": "MCP Inspector es una herramienta escencial en el desarrollo de servicios MCP, permite probar sus diferentes componentes y evaluar sus funcionamiento.",
     "author": [
       {
         "name": "José R Sosa",
@@ -17,7 +17,7 @@
     ],
     "contents": "\n\nContents\nReferencias de MCP Inspector\nEjecutar MCP Inspector en Windows\nEjecutar el servicio a inspeccionar\nUso de MCP Inspector\n\nReferencias de MCP Inspector\nInspección de servicios MCP\nMCP inspector, repositorio: modelcontextprotocol/inspector\nDocumentación de MCP inspector: Inspector docs\nPost: How to use MCP Inspector\nPost: Test a Remote MCP Server\nEjecutar MCP Inspector en Windows\nEjecutar en local con Powershell o WSL:\nnpx @modelcontextprotocol/inspector\nStarting MCP inspector...\n⚙️ Proxy server listening on localhost:6277\n🔑 Session token: cbff11dbe1600de647b974f43eb0f7c30ea52baa4f39cae39892a680fa3a21e0\n   Use this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth\n\n🚀 MCP Inspector is up and running at:\n   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=cbff11dbe1600de647b974f43eb0f7c30ea52baa4f39cae39892a680fa3a21e0\n\n🌐 Opening browser...\nEjecutar el servicio a inspeccionar\nLevantamos nuestro servicio MCP bcCalculator, por ejemplo:\ndocker run --rm -i --name bcalculator-mcp bcalculator-mcp\nINFO:__main__:Iniciando Calculator MCP Server...\nINFO:__main__:✅ bc está disponible - Calculator MCP Server listo\n\nUso de MCP Inspector\nUn ejemplo de uso básico:\nConfiguración\nTransport Type: STDIO\nCommand: docker\nArguments: exec -i bcalculator-mcp python calculator_mcp.py\nEnviroment Variables, agregar:\nDOCKER_HOST=unix:///var/run/docker.sock\n\n\nConnect\nTools -> ListTools\nCalculate\nExpression: 1000 * (1 + 0.08/12)^(12*10)\nPrecision: 6\n\nRun Tool\n\nObtenemos:\n✅ RESULTADO DEL CÁLCULO\n========================\n\nExpresión: 1000 * (1 + 0.08/12)^(12*10) \nResultado: 2219.463000\nPrecisión: 6 dígitos decimales\nTiempo de ejecución: 0.0034 segundos\n\n📊 El cálculo se completó exitosamente usando aritmética de precisión arbitraria.\n\n\n\n",
     "preview": "posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/../../images/mcp_inspector_tn.png",
-    "last_modified": "2026-02-03T20:51:47+00:00",
+    "last_modified": "2026-02-03T20:53:50+00:00",
     "input_file": "inspeccin-y-testing-de-servicios-mcp.knit.md",
     "preview_width": 538,
     "preview_height": 316
