@@ -87,7 +87,7 @@ knitr::include_graphics("images/gradio_01.png")
 # ```
 
 # o con fecha:
-distill::create_post(title = "LightRAG en Docker",
+distill::create_post(title = "Opciones de acceso gratuito a APIs de LLMs",
                      author = "José R Sosa",
                      date = "2025-07-11",
                      date_prefix = TRUE,

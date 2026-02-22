@@ -18,6 +18,7 @@ categories:
   - Gentic AI
   - MCP
 preview: ../../images/mcp_inspector_tn.png
+draft: true
 ---
 
 

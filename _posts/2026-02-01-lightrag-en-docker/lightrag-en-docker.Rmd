@@ -19,6 +19,7 @@ categories:
   - RAG
   - HomeLab
 preview: ../../images/LightRAG_tn.png
+draft: true
 ---
 
 ## Arquitectura de LightRAG

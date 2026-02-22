@@ -17,7 +17,7 @@ categories:
   - Docker
   - HomeLab
 preview: ../../images/webtop.jpg
-#draft: true
+draft: true
 ---
 
 Para obtener un sistema operativo completo, con interfece gráfica web en http://localhot:3000/ solo debes ejecutar:

@@ -18,7 +18,7 @@ categories:
   - Docker
   - HomeLab
 preview: ../../images/data_bases.png
-#draft: true
+draft: true
 ---
 
 ## Requisitos previos

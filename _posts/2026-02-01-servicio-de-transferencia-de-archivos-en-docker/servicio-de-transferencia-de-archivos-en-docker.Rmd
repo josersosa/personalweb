@@ -18,7 +18,7 @@ categories:
   - Docker
   - HomeLab
 preview: ../../images/edex-ui.png
-#draft: true
+draft: true
 ---
 
 Para levantar el servicio de Gokapi localmente en Docker, ejecutamos el siguiente comando:

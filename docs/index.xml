@@ -7,7 +7,18 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Opciones de acceso gratuito a APIs de LLMs</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-02-22-opciones-de-acceso-gratuito-a-apis-de-llms</link>
+      <description>En el desarrollo de aplicaciones basadas en IA así como en su uso diario, o en el el proceso de pruebas de nuevas funcionalidades y modelos es muy importe contar con un acceso a modelos LLM de forma gratuita, Varias empresas ofrecen capas gratuitas de sus servicios de APIs,  que se han convertido en una gran ayuda para los desarrolladores y quienes estamos aprendiendo todos los días sobre esta tecnología.</description>
+      <category>GenAI</category>
+      <category>HomeLab</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-02-22-opciones-de-acceso-gratuito-a-apis-de-llms</guid>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-22-opciones-de-acceso-gratuito-a-apis-de-llms/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="470" height="315"/>
+    </item>
     <item>
       <title>Inspección y testing de servicios MCP</title>
       <dc:creator>José R Sosa</dc:creator>
@@ -19,22 +30,6 @@
       <guid>https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp</guid>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
       <media:content url="https://josersosa.github.io/personalweb/posts/2026-02-03-inspeccin-y-testing-de-servicios-mcp/../../images/mcp_inspector_tn.png" medium="image" type="image/png" width="538" height="316"/>
-    </item>
-    <item>
-      <title>AnythingLLM en Docker</title>
-      <dc:creator>José R Sosa</dc:creator>
-      <link>https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker</link>
-      <description>AnythingLLM es la aplicación de IA más fácil de usar, todo en uno, que puede hacer RAG, agentes de IA y mucho más sin problemas de código o infraestructura.</description>
-      <category>Python</category>
-      <category>Data Science</category>
-      <category>Docker</category>
-      <category>GenAI</category>
-      <category>RAG</category>
-      <category>Agentic AI</category>
-      <category>HomeLab</category>
-      <guid>https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker</guid>
-      <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
-      <media:content url="https://josersosa.github.io/personalweb/posts/2026-01-28-anythingllm-en-docker/../../images/RoboticsAI_tn.png" medium="image" type="image/png" width="470" height="315"/>
     </item>
     <item>
       <title>LangFlow, motor de desarrollo de workflows inteligentes contenerizado en Docker</title>

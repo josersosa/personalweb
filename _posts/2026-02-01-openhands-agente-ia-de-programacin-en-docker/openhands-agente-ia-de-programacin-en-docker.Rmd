@@ -16,7 +16,7 @@ categories:
   - GenAI
   - Docker
 preview: ../../images/edex-ui.png
-#draft: true
+draft: true
 ---
 
 ### Instalación

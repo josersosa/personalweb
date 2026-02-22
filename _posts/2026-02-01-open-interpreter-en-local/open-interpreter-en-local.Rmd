@@ -15,7 +15,7 @@ output:
 categories:
   - GenAI
 preview: ../../images/edex-ui.png
-#draft: true
+draft: true
 ---
 
 ## Instalación en windows

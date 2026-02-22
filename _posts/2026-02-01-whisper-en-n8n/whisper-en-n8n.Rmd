@@ -17,7 +17,7 @@ categories:
   - STT
   - Whisper
 preview: ../../images/workflow_n8n.png
-#draft: true
+draft: true
 ---
 
 ## Opciones para STT con Whisper en n8n

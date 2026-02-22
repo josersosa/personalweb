@@ -17,7 +17,7 @@ categories:
   - Docker
   - HomeLab
 preview: ../../images/workflow_n8n.png
-#draft: true
+draft: true
 ---
 
 ### Fuentes:

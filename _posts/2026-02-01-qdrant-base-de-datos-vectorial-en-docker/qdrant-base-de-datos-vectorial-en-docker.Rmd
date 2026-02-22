@@ -20,7 +20,7 @@ categories:
   - Docker
   - HomeLab
 preview: ../../images/qdrant_tn.png
-#draft: true
+draft: true
 ---
 
 **Qdrant** es una herramienta fundamental para la inteligencia artificial moderna, especialmente en sistemas de **Generación Aumentada por Recuperación (RAG)** y motores de recomendación.

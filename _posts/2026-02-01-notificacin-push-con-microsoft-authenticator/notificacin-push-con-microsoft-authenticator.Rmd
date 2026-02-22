@@ -15,7 +15,7 @@ output:
 categories:
   - MFA
 preview: ../../images/edex-ui.png
-#draft: true
+draft: true
 ---
 
 

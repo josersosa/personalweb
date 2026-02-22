@@ -17,7 +17,7 @@ categories:
   - Docker
   - HomeLab
 preview: ../../images/scalidraw_tn.png
-#draft: true
+draft: true
 ---
 
 Es ampliamente utilizada por desarrolladores, educadores y equipos remotos para visualizar ideas de forma rápida y sencilla directamente desde el navegador. Corre completamente en el browser y no requiere de un servicio externo para funcionar, lo que la hace muy segura

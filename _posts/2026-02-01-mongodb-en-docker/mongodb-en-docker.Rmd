@@ -19,6 +19,7 @@ categories:
   - Docker
   - HomeLab
 preview: ../../images/data_bases.png
+draft: true
 ---
 
 ## Fuentes
@@ -26,6 +27,7 @@ preview: ../../images/data_bases.png
 - https://docs.mongodb.org/manual/reference/
 - https://platzi.com/tutoriales/1533-mongodb-basico/4930-instalar-mongo-db-usando-docker/
 - https://serverspace.io/support/help/how-to-install-and-configure-mongodb-in-docker/
+
 ## Ejecutar MongoDB desde una contenedor Docker
 Podemos encontrar la imagen oficial de MongoDB para Docker en [DockerHub](https://hub.docker.com/_/mongo) 
 Start a `mongo` server instance

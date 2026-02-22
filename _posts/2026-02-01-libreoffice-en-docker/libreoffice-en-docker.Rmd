@@ -18,7 +18,7 @@ categories:
   - Docker
   - HomeLab
 preview: ../../images/libreoffice.png
-#draft: true
+draft: true
 ---
 
 Para Libreoffice en web dentro de una contenedor Docker, debemos ejecutar:
