@@ -1530,6 +1530,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#api-de-gemini" id="toc-api-de-gemini">API de Gemini</a></li>
 <li><a href="#groq" id="toc-groq">Groq</a></li>
 <li><a href="#modelos-cloud-en-ollama" id="toc-modelos-cloud-en-ollama">Modelos Cloud en Ollama</a></li>
+<li><a href="#microservicios-de-inferencia-de-nvidia" id="toc-microservicios-de-inferencia-de-nvidia">Microservicios de Inferencia de NVIDIA</a></li>
 </ul>
 </nav>
 </div>
@@ -1706,7 +1707,34 @@ Después de los ajustes de cuotas realizados a finales de 2025 y principios de 2
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">       &quot;prompt&quot;: &quot;hola /no_thinking&quot;,</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">       &quot;stream&quot;: false</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">     }&#39;</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="microservicios-de-inferencia-de-nvidia">Microservicios de Inferencia de <a href="https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/">NVIDIA</a></h2>
+<p>Para 2026, NVIDIA ha simplificado el acceso a sus LLMs a través del catálogo de <a href="https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/">NVIDIA NIM (Microservicios de Inferencia)</a>. La compañía ha transicionado de un sistema rígido de créditos a un modelo basado principalmente en límites de tasa para prototipado.</p>
+<p>Aquí tienes los límites actuales para el <strong>Nivel Gratuito (Free Tier)</strong>:</p>
+<ul>
+<li><strong>RPM (Peticiones por minuto):</strong> El límite estándar reportado es de <strong>40 RPM</strong> por modelo. Este límite es generoso para desarrollo personal pero puede variar según la carga de los servidores de NVIDIA.</li>
+<li><strong>RPD (Peticiones por día):</strong> No existe un límite diario publicado estrictamente, ya que el enfoque actual es permitir el “prototipado ilimitado” mientras no se use para producción.</li>
+<li><strong>Créditos Iniciales:</strong> Anteriormente se otorgaban 1,000 créditos (expandibles a 5,000 con correo empresarial), pero NVIDIA ha ido eliminando este contador en favor de los límites de RPM para facilitar el desarrollo continuo.</li>
+<li><strong>TPM (Tokens por minuto):</strong> Aunque no se publica una cifra oficial de tokens, el sistema está optimizado para la velocidad de las GPUs NVIDIA, permitiendo un flujo de tokens muy alto dentro del margen de las 40 peticiones por minuto. (Reddit)</li>
+</ul>
+<p>Condiciones Clave:</p>
+<ol type="1">
+<li><strong>Uso No Comercial:</strong> El acceso gratuito a través del <a href="https://build.nvidia.com/">NVIDIA API Catalog</a> es exclusivamente para <strong>investigación, desarrollo y pruebas</strong>.</li>
+<li><strong>Sin Tarjeta de Crédito:</strong> Puedes generar tus API Keys simplemente registrándote en el <a href="https://developer.nvidia.com/nim">Programa de Desarrolladores de NVIDIA</a>.</li>
+<li><strong>Transición a Producción:</strong> Una vez que necesites desplegar una aplicación comercial, debes adquirir una licencia de <strong>NVIDIA AI Enterprise</strong> o utilizar proveedores serverless asociados (como Together.ai o Fireworks).</li>
+<li><strong>Auto-hospedaje:</strong> Como parte del programa de desarrolladores, también tienes derecho a descargar y ejecutar los contenedores NIM localmente en hasta 16 GPUs para experimentación privada sin límites de API externos. (NVIDIA Developer Forums)</li>
+</ol>
+<p>Puedes monitorear el estado de tus servicios y obtener nuevas llaves directamente en el <a href="https://docs.api.nvidia.com/nim/docs/run-anywhere">Panel de Control de NVIDIA NIM</a>.</p>
+<p>Para validar tu API Key de NVIDIA (usando sus microservicios <strong>NIM</strong>), el endpoint estándar sigue el formato de OpenAI:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NVIDIA_API_KEY</span><span class="op">=&lt;</span>nuestro token<span class="op">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="st">&quot;https://integrate.api.nvidia.com/v1/chat/completions&quot;</span> <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">&quot;Authorization: Bearer </span><span class="va">$NVIDIA_API_KEY</span><span class="st">&quot;</span> <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">&quot;Content-Type: application/json&quot;</span> <span class="dt">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> <span class="st">&#39;{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">       &quot;model&quot;: &quot;moonshotai/kimi-k2.5&quot;,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">       &quot;messages&quot;: [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;hola&quot;}],</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="st">       &quot;max_tokens&quot;: 50</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="st">     }&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

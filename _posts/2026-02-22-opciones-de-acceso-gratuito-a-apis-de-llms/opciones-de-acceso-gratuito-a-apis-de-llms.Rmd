@@ -210,3 +210,38 @@ curl https://ollama.com/api/generate \
        "stream": false
      }'
 ```
+
+## Microservicios de Inferencia de [NVIDIA](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/) 
+
+Para 2026, NVIDIA ha simplificado el acceso a sus LLMs a través del catálogo de [NVIDIA NIM (Microservicios de Inferencia)](https://www.nvidia.com/en-us/ai-data-science/products/nim-microservices/). La compañía ha transicionado de un sistema rígido de créditos a un modelo basado principalmente en límites de tasa para prototipado.
+
+Aquí tienes los límites actuales para el **Nivel Gratuito (Free Tier)**:
+
+- **RPM (Peticiones por minuto):** El límite estándar reportado es de **40 RPM** por modelo. Este límite es generoso para desarrollo personal pero puede variar según la carga de los servidores de NVIDIA.
+- **RPD (Peticiones por día):** No existe un límite diario publicado estrictamente, ya que el enfoque actual es permitir el "prototipado ilimitado" mientras no se use para producción.
+- **Créditos Iniciales:** Anteriormente se otorgaban 1,000 créditos (expandibles a 5,000 con correo empresarial), pero NVIDIA ha ido eliminando este contador en favor de los límites de RPM para facilitar el desarrollo continuo.
+- **TPM (Tokens por minuto):** Aunque no se publica una cifra oficial de tokens, el sistema está optimizado para la velocidad de las GPUs NVIDIA, permitiendo un flujo de tokens muy alto dentro del margen de las 40 peticiones por minuto. (Reddit)
+
+Condiciones Clave:
+
+1. **Uso No Comercial:** El acceso gratuito a través del [NVIDIA API Catalog](https://build.nvidia.com/) es exclusivamente para **investigación, desarrollo y pruebas**.
+2. **Sin Tarjeta de Crédito:** Puedes generar tus API Keys simplemente registrándote en el [Programa de Desarrolladores de NVIDIA](https://developer.nvidia.com/nim).
+3. **Transición a Producción:** Una vez que necesites desplegar una aplicación comercial, debes adquirir una licencia de **NVIDIA AI Enterprise** o utilizar proveedores serverless asociados (como Together.ai o Fireworks).
+4. **Auto-hospedaje:** Como parte del programa de desarrolladores, también tienes derecho a descargar y ejecutar los contenedores NIM localmente en hasta 16 GPUs para experimentación privada sin límites de API externos. (NVIDIA Developer Forums)
+
+Puedes monitorear el estado de tus servicios y obtener nuevas llaves directamente en el [Panel de Control de NVIDIA NIM](https://docs.api.nvidia.com/nim/docs/run-anywhere).
+
+Para validar tu API Key de NVIDIA (usando sus microservicios **NIM**), el endpoint estándar sigue el formato de OpenAI:
+
+```bash
+export NVIDIA_API_KEY=<nuestro token>
+curl -X POST "https://integrate.api.nvidia.com/v1/chat/completions" \
+     -H "Authorization: Bearer $NVIDIA_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{
+       "model": "moonshotai/kimi-k2.5",
+       "messages": [{"role": "user", "content": "hola"}],
+       "max_tokens": 50
+     }'
+```
+
