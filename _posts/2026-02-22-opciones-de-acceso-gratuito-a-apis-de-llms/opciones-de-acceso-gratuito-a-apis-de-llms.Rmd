@@ -28,6 +28,7 @@ Fuentes:
 - [How much is the Google AI Studio free quota? 3 solutions after reaching the limit](https://help.apiyi.com/en/google-ai-studio-free-quota-limits-solution-en.html#:~:text=Google%20AI%20Studio%20Free%20Quota:%20The%20Core%20Data&text=RPM%20(Requests%20Per%20Minute):,limit%20people%20hit%20most%20often.) 
 - [Groq Rate Limits](https://console.groq.com/docs/rate-limits)
 - [Ollama Cloud models](https://docs.ollama.com/cloud) 
+- [NVIDIA NIM for Developers](https://developer.nvidia.com/nim?sortBy=developer_learning_library%2Fsort%2Ffeatured_in.nim%3Adesc%2Ctitle%3Aasc) 
 
 
 ## [API de Gemini](https://aistudio.google.com/api-keys) 
@@ -146,7 +147,7 @@ Sin embargo, basándose en la documentación oficial y reportes de usuarios, los
 
 - **Perfil de uso:** El [plan gratuito de Ollama](https://ollama.com/pricing) está diseñado para "uso ligero", como chats ocasionales, preguntas rápidas y experimentación con modelos.
 - **Capacidad estimada:** Usuarios han reportado que el límite por hora ronda los **250,000 tokens de entrada**. Una vez alcanzado, el servicio se pausa hasta que termine el periodo de una hora.
-- **Métricas de seguimiento:** En el panel de control de Ollama Cloud, el uso no se muestra en números absolutos, sino como un **porcentaje de consumo** basado en periodos de 4 horas y semanales.
+- **Métricas de seguimiento:** En el panel de control de Ollama Cloud, el uso no se muestra en números absolutos, sino como un **porcentaje de consumo** basado en periodos de 4 horas y semanales.
 - **Límite de modelos:** A diferencia de los planes de pago que permiten ejecutar múltiples modelos en paralelo, la versión gratuita está optimizada para probar un modelo a la vez de forma secuencial.
 - **Búsqueda web:** Incluye un nivel gratuito "generoso" para realizar búsquedas web integradas antes de requerir límites más altos mediante el plan Cloud.
 
