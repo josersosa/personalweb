@@ -87,10 +87,10 @@ knitr::include_graphics("images/gradio_01.png")
 # ```
 
 # o con fecha:
-distill::create_post(title = "Opciones de acceso gratuito a APIs de LLMs",
+distill::create_post(title = "Instalación OpenCode en RStudio",
                      author = "José R Sosa",
-                     date = "2025-07-11",
+                     date = "2026-06-2",
                      date_prefix = TRUE,
-                     draft = FALSE)
+                     draft = TRUE)
 rmarkdown::render_site(input = here::here())
 

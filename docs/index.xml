@@ -7,7 +7,21 @@
     <description>Blog de José R Sosa
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Instalación OpenCode en RStudio</title>
+      <dc:creator>José R Sosa</dc:creator>
+      <link>https://josersosa.github.io/personalweb/posts/2026-06-09-instalacin-opencode-en-rstudio</link>
+      <description>En este tutorial veremos como instalar OpenCode como base para usar agentes de IA en nuestro entorno de desarrollo analítico de RStudio, con modelos de IA Generativa (LLMs) gratuitos en la nube y locales. Al usarlo en la terminal de RStudio, OpenCode tiene "conciencia de contexto", lo que significa que puede leer los archivos que tienes abiertos y usar el LSP para detectar errores de sintaxis en tiempo real antes de que tú mismo corras el código en la consola de R</description>
+      <category>GenAI</category>
+      <category>Agentic AI</category>
+      <category>LLM</category>
+      <category>RStudio</category>
+      <category>OpenCode</category>
+      <guid>https://josersosa.github.io/personalweb/posts/2026-06-09-instalacin-opencode-en-rstudio</guid>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
+      <media:content url="https://josersosa.github.io/personalweb/posts/2026-06-09-instalacin-opencode-en-rstudio/../../images/Opencode-RStudio_tn.png" medium="image" type="image/png" width="591" height="448"/>
+    </item>
     <item>
       <title>Opciones de acceso gratuito a APIs de LLMs</title>
       <dc:creator>José R Sosa</dc:creator>

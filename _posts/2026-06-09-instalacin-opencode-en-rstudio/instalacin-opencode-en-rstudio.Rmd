@@ -1,0 +1,164 @@
+---
+title: "Instalación OpenCode en RStudio"
+description: |
+  En este tutorial veremos como instalar OpenCode como base para usar agentes de IA en nuestro entorno de desarrollo analítico de RStudio, con modelos de IA Generativa (LLMs) gratuitos en la nube y locales. Al usarlo en la terminal de RStudio, OpenCode tiene "conciencia de contexto", lo que significa que puede leer los archivos que tienes abiertos y usar el LSP para detectar errores de sintaxis en tiempo real antes de que tú mismo corras el código en la consola de R
+author:
+  - name: José R Sosa
+    url: https://josersosa.github.io/personalweb/
+date: 2026-06-03
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    self_contained: false
+    code_folding: hide
+#    toc_float: false
+categories:
+  - GenAI
+  - Agentic AI
+  - LLM
+  - RStudio
+  - OpenCode
+preview: ../../images/Opencode-RStudio_tn.png
+draft: FALSE
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## RStudio Server contenerizado
+Primero que nada levantaremos nuestro servicio de RStudio en Docker:
+```bash
+docker run -d --name ml-studio -e PASSWORD=kukenan -e ROOT=true -e DISABLE_AUTH=true -e ADD=shiny --cpus=4.0 --memory=16g -p 8787:8787 -v ~/:/home/rstudio/my_documents rocker/tidyverse
+```
+
+## Instalacion de pre-requisitos 
+Para poder instalar Opencode en el contenedor de RStudio, debemos primero instalar algunos componentes:
+- Node.js
+- npm
+
+Para esto entraremos en el contenedor como root:
+```bash
+docker exec -it ml-studio /bin/bash
+apt-get update 
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v
+npm -v
+```
+
+Luego desde el entorno de RStudio en la ventana de la Terminal, instalaremos OpenCode con nuestro usuario:
+```bash
+sudo npm install -g opencode-ai@latest
+```
+
+## Habilitar el LSP de R para OpenCode
+
+Para habilitar el servicio **LSP (Language Server Protocol)** del lenguaje **R** en **OpenCode**, debes configurar el servidor de lenguaje manualmente en tu archivo de configuración, ya que R no siempre viene habilitado por defecto como otros lenguajes.
+
+### 1. Instalar el servidor de lenguaje R
+
+Instalamos el servicio LSP de R (Languaje Server Protocol) para permitir a los agentes de IA poder acceder al lenguaje R y ejecutar/validar código, para esto ejecutamos en la consola de R::
+
+```r
+install.packages("languageserver")
+```
+
+### 2. Configurar OpenCode
+
+Debes indicar a OpenCode qué comando utilizar para iniciar el servidor de R. Esto se hace editando el archivo `opencode.json` (que suele estar en la raíz de tu proyecto `.opencode/opencode.json` o en `~/.config/opencode/opencode.json`).
+
+Añade o modifica la sección `lsp` con la siguiente configuración:
+
+```json
+{
+  "permission": {
+    "lsp": "allow"
+  },
+  "lsp": {
+    "r": {
+      "disabled": false,
+      "command": "R",
+      "args": ["--slave", "-e", "languageserver::run()"]
+    }
+  }
+}
+```
+
+- **permission**: Asegúrate de que el permiso `lsp` esté en `"allow"` para que la IA pueda interactuar con el servidor.
+- **command**: Apunta al ejecutable de R.
+- **args**: Estos argumentos inician el servidor de lenguaje dentro de la sesión de R. 
+
+### 3. Habilitar funciones experimentales (opcional)
+
+En algunas versiones, para que las herramientas de navegación (como "ir a definición") funcionen plenamente, podrías necesitar activar las flags experimentales en tu terminal antes de lanzar OpenCode:
+
+```bash
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
+opencode
+```
+
+### 4. Verificación
+
+Si quieres verificar si el LSP está funcionando, puedes ejecutaren la terminal:
+```bash
+opencode debug lsp diagnostics ./tu_archivo.R
+```
+Una vez configurado, abre un archivo `.R`. OpenCode debería detectar el servidor automáticamente. Puedes verificar si hay errores de sintaxis o diagnósticos en tiempo real, lo que permitirá que la IA sea mucho más precisa al sugerir cambios en tu código de R. 
+
+Si prefieres usar una extensión ya empaquetada, también puedes buscar si existe el plugin `r-lsp` en el marketplace de habilidades de OpenCode.
+
+## Editor por defecto
+
+Para configurar que **OpenCode** abra archivos directamente en el editor de **RStudio Server** desde su terminal interno, debes ajustar la variable de entorno `EDITOR` o definir un comando personalizado en la configuración de OpenCode.
+
+Opción 1: Configurar la variable de entorno EDITOR
+
+OpenCode respeta la configuración de la terminal para comandos de edición. En RStudio Server, puedes usar la función de R `file.edit()` a través de la terminal para forzar la apertura en el panel de edición.
+
+1. Abre tu archivo de configuración de shell (ej. `~/.bashrc` o `~/.zshrc`) dentro de la terminal de RStudio.
+2. Añade la siguiente línea para crear un "wrapper" que use R para abrir el archivo:
+    
+    bash
+    
+    ```
+    export EDITOR='Rscript -e "utils::file.edit(commandArgs(trailingOnly=TRUE))"'
+    ```
+    
+    Use code with caution.
+    
+3. Reinicia tu terminal o ejecuta `source ~/.bashrc`. Ahora, cuando uses el comando `/editor` dentro de OpenCode, intentará usar ese comando para abrir el archivo. ![GitHub](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAb1BMVEX///8kKS74+PgsMTY+Q0f8/Pzw8PGRk5ZNUVXr6+xDSEzCxMUpLjLV1tYuMzc/Q0i3ubuUl5lbX2NTV1uLjpFKTlKxs7Xh4uOFh4rn5+h3en1vcnZ9gIPc3d6/wcJzd3o3PECmqKpjZ2rOz9CfoaRP5W5KAAABU0lEQVQ4jW1T7aKCIAzdEEUTSUuzLMtuvf8zXtiQVDx/lJ3DvgEIEPU9l1rL/F4LiFEMCQYkj2JDC6VxhaRJl3x2xgin7MePMuYRD7cQftrjrcL7ELk9nNt8yXXtyRm5mquzXADKA6LpzgZRlgBPZ1WO7yn/yrmqyGdGn95Zjav2hbNghZHMV3uNG3DZCigEmhRq+pmyrUAcifj4CO+49xciWqAe6p3pCJrNH1ATp5gH6KghQLrDnoB8GxaYPYFkhpONipjrl+wI61hQ8tB5EvYb4eTL5Ebhd8u/2f4EYfhvvWJpw9ZJ0LQfb5uxbMKi3pp5xVp30miexZHbRriHvUnojrKt7isXqWRBFQQNF2w3aYCPUl8/EREWzxtuE+pVI/wbkSGp0a51Nyg1F+L5/nel56xXgt+zcMgeC0FK27gdTzVoPXtI9DBuO2tRhJj94m3/A1GiDZXoM3d5AAAAAElFTkSuQmCC)GitHub
+
+## Instalación de Herramientas MCPs
+
+## Instalación de Habilidades de Desarrollo y Analíticas con Skills
+
+- [r.expert]([r-expert by personamanagmentlayer/pcl](https://skills.sh/personamanagmentlayer/pcl/r-expert)) 
+- [r-analyst]([r-analyst by nealcaren/social-data-analysis](https://skills.sh/nealcaren/social-data-analysis/r-analyst)) 
+- [moai-lang-r]([moai-lang-r by modu-ai/moai-adk](https://skills.sh/modu-ai/moai-adk/moai-lang-r)) 
+- [data-researcher]([data-researcher by 404kidwiz/claude-supercode-skills](https://skills.sh/404kidwiz/claude-supercode-skills/data-researcher)) 
+- [Exploratory Data Analysis]([Exploratory Data Analysis by aj-geddes/useful-ai-prompts](https://skills.sh/aj-geddes/useful-ai-prompts/exploratory-data-analysis)) 
+- [r-econometrics]([r-econometrics by meleantonio/awesome-econ-ai-stuff](https://skills.sh/meleantonio/awesome-econ-ai-stuff/r-econometrics)) 
+- [data-analysis-sql]([data-analysis-sql by pluginagentmarketplace/custom-plugin-sql](https://skills.sh/pluginagentmarketplace/custom-plugin-sql/data-analysis-sql)) 
+```bash
+sudo npx skills init
+sudo npx skills add https://github.com/personamanagmentlayer/pcl --skill r-expert
+sudo npx skills add https://github.com/nealcaren/social-data-analysis --skill r-analyst
+sudo npx skills add https://github.com/meleantonio/awesome-econ-ai-stuff --skill r-econometrics
+sudo npx skills add https://github.com/modu-ai/moai-adk --skill moai-lang-r
+sudo npx skills add https://github.com/404kidwiz/claude-supercode-skills --skill data-researcher
+sudo npx skills add https://github.com/aj-geddes/useful-ai-prompts --skill 'Exploratory Data Analysis'
+
+sudo npx skills add https://github.com/pluginagentmarketplace/custom-plugin-sql --skill data-analysis-sql
+```
+## Ejecutando OpenCode en RStudio
+
+Antes que nada abrimos RStudio en nuestro browser en la dirección: `http://localhost:8787/` y luego ejecutamos en la Terminal de Linux de RStudio:
+```bash
+opencode
+```
+
+![](images/Opencode-RStudio.png)
+
