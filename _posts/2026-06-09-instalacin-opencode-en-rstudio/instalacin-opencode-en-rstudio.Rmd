@@ -35,9 +35,11 @@ docker run -d --name ml-studio -e PASSWORD=kukenan -e ROOT=true -e DISABLE_AUTH=
 ```
 
 ## Instalacion de pre-requisitos 
+
 Para poder instalar Opencode en el contenedor de RStudio, debemos primero instalar algunos componentes:
 - Node.js
 - npm
+
 
 Para esto entraremos en el contenedor como root:
 ```bash
@@ -53,6 +55,8 @@ Luego desde el entorno de RStudio en la ventana de la Terminal, instalaremos Ope
 ```bash
 sudo npm install -g opencode-ai@latest
 ```
+
+![]("images/Opencode-RStudio.png")
 
 ## Habilitar el LSP de R para OpenCode
 
@@ -160,5 +164,17 @@ Antes que nada abrimos RStudio en nuestro browser en la dirección: `http://loca
 opencode
 ```
 
-![](images/Opencode-RStudio.png)
+Video ejemplo de uso de Opencode en RStudio:
+
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/watch?v=6FuWkRYHrLk"
+    width="700"
+    height="480"
+    frameborder="0"
+    allowfullscreen="">
+  </iframe>
+</div>
+
+
 

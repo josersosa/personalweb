@@ -57,7 +57,7 @@ navbar:
       href: cv.html
     - text: "Acerca de"
       href: about.html
-    - icon: fa fa-gravatar
+    - icon: fa fa-github
       href: https://gravatar.com/josersosab
     - icon: fa fa-github
       href: https://github.com/josersosa
